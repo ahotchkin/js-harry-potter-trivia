@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :answer_keys
+  resources :answers
+  resources :questions
   resources :users
   resources :rounds
   resources :houses

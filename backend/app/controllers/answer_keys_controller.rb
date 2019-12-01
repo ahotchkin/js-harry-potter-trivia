@@ -1,0 +1,2 @@
+class AnswerKeysController < ApplicationController
+end
