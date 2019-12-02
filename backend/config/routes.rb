@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :answer_keys
-  resources :answers
+
+  # Do I need all of these???
+
+  resources :user_answers
   resources :questions
   resources :users
   resources :rounds

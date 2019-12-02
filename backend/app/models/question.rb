@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
   belongs_to :round
-  has_many :answers
-  has_many :answer_keys
+  has_many :user_answers
+  # has_many :users, through: :user_answers
 end
