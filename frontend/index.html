@@ -7,10 +7,29 @@
   </head>
   <body>
     <header>
-      <h2>Harry Potter Trivia!</h2>
+      <h2>Welome to Harry Potter Trivia!</h2>
     </header>
 
     <main>
+      <form action="/" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+
+        <br><br>
+
+        <!-- do I need a table for this or should this just be hard coded here???? -->
+        <label for="house">Select Your House:</label>
+        <select name="house">
+          <option value="gryffindor">Gryffindor</option>
+          <option value="slytherin">Slytherin</option>
+          <option value="hufflepuff">Hufflepuff</option>
+          <option value="ravenclaw">Ravenclaw</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Let's Save Hogwarts</button>
+      </form>
       <!-- Add our Pokemon -->
     </main>
 
