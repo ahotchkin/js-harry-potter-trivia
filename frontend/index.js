@@ -13,5 +13,22 @@ function fetchHouses() {
 }
 
 function renderHouses(houses) {
-  
+
 }
+
+document.getElementsByClassName("submit").addEventListener("click", function(event) {
+  fetch(USERS_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+
+    })
+  })
+  .then(response => response.json())
+  .then(json => {
+    const header = `Hello ${user.username}`
+  })
+})
