@@ -12,12 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_12_02_204958) do
 
-  create_table "houses", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "questions", force: :cascade do |t|
     t.text "content"
     t.text "answer_a"
@@ -49,10 +43,8 @@ ActiveRecord::Schema.define(version: 2019_12_02_204958) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.integer "house_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["house_id"], name: "index_users_on_house_id"
   end
 
 end
