@@ -18,10 +18,11 @@ const HOUSES_URL = `${BASE_URL}/houses`
 
 document.getElementById("username_form").addEventListener("submit", function(event) {
   event.preventDefault()
-  const h1 = document.createElement("h1")
-  // h1.innerHTML = "Adding this header to the page"
-  // document.querySelector("body").appendChild(h1)
+  addUser()
+})
 
+function addUser() {
+  const h1 = document.createElement("h1")
 
   fetch(USERS_URL, {
     method: "POST",
@@ -30,37 +31,24 @@ document.getElementById("username_form").addEventListener("submit", function(eve
       "Accept": "application/json"
     },
     body: JSON.stringify({
+      :username => username
     })
   })
   .then(response => response.json())
   .then(json => {
-    h1.innerHTML = `Hello ${user.username}`
+    h1.innerHTML = `Hello Joe`
+    // const h1 = renderUser(json.user)
     document.querySelector("body").appendChild(h1)
   })
-
-})
-
-function addUser() {
-  // const h1 = document.createElement("h1")
-  // // h1.innerHTML = "Adding this header to the page"
-  // // document.querySelector("body").appendChild(h1)
-  //
-  //
-  // fetch(USERS_URL, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     "Accept": "application/json"
-  //   },
-  //   body: JSON.stringify({
-  //   })
-  // })
-  // .then(response => response.json())
-  // .then(json => {
-  //   h1.innerHTML = `Hello ${user.username}`
-  //   document.querySelector("body").appendChild(h1)
-  // })
+  username_form.style.display = "none"
 }
+
+// function renderUser(user) {
+//   const h1 = document.createElement("h1")
+//   h1.innerHTML = `Hello ${user.username}`
+//   return h1
+// }
+
 
 // function addPokemon(trainer_id) {
 //   const ul = document.querySelector(`[data-id="${trainer_id}"] ul`)
@@ -82,6 +70,22 @@ function addUser() {
 //       ul.appendChild(li)
 //     })
 //   }
+// }
+
+// function renderPokemon(pokemon) {
+//   const li = document.createElement("li");
+//
+//   const releaseBtn = document.createElement("button");
+//   releaseBtn.className = "release";
+//   releaseBtn.innerHTML = "Release";
+//   releaseBtn.setAttribute("data-pokemon-id", `${pokemon.id}`);
+//   releaseBtn.addEventListener("click", function(event) {
+//     releasePokemon(pokemon)
+//   })
+//
+//   li.innerHTML = `${pokemon.nickname} (${pokemon.species})`;
+//   li.append(releaseBtn);
+//   return li;
 // }
 
 //

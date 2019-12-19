@@ -6,15 +6,10 @@ class UsersController < ApplicationController
   end
 
   def create
+    # How can I get this to use the name entered in the form???
     user = User.new(user_params)
-    # user.save
     render json: UserSerializer.new(user)
   end
-
-  # def create
-  #   pokemon = Pokemon.new(:nickname => Faker::Name.first_name, :species => Faker::Games::Pokemon.name, :trainer_id => params[:trainer_id])
-  #   render json: PokemonSerializer.new(pokemon)
-  # end
 
   private
 
