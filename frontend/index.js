@@ -1,6 +1,5 @@
 const BASE_URL = "http://localhost:3000"
 const USERS_URL = `${BASE_URL}/users`
-const HOUSES_URL = `${BASE_URL}/houses`
 
 class User {
   constructor(username) {
@@ -9,18 +8,9 @@ class User {
 }
 
 // document.addEventListener("DOMContentLoaded", function(event) {
-//   fetchHouses();
 // })
 //
-// function fetchHouses() {
-//   return fetch(HOUSES_URL)
-//     .then(response => response.json())
-//     .then(json => renderHouses(json));
-// }
 //
-// function renderHouses(houses) {
-//
-// }
 
 document.getElementById("username_form").addEventListener("submit", function(event) {
   event.preventDefault()
