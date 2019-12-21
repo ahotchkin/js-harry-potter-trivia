@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def create
     # How can I get this to use the name entered in the form???
-    user = User.new(user_params)
+    user = User.new(username: "Test")
     render json: UserSerializer.new(user)
   end
 
