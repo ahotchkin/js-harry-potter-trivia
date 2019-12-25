@@ -7,7 +7,7 @@ class User {
   // does this need function in front of it
 
   initAddEventListener() {
-    newUserForm = document.getElementById("username_form")
+    newUserForm = document.getElementById("new_user_form")
     newUserForm.addEventListener("submit", this.createUser())
   }
 

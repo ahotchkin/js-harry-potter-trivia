@@ -11,25 +11,27 @@
     </header>
 
     <main>
-      <form action="http://localhost:3000/users" method="post" id="username_form">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
+      <div class="container">
+        <form action="http://localhost:3000/users" method="post" id="new_user_form">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username">
 
-        <br><br>
+          <br><br>
 
-        <!-- do I need a table for this or should this just be hard coded here???? -->
-        <label for="house">Select Your House:</label>
-        <select id="house" name="house">
-          <option value="gryffindor">Gryffindor</option>
-          <option value="slytherin">Slytherin</option>
-          <option value="hufflepuff">Hufflepuff</option>
-          <option value="ravenclaw">Ravenclaw</option>
-        </select>
+          <!-- do I need a table for this or should this just be hard coded here???? -->
+          <label for="house">Select Your House:</label>
+          <select id="house" name="house">
+            <option value="gryffindor">Gryffindor</option>
+            <option value="slytherin">Slytherin</option>
+            <option value="hufflepuff">Hufflepuff</option>
+            <option value="ravenclaw">Ravenclaw</option>
+          </select>
 
-        <br><br>
+          <br><br>
 
-        <button type="button" id="submit">Let's Save Hogwarts</button>
-      </form>
+          <input type="submit" id="submit" value="Let's Save Hogwarts">
+        </form>
+      </div>
       <!-- Add our Pokemon -->
     </main>
 

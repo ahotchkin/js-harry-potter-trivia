@@ -14,7 +14,7 @@ const USERS_URL = `${BASE_URL}/users`
 //
 //
 
-document.getElementById("username_form").addEventListener("submit", function(event) {
+document.getElementById("new_user_form").addEventListener("submit", function(event) {
   event.preventDefault()
   createUser()
 })
@@ -39,7 +39,7 @@ function createUser() {
     // const h1 = renderUser(json.user)
     document.querySelector("body").appendChild(h1)
   })
-  username_form.style.display = "none"
+  new_user_form.style.display = "none"
   changeBackground()
 }
 
