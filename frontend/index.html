@@ -11,7 +11,7 @@
     </header>
 
     <main>
-      <form action="/users" method="post" id="username_form">
+      <form action="http://localhost:3000/users" method="post" id="username_form">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username">
 
@@ -28,12 +28,14 @@
 
         <br><br>
 
-        <button type="submit" class="submit">Let's Save Hogwarts</button>
+        <button type="button" id="submit">Let's Save Hogwarts</button>
       </form>
       <!-- Add our Pokemon -->
     </main>
 
     <script src="index.js"></script>
+    <!-- <script src="user.js"></script> -->
+
     <!-- <script type="text/javascript" src="src/index.js"></script> -->
   </body>
 </html>

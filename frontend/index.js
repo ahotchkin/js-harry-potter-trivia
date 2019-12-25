@@ -1,11 +1,13 @@
 const BASE_URL = "http://localhost:3000"
 const USERS_URL = `${BASE_URL}/users`
 
-class User {
-  constructor(username) {
-    this.username = username
-  }
-}
+// class User {
+//   constructor(username) {
+//     this.username = username
+//   }
+//
+//
+// }
 
 // document.addEventListener("DOMContentLoaded", function(event) {
 // })
@@ -14,10 +16,11 @@ class User {
 
 document.getElementById("username_form").addEventListener("submit", function(event) {
   event.preventDefault()
-  addUser()
+  createUser()
 })
 
-function addUser() {
+function createUser() {
+  // console.log("user is being created")
   const h1 = document.createElement("h1")
 
   fetch(USERS_URL, {
