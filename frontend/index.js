@@ -1,61 +1,63 @@
-const BASE_URL = "http://localhost:3000"
-const USERS_URL = `${BASE_URL}/users`
-
-// class User {
-//   constructor(username) {
-//     this.username = username
-//   }
+const app = new App()
 //
+// const BASE_URL = "http://localhost:3000"
+// const USERS_URL = `${BASE_URL}/users`
 //
-// }
-
-// document.addEventListener("DOMContentLoaded", function(event) {
+// // class User {
+// //   constructor(username) {
+// //     this.username = username
+// //   }
+// //
+// //
+// // }
+//
+// // document.addEventListener("DOMContentLoaded", function(event) {
+// // })
+// //
+// //
+//
+// document.getElementById("new_user_form").addEventListener("submit", function(event) {
+//   event.preventDefault()
+//   createUser()
 // })
 //
+// function createUser() {
+//   // console.log("user is being created")
+//   const h1 = document.createElement("h1")
 //
-
-document.getElementById("new_user_form").addEventListener("submit", function(event) {
-  event.preventDefault()
-  createUser()
-})
-
-function createUser() {
-  // console.log("user is being created")
-  const h1 = document.createElement("h1")
-
-  fetch(USERS_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify({
-      // username: username
-    })
-  })
-  .then(response => response.json())
-  .then(json => {
-    h1.innerHTML = `Hello ${json.user.username}`
-    // const h1 = renderUser(json.user)
-    document.querySelector("body").appendChild(h1)
-  })
-  new_user_form.style.display = "none"
-  changeBackground()
-}
-
-function changeBackground() {
-  const house = document.querySelector("#house")
-  if (house.value == "gryffindor") {
-    document.querySelector("body").style.background = "#7F0909"
-  } else if (house.value == "slytherin") {
-    document.querySelector("body").style.background = "#0D6217"
-  } else if (house.value == "hufflepuff") {
-    document.querySelector("body").style.background = "#EEE117"
-  } else if (house.value == "ravenclaw") {
-    document.querySelector("body").style.background = "#000A90"
-  }
-}
-
+//   fetch(USERS_URL, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       "Accept": "application/json"
+//     },
+//     body: JSON.stringify({
+//       // username: username
+//     })
+//   })
+//   .then(response => response.json())
+//   .then(json => {
+//     h1.innerHTML = `Hello ${json.user.username}`
+//     // const h1 = renderUser(json.user)
+//     document.querySelector("body").appendChild(h1)
+//   })
+//   new_user_form.style.display = "none"
+//   changeBackground()
+// }
+//
+// function changeBackground() {
+//   const house = document.querySelector("#house")
+//   if (house.value == "gryffindor") {
+//     document.querySelector("body").style.background = "#7F0909"
+//   } else if (house.value == "slytherin") {
+//     document.querySelector("body").style.background = "#0D6217"
+//   } else if (house.value == "hufflepuff") {
+//     document.querySelector("body").style.background = "#EEE117"
+//   } else if (house.value == "ravenclaw") {
+//     document.querySelector("body").style.background = "#000A90"
+//   }
+// }
+//
 // function fillForm() {
 //   let toyName = document.getElementsByClassName("input-text")[0];
 //   let imageUrl = document.getElementsByClassName("input-text")[1];
@@ -81,15 +83,15 @@ function changeBackground() {
 //   .then(response => response.json())
 //   .then(json => renderToy(json));
 // }
-
-
+//
+//
 // function renderUser(user) {
 //   const h1 = document.createElement("h1")
 //   h1.innerHTML = `Hello ${user.username}`
 //   return h1
 // }
-
-
+//
+//
 // function addPokemon(trainer_id) {
 //   const ul = document.querySelector(`[data-id="${trainer_id}"] ul`)
 //
@@ -111,7 +113,7 @@ function changeBackground() {
 //     })
 //   }
 // }
-
+//
 // function renderPokemon(pokemon) {
 //   const li = document.createElement("li");
 //
@@ -127,7 +129,7 @@ function changeBackground() {
 //   li.append(releaseBtn);
 //   return li;
 // }
-
+//
 //
 // addBtn.addEventListener('click', () => {
 //   // hide & seek with the form
@@ -143,8 +145,8 @@ function changeBackground() {
 //   }
 // })
 //
-
-
+//
+//
 // document.getElementById("test").addEventListener("click", function(event){
 //   event.preventDefault()
 //   const h1 = document.createElement("h1")
