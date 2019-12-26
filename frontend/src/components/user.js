@@ -1,7 +1,10 @@
 class User {
-  constructor(username) {
-    this.username = username
-    this.initAddEventListener()
+  constructor() {
+    this.users = []
+    // this.username = username
+    // this.initAddEventListener()
+    this.adapter = new UsersAdapter()
+    this.fetchAndLoadUser()
   }
 
   // does this need function in front of it
@@ -9,6 +12,14 @@ class User {
   initAddEventListener() {
     newUserForm = document.getElementById("new_user_form")
     newUserForm.addEventListener("submit", this.createUser())
+  }
+
+  // fetches all users
+
+  fetchAndLoadUser() {
+    this.adapter.getUsers().then(users => {
+      console.log(users)
+    })
   }
 
 
