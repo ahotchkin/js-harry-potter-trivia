@@ -4,26 +4,42 @@ class User {
     // this.username = username
     // this.initAddEventListener()
     this.adapter = new UsersAdapter()
-    this.fetchAndLoadUser()
+    this.fetchAndLoadUsers()
   }
 
   // does this need function in front of it
 
   initAddEventListener() {
     newUserForm = document.getElementById("new_user_form")
-    newUserForm.addEventListener("submit", this.createUser())
+    // newUserForm.addEventListener("submit", this.createUser())
+    newUserForm.addEventListener("submit", function(event) {
+      event.preventDefault
+      console.log("user is being created")
+    })
+
   }
 
   // fetches all users
 
-  fetchAndLoadUser() {
-    this.adapter.getUsers().then(users => {
-      console.log(users)
-    })
+  fetchAndLoadUsers() {
+    this.adapter.getUsers()
+      .then(users => {
+        users.forEach(user => this.users.push(user))
+      })
+      .then(() => {
+        this.renderUsers()
+      })
   }
 
+  renderUsers() {
+    const h1 = document.createElement("h1");
+    h1.innerHTML = "Hello Jack!"
+    document.querySelector("body").appendChild(h1)
 
-  createUser(username) {
+  }
+
+  createUser() {
+
     console.log("user is being created")
   //   const h1 = document.createElement("h1")
   //
