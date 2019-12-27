@@ -8,7 +8,7 @@ class UsersAdapter {
   }
 
   createUser(value) {
-    const user {
+    const user = {
       username: value
     }
 
@@ -22,6 +22,9 @@ class UsersAdapter {
         user
       })
     })
+      // below sends a parsed JSON object back to the notes component in createNote()
+    .then(response => response.json())
+
 
     //   return fetch("http://localhost:3000/users", {
     //     method: "POST",

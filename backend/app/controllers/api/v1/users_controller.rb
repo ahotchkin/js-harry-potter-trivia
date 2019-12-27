@@ -11,7 +11,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    # How can I get this to use the name entered in the form???
     @user = User.new(user_params)
     render json: UserSerializer.new(@user)
   end

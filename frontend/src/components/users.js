@@ -4,7 +4,7 @@ class Users {
     // this.username = username
     this.initBindingsAndEventListeners()
     this.adapter = new UsersAdapter()
-    this.fetchAndLoadUsers()
+    // this.fetchAndLoadUsers()
   }
 
   // does this need function in front of it
@@ -20,42 +20,62 @@ class Users {
 
   createUser(event) {
     event.preventDefault()
-    const username_value = this.username.value
+    const value = this.username.value
 
     // take the above value and make a post request using the adapter
 
     this.adapter.createUser(value)
-
+    // gets parsed JSON from UsersAdapter createUser()
+    .then(user => {
+      // creates the new users and pushes the user into the users array that exists. not sure this is actually needed
+      this.users.push(new User(user))
+      this.renderUserStartPage()
+    })
 
 
   //   const h1 = document.createElement("h1")
   //
-  //   new User{
-  //     username: username
-  //   }
+
 
   }
 
   // fetches all users
 
-  fetchAndLoadUsers() {
-    this.adapter.getUsers()
-      .then(users => {
-        users.forEach(user => this.users.push(new User(user)))
-        // console.log(this.users)
-      })
-      .then(() => {
-        this.renderUsers()
-      })
+  // fetchAndLoadUsers() {
+  //   this.adapter.getUsers()
+  //     .then(users => {
+  //       users.forEach(user => this.users.push(new User(user)))
+  //       // console.log(this.users)
+  //     })
+  //     .then(() => {
+  //       this.renderUsers()
+  //     })
+  // }
+
+  // renderUsers() {
+  //   const h1 = document.createElement("h1");
+  //   h1.innerHTML = "Hello Jack!"
+  //   document.querySelector("body").appendChild(h1)
+  //
+  // }
+
+  renderUserStartPage() {
+    new_user_form.style.display = "none"
+    this.changeBackground()
   }
 
-  renderUsers() {
-    const h1 = document.createElement("h1");
-    h1.innerHTML = "Hello Jack!"
-    document.querySelector("body").appendChild(h1)
-
+  changeBackground() {
+    const house = document.querySelector("#house")
+    if (house.value == "gryffindor") {
+      document.querySelector("body").style.background = "#7F0909"
+    } else if (house.value == "slytherin") {
+      document.querySelector("body").style.background = "#0D6217"
+    } else if (house.value == "hufflepuff") {
+      document.querySelector("body").style.background = "#EEE117"
+    } else if (house.value == "ravenclaw") {
+      document.querySelector("body").style.background = "#000A90"
+    }
   }
-
 
 
 // fetch(USERS_URL, {
