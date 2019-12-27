@@ -21,42 +21,8 @@ const app = new App()
 //   createUser()
 // })
 //
-// function createUser() {
-//   // console.log("user is being created")
-//   const h1 = document.createElement("h1")
-//
-//   fetch(USERS_URL, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       "Accept": "application/json"
-//     },
-//     body: JSON.stringify({
-//       // username: username
-//     })
-//   })
-//   .then(response => response.json())
-//   .then(json => {
-//     h1.innerHTML = `Hello ${json.user.username}`
-//     // const h1 = renderUser(json.user)
-//     document.querySelector("body").appendChild(h1)
-//   })
-//   new_user_form.style.display = "none"
-//   changeBackground()
-// }
-//
-// function changeBackground() {
-//   const house = document.querySelector("#house")
-//   if (house.value == "gryffindor") {
-//     document.querySelector("body").style.background = "#7F0909"
-//   } else if (house.value == "slytherin") {
-//     document.querySelector("body").style.background = "#0D6217"
-//   } else if (house.value == "hufflepuff") {
-//     document.querySelector("body").style.background = "#EEE117"
-//   } else if (house.value == "ravenclaw") {
-//     document.querySelector("body").style.background = "#000A90"
-//   }
-// }
+
+
 //
 // function fillForm() {
 //   let toyName = document.getElementsByClassName("input-text")[0];

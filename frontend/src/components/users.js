@@ -4,7 +4,7 @@ class Users {
     // this.username = username
     this.initBindingsAndEventListeners()
     this.adapter = new UsersAdapter()
-    // this.fetchAndLoadUsers()
+    this.fetchAndLoadUsers()
   }
 
   // does this need function in front of it
@@ -14,7 +14,7 @@ class Users {
     // why is it not this.createUser() - with parenthesis
     this.newUserForm.addEventListener("submit", this.createUser.bind(this))
     this.username = document.getElementById("username")
-
+    this.welcome = document.getElementById("welcome")
   }
 
 
@@ -27,7 +27,7 @@ class Users {
     this.adapter.createUser(value)
     // gets parsed JSON from UsersAdapter createUser()
     .then(user => {
-      // creates the new users and pushes the user into the users array that exists. not sure this is actually needed
+      // creates the new user and pushes the user into the users array that exists. not sure this is actually needed
       this.users.push(new User(user))
       this.renderUserStartPage()
     })
@@ -41,27 +41,31 @@ class Users {
 
   // fetches all users
 
-  // fetchAndLoadUsers() {
-  //   this.adapter.getUsers()
-  //     .then(users => {
-  //       users.forEach(user => this.users.push(new User(user)))
-  //       // console.log(this.users)
-  //     })
-  //     .then(() => {
-  //       this.renderUsers()
-  //     })
-  // }
+  fetchAndLoadUsers() {
+    this.adapter.getUsers()
+      .then(users => {
+        users.forEach(user => this.users.push(new User(user)))
+        // console.log(this.users)
+      })
+      .then(() => {
+        this.renderUsers()
+        // console.log(this.users[this.users.length - 1])
+      })
+  }
 
-  // renderUsers() {
-  //   const h1 = document.createElement("h1");
-  //   h1.innerHTML = "Hello Jack!"
-  //   document.querySelector("body").appendChild(h1)
-  //
-  // }
+  renderUsers() {
+    const usersContainer = document.getElementById("users_container")
+    usersContainer.innerHTML = this.users.map(user => `<li>${user.username}</li>`).join("")
+
+    // document.querySelector("body").appendChild(usersArray)
+
+  }
 
   renderUserStartPage() {
-    new_user_form.style.display = "none"
+    this.newUserForm.style.display = "none"
     this.changeBackground()
+    this.instructions()
+
   }
 
   changeBackground() {
@@ -75,6 +79,15 @@ class Users {
     } else if (house.value == "ravenclaw") {
       document.querySelector("body").style.background = "#000A90"
     }
+  }
+
+  instructions() {
+    this.welcome.style.display ="none"
+    const h2 = document.createElement("h2")
+    const p = document.createElement("p")
+    // console.log(this.users[this.users.length - 1])
+    console.log(this.users)
+    // h2.innerHTML = `Welcome ${}`
   }
 
 
