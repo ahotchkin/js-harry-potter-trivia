@@ -1,12 +1,12 @@
 body {
+  /* background-image: "/images/HP Crest.jpg"; */
   background-color: #2d004d;
   color: #BEC2CB;
 }
 
 #welcome {
   text-align: center;
-  background-color: #2d004d;
-  font-family: "Harry P", sans-serif;
+  font-family: "Harry P", serif;
   font-size: 50px;
   font-weight: normal;
 }
@@ -16,7 +16,7 @@ body {
 }
 
 .house h2 {
-  font-family: "New", sans-serif;
+  font-family: "New", serif;
   font-size: 40px;
   font-weight: normal;
 }

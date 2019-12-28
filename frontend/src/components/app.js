@@ -1,5 +1,5 @@
 class App {
   constructor() {
-    this.users = new Users()
+    this.user = new User(username)
   }
 }
