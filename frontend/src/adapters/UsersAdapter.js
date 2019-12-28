@@ -22,7 +22,7 @@ class UsersAdapter {
         user
       })
     })
-      // below sends a parsed JSON object back to the notes component in createNote()
+      // below sends a parsed JSON object back to the users component in createUser()
     .then(response => response.json())
 
 

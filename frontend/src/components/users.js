@@ -4,14 +4,15 @@ class Users {
     // this.username = username
     this.initBindingsAndEventListeners()
     this.adapter = new UsersAdapter()
-    this.fetchAndLoadUsers()
+    // this.fetchAndLoadUsers()
   }
 
   // does this need function in front of it
-
+  // used to cache any DOM elements we need, so we only have to do it once
   initBindingsAndEventListeners() {
     this.newUserForm = document.getElementById("new_user_form")
     // why is it not this.createUser() - with parenthesis
+    // hard bind this to the users when we execute createUser(), so when we access this it is the Users class
     this.newUserForm.addEventListener("submit", this.createUser.bind(this))
     this.username = document.getElementById("username")
     this.welcome = document.getElementById("welcome")
@@ -21,15 +22,17 @@ class Users {
   createUser(event) {
     event.preventDefault()
     const value = this.username.value
+    // need to get the value of the newUserForm
 
     // take the above value and make a post request using the adapter
 
     this.adapter.createUser(value)
     // gets parsed JSON from UsersAdapter createUser()
-    .then(user => {
-      // creates the new user and pushes the user into the users array that exists. not sure this is actually needed
-      this.users.push(new User(user))
-      this.renderUserStartPage()
+      .then(user => {
+        // creates the new user and pushes the user into the users array that exists. not sure this is actually needed
+        this.users.push(new User(user))
+        this.renderUserStartPage()
+        // this.renderUsers()
     })
 
 
@@ -41,25 +44,26 @@ class Users {
 
   // fetches all users
 
-  fetchAndLoadUsers() {
-    this.adapter.getUsers()
-      .then(users => {
-        users.forEach(user => this.users.push(new User(user)))
-        // console.log(this.users)
-      })
-      .then(() => {
-        this.renderUsers()
-        // console.log(this.users[this.users.length - 1])
-      })
-  }
+  // fetchAndLoadUsers() {
+  //   this.adapter.getUsers()
+  //     .then(users => {
+  //       users.forEach(user => this.users.push(new User(user)))
+  //       // console.log(this.users)
+  //     })
+  //     .then(() => {
+  //       this.renderUsers()
+  //       // console.log(this.users[this.users.length - 1])
+  //     })
+  // }
 
-  renderUsers() {
-    const usersContainer = document.getElementById("users_container")
-    usersContainer.innerHTML = this.users.map(user => `<li>${user.username}</li>`).join("")
-
-    // document.querySelector("body").appendChild(usersArray)
-
-  }
+  // renderUsers() {
+  //   const usersContainer = document.getElementById("users_container")
+  //   // user renderUser method from user.js, renderUser() determines what the user info should look like from the user class
+  //   usersContainer.innerHTML = this.users.map(user => user.renderUser()).join("")
+  //
+  //   // document.querySelector("body").appendChild(usersArray)
+  //
+  // }
 
   renderUserStartPage() {
     this.newUserForm.style.display = "none"
@@ -85,26 +89,7 @@ class Users {
     this.welcome.style.display ="none"
     const h2 = document.createElement("h2")
     const p = document.createElement("p")
-    // console.log(this.users[this.users.length - 1])
-    console.log(this.users)
-    // h2.innerHTML = `Welcome ${}`
+    h2.innerHTML = `Welcome ${this.username.value}`
+    document.querySelector("body").appendChild(h2)
   }
-
-
-// fetch(USERS_URL, {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json",
-//     "Accept": "application/json"
-//   },
-//   body: JSON.stringify({
-//     // username: username
-//   })
-// })
-// .then(response => response.json())
-// .then(json => {
-//   h1.innerHTML = `Hello ${json.user.username}`
-//   // const h1 = renderUser(json.user)
-//   document.querySelector("body").appendChild(h1)
-// })
 }
