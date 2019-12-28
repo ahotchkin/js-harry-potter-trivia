@@ -60,11 +60,18 @@ class User {
     this.welcome.style.display ="none"
     const h2 = document.createElement("h2")
     const p = document.createElement("p")
-    h2.innerHTML = `Welcome ${this.username.value}`
-    document.querySelector("body").appendChild(h2)
+    h2.innerHTML = `Welcome ${this.username.value}!`
+    p.innerHTML = "This game will be played in 7 rounds. You must answer 3 of 5 questions correct in a round to move on to the next round. If you fail to answer enough questions correctly, Voldemort and his followers will prevail. If you are smart enough to get through all 7 rounds, you will vanquish Voldemort and all that he stands for. The Wizarding world is on your shoulders. Good luck."
+    // Add a button to start the game
+    const start_button = document.createElement("button")
+    start_button.innerHTML = "I solemnly swear that I'm up to no good"
+
+    this.body.appendChild(h2)
+    this.body.appendChild(p)
+    this.body.appendChild(start_button)
   }
 
-  renderUser() {
-    return `<li>${this.username}</li>`
-  }
+  // renderUser() {
+  //   return `<li>${this.username}</li>`
+  // }
 }
