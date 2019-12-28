@@ -1,0 +1,48 @@
+body {
+  background-color: #2d004d;
+  color: #BEC2CB;
+}
+
+#welcome {
+  text-align: center;
+  background-color: #2d004d;
+  font-family: "Harry P", sans-serif;
+  font-size: 50px;
+  font-weight: normal;
+}
+
+#new_user_form {
+  text-align: center;
+}
+
+.house h2 {
+  font-family: "New", sans-serif;
+  font-size: 40px;
+  font-weight: normal;
+}
+
+#gryffindor {
+  text-align: center;
+  background-color: #7F0909;
+  color: #FFC500;
+}
+
+#slytherin {
+  text-align: center;
+  background-color: #0D6217;
+  color: #AAAAAA;
+}
+
+#hufflepuff {
+  text-align: center;
+  background-color: #EEE117;
+  color: #000000;
+}
+
+#ravenclaw {
+  text-align: center;
+  background-color: #000A90;
+  color: #946B2D;
+}
+
+/* can I make the mouse a wand???? */

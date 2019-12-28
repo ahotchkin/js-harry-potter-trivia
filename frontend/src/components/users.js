@@ -10,12 +10,13 @@ class Users {
   // does this need function in front of it
   // used to cache any DOM elements we need, so we only have to do it once
   initBindingsAndEventListeners() {
-    this.newUserForm = document.getElementById("new_user_form")
+    this.newUserForm = document.getElementById("new_user_form");
     // why is it not this.createUser() - with parenthesis
     // hard bind this to the users when we execute createUser(), so when we access this it is the Users class
-    this.newUserForm.addEventListener("submit", this.createUser.bind(this))
-    this.username = document.getElementById("username")
-    this.welcome = document.getElementById("welcome")
+    this.newUserForm.addEventListener("submit", this.createUser.bind(this));
+    this.username = document.getElementById("username");
+    this.welcome = document.getElementById("welcome");
+    this.body = document.querySelector("body");
   }
 
 
@@ -75,13 +76,22 @@ class Users {
   changeBackground() {
     const house = document.querySelector("#house")
     if (house.value == "gryffindor") {
-      document.querySelector("body").style.background = "#7F0909"
+      // document.querySelector("body").style.background = "#7F0909"
+      // document.querySelector("body").className = "gryffindor"
+      this.body.className = "house"
+      this.body.id = "gryffindor"
     } else if (house.value == "slytherin") {
-      document.querySelector("body").style.background = "#0D6217"
+      // document.querySelector("body").className = "slytherin"
+      this.body.className = "house"
+      this.body.id = "slytherin"
     } else if (house.value == "hufflepuff") {
-      document.querySelector("body").style.background = "#EEE117"
+      // document.querySelector("body").className = "hufflepuff"
+      this.body.className = "house"
+      this.body.id = "hufflepuff"
     } else if (house.value == "ravenclaw") {
-      document.querySelector("body").style.background = "#000A90"
+      // document.querySelector("body").className = "ravenclaw"
+      this.body.className = "house"
+      this.body.id = "ravenclaw"
     }
   }
 
