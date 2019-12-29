@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_204958) do
+ActiveRecord::Schema.define(version: 2019_12_02_202540) do
 
   create_table "questions", force: :cascade do |t|
     t.text "content"
@@ -33,11 +33,14 @@ ActiveRecord::Schema.define(version: 2019_12_02_204958) do
 
   create_table "user_answers", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "round_id"
     t.integer "question_id"
+    t.string "correct_answer"
+    t.string "user_input"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user_input"
     t.index ["question_id"], name: "index_user_answers_on_question_id"
+    t.index ["round_id"], name: "index_user_answers_on_round_id"
     t.index ["user_id"], name: "index_user_answers_on_user_id"
   end
 
