@@ -1,5 +1,6 @@
 body {
-  /* background-image: "/images/HP Crest.jpg"; */
+  background-image: url("./images/hp_crest.jpg");
+  background-size: 100%;
   background-color: #2d004d;
   color: #BEC2CB;
 }
