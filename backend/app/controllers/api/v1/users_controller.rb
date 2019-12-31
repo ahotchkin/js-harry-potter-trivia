@@ -12,12 +12,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    # binding.pry
+    # do I need to user a serializer here?
     @user = User.new(user_params)
-    @user.save
-    render json: @user
-    # try to get this working with serializer
-    # render json: UserSerializer.new(@user)
+    if @user.save
+      render json: @user
+    end
   end
 
   private

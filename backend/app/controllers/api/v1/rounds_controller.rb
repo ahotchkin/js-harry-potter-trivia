@@ -8,11 +8,7 @@ class Api::V1::RoundsController < ApplicationController
 
   def show
     @round = Round.find(params[:id])
-    # move this to a serializer
-    render json: @round.to_json(:include => {
-      :questions => {:only => [:content, :answer_a, :answer_b, :answer_c, :answer_d]}
-    })
-    # show questions for the round
+    render json: RoundSerializer.new(@round).to_serialized_json
   end
 
 end
