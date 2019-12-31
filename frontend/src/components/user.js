@@ -72,6 +72,8 @@ class User {
     this.body.appendChild(h2)
     this.body.appendChild(p)
     this.body.appendChild(this.start_button)
+    // am I supposed to be creating a "new" round since the rounds are already seeded?
     this.round = new Round()
+    this.round.id = 1
   }
 }

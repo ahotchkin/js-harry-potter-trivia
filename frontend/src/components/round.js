@@ -16,8 +16,8 @@ class Round {
 
   fetchAndLoadQuestions() {
     this.adapter.getQuestions()
-      .then(questions => {
-        console.log(questions)
+      .then(round => {
+        console.log(round.questions)
       })
   }
 
