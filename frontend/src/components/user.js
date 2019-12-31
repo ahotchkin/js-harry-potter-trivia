@@ -2,13 +2,13 @@ class User {
   constructor(userJSON){
     this.id = userJSON.id;
     this.username = userJSON.username
-    this.initBindingsAndEventListeners()
+    this.userBindingsAndEventListeners()
     this.adapter = new UsersAdapter()
   }
 
   // does this need function in front of it
   // used to cache any DOM elements we need, so we only have to do it once
-  initBindingsAndEventListeners() {
+  userBindingsAndEventListeners() {
     this.newUserForm = document.getElementById("new_user_form");
     // why is it not this.createUser() - with parenthesis
     // hard bind this to the users when we execute createUser(), so when we access this it is the Users class
@@ -17,6 +17,8 @@ class User {
     this.welcome = document.getElementById("welcome");
     this.body = document.querySelector("body");
     this.house = document.querySelector("#house");
+    this.start_button = document.createElement("button");
+    // this.start_button.addEventListener("submit", createRound(event))
   }
 
   createUser(event) {
@@ -63,16 +65,13 @@ class User {
     h2.innerHTML = `Welcome ${this.username.value}!`
     p.innerHTML = "This game will be played in 7 rounds. You must answer 3 of 5 questions correct in a round to move on to the next round. If you fail to answer enough questions correctly, Voldemort and his followers will prevail. If you are smart enough to get through all 7 rounds, you will vanquish Voldemort and all that he stands for. The Wizarding world is on your shoulders. Good luck."
     // Add a button to start the game
-    const start_button = document.createElement("button")
-    start_button.innerHTML = "I solemnly swear that I'm up to no good"
+
+    this.start_button.innerHTML = "I solemnly swear that I'm up to no good";
+    this.start_button.id = "round_1"
 
     this.body.appendChild(h2)
     this.body.appendChild(p)
-    this.body.appendChild(start_button)
+    this.body.appendChild(this.start_button)
+    this.round = new Round()
   }
-
-  // show the questions for Round 1 after the start button is clicked
-  // this.round = new Round()
-
-
 }

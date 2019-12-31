@@ -23,24 +23,28 @@ body {
 }
 
 #gryffindor {
+  background-image: none;
   text-align: center;
   background-color: #7F0909;
   color: #FFC500;
 }
 
 #slytherin {
+  background-image: none;
   text-align: center;
   background-color: #0D6217;
   color: #AAAAAA;
 }
 
 #hufflepuff {
+  background-image: none;
   text-align: center;
   background-color: #EEE117;
   color: #000000;
 }
 
 #ravenclaw {
+  background-image: none;
   text-align: center;
   background-color: #000A90;
   color: #946B2D;

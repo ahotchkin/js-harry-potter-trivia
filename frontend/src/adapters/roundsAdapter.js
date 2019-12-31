@@ -4,6 +4,14 @@ class RoundsAdapter {
     this.baseUrl = "http://localhost:3000/api/v1/rounds"
   }
 
+  getQuestions() {
+    return fetch(this.baseUrl).then(response => response.json())
+  }
+
+  createRound(id) {
+    // the round is in the seeded database, so do I need to create anything?
+  }
+
   // createUser(value) {
   //   const user = {
   //     username: value
