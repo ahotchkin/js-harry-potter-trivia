@@ -1,5 +1,6 @@
 class Api::V1::UsersController < ApplicationController
 
+  # is this needed?
   def index
     @users = User.all
     render json: @users.to_json

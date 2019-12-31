@@ -71,7 +71,8 @@ class User {
     this.body.appendChild(start_button)
   }
 
-  // renderUser() {
-  //   return `<li>${this.username}</li>`
-  // }
+  // show the questions for Round 1 after the start button is clicked
+  // this.round = new Round()
+
+
 }
