@@ -37,68 +37,77 @@ class Round {
     this.start_button.style.display = "none"
     this.header.innerHTML = `Harry Potter and the Sorcerer's Stone`
     this.p.innerHTML = ""
+    const form = document.createElement("form")
+
+
     // this.quiz.style.display = "visible"
 
     // do I want to add all HTML elements here, or add a form to index.html and keep it hidden until this point?
+    console.log(round.questions)
     // for each question in the round:
-    const form = document.createElement("form")
-    const question_1 = document.createElement("p")
 
-    // is there not a way to add text to the radio button itself? Tried updating the innerHTML of answer_a, and it looked correct in the elements but text wasn't showing up in the browser.
-    const answer_a = document.createElement("input")
-    const answer_a_text = document.createElement("label")
+    // USE FOR LOOP SO I HAVE ACCESS TO I ... WILL NEED THE QUESTION ID FOR THE JOINS TABLE
+    round.questions.forEach(question => {
+      const q = document.createElement("p")
+      console.log(question.id)
 
-    const answer_b = document.createElement("input")
-    const answer_b_text = document.createElement("label")
+      // is there not a way to add text to the radio button itself? Tried updating the innerHTML of answer_a, and it looked correct in the elements but text wasn't showing up in the browser.
+      const answer_a = document.createElement("input")
+      const answer_a_text = document.createElement("label")
 
-    const answer_c = document.createElement("input")
-    const answer_c_text = document.createElement("label")
+      const answer_b = document.createElement("input")
+      const answer_b_text = document.createElement("label")
 
-    const answer_d = document.createElement("input")
-    const answer_d_text = document.createElement("label")
+      const answer_c = document.createElement("input")
+      const answer_c_text = document.createElement("label")
 
-
-    question_1.innerHTML = round.questions[0].content
-
-    answer_a.setAttribute("type", "radio");
-    answer_a.setAttribute("value", "A")
-    answer_a.setAttribute("name", "question_1")
-    answer_a_text.innerText = ` ${round.questions[0].answer_a} \n`
-
-    answer_b.setAttribute("type", "radio");
-    answer_b.setAttribute("value", "B")
-    answer_b.setAttribute("name", "question_1")
-
-    answer_b_text.innerText = ` ${round.questions[0].answer_b} \n`
-
-    answer_c.setAttribute("type", "radio");
-    answer_c.setAttribute("value", "C")
-    answer_c.setAttribute("name", "question_1")
-
-    answer_c_text.innerText = ` ${round.questions[0].answer_c} \n`
-
-    answer_d.setAttribute("type", "radio");
-    answer_d.setAttribute("value", "D")
-    answer_d.setAttribute("name", "question_1")
-
-    answer_d_text.innerText = ` ${round.questions[0].answer_d} \n`
+      const answer_d = document.createElement("input")
+      const answer_d_text = document.createElement("label")
 
 
-    this.body.appendChild(form)
-    form.appendChild(question_1)
-    form.appendChild(answer_a)
-    form.appendChild(answer_a_text)
+      q.innerHTML = question.content
 
-    form.appendChild(answer_b)
-    form.appendChild(answer_b_text)
+      answer_a.setAttribute("type", "radio");
+      answer_a.setAttribute("value", "A")
+      answer_a.setAttribute("name", question.id)
+      answer_a_text.innerText = ` ${question.answer_a} \n`
 
-    form.appendChild(answer_c)
-    form.appendChild(answer_c_text)
+      answer_b.setAttribute("type", "radio");
+      answer_b.setAttribute("value", "B")
+      answer_b.setAttribute("name", question.id)
 
-    form.appendChild(answer_d)
-    form.appendChild(answer_d_text)
+      answer_b_text.innerText = ` ${question.answer_b} \n`
 
-    // user must select an answer and should only be able to check one answer
+      answer_c.setAttribute("type", "radio");
+      answer_c.setAttribute("value", "C")
+      answer_c.setAttribute("name", question.id)
+
+      answer_c_text.innerText = ` ${question.answer_c} \n`
+
+      answer_d.setAttribute("type", "radio");
+      answer_d.setAttribute("value", "D")
+      answer_d.setAttribute("name", question.id)
+
+      answer_d_text.innerText = ` ${question.answer_d} \n\n`
+
+
+      this.body.appendChild(form)
+      form.appendChild(q)
+      form.appendChild(answer_a)
+      form.appendChild(answer_a_text)
+
+      form.appendChild(answer_b)
+      form.appendChild(answer_b_text)
+
+      form.appendChild(answer_c)
+      form.appendChild(answer_c_text)
+
+      form.appendChild(answer_d)
+      form.appendChild(answer_d_text)
+
+      // user must select an answer and should only be able to check one answer
+
+    })
   }
 
 
