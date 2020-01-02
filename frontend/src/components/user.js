@@ -66,7 +66,7 @@ class User {
     // Add a button to start the game
 
     this.start_button.innerHTML = "I solemnly swear that I'm up to no good";
-    this.start_button.id = "round_1"
+    this.start_button.id = "start_button"
 
     this.body.appendChild(p)
     this.body.appendChild(this.start_button)

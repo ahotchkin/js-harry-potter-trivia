@@ -8,10 +8,10 @@ class Round {
   }
 
   roundBindingsAndEventListeners() {
-    this.round_1_button = document.getElementById("round_1")
+    this.start_button = document.getElementById("start_button")
     // why is it not this.createUser() - with parenthesis
     // hard bind this to the round when we execute fetchAndLoadQuestions, so when we access this it is the Round class
-    this.round_1_button.addEventListener("click", this.fetchAndLoadQuestions.bind(this));
+    this.start_button.addEventListener("click", this.fetchAndLoadQuestions.bind(this));
     this.header = document.getElementById("intro");
     this.body = document.querySelector("body");
     this.p = document.querySelector("p");
@@ -34,6 +34,7 @@ class Round {
   renderQuestions(round) {
     // how can I access the user's username from round.js???
     // console.log(round)
+    this.start_button.style.display = "none"
     this.header.innerHTML = `Harry Potter and the Sorcerer's Stone`
     this.p.innerHTML = ""
     // this.quiz.style.display = "visible"
