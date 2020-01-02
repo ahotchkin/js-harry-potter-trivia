@@ -1,9 +1,11 @@
 class Round {
 
-  constructor(){
+  constructor(user){
     this.adapter = new RoundsAdapter()
     this.questions = []
     this.roundBindingsAndEventListeners()
+    // is this okay to do since my Round model doesn't have a user attribute????
+    this.user = user
     // this.fetchAndLoadQuestions()
   }
 
@@ -37,13 +39,10 @@ class Round {
 
 
   renderQuestions(round) {
-    // how can I access the user's username from round.js???
-
     this.start_button.style.display = "none"
-    this.header.innerHTML = `Harry Potter and the Sorcerer's Stone`
+    this.header.innerHTML = `${this.user.username} and the Sorcerer's Stone`
     this.p.innerHTML = ""
     const form = document.createElement("form")
-
 
     // this.quiz.style.display = "visible"
 

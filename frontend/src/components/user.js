@@ -33,8 +33,6 @@ class User {
       .then(user => {
         // console.log(this)
         this.renderUserStartPage(user)
-        console.log(user)
-        console.log(this)
     })
   }
 
@@ -74,7 +72,7 @@ class User {
     this.body.appendChild(p)
     this.body.appendChild(this.start_button)
     // am I supposed to be creating a "new" round since the rounds are already seeded?
-    this.round = new Round()
+    this.round = new Round(user)
     this.round.id = 1
   }
 }
