@@ -14,7 +14,7 @@ class User {
     // hard bind this to the users when we execute createUser(), so when we access this it is the Users class
     this.newUserForm.addEventListener("submit", this.createUser.bind(this));
     this.username = document.getElementById("username");
-    this.welcome = document.getElementById("welcome");
+    this.header = document.getElementById("header");
     this.body = document.querySelector("body");
     this.house = document.querySelector("#house");
     this.start_button = document.createElement("button");
@@ -59,18 +59,15 @@ class User {
   }
 
   instructions() {
-    this.welcome.style.display ="none"
-    const h2 = document.createElement("h2")
+    this.header.id = "intro"
     const p = document.createElement("p")
-    h2.innerHTML = `Welcome ${this.username.value}!`
-    h2.id = "round_header"
+    this.header.innerHTML = `Welcome ${this.username.value}!`
     p.innerHTML = "This game will be played in 7 rounds. You must answer 3 of 5 questions correct in a round to move on to the next round. If you fail to answer enough questions correctly, Voldemort and his followers will prevail. If you are smart enough to get through all 7 rounds, you will vanquish Voldemort and all that he stands for. The Wizarding world is on your shoulders. Good luck."
     // Add a button to start the game
 
     this.start_button.innerHTML = "I solemnly swear that I'm up to no good";
     this.start_button.id = "round_1"
 
-    this.body.appendChild(h2)
     this.body.appendChild(p)
     this.body.appendChild(this.start_button)
     // am I supposed to be creating a "new" round since the rounds are already seeded?

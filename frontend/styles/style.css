@@ -5,7 +5,7 @@ body {
   color: #BEC2CB;
 }
 
-#welcome {
+#header {
   text-align: center;
   font-family: "Harry P", serif;
   font-size: 50px;
@@ -16,11 +16,18 @@ body {
   text-align: center;
 }
 
-.house h2 {
+/* .house h2 {
+  font-family: "New", serif;
+  font-size: 40px;
+  font-weight: normal;
+} */
+
+#intro {
   font-family: "New", serif;
   font-size: 40px;
   font-weight: normal;
 }
+
 
 #gryffindor {
   background-image: none;
