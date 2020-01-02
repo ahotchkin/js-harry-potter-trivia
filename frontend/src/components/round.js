@@ -10,11 +10,16 @@ class Round {
   roundBindingsAndEventListeners() {
     this.start_button = document.getElementById("start_button")
     // why is it not this.createUser() - with parenthesis
-    // hard bind this to the round when we execute fetchAndLoadQuestions, so when we access this it is the Round class
+    // hard bind this to the round when we execute fetchAndLoadQuestions, so when we access this from fetchAndLoadQuestions it is the Round class
     this.start_button.addEventListener("click", this.fetchAndLoadQuestions.bind(this));
     this.header = document.getElementById("intro");
     this.body = document.querySelector("body");
     this.p = document.querySelector("p");
+    this.submit_round = document.createElement("button")
+    this.submit_round.innerHTML = "Submit Round 1 Answers"
+
+    // hard bind this to the round when we execute submitAnswers, so when we access this from submitAnswers it is the Round class
+    this.submit_round.addEventListener("click", this.submitAnswers.bind(this));
     // this.quiz = document.getElementById("quiz_container")
 
   }
@@ -33,7 +38,7 @@ class Round {
 
   renderQuestions(round) {
     // how can I access the user's username from round.js???
-    // console.log(round)
+
     this.start_button.style.display = "none"
     this.header.innerHTML = `Harry Potter and the Sorcerer's Stone`
     this.p.innerHTML = ""
@@ -43,13 +48,9 @@ class Round {
     // this.quiz.style.display = "visible"
 
     // do I want to add all HTML elements here, or add a form to index.html and keep it hidden until this point?
-    console.log(round.questions)
-    // for each question in the round:
 
-    // USE FOR LOOP SO I HAVE ACCESS TO I ... WILL NEED THE QUESTION ID FOR THE JOINS TABLE
     round.questions.forEach(question => {
       const q = document.createElement("p")
-      console.log(question.id)
 
       // is there not a way to add text to the radio button itself? Tried updating the innerHTML of answer_a, and it looked correct in the elements but text wasn't showing up in the browser.
       const answer_a = document.createElement("input")
@@ -93,6 +94,7 @@ class Round {
 
       this.body.appendChild(form)
       form.appendChild(q)
+
       form.appendChild(answer_a)
       form.appendChild(answer_a_text)
 
@@ -104,11 +106,19 @@ class Round {
 
       form.appendChild(answer_d)
       form.appendChild(answer_d_text)
-
-      // user must select an answer and should only be able to check one answer
-
     })
+
+    form.appendChild(this.submit_round)
+
   }
+
+  submitAnswers(event) {
+    event.preventDefault()
+    console.log(this)
+    // create a new instance of user_answer for each question when user clicks submit. If the number of times  user_input === correct_answer >= 3, move onto next round. If the number of times user_input === correct_answer < 3, game over.
+  }
+
+
 
 
   // createRound(event) {

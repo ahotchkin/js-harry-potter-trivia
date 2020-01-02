@@ -12,7 +12,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    # do I need to user a serializer here?
     @user = User.new(user_params)
     if @user.save
       render json: @user
