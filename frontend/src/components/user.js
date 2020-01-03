@@ -31,7 +31,6 @@ class User {
     this.adapter.createUser(value)
     // gets parsed JSON from UsersAdapter createUser()
       .then(user => {
-        console.log(user)
         this.renderUserStartPage(user)
     })
   }

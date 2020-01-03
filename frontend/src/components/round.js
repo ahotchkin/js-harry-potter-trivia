@@ -10,7 +10,7 @@ class Round {
     this.id = id
     this.adapter = new RoundsAdapter(this)
 
-    // this.fetchAndLoadQuestions()
+    // this.fetchAndLoadRound()
   }
 
   // should anything regarding questions be moved to question.js????
@@ -19,12 +19,13 @@ class Round {
   roundBindingsAndEventListeners() {
     this.start_button = document.getElementById("start_button")
     // why is it not this.createUser() - with parenthesis
-    // hard bind this to the round when we execute fetchAndLoadQuestions, so when we access this from fetchAndLoadQuestions it is the Round class
-    this.start_button.addEventListener("click", this.fetchAndLoadQuestions.bind(this));
+    // hard bind this to the round when we execute fetchAndLoadRound, so when we access this from fetchAndLoadRound it is the Round class
+    this.start_button.addEventListener("click", this.fetchAndLoadRound.bind(this));
     this.header = document.getElementById("intro");
     this.body = document.querySelector("body");
     this.p = document.querySelector("p");
     this.submit_round = document.createElement("button")
+    this.submit_round.id = "submit_round"
     this.submit_round.innerHTML = "Submit Round 1 Answers"
 
     // hard bind this to the round when we execute submitAnswers, so when we access this from submitAnswers it is the Round class
@@ -33,10 +34,9 @@ class Round {
 
   }
 
-  fetchAndLoadQuestions(event) {
+  fetchAndLoadRound(event) {
     event.preventDefault();
-    console.log(this)
-    this.adapter.getQuestions()
+    this.adapter.getRound()
       .then(round => {
         // console.log(round.questions[0].answer_a)
         this.renderQuestions(round)
@@ -137,10 +137,13 @@ class Round {
     event.preventDefault()
     this.getUserAnswers()
     console.log("You have submitted your round 1 answers")
+    console.log(this.user)
     // create a new instance of user_answer for each question when user clicks submit. If the number of times  user_input === correct_answer >= 3, move onto next round. If the number of times user_input === correct_answer < 3, game over.
   }
 
   getUserAnswers() {
+
+    // how can I get access to the round here?
 
     const possible_answers = Array.from(document.querySelectorAll(".answer"))
 
@@ -151,16 +154,52 @@ class Round {
         answers.push(possible_answer.value)
       }
     })
+    console.log("I'm in getUserAnswers")
+    console.log(this.user)
 
     console.log(answers)
+
+    console.log("I'm leaving getuseranswers")
+    // const userAnswer = new UserAnswer()
+    this.fetchRound()
   }
 
 
+  createUserAnswer(event) {
+    event.preventDefault()
+    console.log("Creating UserAnswer Here")
+    console.log(this)
+  }
 
+  fetchRound() {
+    this.adapter.getRound()
+      .then(round => {
+        // console.log(round.questions[0].answer_a)
+        console.log(round)
+        // need to create a userAnswer for each question
+        const userAnswer = new UserAnswer(this.user, round)
+        // console.log(round)
+      })
+  }
+
+
+  // createUser(event) {
+  //   event.preventDefault()
+  //   const value = this.username.value
+  //
+  //   // take the above value and make a post request using the adapter
+  //
+  //   this.adapter.createUser(value)
+  //   // gets parsed JSON from UsersAdapter createUser()
+  //     .then(user => {
+  //       console.log(user)
+  //       this.renderUserStartPage(user)
+  //   })
+  // }
 
   // createRound(event) {
   //   event.preventDefault()
-  //   this.fetchAndLoadQuestions()
+  //   this.fetchAndLoadRound()
   // //   this.adapter.createRound(value)
   // //   // gets parsed JSON from UsersAdapter createUser()
   // //     .then(round => {
