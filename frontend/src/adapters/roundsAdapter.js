@@ -1,7 +1,7 @@
 class RoundsAdapter {
 
-  constructor() {
-    this.baseUrl = `http://localhost:3000/api/v1/rounds/1`
+  constructor(round) {
+    this.baseUrl = `http://localhost:3000/api/v1/rounds/${round.id}`
   }
 
   getQuestions() {

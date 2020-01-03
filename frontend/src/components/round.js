@@ -1,11 +1,15 @@
 class Round {
 
-  constructor(user){
-    this.adapter = new RoundsAdapter()
+  constructor(user, id = 1){
+    // is this needed?
     this.questions = []
     this.roundBindingsAndEventListeners()
     // is this okay to do since my Round model doesn't have a user attribute????
     this.user = user
+    // need to figure out how to change the ID for the next round
+    this.id = id
+    this.adapter = new RoundsAdapter(this)
+
     // this.fetchAndLoadQuestions()
   }
 
@@ -28,6 +32,7 @@ class Round {
 
   fetchAndLoadQuestions(event) {
     event.preventDefault();
+    console.log(this)
     this.adapter.getQuestions()
       .then(round => {
         // console.log(round.questions[0].answer_a)
@@ -36,6 +41,15 @@ class Round {
       })
   }
 
+  // this.start_button.addEventListener("click", function(event) {
+  //   event.preventDefault();
+  //
+  //
+  //   return fetch(`http://localhost:3000/api/v1/rounds/${round.id}`)
+  //     .then(response => response.json())
+  //     .then(round => console.log(round.questions))
+  //
+  // })
 
 
   renderQuestions(round) {

@@ -18,8 +18,8 @@ class User {
     this.header = document.getElementById("header");
     this.body = document.querySelector("body");
     this.house = document.querySelector("#house");
-    this.start_button = document.createElement("button");
-    // this.start_button.addEventListener("submit", createRound(event))
+    // this.start_button = document.createElement("button");
+    // this.start_button.addEventListener("click", this.fetchAndLoadRound.bind(this))
   }
 
   createUser(event) {
@@ -31,7 +31,7 @@ class User {
     this.adapter.createUser(value)
     // gets parsed JSON from UsersAdapter createUser()
       .then(user => {
-        // console.log(this)
+        console.log(user)
         this.renderUserStartPage(user)
     })
   }
@@ -62,17 +62,39 @@ class User {
   instructions(user) {
     this.header.id = "intro"
     const p = document.createElement("p")
+    const start_button = document.createElement("button");
+
     this.header.innerHTML = `Welcome ${user.username}!`
     p.innerHTML = "This game will be played in 7 rounds. You must answer 3 of 5 questions correct in a round to move on to the next round. If you fail to answer enough questions correctly, Voldemort and his followers will prevail. If you are smart enough to get through all 7 rounds, you will vanquish Voldemort and all that he stands for. The Wizarding world is on your shoulders. Good luck."
+
     // Add a button to start the game
 
-    this.start_button.innerHTML = "I solemnly swear that I'm up to no good";
-    this.start_button.id = "start_button"
+    console.log(this)
+    start_button.innerHTML = "I solemnly swear that I'm up to no good";
+    start_button.id = "start_button"
+
+
 
     this.body.appendChild(p)
-    this.body.appendChild(this.start_button)
+    this.body.appendChild(start_button)
+
     // am I supposed to be creating a "new" round since the rounds are already seeded?
-    this.round = new Round(user)
-    this.round.id = 1
+    const round = new Round(user)
+    // round.id = 1
+
+
+    // this.start_button.addEventListener("click", this.fetchAndLoadRound.bind(this))
+
+
+
+
   }
+
+  // fetchAndLoadRound(event, user) {
+  //   event.preventDefault()
+  //   console.log(this)
+  //   return fetch(`http://localhost:3000/api/v1/rounds/1`)
+  //     .then(response => response.json())
+  //     .then(round => console.log(round))
+  // }
 }
