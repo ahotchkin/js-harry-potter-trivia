@@ -4,6 +4,8 @@ class RoundsAdapter {
     this.baseUrl = `http://localhost:3000/api/v1/rounds/${round.id}`
   }
 
+  // should this be moved to questionsAdapter.js????
+
   getQuestions() {
     return fetch(this.baseUrl).then(response => response.json())
   }
@@ -11,24 +13,5 @@ class RoundsAdapter {
   createRound(id) {
     // the round is in the seeded database, so do I need to create anything?
   }
-
-  // createUser(value) {
-  //   const user = {
-  //     username: value
-  //   }
-  //
-  //   return fetch(this.baseUrl, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "Accept": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       user
-  //     })
-  //   })
-  //   // below sends a parsed JSON object back to the users component in createUser()
-  //   .then(response => response.json())
-  // }
 
 }

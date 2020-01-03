@@ -13,6 +13,9 @@ class Round {
     // this.fetchAndLoadQuestions()
   }
 
+  // should anything regarding questions be moved to question.js????
+
+
   roundBindingsAndEventListeners() {
     this.start_button = document.getElementById("start_button")
     // why is it not this.createUser() - with parenthesis
@@ -84,24 +87,29 @@ class Round {
       answer_a.setAttribute("type", "radio");
       answer_a.setAttribute("value", "A")
       answer_a.setAttribute("name", question.id)
+      answer_a.setAttribute("class", "answer")
+      answer_a.setAttribute("id", `${question.id}` + "A")
       answer_a_text.innerText = ` ${question.answer_a} \n`
 
       answer_b.setAttribute("type", "radio");
       answer_b.setAttribute("value", "B")
       answer_b.setAttribute("name", question.id)
-
+      answer_b.setAttribute("class", "answer")
+      answer_b.setAttribute("id", `${question.id}` + "B")
       answer_b_text.innerText = ` ${question.answer_b} \n`
 
       answer_c.setAttribute("type", "radio");
       answer_c.setAttribute("value", "C")
       answer_c.setAttribute("name", question.id)
-
+      answer_c.setAttribute("class", "answer")
+      answer_c.setAttribute("id", `${question.id}` + "C")
       answer_c_text.innerText = ` ${question.answer_c} \n`
 
       answer_d.setAttribute("type", "radio");
       answer_d.setAttribute("value", "D")
       answer_d.setAttribute("name", question.id)
-
+      answer_d.setAttribute("class", "answer")
+      answer_d.setAttribute("id", `${question.id}` + "D")
       answer_d_text.innerText = ` ${question.answer_d} \n\n`
 
 
@@ -127,8 +135,24 @@ class Round {
 
   submitAnswers(event) {
     event.preventDefault()
-    console.log(this)
+    this.getUserAnswers()
+    console.log("You have submitted your round 1 answers")
     // create a new instance of user_answer for each question when user clicks submit. If the number of times  user_input === correct_answer >= 3, move onto next round. If the number of times user_input === correct_answer < 3, game over.
+  }
+
+  getUserAnswers() {
+
+    const possible_answers = Array.from(document.querySelectorAll(".answer"))
+
+    const answers = []
+
+    possible_answers.map(possible_answer => {
+      if (possible_answer.checked) {
+        answers.push(possible_answer.value)
+      }
+    })
+
+    console.log(answers)
   }
 
 
