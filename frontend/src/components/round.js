@@ -175,14 +175,12 @@ class Round {
   fetchRound() {
     this.adapter.getRound()
       .then(round => {
-        // console.log(round.questions[0].answer_a)
+        // need to have access to the answers_array from getUserAnswers to complete the data needed in the UserAnswer instance
         round.questions.forEach(question => {
           console.log(round)
           const userAnswer = new UserAnswer(this.user, round, question)
           console.log(userAnswer)
         })
-        // need to create a userAnswer for each question
-        // console.log(round)
       })
   }
 
