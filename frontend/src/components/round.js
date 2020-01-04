@@ -136,8 +136,8 @@ class Round {
   submitAnswers(event) {
     event.preventDefault()
     this.getUserAnswers()
-    console.log("You have submitted your round 1 answers")
-    console.log(this.user)
+    // console.log("You have submitted your round 1 answers")
+    // console.log(this.user)
     // create a new instance of user_answer for each question when user clicks submit. If the number of times  user_input === correct_answer >= 3, move onto next round. If the number of times user_input === correct_answer < 3, game over.
   }
 
@@ -152,14 +152,15 @@ class Round {
     possible_answers.map(possible_answer => {
       if (possible_answer.checked) {
         answers.push(possible_answer.value)
+
       }
     })
-    console.log("I'm in getUserAnswers")
+    // console.log("I'm in getUserAnswers")
     console.log(this.user)
 
     console.log(answers)
 
-    console.log("I'm leaving getuseranswers")
+    // console.log("I'm leaving getuseranswers")
     // const userAnswer = new UserAnswer()
     this.fetchRound()
   }
@@ -167,17 +168,20 @@ class Round {
 
   createUserAnswer(event) {
     event.preventDefault()
-    console.log("Creating UserAnswer Here")
-    console.log(this)
+    // console.log("Creating UserAnswer Here")
+    // console.log(this)
   }
 
   fetchRound() {
     this.adapter.getRound()
       .then(round => {
         // console.log(round.questions[0].answer_a)
-        console.log(round)
+        round.questions.forEach(question => {
+          console.log(round)
+          const userAnswer = new UserAnswer(this.user, round, question)
+          console.log(userAnswer)
+        })
         // need to create a userAnswer for each question
-        const userAnswer = new UserAnswer(this.user, round)
         // console.log(round)
       })
   }

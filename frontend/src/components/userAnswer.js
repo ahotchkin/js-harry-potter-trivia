@@ -1,14 +1,13 @@
 class UserAnswer {
   // constructor(user_id, round_id, question_id, user_input, correct_answer) {
-  constructor(user, round) {
+  constructor(user, round, question) {
 
     this.user_id = user.id
     this.round_id = round.id
-  
-    // this.question_id = question_id
+    this.question_id = question.id
+    this.correct_answer = question.correct_answer
     // this.user_input = user_input
-    // this.correct_answer = correct_answer
-    console.log("creating the first UserAnswer ever")
+    // console.log(this)
     this.userAnswerBindingsAndEventListeners()
 
   }
