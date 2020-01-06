@@ -1,10 +1,9 @@
-class RoundsAdapter {
+class UserAnswersAdapter {
 
   constructor() {
     this.baseUrl = `http://localhost:3000/api/v1/user_answers`
   }
 
-  // should this be moved to questionsAdapter.js????
 
   getRound() {
     return fetch(this.baseUrl).then(response => response.json())

@@ -68,7 +68,7 @@ class User {
 
     // Add a button to start the game
 
-    console.log(this)
+    // console.log(this)
     start_button.innerHTML = "I solemnly swear that I'm up to no good";
     start_button.id = "start_button"
 
