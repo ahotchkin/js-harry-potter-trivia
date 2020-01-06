@@ -151,18 +151,36 @@ class Round {
 
     possible_answers.map(possible_answer => {
       if (possible_answer.checked) {
-        answers.push(possible_answer.value)
+        answers.push({question: possible_answer.name, input: possible_answer.value})
 
       }
     })
     // console.log("I'm in getUserAnswers")
-    console.log(this.user)
+    // console.log(this.user)
 
-    console.log(answers)
+
+    this.adapter.getRound()
+      .then(round => {
+        // need to have access to the answers_array from getUserAnswers to complete the data needed in the UserAnswer instance
+        round.questions.forEach(question => {
+
+          // let answer = array1.find(element => element > 10);
+
+          let user_input = answers.find(answer => answer.question === question.id.toString())
+          // console.log(answer)
+          // console.log(round)
+          const userAnswer = new UserAnswer(this.user, round, question, user_input)
+
+          // console.log(answers)
+          console.log(userAnswer)
+        })
+      })
+    //
+    // console.log(answers)
 
     // console.log("I'm leaving getuseranswers")
     // const userAnswer = new UserAnswer()
-    this.fetchRound()
+    // this.fetchRound()
   }
 
 
@@ -173,15 +191,15 @@ class Round {
   }
 
   fetchRound() {
-    this.adapter.getRound()
-      .then(round => {
-        // need to have access to the answers_array from getUserAnswers to complete the data needed in the UserAnswer instance
-        round.questions.forEach(question => {
-          console.log(round)
-          const userAnswer = new UserAnswer(this.user, round, question)
-          console.log(userAnswer)
-        })
-      })
+    // this.adapter.getRound()
+    //   .then(round => {
+    //     // need to have access to the answers_array from getUserAnswers to complete the data needed in the UserAnswer instance
+    //     round.questions.forEach(question => {
+    //       console.log(round)
+    //       const userAnswer = new UserAnswer(this.user, round, question)
+    //       console.log(userAnswer)
+    //     })
+    //   })
   }
 
 
