@@ -3,18 +3,18 @@ class Api::V1::UsersController < ApplicationController
   # is this needed?
   def index
     @users = User.all
-    render json: @users.to_json
+    render json: @users.to_json, status: 200
   end
 
   def show
     @user = User.find(params[:id])
-    render json: @user.to_json
+    render json: @user.to_json, status: 200
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      render json: @user
+      render json: @user.to_json, status: 200
     end
   end
 

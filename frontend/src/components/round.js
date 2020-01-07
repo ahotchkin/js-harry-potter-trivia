@@ -1,6 +1,6 @@
 class Round {
 
-  constructor(user, id = 1){
+  constructor(user, id){
     // is this needed?
     this.questions = []
     this.roundBindingsAndEventListeners()
@@ -57,7 +57,12 @@ class Round {
 
   renderQuestions(round) {
     this.start_button.style.display = "none"
-    this.header.innerHTML = `${this.user.username} and the Sorcerer's Stone`
+    if (round.id == 1) {
+      this.header.innerHTML = `${this.user.username} and the Sorcerer's Stone`
+    } else if (round.id == 2) {
+      this.header.innerHTML = `${this.user.username} and the Chamber of Secrets`
+    }
+    
     this.p.innerHTML = ""
     const form = document.createElement("form")
 
@@ -136,6 +141,19 @@ class Round {
   submitAnswers(event) {
     event.preventDefault()
     this.getUserAnswers()
+
+    // creating the instance in the Rails DB. This code is incomplete...
+    // createUserAnswer(event) {
+    //   event.preventDefault()
+    //   this.adapter.createUserAnswer()
+    //   // gets parsed JSON from UsersAdapter createUser()
+    //     .then(userAnswer => {
+    //       console.log(userAnswer)
+    //   })
+    // }
+
+
+
     // console.log("You have submitted your round 1 answers")
     // console.log(this.user)
     // create a new instance of user_answer for each question when user clicks submit. If the number of times  user_input === correct_answer >= 3, move onto next round. If the number of times user_input === correct_answer < 3, game over.
@@ -210,7 +228,14 @@ class Round {
 
     })
 
-    console.log(correctAnswers.length)
+    if (correctAnswers.length >= 3) {
+      const round = new Round(this.user, this.id + 1)
+      console.log("Congratulations, you will move on to the next round")
+      this.renderQuestions(round)
+    } else {
+      console.log("Sorry, Voldemort wins.")
+    }
+
   }
 
   createUserAnswer(event) {

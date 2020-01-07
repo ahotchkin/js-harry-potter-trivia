@@ -78,8 +78,7 @@ class User {
     this.body.appendChild(start_button)
 
     // am I supposed to be creating a "new" round since the rounds are already seeded?
-    const round = new Round(user)
-    // round.id = 1
+    const round = new Round(user, 1)
 
 
     // this.start_button.addEventListener("click", this.fetchAndLoadRound.bind(this))
