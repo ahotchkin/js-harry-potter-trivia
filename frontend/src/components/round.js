@@ -162,6 +162,7 @@ class Round {
     this.adapter.getRound()
       .then(round => {
         // need to have access to the answers_array from getUserAnswers to complete the data needed in the UserAnswer instance
+<<<<<<< HEAD
 
         const userAnswers = []
         round.questions.forEach(question => {
@@ -192,6 +193,21 @@ class Round {
 
       })
 
+=======
+        round.questions.forEach(question => {
+
+          // let answer = array1.find(element => element > 10);
+
+          let user_input = answers.find(answer => answer.question === question.id.toString())
+          // console.log(answer)
+          // console.log(round)
+          const userAnswer = new UserAnswer(this.user, round, question, user_input)
+
+          // console.log(answers)
+          console.log(userAnswer)
+        })
+      })
+>>>>>>> f96a658f0e236563e4d4467c3d985c1e1878b87a
     //
     // console.log(answers)
 
