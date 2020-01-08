@@ -6,6 +6,7 @@ class Api::V1::UserAnswersController < ApplicationController
   end
 
   def create
+    # binding.pry
     @user_answer = UserAnswer.new(user_answer_params)
     if @user_answer.save
       render json: @user_answer.to_json, status: 200
@@ -15,8 +16,8 @@ class Api::V1::UserAnswersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:username)
+    def user_answer_params
+      params.require(:user_answer).permit(:user_id, :round_id, :question_id, :correct_answer, :user_input)
     end
 
 end

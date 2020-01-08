@@ -10,9 +10,9 @@ class RoundsAdapter {
     return fetch(this.baseUrl).then(response => response.json())
   }
 
-  createRound(id) {
-    // the round is in the seeded database, so do I need to create anything?
-  }
+  // createRound(id) {
+  //   // the round is in the seeded database, so do I need to create anything?
+  // }
 
 
   // createUserAnswer(user, answers_array) {

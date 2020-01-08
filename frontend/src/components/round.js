@@ -62,14 +62,14 @@ class Round {
     } else if (round.id == 2) {
       this.header.innerHTML = `${this.user.username} and the Chamber of Secrets`
     }
-    
+
     this.p.innerHTML = ""
     const form = document.createElement("form")
 
     // this.quiz.style.display = "visible"
 
     // do I want to add all HTML elements here, or add a form to index.html and keep it hidden until this point?
-
+    console.log(round.questions)
     round.questions.forEach(question => {
       const q = document.createElement("p")
 
@@ -191,9 +191,9 @@ class Round {
           // console.log(round)
           const userAnswer = new UserAnswer(this.user, round, question, user_input)
 
-          // console.log(answers)
+          console.log(userAnswer)
           userAnswers.push(userAnswer)
-
+          this.createUserAnswer(userAnswer)
           // let correctAnswers = 0
           //
           // if (userAnswer.correct_answer === userAnswer.user_input) {
@@ -238,11 +238,31 @@ class Round {
 
   }
 
-  createUserAnswer(event) {
-    event.preventDefault()
-    // console.log("Creating UserAnswer Here")
+  createUserAnswer(userAnswer) {
+    console.log("Creating UserAnswer Here")
     // console.log(this)
+
+    console.log(userAnswer.adapter)
+    userAnswer.adapter.createUserAnswer(userAnswer)
+    // gets parsed JSON from UsersAdapter createUser()
+      .then(userAnswerInstance => {
+        console.log(userAnswerInstance)
+    })
+
   }
+
+  // createUser(event) {
+  //   event.preventDefault()
+  //   const value = this.username.value
+  //
+  //   // take the above value and make a post request using the adapter
+  //
+  //   this.adapter.createUser(value)
+  //   // gets parsed JSON from UsersAdapter createUser()
+  //     .then(user => {
+  //       this.renderUserStartPage(user)
+  //   })
+  // }
 
   fetchRound() {
     // this.adapter.getRound()

@@ -10,15 +10,28 @@ class UserAnswersAdapter {
   }
 
   // want to send a post request to create a new UserAnswer in the Rails DB. Code is incomplete.
-  createUserAnswer() {
+  createUserAnswer(userAnswer) {
+    const userAnswerInstance = {
+      user_id: userAnswer.user_id,
+      round_id: userAnswer.round_id,
+      question_id: userAnswer.question_id,
+      correct_answer: userAnswer.correct_answer,
+      user_input: userAnswer.user_input
+    }
+
     return fetch(this.baseUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-    })
+      body: JSON.stringify({
+          userAnswerInstance
+        })
+      })
+
     // below sends a parsed JSON object back to the users component in createUser()
     .then(response => response.json())
   }
+
 }
