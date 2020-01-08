@@ -141,28 +141,9 @@ class Round {
   submitAnswers(event) {
     event.preventDefault()
     this.getUserAnswers()
-
-    // creating the instance in the Rails DB. This code is incomplete...
-    // createUserAnswer(event) {
-    //   event.preventDefault()
-    //   this.adapter.createUserAnswer()
-    //   // gets parsed JSON from UsersAdapter createUser()
-    //     .then(userAnswer => {
-    //       console.log(userAnswer)
-    //   })
-    // }
-
-
-
-    // console.log("You have submitted your round 1 answers")
-    // console.log(this.user)
-    // create a new instance of user_answer for each question when user clicks submit. If the number of times  user_input === correct_answer >= 3, move onto next round. If the number of times user_input === correct_answer < 3, game over.
   }
 
   getUserAnswers() {
-
-    // how can I get access to the round here?
-
     const possible_answers = Array.from(document.querySelectorAll(".answer"))
 
     const answers = []
@@ -173,49 +154,26 @@ class Round {
 
       }
     })
-    // console.log("I'm in getUserAnswers")
-    // console.log(this.user)
 
-
+    // need access to the round. Can I separate this into a different method?
     this.adapter.getRound()
       .then(round => {
-        // need to have access to the answers_array from getUserAnswers to complete the data needed in the UserAnswer instance
-
         const userAnswers = []
         round.questions.forEach(question => {
 
-          // let answer = array1.find(element => element > 10);
-
           let user_input = answers.find(answer => answer.question === question.id.toString())
-          // console.log(answer)
-          // console.log(round)
           const userAnswer = new UserAnswer(this.user, round, question, user_input)
 
-          console.log(userAnswer)
           userAnswers.push(userAnswer)
-          this.createUserAnswer(userAnswer)
-          // let correctAnswers = 0
-          //
-          // if (userAnswer.correct_answer === userAnswer.user_input) {
-          //   correctAnswers += 1
-          // }
-          //
-          // console.log(correctAnswers)
+          // this.createUserAnswer(userAnswer)
+          userAnswer.adapter.createUserAnswer(userAnswer)
 
 
         })
 
         this.numberOfCorrectAnswers(userAnswers)
 
-
       })
-
-    //
-    // console.log(answers)
-
-    // console.log("I'm leaving getuseranswers")
-    // const userAnswer = new UserAnswer()
-    // this.fetchRound()
   }
 
   numberOfCorrectAnswers(userAnswers) {
@@ -238,29 +196,11 @@ class Round {
 
   }
 
-  createUserAnswer(userAnswer) {
-    console.log("Creating UserAnswer Here")
-    // console.log(this)
-
-    console.log(userAnswer.adapter)
-    userAnswer.adapter.createUserAnswer(userAnswer)
-    // gets parsed JSON from UsersAdapter createUser()
-      .then(user_answer => {
-        console.log(user_answer)
-    })
-
-  }
-
-  // createUser(event) {
-  //   event.preventDefault()
-  //   const value = this.username.value
-  //
-  //   // take the above value and make a post request using the adapter
-  //
-  //   this.adapter.createUser(value)
-  //   // gets parsed JSON from UsersAdapter createUser()
-  //     .then(user => {
-  //       this.renderUserStartPage(user)
+  // createUserAnswer(userAnswer) {
+  //   userAnswer.adapter.createUserAnswer(userAnswer)
+  //   // gets parsed JSON from UserAnswerssAdapter createUserAnswer()
+  //     .then(user_answer => {
+  //       // console.log(user_answer)
   //   })
   // }
 
@@ -275,33 +215,6 @@ class Round {
     //     })
     //   })
   }
-
-
-  // createUser(event) {
-  //   event.preventDefault()
-  //   const value = this.username.value
-  //
-  //   // take the above value and make a post request using the adapter
-  //
-  //   this.adapter.createUser(value)
-  //   // gets parsed JSON from UsersAdapter createUser()
-  //     .then(user => {
-  //       console.log(user)
-  //       this.renderUserStartPage(user)
-  //   })
-  // }
-
-  // createRound(event) {
-  //   event.preventDefault()
-  //   this.fetchAndLoadRound()
-  // //   this.adapter.createRound(value)
-  // //   // gets parsed JSON from UsersAdapter createUser()
-  // //     .then(round => {
-  // //       // creates the new user and pushes the user into the users array that exists. not sure this is actually needed
-  // //       this.renderRound()
-  // //   })
-  // //
-  // }
 
 
 }
