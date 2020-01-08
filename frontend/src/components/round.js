@@ -93,28 +93,28 @@ class Round {
       answer_a.setAttribute("value", "A")
       answer_a.setAttribute("name", question.id)
       answer_a.setAttribute("class", "answer")
-      answer_a.setAttribute("id", `${question.id}` + "A")
+      answer_a.setAttribute("id", "user_input")
       answer_a_text.innerText = ` ${question.answer_a} \n`
 
       answer_b.setAttribute("type", "radio");
       answer_b.setAttribute("value", "B")
       answer_b.setAttribute("name", question.id)
       answer_b.setAttribute("class", "answer")
-      answer_b.setAttribute("id", `${question.id}` + "B")
+      answer_b.setAttribute("id", "user_input")
       answer_b_text.innerText = ` ${question.answer_b} \n`
 
       answer_c.setAttribute("type", "radio");
       answer_c.setAttribute("value", "C")
       answer_c.setAttribute("name", question.id)
       answer_c.setAttribute("class", "answer")
-      answer_c.setAttribute("id", `${question.id}` + "C")
+      answer_c.setAttribute("id", "user_input")
       answer_c_text.innerText = ` ${question.answer_c} \n`
 
       answer_d.setAttribute("type", "radio");
       answer_d.setAttribute("value", "D")
       answer_d.setAttribute("name", question.id)
       answer_d.setAttribute("class", "answer")
-      answer_d.setAttribute("id", `${question.id}` + "D")
+      answer_d.setAttribute("id", "user_input")
       answer_d_text.innerText = ` ${question.answer_d} \n\n`
 
 
@@ -245,8 +245,8 @@ class Round {
     console.log(userAnswer.adapter)
     userAnswer.adapter.createUserAnswer(userAnswer)
     // gets parsed JSON from UsersAdapter createUser()
-      .then(userAnswerInstance => {
-        console.log(userAnswerInstance)
+      .then(user_answer => {
+        console.log(user_answer)
     })
 
   }

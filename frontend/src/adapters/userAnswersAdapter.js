@@ -11,7 +11,7 @@ class UserAnswersAdapter {
 
   // want to send a post request to create a new UserAnswer in the Rails DB. Code is incomplete.
   createUserAnswer(userAnswer) {
-    const userAnswerInstance = {
+    const user_answer = {
       user_id: userAnswer.user_id,
       round_id: userAnswer.round_id,
       question_id: userAnswer.question_id,
@@ -26,7 +26,7 @@ class UserAnswersAdapter {
         "Accept": "application/json"
       },
       body: JSON.stringify({
-          userAnswerInstance
+          user_answer
         })
       })
 
