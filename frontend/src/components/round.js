@@ -24,6 +24,9 @@ class Round {
     this.header = document.getElementById("intro");
     this.body = document.querySelector("body");
     this.p = document.querySelector("p");
+    this.form = document.createElement("form")
+    this.form.id = "quiz_form"
+
     this.submit_round = document.createElement("button")
     this.submit_round.id = "submit_round"
     this.submit_round.innerHTML = "Submit Round 1 Answers"
@@ -62,7 +65,7 @@ class Round {
     }
 
     this.p.innerHTML = ""
-    const form = document.createElement("form")
+    // const form = document.createElement("form")
 
     // this.quiz.style.display = "visible"
 
@@ -116,23 +119,23 @@ class Round {
       answer_d_text.innerText = ` ${question.answer_d} \n\n`
 
 
-      this.body.appendChild(form)
-      form.appendChild(q)
+      this.body.appendChild(this.form)
+      this.form.appendChild(q)
 
-      form.appendChild(answer_a)
-      form.appendChild(answer_a_text)
+      this.form.appendChild(answer_a)
+      this.form.appendChild(answer_a_text)
 
-      form.appendChild(answer_b)
-      form.appendChild(answer_b_text)
+      this.form.appendChild(answer_b)
+      this.form.appendChild(answer_b_text)
 
-      form.appendChild(answer_c)
-      form.appendChild(answer_c_text)
+      this.form.appendChild(answer_c)
+      this.form.appendChild(answer_c_text)
 
-      form.appendChild(answer_d)
-      form.appendChild(answer_d_text)
+      this.form.appendChild(answer_d)
+      this.form.appendChild(answer_d_text)
     })
 
-    form.appendChild(this.submit_round)
+    this.form.appendChild(this.submit_round)
 
   }
 
@@ -140,6 +143,10 @@ class Round {
     event.preventDefault()
     this.getUserAnswers()
     // when a user submits their answers, if they have enough correct they should immediately move to round 2.
+    this.p.innerHTML = "Congratulations! You're smart enough to move on to the next round."
+    document.getElementById("quiz_form").style.display = "none"
+    this.start_button.style.display = "initial"
+
   }
 
   getUserAnswers() {
