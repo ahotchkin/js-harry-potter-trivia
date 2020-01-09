@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_12_02_202540) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "questions", force: :cascade do |t|
     t.text "content"
     t.text "answer_a"
@@ -19,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_202540) do
     t.text "answer_c"
     t.text "answer_d"
     t.string "correct_answer"
-    t.integer "round_id"
+    t.bigint "round_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["round_id"], name: "index_questions_on_round_id"
@@ -32,9 +35,9 @@ ActiveRecord::Schema.define(version: 2019_12_02_202540) do
   end
 
   create_table "user_answers", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "round_id"
-    t.integer "question_id"
+    t.bigint "user_id"
+    t.bigint "round_id"
+    t.bigint "question_id"
     t.string "correct_answer"
     t.string "user_input"
     t.datetime "created_at", null: false
@@ -50,4 +53,8 @@ ActiveRecord::Schema.define(version: 2019_12_02_202540) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "questions", "rounds"
+  add_foreign_key "user_answers", "questions"
+  add_foreign_key "user_answers", "rounds"
+  add_foreign_key "user_answers", "users"
 end
