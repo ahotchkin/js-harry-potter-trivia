@@ -193,7 +193,7 @@ class Round {
 
     })
 
-    if (correctAnswers.length >= 3) {
+    if (correctAnswers.length >= 5) {
       const round = new Round(this.user, this.id + 1)
       console.log(round)
       console.log("Congratulations, you will move on to the next round")
