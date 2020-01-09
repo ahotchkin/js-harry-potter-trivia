@@ -38,9 +38,7 @@ class Round {
     event.preventDefault();
     this.adapter.getRound()
       .then(round => {
-        // console.log(round.questions[0].answer_a)
         this.renderQuestions(round)
-        // console.log(round)
       })
   }
 
@@ -141,6 +139,7 @@ class Round {
   submitAnswers(event) {
     event.preventDefault()
     this.getUserAnswers()
+    // when a user submits their answers, if they have enough correct they should immediately move to round 2.
   }
 
   getUserAnswers() {
@@ -166,6 +165,7 @@ class Round {
 
           userAnswers.push(userAnswer)
           // this.createUserAnswer(userAnswer)
+          // as of right now, not doing anything with this json info so there isn't a separate createUserAnswer() function in this file
           userAnswer.adapter.createUserAnswer(userAnswer)
 
 
@@ -188,8 +188,9 @@ class Round {
 
     if (correctAnswers.length >= 3) {
       const round = new Round(this.user, this.id + 1)
+      console.log(round)
       console.log("Congratulations, you will move on to the next round")
-      this.renderQuestions(round)
+      // this.fetchAndLoadRound(event)
     } else {
       console.log("Sorry, Voldemort wins.")
     }
