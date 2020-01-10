@@ -26,7 +26,7 @@ question_5 = Question.create(:round_id => 1, :content => "This is Round 1 Questi
 
 question_6 = Question.create(:round_id => 1, :content => "This is Round 1 Question 6 right here?", :answer_a => "This is Question 6 Answer A. It is incorrect.", :answer_b => "This is Question 6 Answer B. It is incorrect.", :answer_c => "This is Question 6 Answer C. It is correct.", :answer_d => "This is Question 6 Answer D. It is incorrect", :correct_answer => "C")
 
-question_7 = Question.create(:round_id => 1, :content => "This is Round 1 Question 7 right here?", :answer_a => "This is Question 7 Answer A. It is incorrect.", :answer_b => "This is Question 7 Answer B. It is correct.", :answer_c => "This is Question 7 Answer C. It is incorrect.", :answer_d => "This is Question72 Answer D. It is incorrect", :correct_answer => "B")
+question_7 = Question.create(:round_id => 1, :content => "This is Round 1 Question 7 right here?", :answer_a => "This is Question 7 Answer A. It is incorrect.", :answer_b => "This is Question 7 Answer B. It is correct.", :answer_c => "This is Question 7 Answer C. It is incorrect.", :answer_d => "This is Question 7 Answer D. It is incorrect", :correct_answer => "B")
 
 
 question_8 = Question.create(:round_id => 2, :content => "This is Round 2 Question 1 right here?", :answer_a => "This is Question 1 Answer A. It is incorrect.", :answer_b => "This is Question 1 Answer B. It is incorrect.", :answer_c => "This is Question 1 Answer C. It is correct.", :answer_d => "This is Question 1 Answer D. It is incorrect", :correct_answer => "C")

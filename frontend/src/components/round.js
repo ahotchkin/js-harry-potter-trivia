@@ -1,9 +1,10 @@
 class Round {
 
   constructor(user, id){
-    // is this needed?
+    // is this needed? should I be pushing the questions from the database into the array?
     this.questions = []
     this.roundBindingsAndEventListeners()
+    // this.formElements()
     // is this okay to do since my Round model doesn't have a user attribute????
     this.user = user
     // need to figure out how to change the ID for the next round
@@ -37,8 +38,13 @@ class Round {
 
   }
 
+  // formElements() {
+  //   this.answer_a_text =
+  // }
+
   fetchAndLoadRound(event) {
     event.preventDefault();
+    console.log(this)
     this.adapter.getRound()
       .then(round => {
         this.renderQuestions(round)
@@ -58,19 +64,32 @@ class Round {
 
   renderQuestions(round) {
     this.start_button.style.display = "none"
+    this.p.innerHTML = ""
+
+    // should this be saved in the database somewhere instead?
     if (round.id == 1) {
       this.header.innerHTML = `${this.user.username} and the Sorcerer's Stone`
     } else if (round.id == 2) {
       this.header.innerHTML = `${this.user.username} and the Chamber of Secrets`
+    } else if (round.id == 3) {
+      this.header.innerHTML = `${this.user.username} and the Prizoner of Azkaban`
+    } else if (round.id == 4) {
+      this.header.innerHTML = `${this.user.username} and the Goblet of Fire`
+    } else if (round.id == 5) {
+      this.header.innerHTML = `${this.user.username} and the Order of the Phoenix`
+    } else if (round.id == 6) {
+      this.header.innerHTML = `${this.user.username} and the Half Blood Prince`
+    } else if (round.id == 7) {
+      this.header.innerHTML = `${this.user.username} and the Deathly Hallows`
     }
 
-    this.p.innerHTML = ""
-    // const form = document.createElement("form")
 
-    // this.quiz.style.display = "visible"
+
 
     // do I want to add all HTML elements here, or add a form to index.html and keep it hidden until this point?
     console.log(round.questions)
+    this.body.appendChild(this.form)
+
     round.questions.forEach(question => {
       const q = document.createElement("p")
 
@@ -89,6 +108,7 @@ class Round {
 
 
       q.innerHTML = question.content
+      q.id = "question"
 
       answer_a.setAttribute("type", "radio");
       answer_a.setAttribute("value", "A")
@@ -119,7 +139,6 @@ class Round {
       answer_d_text.innerText = ` ${question.answer_d} \n\n`
 
 
-      this.body.appendChild(this.form)
       this.form.appendChild(q)
 
       this.form.appendChild(answer_a)
@@ -144,7 +163,9 @@ class Round {
     this.getUserAnswers()
     // when a user submits their answers, if they have enough correct they should immediately move to round 2.
     this.p.innerHTML = "Congratulations! You're smart enough to move on to the next round."
-    document.getElementById("quiz_form").style.display = "none"
+
+    this.form.innerHTML = "";
+
     this.start_button.style.display = "initial"
 
   }
@@ -174,8 +195,6 @@ class Round {
           // this.createUserAnswer(userAnswer)
           // as of right now, not doing anything with this json info so there isn't a separate createUserAnswer() function in this file
           userAnswer.adapter.createUserAnswer(userAnswer)
-
-
         })
 
         this.numberOfCorrectAnswers(userAnswers)
@@ -194,8 +213,16 @@ class Round {
     })
 
     if (correctAnswers.length >= 5) {
-      const round = new Round(this.user, this.id + 1)
-      console.log(round)
+      console.log(this.id)
+      this.id += 1
+
+      console.log(this)
+      this.adapter = new RoundsAdapter(this)
+
+      console.log(this.id)
+
+      // const round = new Round(this.user, this.id + 1)
+      // console.log(round)
       console.log("Congratulations, you will move on to the next round")
       // this.fetchAndLoadRound(event)
     } else {
