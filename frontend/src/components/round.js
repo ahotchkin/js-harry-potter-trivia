@@ -30,7 +30,7 @@ class Round {
 
     this.submit_round = document.createElement("button")
     this.submit_round.id = "submit_round"
-    this.submit_round.innerHTML = "Submit Round 1 Answers"
+    // this.submit_round.innerHTML = "Submit Round 1 Answers"
 
     // hard bind this to the round when we execute submitAnswers, so when we access this from submitAnswers it is the Round class
     this.submit_round.addEventListener("click", this.submitAnswers.bind(this));
@@ -154,6 +154,10 @@ class Round {
       this.form.appendChild(answer_d_text)
     })
 
+    // should this be specific book quotes?
+    this.submit_round.innerHTML = `Submit Round ${this.id} Answers`
+
+
     this.form.appendChild(this.submit_round)
 
   }
@@ -168,7 +172,32 @@ class Round {
 
     this.start_button.style.display = "initial"
 
+    console.log("I'm in submit answers")
+    console.log(this)
+    console.log(this.adapter)
+    console.log("I'm leaving submit answers")
+
+    if (this.id == 1) {
+      this.start_button.innerHTML = "Start Round 2"
+    } else if (this.id == 2) {
+      this.start_button.innerHTML = "Start Round 3"
+    } else if (this.id == 3) {
+      this.start_button.innerHTML = "Start Round 4"
+    } else if (this.id == 4) {
+      this.start_button.innerHTML = "Start Round 5"
+    } else if (this.id == 5) {
+      this.start_button.innerHTML = "Start Round 6"
+    } else if (this.id == 6) {
+      this.start_button.innerHTML = "Start Round 7"
+    } else if (this.id == 7) {
+      this.start_button.innerHTML = "See Your Stats"
+    }
+
+
+
+
   }
+
 
   getUserAnswers() {
     const possible_answers = Array.from(document.querySelectorAll(".answer"))
