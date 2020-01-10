@@ -66,7 +66,7 @@ class Round {
     this.start_button.style.display = "none"
     this.p.innerHTML = ""
 
-    // should this be saved in the database somewhere instead?
+    // should this be saved in the database somewhere instead? Case statement?
     if (round.id == 1) {
       this.header.innerHTML = `${this.user.username} and the Sorcerer's Stone`
     } else if (round.id == 2) {
@@ -165,33 +165,27 @@ class Round {
   submitAnswers(event) {
     event.preventDefault()
     this.getUserAnswers()
-    // when a user submits their answers, if they have enough correct they should immediately move to round 2.
-    this.p.innerHTML = "Congratulations! You're smart enough to move on to the next round."
+    // this.p.innerHTML = "Congratulations! You're smart enough to move on to the next round."
 
     this.form.innerHTML = "";
 
     this.start_button.style.display = "initial"
 
-    console.log("I'm in submit answers")
-    console.log(this)
-    console.log(this.adapter)
-    console.log("I'm leaving submit answers")
-
-    if (this.id == 1) {
-      this.start_button.innerHTML = "Start Round 2"
-    } else if (this.id == 2) {
-      this.start_button.innerHTML = "Start Round 3"
-    } else if (this.id == 3) {
-      this.start_button.innerHTML = "Start Round 4"
-    } else if (this.id == 4) {
-      this.start_button.innerHTML = "Start Round 5"
-    } else if (this.id == 5) {
-      this.start_button.innerHTML = "Start Round 6"
-    } else if (this.id == 6) {
-      this.start_button.innerHTML = "Start Round 7"
-    } else if (this.id == 7) {
-      this.start_button.innerHTML = "See Your Stats"
-    }
+    // if (this.id == 1) {
+    //   this.start_button.innerHTML = "Start Round 2"
+    // } else if (this.id == 2) {
+    //   this.start_button.innerHTML = "Start Round 3"
+    // } else if (this.id == 3) {
+    //   this.start_button.innerHTML = "Start Round 4"
+    // } else if (this.id == 4) {
+    //   this.start_button.innerHTML = "Start Round 5"
+    // } else if (this.id == 5) {
+    //   this.start_button.innerHTML = "Start Round 6"
+    // } else if (this.id == 6) {
+    //   this.start_button.innerHTML = "Start Round 7"
+    // } else if (this.id == 7) {
+    //   this.start_button.innerHTML = "See Your Stats"
+    // }
 
 
 
@@ -242,19 +236,36 @@ class Round {
     })
 
     if (correctAnswers.length >= 5) {
-      console.log(this.id)
       this.id += 1
-
-      console.log(this)
       this.adapter = new RoundsAdapter(this)
 
-      console.log(this.id)
+      this.p.innerHTML = "Congratulations! You're smart enough to move on to the next round."
 
       // const round = new Round(this.user, this.id + 1)
       // console.log(round)
-      console.log("Congratulations, you will move on to the next round")
+      console.log("Congratulations! You're smart enough to move on to the next round.")
+
+      if (this.id == 2) {
+        this.start_button.innerHTML = "Start Round 2"
+      } else if (this.id == 3) {
+        this.start_button.innerHTML = "Start Round 3"
+      } else if (this.id == 4) {
+        this.start_button.innerHTML = "Start Round 4"
+      } else if (this.id == 5) {
+        this.start_button.innerHTML = "Start Round 5"
+      } else if (this.id == 6) {
+        this.start_button.innerHTML = "Start Round 6"
+      } else if (this.id == 7) {
+        this.start_button.innerHTML = "Start Round 7"
+      } else if (this.id == 8) {
+        this.start_button.innerHTML = "See Your Stats"
+      }
+
       // this.fetchAndLoadRound(event)
     } else {
+      this.p.innerHTML = "Sorry, Voldemort wins."
+      this.start_button.innerHTML = "Try Again"
+
       console.log("Sorry, Voldemort wins.")
     }
 
