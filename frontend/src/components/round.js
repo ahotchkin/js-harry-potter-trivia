@@ -4,11 +4,12 @@ class Round {
     // is this needed? should I be pushing the questions from the database into the array?
     this.questions = []
     this.roundBindingsAndEventListeners()
-    // this.formElements()
     // is this okay to do since my Round model doesn't have a user attribute????
     this.user = user
-    // need to figure out how to change the ID for the next round
+
+    // should I be hardcoding the ID for round one and assigning it like this????
     this.id = id
+
     this.adapter = new RoundsAdapter(this)
 
     // this.fetchAndLoadRound()
@@ -25,8 +26,9 @@ class Round {
     this.header = document.getElementById("intro");
     this.body = document.querySelector("body");
     this.p = document.querySelector("p");
-    this.form = document.createElement("form")
-    this.form.id = "quiz_form"
+    this.form = document.getElementById("quiz_form")
+    // this.form = document.createElement("form")
+    // this.form.id = "quiz_form"
 
     this.submit_round = document.createElement("button")
     this.submit_round.id = "submit_round"
@@ -47,7 +49,7 @@ class Round {
     console.log(this)
     this.adapter.getRound()
       .then(round => {
-        this.renderQuestions(round)
+        this.renderRound(round)
       })
   }
 
@@ -62,7 +64,7 @@ class Round {
   // })
 
 
-  renderQuestions(round) {
+  renderRound(round) {
     this.start_button.style.display = "none"
     this.p.innerHTML = ""
 
@@ -88,70 +90,77 @@ class Round {
 
     // do I want to add all HTML elements here, or add a form to index.html and keep it hidden until this point?
     console.log(round.questions)
-    this.body.appendChild(this.form)
+    // this.body.appendChild(this.form)
 
     round.questions.forEach(question => {
-      const q = document.createElement("p")
 
-      // is there not a way to add text to the radio button itself? Tried updating the innerHTML of answer_a, and it looked correct in the elements but text wasn't showing up in the browser.
-      const answer_a = document.createElement("input")
-      const answer_a_text = document.createElement("label")
+      // this code was added because I moved the rest of the code in the loop to question.js, so I need to create an instance of Question for each question in the round
+      let q = new Question(question.id, question.content, question.answer_a, question.answer_b, question.answer_c, question.answer_d, question.correct_answer, question.round_id)
 
-      const answer_b = document.createElement("input")
-      const answer_b_text = document.createElement("label")
+      q.renderQuestion(q)
 
-      const answer_c = document.createElement("input")
-      const answer_c_text = document.createElement("label")
-
-      const answer_d = document.createElement("input")
-      const answer_d_text = document.createElement("label")
-
-
-      q.innerHTML = question.content
-      q.id = "question"
-
-      answer_a.setAttribute("type", "radio");
-      answer_a.setAttribute("value", "A")
-      answer_a.setAttribute("name", question.id)
-      answer_a.setAttribute("class", "answer")
-      answer_a.setAttribute("id", "user_input")
-      answer_a_text.innerText = ` ${question.answer_a} \n`
-
-      answer_b.setAttribute("type", "radio");
-      answer_b.setAttribute("value", "B")
-      answer_b.setAttribute("name", question.id)
-      answer_b.setAttribute("class", "answer")
-      answer_b.setAttribute("id", "user_input")
-      answer_b_text.innerText = ` ${question.answer_b} \n`
-
-      answer_c.setAttribute("type", "radio");
-      answer_c.setAttribute("value", "C")
-      answer_c.setAttribute("name", question.id)
-      answer_c.setAttribute("class", "answer")
-      answer_c.setAttribute("id", "user_input")
-      answer_c_text.innerText = ` ${question.answer_c} \n`
-
-      answer_d.setAttribute("type", "radio");
-      answer_d.setAttribute("value", "D")
-      answer_d.setAttribute("name", question.id)
-      answer_d.setAttribute("class", "answer")
-      answer_d.setAttribute("id", "user_input")
-      answer_d_text.innerText = ` ${question.answer_d} \n\n`
-
-
-      this.form.appendChild(q)
-
-      this.form.appendChild(answer_a)
-      this.form.appendChild(answer_a_text)
-
-      this.form.appendChild(answer_b)
-      this.form.appendChild(answer_b_text)
-
-      this.form.appendChild(answer_c)
-      this.form.appendChild(answer_c_text)
-
-      this.form.appendChild(answer_d)
-      this.form.appendChild(answer_d_text)
+      // this code was moved to question.js
+      // const q = document.createElement("p")
+      //
+      // // is there not a way to add text to the radio button itself? Tried updating the innerHTML of answer_a, and it looked correct in the elements but text wasn't showing up in the browser.
+      // const answer_a = document.createElement("input")
+      // const answer_a_text = document.createElement("label")
+      //
+      // const answer_b = document.createElement("input")
+      // const answer_b_text = document.createElement("label")
+      //
+      // const answer_c = document.createElement("input")
+      // const answer_c_text = document.createElement("label")
+      //
+      // const answer_d = document.createElement("input")
+      // const answer_d_text = document.createElement("label")
+      //
+      //
+      // q.innerHTML = question.content
+      // q.id = "question"
+      //
+      // answer_a.setAttribute("type", "radio");
+      // answer_a.setAttribute("value", "A")
+      // answer_a.setAttribute("name", question.id)
+      // answer_a.setAttribute("class", "answer")
+      // answer_a.setAttribute("id", "user_input")
+      // answer_a_text.innerText = ` ${question.answer_a} \n`
+      //
+      // answer_b.setAttribute("type", "radio");
+      // answer_b.setAttribute("value", "B")
+      // answer_b.setAttribute("name", question.id)
+      // answer_b.setAttribute("class", "answer")
+      // answer_b.setAttribute("id", "user_input")
+      // answer_b_text.innerText = ` ${question.answer_b} \n`
+      //
+      // answer_c.setAttribute("type", "radio");
+      // answer_c.setAttribute("value", "C")
+      // answer_c.setAttribute("name", question.id)
+      // answer_c.setAttribute("class", "answer")
+      // answer_c.setAttribute("id", "user_input")
+      // answer_c_text.innerText = ` ${question.answer_c} \n`
+      //
+      // answer_d.setAttribute("type", "radio");
+      // answer_d.setAttribute("value", "D")
+      // answer_d.setAttribute("name", question.id)
+      // answer_d.setAttribute("class", "answer")
+      // answer_d.setAttribute("id", "user_input")
+      // answer_d_text.innerText = ` ${question.answer_d} \n\n`
+      //
+      //
+      // this.form.appendChild(q)
+      //
+      // this.form.appendChild(answer_a)
+      // this.form.appendChild(answer_a_text)
+      //
+      // this.form.appendChild(answer_b)
+      // this.form.appendChild(answer_b_text)
+      //
+      // this.form.appendChild(answer_c)
+      // this.form.appendChild(answer_c_text)
+      //
+      // this.form.appendChild(answer_d)
+      // this.form.appendChild(answer_d_text)
     })
 
     // should this be specific book quotes?
