@@ -42,9 +42,8 @@ class Question {
 
     q.innerHTML = question.content
     // is this id needed?
-    q.id = "question"
+    // q.id = "question"
 
-    console.log(question)
 
     answer_a.setAttribute("type", "radio");
     answer_a.setAttribute("value", "A")

@@ -4,12 +4,10 @@ class UserAnswersAdapter {
     this.baseUrl = `http://localhost:3000/api/v1/user_answers`
   }
 
-
   getUserAnswer() {
     return fetch(this.baseUrl).then(response => response.json())
   }
 
-  // want to send a post request to create a new UserAnswer in the Rails DB. Code is incomplete.
   createUserAnswer(userAnswer) {
     const user_answer = {
       user_id: userAnswer.user_id,

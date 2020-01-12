@@ -4,6 +4,7 @@ class Round {
     // is this needed? should I be pushing the questions from the database into the array?
     this.questions = []
     this.roundBindingsAndEventListeners()
+
     // is this okay to do since my Round model doesn't have a user attribute????
     this.user = user
 
@@ -46,7 +47,7 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    console.log(this)
+    // console.log(this)
     this.adapter.getRound()
       .then(round => {
         this.renderRound(round)
@@ -89,7 +90,7 @@ class Round {
 
 
     // do I want to add all HTML elements here, or add a form to index.html and keep it hidden until this point?
-    console.log(round.questions)
+    // console.log(round.questions)
     // this.body.appendChild(this.form)
 
     round.questions.forEach(question => {
@@ -226,7 +227,7 @@ class Round {
           userAnswers.push(userAnswer)
           // this.createUserAnswer(userAnswer)
           // as of right now, not doing anything with this json info so there isn't a separate createUserAnswer() function in this file
-          userAnswer.adapter.createUserAnswer(userAnswer)
+          // userAnswer.adapter.createUserAnswer(userAnswer)
         })
 
         this.numberOfCorrectAnswers(userAnswers)
@@ -245,14 +246,14 @@ class Round {
     })
 
     if (correctAnswers.length >= 5) {
+      userAnswers.forEach(userAnswer => {
+        userAnswer.adapter.createUserAnswer(userAnswer)
+      })
+
       this.id += 1
       this.adapter = new RoundsAdapter(this)
 
       this.p.innerHTML = "Congratulations! You're smart enough to move on to the next round."
-
-      // const round = new Round(this.user, this.id + 1)
-      // console.log(round)
-      console.log("Congratulations! You're smart enough to move on to the next round.")
 
       if (this.id == 2) {
         this.start_button.innerHTML = "Start Round 2"
@@ -275,30 +276,11 @@ class Round {
       this.p.innerHTML = "Sorry, Voldemort wins."
       this.start_button.innerHTML = "Try Again"
 
-      console.log("Sorry, Voldemort wins.")
     }
 
   }
 
-  // createUserAnswer(userAnswer) {
-  //   userAnswer.adapter.createUserAnswer(userAnswer)
-  //   // gets parsed JSON from UserAnswerssAdapter createUserAnswer()
-  //     .then(user_answer => {
-  //       // console.log(user_answer)
-  //   })
-  // }
 
-  fetchRound() {
-    // this.adapter.getRound()
-    //   .then(round => {
-    //     // need to have access to the answers_array from getUserAnswers to complete the data needed in the UserAnswer instance
-    //     round.questions.forEach(question => {
-    //       console.log(round)
-    //       const userAnswer = new UserAnswer(this.user, round, question)
-    //       console.log(userAnswer)
-    //     })
-    //   })
-  }
 
 
 }
