@@ -225,9 +225,6 @@ class Round {
           const userAnswer = new UserAnswer(this.user, round, question, user_input)
 
           userAnswers.push(userAnswer)
-          // this.createUserAnswer(userAnswer)
-          // as of right now, not doing anything with this json info so there isn't a separate createUserAnswer() function in this file
-          // userAnswer.adapter.createUserAnswer(userAnswer)
         })
 
         this.numberOfCorrectAnswers(userAnswers)
@@ -247,6 +244,7 @@ class Round {
 
     if (correctAnswers.length >= 5) {
       userAnswers.forEach(userAnswer => {
+        // as of right now, not doing anything with this json info so there isn't a separate createUserAnswer() function in this file
         userAnswer.adapter.createUserAnswer(userAnswer)
       })
 
