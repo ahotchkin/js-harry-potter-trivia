@@ -48,10 +48,15 @@ class Round {
   fetchAndLoadRound(event) {
     event.preventDefault();
     // console.log(this)
-    this.adapter.getRound()
-      .then(round => {
-        this.renderRound(round)
-      })
+    if (this.id < 8) {
+      this.adapter.getRound()
+        .then(round => {
+          this.renderRound(round)
+        })
+    } else {
+      this.renderStats()
+    }
+
   }
 
   // this.start_button.addEventListener("click", function(event) {
@@ -276,6 +281,12 @@ class Round {
 
     }
 
+  }
+
+  renderStats() {
+    this.header.innerHTML = `${this.user.username} Stats`
+    console.log(this.user)
+    console.log("I'm rendering the stats!!!!")
   }
 
 
