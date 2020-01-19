@@ -86,7 +86,7 @@ class Round {
     } else if (round.id == 5) {
       this.header.innerHTML = `${this.user.username} and the Order of the Phoenix`
     } else if (round.id == 6) {
-      this.header.innerHTML = `${this.user.username} and the Half Blood Prince`
+      this.header.innerHTML = `${this.user.username} and the Half-Blood Prince`
     } else if (round.id == 7) {
       this.header.innerHTML = `${this.user.username} and the Deathly Hallows`
     }
@@ -288,15 +288,66 @@ class Round {
     this.header.innerHTML = `${this.user.username}'s Battle of Hogwarts`
     this.start_button.style.display = "none"
     this.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
-    console.log(this.user)
-    console.log("I'm rendering the stats!!!!")
 
+    const r1 = document.createElement("h3")
+    r1.innerHTML = `Round 1: ${this.user.username} and the Sorcerer's Stone`
+
+    const r2 = document.createElement("h3")
+    r2.innerHTML = `Round 2: ${this.user.username} and the Chamber of Secrets`
+
+    const r3 = document.createElement("h3")
+    r3.innerHTML = `Round 3: ${this.user.username} and the Prizoner of Azkaban`
+
+    const r4 = document.createElement("h3")
+    r4.innerHTML = `Round 4: ${this.user.username} and the Goblet of Fire`
+
+    const r5 = document.createElement("h3")
+    r5.innerHTML = `Round 5: ${this.user.username} and the Order of the Phoenix`
+
+    const r6 = document.createElement("h3")
+    r6.innerHTML = `Round 6: ${this.user.username} and the Half-Blood Prince`
+
+    const r7 = document.createElement("h3")
+    r7.innerHTML = `Round 7: ${this.user.username} and the Deathly Hallows`
+
+    this.body.appendChild(r1)
+    this.body.appendChild(r2)
+    this.body.appendChild(r3)
+    this.body.appendChild(r4)
+    this.body.appendChild(r5)
+    this.body.appendChild(r6)
+    this.body.appendChild(r7)
+
+    // should I create a userAnswers.rb file to create a userAnswers array????
     return fetch(`http://localhost:3000/api/v1/user_answers`)
       .then(response => response.json())
       .then(userAnswers => {
         for (const userAnswer of userAnswers) {
+
           if (this.user.id == userAnswer.user_id) {
-            console.log(userAnswer)
+            const li = document.createElement("li")
+            if (userAnswer.round_id == 1) {
+              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+              r1.appendChild(li)
+            } else if (userAnswer.round_id == 2) {
+              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+              r2.appendChild(li)
+            } else if (userAnswer.round_id == 3) {
+              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+              r3.appendChild(li)
+            } else if (userAnswer.round_id == 4) {
+              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+              r4.appendChild(li)
+            } else if (userAnswer.round_id == 5) {
+              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+              r5.appendChild(li)
+            } else if (userAnswer.round_id == 6) {
+              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+              r6.appendChild(li)
+            } else if (userAnswer.round_id == 7) {
+              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+              r7.appendChild(li)
+            }
           }
         }
         // if (userAnswers.user_id == this.user.id) {
