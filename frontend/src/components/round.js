@@ -98,6 +98,7 @@ class Round {
     // console.log(round.questions)
     // this.body.appendChild(this.form)
 
+    // should I use for...of instead of forEach?
     round.questions.forEach(question => {
 
       // this code was added because I moved the rest of the code in the loop to question.js, so I need to create an instance of Question for each question in the round
@@ -284,9 +285,29 @@ class Round {
   }
 
   renderStats() {
-    this.header.innerHTML = `${this.user.username} Stats`
+    this.header.innerHTML = `${this.user.username}'s Battle of Hogwarts`
+    this.start_button.style.display = "none"
+    this.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
     console.log(this.user)
     console.log("I'm rendering the stats!!!!")
+
+    return fetch(`http://localhost:3000/api/v1/user_answers`)
+      .then(response => response.json())
+      .then(userAnswers => {
+        for (const userAnswer of userAnswers) {
+          if (this.user.id == userAnswer.user_id) {
+            console.log(userAnswer)
+          }
+        }
+        // if (userAnswers.user_id == this.user.id) {
+        //   console.log(userAnswers)
+        // }
+      })
+
+    // Show each round and how many questions the user got correct per round
+    // create a p tag to show the round number
+    // for Round 1, get the userAnswers by finding where the user id == this.user.id and round_id == 1
+
   }
 
 
