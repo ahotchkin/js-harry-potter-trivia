@@ -4,16 +4,9 @@ class Round {
     // is this needed? should I be pushing the questions from the database into the array?
     this.questions = []
     this.roundBindingsAndEventListeners()
-
-    // is this okay to do since my Round model doesn't have a user attribute????
     this.user = user
-
-    // should I be hardcoding the ID for round one and assigning it like this????
     this.id = id
-
     this.adapter = new RoundsAdapter(this)
-
-    // this.fetchAndLoadRound()
   }
 
   // should anything regarding questions be moved to question.js????
@@ -435,8 +428,6 @@ class Round {
 
           }
         }
-        // if (userAnswers.user_id == this.user.id) {
-        //   console.log(userAnswers)
 
         p1.innerHTML = `${r1CorrectAnswers} of 7 questions correct`
         p2.innerHTML = `${r2CorrectAnswers} of 7 questions correct`
@@ -446,13 +437,8 @@ class Round {
         p6.innerHTML = `${r6CorrectAnswers} of 7 questions correct`
         p7.innerHTML = `${r7CorrectAnswers} of 7 questions correct`
 
-
-
       })
 
-    // Show each round and how many questions the user got correct per round
-    // create a p tag to show the round number
-    // for Round 1, get the userAnswers by finding where the user id == this.user.id and round_id == 1
 
   }
 
