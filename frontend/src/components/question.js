@@ -10,7 +10,7 @@ class Question {
     this.correct_answer = correct_answer;
     this.round_id = round_id;
 
-    this.adapter = new QuestionsAdapter()
+    // this.adapter = new QuestionsAdapter()
     this.questionBindingsAndEventListeners()
 
 

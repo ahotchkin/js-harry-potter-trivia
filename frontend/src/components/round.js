@@ -2,7 +2,7 @@ class Round {
 
   constructor(user, id){
     // is this needed? should I be pushing the questions from the database into the array?
-    this.questions = []
+    // this.questions = []
     this.roundBindingsAndEventListeners()
     this.user = user
     this.id = id
@@ -41,7 +41,7 @@ class Round {
   fetchAndLoadRound(event) {
     event.preventDefault();
     // console.log(this)
-    if (this.id < 8) {
+    if (this.id < 2) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round)
@@ -279,6 +279,10 @@ class Round {
   }
 
   renderStats() {
+    const questions = new Questions()
+    questions.fetchQuestions()
+
+
     this.header.innerHTML = `${this.user.username}'s Battle of Hogwarts`
     this.start_button.style.display = "none"
     this.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
@@ -438,6 +442,8 @@ class Round {
         p7.innerHTML = `${r7CorrectAnswers} of 7 questions correct`
 
       })
+
+
 
 
   }

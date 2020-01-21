@@ -8,7 +8,7 @@ class UserAnswer {
     this.correct_answer = question.correct_answer
     this.user_input = user_input.input
     // console.log(this)
-    this.adapter = new UserAnswersAdapter(this)
+    this.adapter = new UserAnswersAdapter()
 
     this.userAnswerBindingsAndEventListeners()
 
