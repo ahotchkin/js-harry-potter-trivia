@@ -48,7 +48,7 @@ class Round {
   fetchAndLoadRound(event) {
     event.preventDefault();
     // console.log(this)
-    if (this.id < 2) {
+    if (this.id < 8) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round)
@@ -335,6 +335,22 @@ class Round {
     const p6 = document.createElement("p")
     const p7 = document.createElement("p")
 
+    p1.innerHTML = ""
+    p2.innerHTML = ""
+    p3.innerHTML = ""
+    p4.innerHTML = ""
+    p5.innerHTML = ""
+    p6.innerHTML = ""
+    p7.innerHTML = ""
+
+    r1.appendChild(p1)
+    r2.appendChild(p2)
+    r3.appendChild(p3)
+    r4.appendChild(p4)
+    r5.appendChild(p5)
+    r6.appendChild(p6)
+    r7.appendChild(p7)
+
     // should I create a userAnswers.rb file to create a userAnswers array????
     return fetch(`http://localhost:3000/api/v1/user_answers`)
       .then(response => response.json())
@@ -346,10 +362,6 @@ class Round {
           if (this.user.id == userAnswer.user_id) {
 
             const li = document.createElement("li")
-
-
-
-
 
 
             if (userAnswer.round_id == 1) {
@@ -367,56 +379,56 @@ class Round {
               // this code is repetitive
 
               if (userAnswer.user_input == userAnswer.correct_answer) {
-                r2CorrectAnswers++
+                r2CorrectAnswers ++
+              } else {
+                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                r2.appendChild(li)
               }
-
-              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-              r2.appendChild(li)
             } else if (userAnswer.round_id == 3) {
               // this code is repetitive
 
               if (userAnswer.user_input == userAnswer.correct_answer) {
-                r3CorrectAnswers++
+                r3CorrectAnswers ++
+              } else {
+                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                r3.appendChild(li)
               }
-
-              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-              r3.appendChild(li)
             } else if (userAnswer.round_id == 4) {
               // this code is repetitive
 
               if (userAnswer.user_input == userAnswer.correct_answer) {
-                r4CorrectAnswers++
+                r4CorrectAnswers ++
+              } else {
+                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                r4.appendChild(li)
               }
-
-              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-              r4.appendChild(li)
             } else if (userAnswer.round_id == 5) {
               // this code is repetitive
 
               if (userAnswer.user_input == userAnswer.correct_answer) {
-                r5CorrectAnswers++
+                r5CorrectAnswers ++
+              } else {
+                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                r5.appendChild(li)
               }
-
-              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-              r5.appendChild(li)
             } else if (userAnswer.round_id == 6) {
               // this code is repetitive
 
               if (userAnswer.user_input == userAnswer.correct_answer) {
-                r6CorrectAnswers++
+                r6CorrectAnswers ++
+              } else {
+                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                r6.appendChild(li)
               }
-
-              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-              r6.appendChild(li)
             } else if (userAnswer.round_id == 7) {
               // this code is repetitive
 
               if (userAnswer.user_input == userAnswer.correct_answer) {
-                r7CorrectAnswers++
+                r7CorrectAnswers ++
+              } else {
+                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                r7.appendChild(li)
               }
-
-              li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-              r7.appendChild(li)
             }
 
 
@@ -427,20 +439,14 @@ class Round {
         //   console.log(userAnswers)
 
         p1.innerHTML = `${r1CorrectAnswers} of 7 questions correct`
-        p2.innerHTML = `${r2CorrectAnswers.length} of 7 questions correct`
-        p3.innerHTML = `${r3CorrectAnswers.length} of 7 questions correct`
-        p4.innerHTML = `${r4CorrectAnswers.length} of 7 questions correct`
-        p5.innerHTML = `${r5CorrectAnswers.length} of 7 questions correct`
-        p6.innerHTML = `${r6CorrectAnswers.length} of 7 questions correct`
-        p7.innerHTML = `${r7CorrectAnswers.length} of 7 questions correct`
+        p2.innerHTML = `${r2CorrectAnswers} of 7 questions correct`
+        p3.innerHTML = `${r3CorrectAnswers} of 7 questions correct`
+        p4.innerHTML = `${r4CorrectAnswers} of 7 questions correct`
+        p5.innerHTML = `${r5CorrectAnswers} of 7 questions correct`
+        p6.innerHTML = `${r6CorrectAnswers} of 7 questions correct`
+        p7.innerHTML = `${r7CorrectAnswers} of 7 questions correct`
 
-        r1.appendChild(p1)
-        r2.appendChild(p2)
-        r3.appendChild(p3)
-        r4.appendChild(p4)
-        r5.appendChild(p5)
-        r6.appendChild(p6)
-        r7.appendChild(p7)
+
 
       })
 
