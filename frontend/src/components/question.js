@@ -10,7 +10,7 @@ class Question {
     this.correct_answer = correct_answer;
     this.round_id = round_id;
 
-    // this.adapter = new QuestionsAdapter()
+    this.adapter = new QuestionsAdapter(this)
     this.questionBindingsAndEventListeners()
 
 
@@ -88,5 +88,27 @@ class Question {
     this.form.appendChild(answer_d_text)
 
   }
+
+  fetchQuestion() {
+    this.adapter.getQuestion()
+      .then(question => {
+        console.log(question)
+      })
+  }
+
+
+  // fetchAndLoadRound(event) {
+  //   event.preventDefault();
+  //   // console.log(this)
+  //   if (this.id < 2) {
+  //     this.adapter.getRound()
+  //       .then(round => {
+  //         this.renderRound(round)
+  //       })
+  //   } else {
+  //     this.renderStats()
+  //   }
+  //
+  // }
 
 }

@@ -279,8 +279,7 @@ class Round {
   }
 
   renderStats() {
-    const questions = new Questions()
-    questions.fetchQuestions()
+
 
 
     this.header.innerHTML = `${this.user.username}'s Battle of Hogwarts`
@@ -348,10 +347,16 @@ class Round {
     r6.appendChild(p6)
     r7.appendChild(p7)
 
+    // const questions = new Questions()
+    // const allQuestions = questions.fetchQuestions()
+    // console.log(allQuestions)
+    // questions.fetchQuestions()
+
     // should I create a userAnswers.rb file to create a userAnswers array????
     return fetch(`http://localhost:3000/api/v1/user_answers`)
       .then(response => response.json())
       .then(userAnswers => {
+
         for (const userAnswer of userAnswers) {
 
 
@@ -368,8 +373,20 @@ class Round {
                 r1CorrectAnswers ++
               } else {
                 li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+
+                console.log(this)
+                // let q = new Question(question.id, question.content, question.answer_a, question.answer_b, question.answer_c, question.answer_d, question.correct_answer, question.round_id)
+                //
+                // q.fetchQuestion()
+
+                // find the question in questions where the question.id matches the userAnswer.question_id
+                // print the question.content
+                // print the answer the user selected
+                // print the correct answer
                 r1.appendChild(li)
               }
+
+              // questions.fetchQuestions()
 
 
             } else if (userAnswer.round_id == 2) {

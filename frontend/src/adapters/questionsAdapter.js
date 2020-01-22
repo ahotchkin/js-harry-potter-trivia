@@ -1,10 +1,10 @@
 class QuestionsAdapter {
 
-  constructor() {
-    this.baseUrl = `http://localhost:3000/api/v1/questions`
+  constructor(question) {
+    this.baseUrl = `http://localhost:3000/api/v1/questions/${question.id}`
   }
 
-  getQuestions() {
+  getQuestion() {
     return fetch(this.baseUrl).then(response => response.json())
   }
 
