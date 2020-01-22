@@ -41,7 +41,7 @@ class Round {
   fetchAndLoadRound(event) {
     event.preventDefault();
     // console.log(this)
-    if (this.id < 2) {
+    if (this.id < 8) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round)
@@ -95,6 +95,7 @@ class Round {
     round.questions.forEach(question => {
 
       // this code was added because I moved the rest of the code in the loop to question.js, so I need to create an instance of Question for each question in the round
+      // do I need to assign all of these attributes since it's pulling from the database?
       let q = new Question(question.id, question.content, question.answer_a, question.answer_b, question.answer_c, question.answer_d, question.correct_answer, question.round_id)
 
       q.renderQuestion(q)
@@ -307,6 +308,14 @@ class Round {
     const r7 = document.createElement("h3")
     r7.innerHTML = `Round 7: ${this.user.username} and the Deathly Hallows`
 
+    r1.id = "r1"
+    r2.id = "r2"
+    r3.id = "r3"
+    r4.id = "r4"
+    r5.id = "r5"
+    r6.id = "r6"
+    r7.id = "r7"
+
     this.body.appendChild(r1)
     this.body.appendChild(r2)
     this.body.appendChild(r3)
@@ -372,18 +381,12 @@ class Round {
               if (userAnswer.user_input == userAnswer.correct_answer) {
                 r1CorrectAnswers ++
               } else {
-                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                let q = new Question(userAnswer.question_id)
 
-                console.log(this)
-                // let q = new Question(question.id, question.content, question.answer_a, question.answer_b, question.answer_c, question.answer_d, question.correct_answer, question.round_id)
-                //
-                // q.fetchQuestion()
+                q.fetchQuestion(userAnswer)
 
-                // find the question in questions where the question.id matches the userAnswer.question_id
-                // print the question.content
-                // print the answer the user selected
-                // print the correct answer
-                r1.appendChild(li)
+                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                // r1.appendChild(li)
               }
 
               // questions.fetchQuestions()
@@ -395,8 +398,11 @@ class Round {
               if (userAnswer.user_input == userAnswer.correct_answer) {
                 r2CorrectAnswers ++
               } else {
-                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                r2.appendChild(li)
+                let q = new Question(userAnswer.question_id)
+
+                q.fetchQuestion(userAnswer)
+                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                // r2.appendChild(li)
               }
             } else if (userAnswer.round_id == 3) {
               // this code is repetitive
@@ -404,8 +410,12 @@ class Round {
               if (userAnswer.user_input == userAnswer.correct_answer) {
                 r3CorrectAnswers ++
               } else {
-                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                r3.appendChild(li)
+                let q = new Question(userAnswer.question_id)
+
+                q.fetchQuestion(userAnswer)
+
+                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                // r3.appendChild(li)
               }
             } else if (userAnswer.round_id == 4) {
               // this code is repetitive
@@ -413,8 +423,12 @@ class Round {
               if (userAnswer.user_input == userAnswer.correct_answer) {
                 r4CorrectAnswers ++
               } else {
-                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                r4.appendChild(li)
+                let q = new Question(userAnswer.question_id)
+
+                q.fetchQuestion(userAnswer)
+
+                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                // r4.appendChild(li)
               }
             } else if (userAnswer.round_id == 5) {
               // this code is repetitive
@@ -422,8 +436,12 @@ class Round {
               if (userAnswer.user_input == userAnswer.correct_answer) {
                 r5CorrectAnswers ++
               } else {
-                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                r5.appendChild(li)
+                let q = new Question(userAnswer.question_id)
+
+                q.fetchQuestion(userAnswer)
+
+                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                // r5.appendChild(li)
               }
             } else if (userAnswer.round_id == 6) {
               // this code is repetitive
@@ -431,8 +449,12 @@ class Round {
               if (userAnswer.user_input == userAnswer.correct_answer) {
                 r6CorrectAnswers ++
               } else {
-                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                r6.appendChild(li)
+                let q = new Question(userAnswer.question_id)
+
+                q.fetchQuestion(userAnswer)
+
+                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                // r6.appendChild(li)
               }
             } else if (userAnswer.round_id == 7) {
               // this code is repetitive
@@ -440,8 +462,12 @@ class Round {
               if (userAnswer.user_input == userAnswer.correct_answer) {
                 r7CorrectAnswers ++
               } else {
-                li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                r7.appendChild(li)
+                let q = new Question(userAnswer.question_id)
+
+                q.fetchQuestion(userAnswer)
+
+                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
+                // r7.appendChild(li)
               }
             }
 

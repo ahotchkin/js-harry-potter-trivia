@@ -19,6 +19,14 @@ class Question {
 
   questionBindingsAndEventListeners() {
     this.form = document.getElementById("quiz_form")
+    this.r1 = document.getElementById("r1")
+    this.r2 = document.getElementById("r2")
+    this.r3 = document.getElementById("r3")
+    this.r4 = document.getElementById("r4")
+    this.r5 = document.getElementById("r5")
+    this.r6 = document.getElementById("r6")
+    this.r7 = document.getElementById("r7")
+
   }
 
 
@@ -89,13 +97,72 @@ class Question {
 
   }
 
-  fetchQuestion() {
+  fetchQuestion(userAnswer) {
     this.adapter.getQuestion()
       .then(question => {
-        console.log(question)
+        this.renderQuestionInfo(question, userAnswer)
       })
   }
 
+  renderQuestionInfo(question, userAnswer) {
+    const q = document.createElement("p")
+    const userInput = document.createElement("li")
+    const correctAnswer = document.createElement("li")
+
+    q.innerHTML = `Question: ${question.content}`
+
+    if (userAnswer.user_input == "A") {
+      userInput.innerHTML = `Your Answer: ${question.answer_a}`
+    } else if (userAnswer.user_input == "B") {
+      userInput.innerHTML = `Your Answer: ${question.answer_b}`
+    } else if (userAnswer.user_input == "C") {
+      userInput.innerHTML = `Your Answer: ${question.answer_c}`
+    } else if (userAnswer.user_input == "D") {
+      userInput.innerHTML = `Your Answer: ${question.answer_d}`
+    }
+
+    if (question.correct_answer == "A") {
+      correctAnswer.innerHTML = `Correct Answer: ${question.answer_a}`
+    } else if (question.correct_answer == "B") {
+      correctAnswer.innerHTML = `Correct Answer: ${question.answer_b}`
+    } else if (question.correct_answer == "C") {
+      correctAnswer.innerHTML = `Correct Answer: ${question.answer_c}`
+    } else if (question.correct_answer == "D") {
+      correctAnswer.innerHTML = `Correct Answer: ${question.answer_d}`
+    }
+
+    if (userAnswer.round_id == 1) {
+      this.r1.appendChild(q)
+      this.r1.appendChild(userInput)
+      this.r1.appendChild(correctAnswer)
+    } else if (userAnswer.round_id == 2) {
+      this.r2.appendChild(q)
+      this.r2.appendChild(userInput)
+      this.r2.appendChild(correctAnswer)
+    } else if (userAnswer.round_id == 3) {
+      this.r3.appendChild(q)
+      this.r3.appendChild(userInput)
+      this.r3.appendChild(correctAnswer)
+    } else if (userAnswer.round_id == 4) {
+      this.r4.appendChild(q)
+      this.r4.appendChild(userInput)
+      this.r4.appendChild(correctAnswer)
+    } else if (userAnswer.round_id == 5) {
+      this.r5.appendChild(q)
+      this.r5.appendChild(userInput)
+      this.r5.appendChild(correctAnswer)
+    } else if (userAnswer.round_id == 6) {
+      this.r6.appendChild(q)
+      this.r6.appendChild(userInput)
+      this.r6.appendChild(correctAnswer)
+    } else if (userAnswer.round_id == 7) {
+      this.r7.appendChild(q)
+      this.r7.appendChild(userInput)
+      this.r7.appendChild(correctAnswer)
+    }
+
+
+  }
 
   // fetchAndLoadRound(event) {
   //   event.preventDefault();
