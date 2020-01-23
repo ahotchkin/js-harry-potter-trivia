@@ -41,7 +41,7 @@ class Round {
   fetchAndLoadRound(event) {
     event.preventDefault();
     // console.log(this)
-    if (this.id < 8) {
+    if (this.id < 2) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round)
@@ -270,7 +270,6 @@ class Round {
         this.start_button.innerHTML = "See Your Stats"
       }
 
-      // this.fetchAndLoadRound(event)
     } else {
       this.p.innerHTML = "Sorry, Voldemort wins."
       this.start_button.innerHTML = "Try Again"
@@ -280,12 +279,12 @@ class Round {
   }
 
   renderStats() {
-
-
-
     this.header.innerHTML = `${this.user.username}'s Battle of Hogwarts`
     this.start_button.style.display = "none"
     this.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
+
+    const userAnswers = new UserAnswers()
+    // console.log(userAnswers)
 
     const r1 = document.createElement("h3")
     r1.innerHTML = `Round 1: ${this.user.username} and the Sorcerer's Stone`
@@ -323,168 +322,137 @@ class Round {
     this.body.appendChild(r5)
     this.body.appendChild(r6)
     this.body.appendChild(r7)
+    //
+    // let r1CorrectAnswers = 0
+    // let r2CorrectAnswers = 0
+    // let r3CorrectAnswers = 0
+    // let r4CorrectAnswers = 0
+    // let r5CorrectAnswers = 0
+    // let r6CorrectAnswers = 0
+    // let r7CorrectAnswers = 0
+    //
+    // const p1 = document.createElement("p")
+    // const p2 = document.createElement("p")
+    // const p3 = document.createElement("p")
+    // const p4 = document.createElement("p")
+    // const p5 = document.createElement("p")
+    // const p6 = document.createElement("p")
+    // const p7 = document.createElement("p")
+    //
+    // p1.innerHTML = ""
+    // p2.innerHTML = ""
+    // p3.innerHTML = ""
+    // p4.innerHTML = ""
+    // p5.innerHTML = ""
+    // p6.innerHTML = ""
+    // p7.innerHTML = ""
+    //
+    // r1.appendChild(p1)
+    // r2.appendChild(p2)
+    // r3.appendChild(p3)
+    // r4.appendChild(p4)
+    // r5.appendChild(p5)
+    // r6.appendChild(p6)
+    // r7.appendChild(p7)
 
-    let r1CorrectAnswers = 0
-    let r2CorrectAnswers = 0
-    let r3CorrectAnswers = 0
-    let r4CorrectAnswers = 0
-    let r5CorrectAnswers = 0
-    let r6CorrectAnswers = 0
-    let r7CorrectAnswers = 0
-
-    const p1 = document.createElement("p")
-    const p2 = document.createElement("p")
-    const p3 = document.createElement("p")
-    const p4 = document.createElement("p")
-    const p5 = document.createElement("p")
-    const p6 = document.createElement("p")
-    const p7 = document.createElement("p")
-
-    p1.innerHTML = ""
-    p2.innerHTML = ""
-    p3.innerHTML = ""
-    p4.innerHTML = ""
-    p5.innerHTML = ""
-    p6.innerHTML = ""
-    p7.innerHTML = ""
-
-    r1.appendChild(p1)
-    r2.appendChild(p2)
-    r3.appendChild(p3)
-    r4.appendChild(p4)
-    r5.appendChild(p5)
-    r6.appendChild(p6)
-    r7.appendChild(p7)
-
-    // const questions = new Questions()
-    // const allQuestions = questions.fetchQuestions()
-    // console.log(allQuestions)
-    // questions.fetchQuestions()
-
-    // should I create a userAnswers.rb file to create a userAnswers array????
-    return fetch(`http://localhost:3000/api/v1/user_answers`)
-      .then(response => response.json())
-      .then(userAnswers => {
-
-        for (const userAnswer of userAnswers) {
-
-
-
-          if (this.user.id == userAnswer.user_id) {
-
-            const li = document.createElement("li")
-
-
-            if (userAnswer.round_id == 1) {
-              // this code is repetitive
-
-              if (userAnswer.user_input == userAnswer.correct_answer) {
-                r1CorrectAnswers ++
-              } else {
-                let q = new Question(userAnswer.question_id)
-
-                q.fetchQuestion(userAnswer)
-
-                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                // r1.appendChild(li)
-              }
-
-              // questions.fetchQuestions()
-
-
-            } else if (userAnswer.round_id == 2) {
-              // this code is repetitive
-
-              if (userAnswer.user_input == userAnswer.correct_answer) {
-                r2CorrectAnswers ++
-              } else {
-                let q = new Question(userAnswer.question_id)
-
-                q.fetchQuestion(userAnswer)
-                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                // r2.appendChild(li)
-              }
-            } else if (userAnswer.round_id == 3) {
-              // this code is repetitive
-
-              if (userAnswer.user_input == userAnswer.correct_answer) {
-                r3CorrectAnswers ++
-              } else {
-                let q = new Question(userAnswer.question_id)
-
-                q.fetchQuestion(userAnswer)
-
-                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                // r3.appendChild(li)
-              }
-            } else if (userAnswer.round_id == 4) {
-              // this code is repetitive
-
-              if (userAnswer.user_input == userAnswer.correct_answer) {
-                r4CorrectAnswers ++
-              } else {
-                let q = new Question(userAnswer.question_id)
-
-                q.fetchQuestion(userAnswer)
-
-                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                // r4.appendChild(li)
-              }
-            } else if (userAnswer.round_id == 5) {
-              // this code is repetitive
-
-              if (userAnswer.user_input == userAnswer.correct_answer) {
-                r5CorrectAnswers ++
-              } else {
-                let q = new Question(userAnswer.question_id)
-
-                q.fetchQuestion(userAnswer)
-
-                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                // r5.appendChild(li)
-              }
-            } else if (userAnswer.round_id == 6) {
-              // this code is repetitive
-
-              if (userAnswer.user_input == userAnswer.correct_answer) {
-                r6CorrectAnswers ++
-              } else {
-                let q = new Question(userAnswer.question_id)
-
-                q.fetchQuestion(userAnswer)
-
-                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                // r6.appendChild(li)
-              }
-            } else if (userAnswer.round_id == 7) {
-              // this code is repetitive
-
-              if (userAnswer.user_input == userAnswer.correct_answer) {
-                r7CorrectAnswers ++
-              } else {
-                let q = new Question(userAnswer.question_id)
-
-                q.fetchQuestion(userAnswer)
-
-                // li.innerHTML = `Question ${userAnswer.question_id}, Correct Answer: ${userAnswer.correct_answer}, Your Answer: ${userAnswer.user_input}`
-                // r7.appendChild(li)
-              }
-            }
-
-
-
-          }
-        }
-
-        p1.innerHTML = `${r1CorrectAnswers} of 7 questions correct`
-        p2.innerHTML = `${r2CorrectAnswers} of 7 questions correct`
-        p3.innerHTML = `${r3CorrectAnswers} of 7 questions correct`
-        p4.innerHTML = `${r4CorrectAnswers} of 7 questions correct`
-        p5.innerHTML = `${r5CorrectAnswers} of 7 questions correct`
-        p6.innerHTML = `${r6CorrectAnswers} of 7 questions correct`
-        p7.innerHTML = `${r7CorrectAnswers} of 7 questions correct`
-
-      })
+    // // should I create a userAnswers.rb file to create a userAnswers array????
+    // return fetch(`http://localhost:3000/api/v1/user_answers`)
+    //   .then(response => response.json())
+    //   .then(userAnswers => {
+    //
+    //     for (const userAnswer of userAnswers) {
+    //
+    //
+    //
+    //       if (this.user.id == userAnswer.user_id) {
+    //
+    //         const li = document.createElement("li")
+    //
+    //
+    //         if (userAnswer.round_id == 1) {
+    //           if (userAnswer.user_input == userAnswer.correct_answer) {
+    //             r1CorrectAnswers ++
+    //           } else {
+    //             let q = new Question(userAnswer.question_id)
+    //
+    //             q.fetchQuestion(userAnswer)
+    //           }
+    //
+    //         } else if (userAnswer.round_id == 2) {
+    //
+    //           if (userAnswer.user_input == userAnswer.correct_answer) {
+    //             r2CorrectAnswers ++
+    //           } else {
+    //             let q = new Question(userAnswer.question_id)
+    //
+    //             q.fetchQuestion(userAnswer)
+    //           }
+    //         } else if (userAnswer.round_id == 3) {
+    //
+    //           if (userAnswer.user_input == userAnswer.correct_answer) {
+    //             r3CorrectAnswers ++
+    //           } else {
+    //             let q = new Question(userAnswer.question_id)
+    //
+    //             q.fetchQuestion(userAnswer)
+    //
+    //           }
+    //         } else if (userAnswer.round_id == 4) {
+    //
+    //           if (userAnswer.user_input == userAnswer.correct_answer) {
+    //             r4CorrectAnswers ++
+    //           } else {
+    //             let q = new Question(userAnswer.question_id)
+    //
+    //             q.fetchQuestion(userAnswer)
+    //
+    //           }
+    //         } else if (userAnswer.round_id == 5) {
+    //
+    //           if (userAnswer.user_input == userAnswer.correct_answer) {
+    //             r5CorrectAnswers ++
+    //           } else {
+    //             let q = new Question(userAnswer.question_id)
+    //
+    //             q.fetchQuestion(userAnswer)
+    //
+    //           }
+    //         } else if (userAnswer.round_id == 6) {
+    //
+    //           if (userAnswer.user_input == userAnswer.correct_answer) {
+    //             r6CorrectAnswers ++
+    //           } else {
+    //             let q = new Question(userAnswer.question_id)
+    //
+    //             q.fetchQuestion(userAnswer)
+    //
+    //           }
+    //         } else if (userAnswer.round_id == 7) {
+    //
+    //           if (userAnswer.user_input == userAnswer.correct_answer) {
+    //             r7CorrectAnswers ++
+    //           } else {
+    //             let q = new Question(userAnswer.question_id)
+    //
+    //             q.fetchQuestion(userAnswer)
+    //
+    //           }
+    //         }
+    //
+    //
+    //
+    //       }
+    //     }
+    //
+        // p1.innerHTML = `${r1CorrectAnswers} of 7 questions correct`
+        // p2.innerHTML = `${r2CorrectAnswers} of 7 questions correct`
+        // p3.innerHTML = `${r3CorrectAnswers} of 7 questions correct`
+        // p4.innerHTML = `${r4CorrectAnswers} of 7 questions correct`
+        // p5.innerHTML = `${r5CorrectAnswers} of 7 questions correct`
+        // p6.innerHTML = `${r6CorrectAnswers} of 7 questions correct`
+        // p7.innerHTML = `${r7CorrectAnswers} of 7 questions correct`
+    //
+    //   })
 
 
 

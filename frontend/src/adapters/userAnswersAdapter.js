@@ -4,7 +4,7 @@ class UserAnswersAdapter {
     this.baseUrl = `http://localhost:3000/api/v1/user_answers`
   }
 
-  getUserAnswer() {
+  getUserAnswers() {
     return fetch(this.baseUrl).then(response => response.json())
   }
 

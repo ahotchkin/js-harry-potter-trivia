@@ -7,6 +7,7 @@ class UserAnswer {
     this.question_id = question.id
     this.correct_answer = question.correct_answer
     this.user_input = user_input.input
+    this.round = round
     // console.log(this)
     this.adapter = new UserAnswersAdapter()
 
@@ -32,29 +33,4 @@ class UserAnswer {
 
 
   }
-
-  fetchAndLoadUserAnswer(userAnswer) {
-    this.adapter.getUserAnswer()
-      .then(userAnswer => {
-        this.renderUserAnswer(userAnswer)
-      })
-
-  }
-
-
-  renderUserAnswer(userAnswer) {
-    console.log("I'm rendering the userAnswer here!!!!!!!")
-    // const li = document.createElement("li")
-    // li.innerhTML = userAnswer.user_input
-    //
-    // this.body.appendChild(li)
-
-
-  }
-
-
-
-
-
-
 }
