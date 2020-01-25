@@ -1,10 +1,11 @@
 class UserAnswers {
 
-  constructor() {
+  constructor(round) {
     this.adapter = new UserAnswersAdapter()
     this.fetchAndLoadUserAnswers()
     this.userAnswersBindingsAndEventListeners()
-
+    // is this the only way to get access to the round and then to the round's user to make sure you're printing out the right user's answers?
+    this.round = round
   }
 
   userAnswersBindingsAndEventListeners() {
@@ -21,54 +22,13 @@ class UserAnswers {
   fetchAndLoadUserAnswers(userAnswer) {
     this.adapter.getUserAnswers()
       .then(userAnswers => {
-        return userAnswers
+        this.renderUserAnswers(userAnswers)
       })
 
   }
 
 
   renderUserAnswers(userAnswers) {
-
-    console.log("I'm rendering the userAnswer here!!!!!!!")
-    console.log(userAnswers)
-    // const r1 = document.createElement("h3")
-    // r1.innerHTML = `Round 1: ${this.user.username} and the Sorcerer's Stone`
-    //
-    // const r2 = document.createElement("h3")
-    // r2.innerHTML = `Round 2: ${this.user.username} and the Chamber of Secrets`
-    //
-    // const r3 = document.createElement("h3")
-    // r3.innerHTML = `Round 3: ${this.user.username} and the Prizoner of Azkaban`
-    //
-    // const r4 = document.createElement("h3")
-    // r4.innerHTML = `Round 4: ${this.user.username} and the Goblet of Fire`
-    //
-    // const r5 = document.createElement("h3")
-    // r5.innerHTML = `Round 5: ${this.user.username} and the Order of the Phoenix`
-    //
-    // const r6 = document.createElement("h3")
-    // r6.innerHTML = `Round 6: ${this.user.username} and the Half-Blood Prince`
-    //
-    // const r7 = document.createElement("h3")
-    // r7.innerHTML = `Round 7: ${this.user.username} and the Deathly Hallows`
-    //
-    // r1.id = "r1"
-    // r2.id = "r2"
-    // r3.id = "r3"
-    // r4.id = "r4"
-    // r5.id = "r5"
-    // r6.id = "r6"
-    // r7.id = "r7"
-    //
-    // this.body.appendChild(r1)
-    // this.body.appendChild(r2)
-    // this.body.appendChild(r3)
-    // this.body.appendChild(r4)
-    // this.body.appendChild(r5)
-    // this.body.appendChild(r6)
-    // this.body.appendChild(r7)
-
-    // ******************************************************************************
 
     let r1CorrectAnswers = 0
     let r2CorrectAnswers = 0
@@ -102,14 +62,10 @@ class UserAnswers {
     r6.appendChild(p6)
     r7.appendChild(p7)
 
-
-    console.log(this.round_id)
-
     for (const userAnswer of userAnswers) {
-      // need to get the round to compare the round.user.id to the userAnswer.user_id
-      console.log(userAnswer)
-      if (this.user.id == userAnswer.user_id) {
+      if (this.round.user.id == userAnswer.user_id) {
 
+        // how can I print out the questions in numerical order? They don't always save as userAnswers that way
         const li = document.createElement("li")
 
 

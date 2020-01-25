@@ -283,7 +283,7 @@ class Round {
     this.start_button.style.display = "none"
     this.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
 
-    const userAnswers = new UserAnswers()
+    const userAnswers = new UserAnswers(this)
     // console.log(userAnswers)
 
     const r1 = document.createElement("h3")
