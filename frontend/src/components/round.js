@@ -34,10 +34,6 @@ class Round {
 
   }
 
-  // formElements() {
-  //   this.answer_a_text =
-  // }
-
   fetchAndLoadRound(event) {
     event.preventDefault();
     // console.log(this)
@@ -51,16 +47,6 @@ class Round {
     }
 
   }
-
-  // this.start_button.addEventListener("click", function(event) {
-  //   event.preventDefault();
-  //
-  //
-  //   return fetch(`http://localhost:3000/api/v1/rounds/${round.id}`)
-  //     .then(response => response.json())
-  //     .then(round => console.log(round.questions))
-  //
-  // })
 
 
   renderRound(round) {
@@ -100,68 +86,6 @@ class Round {
 
       q.renderQuestion(q)
 
-      // this code was moved to question.js
-      // const q = document.createElement("p")
-      //
-      // // is there not a way to add text to the radio button itself? Tried updating the innerHTML of answer_a, and it looked correct in the elements but text wasn't showing up in the browser.
-      // const answer_a = document.createElement("input")
-      // const answer_a_text = document.createElement("label")
-      //
-      // const answer_b = document.createElement("input")
-      // const answer_b_text = document.createElement("label")
-      //
-      // const answer_c = document.createElement("input")
-      // const answer_c_text = document.createElement("label")
-      //
-      // const answer_d = document.createElement("input")
-      // const answer_d_text = document.createElement("label")
-      //
-      //
-      // q.innerHTML = question.content
-      // q.id = "question"
-      //
-      // answer_a.setAttribute("type", "radio");
-      // answer_a.setAttribute("value", "A")
-      // answer_a.setAttribute("name", question.id)
-      // answer_a.setAttribute("class", "answer")
-      // answer_a.setAttribute("id", "user_input")
-      // answer_a_text.innerText = ` ${question.answer_a} \n`
-      //
-      // answer_b.setAttribute("type", "radio");
-      // answer_b.setAttribute("value", "B")
-      // answer_b.setAttribute("name", question.id)
-      // answer_b.setAttribute("class", "answer")
-      // answer_b.setAttribute("id", "user_input")
-      // answer_b_text.innerText = ` ${question.answer_b} \n`
-      //
-      // answer_c.setAttribute("type", "radio");
-      // answer_c.setAttribute("value", "C")
-      // answer_c.setAttribute("name", question.id)
-      // answer_c.setAttribute("class", "answer")
-      // answer_c.setAttribute("id", "user_input")
-      // answer_c_text.innerText = ` ${question.answer_c} \n`
-      //
-      // answer_d.setAttribute("type", "radio");
-      // answer_d.setAttribute("value", "D")
-      // answer_d.setAttribute("name", question.id)
-      // answer_d.setAttribute("class", "answer")
-      // answer_d.setAttribute("id", "user_input")
-      // answer_d_text.innerText = ` ${question.answer_d} \n\n`
-      //
-      //
-      // this.form.appendChild(q)
-      //
-      // this.form.appendChild(answer_a)
-      // this.form.appendChild(answer_a_text)
-      //
-      // this.form.appendChild(answer_b)
-      // this.form.appendChild(answer_b_text)
-      //
-      // this.form.appendChild(answer_c)
-      // this.form.appendChild(answer_c_text)
-      //
-      // this.form.appendChild(answer_d)
-      // this.form.appendChild(answer_d_text)
     })
 
     // should this be specific book quotes?
@@ -174,34 +98,31 @@ class Round {
 
   submitAnswers(event) {
     event.preventDefault()
+    this.answerChecked()
     this.getUserAnswers()
-    // this.p.innerHTML = "Congratulations! You're smart enough to move on to the next round."
-
     this.form.innerHTML = "";
-
     this.start_button.style.display = "initial"
-
-    // if (this.id == 1) {
-    //   this.start_button.innerHTML = "Start Round 2"
-    // } else if (this.id == 2) {
-    //   this.start_button.innerHTML = "Start Round 3"
-    // } else if (this.id == 3) {
-    //   this.start_button.innerHTML = "Start Round 4"
-    // } else if (this.id == 4) {
-    //   this.start_button.innerHTML = "Start Round 5"
-    // } else if (this.id == 5) {
-    //   this.start_button.innerHTML = "Start Round 6"
-    // } else if (this.id == 6) {
-    //   this.start_button.innerHTML = "Start Round 7"
-    // } else if (this.id == 7) {
-    //   this.start_button.innerHTML = "See Your Stats"
-    // }
-
-
-
-
   }
 
+  answerChecked() {
+    let inputs = document.getElementsByTagName("input")
+    let inputsArray = Array.from(inputs)
+    let answers1 = []
+    inputsArray.forEach(function(input) {
+      if (input.name == 1) {
+        answers1.push(input)
+      }
+    })
+
+    for (let i = 0; i < answers1.length; i++) {
+      if (answers1[i].checked) {
+        return true
+      } else {
+        alert("Please answer question 1.")
+      }
+
+    }
+  }
 
   getUserAnswers() {
     const possible_answers = Array.from(document.querySelectorAll(".answer"))
@@ -322,141 +243,6 @@ class Round {
     this.body.appendChild(r5)
     this.body.appendChild(r6)
     this.body.appendChild(r7)
-    //
-    // let r1CorrectAnswers = 0
-    // let r2CorrectAnswers = 0
-    // let r3CorrectAnswers = 0
-    // let r4CorrectAnswers = 0
-    // let r5CorrectAnswers = 0
-    // let r6CorrectAnswers = 0
-    // let r7CorrectAnswers = 0
-    //
-    // const p1 = document.createElement("p")
-    // const p2 = document.createElement("p")
-    // const p3 = document.createElement("p")
-    // const p4 = document.createElement("p")
-    // const p5 = document.createElement("p")
-    // const p6 = document.createElement("p")
-    // const p7 = document.createElement("p")
-    //
-    // p1.innerHTML = ""
-    // p2.innerHTML = ""
-    // p3.innerHTML = ""
-    // p4.innerHTML = ""
-    // p5.innerHTML = ""
-    // p6.innerHTML = ""
-    // p7.innerHTML = ""
-    //
-    // r1.appendChild(p1)
-    // r2.appendChild(p2)
-    // r3.appendChild(p3)
-    // r4.appendChild(p4)
-    // r5.appendChild(p5)
-    // r6.appendChild(p6)
-    // r7.appendChild(p7)
-
-    // // should I create a userAnswers.rb file to create a userAnswers array????
-    // return fetch(`http://localhost:3000/api/v1/user_answers`)
-    //   .then(response => response.json())
-    //   .then(userAnswers => {
-    //
-    //     for (const userAnswer of userAnswers) {
-    //
-    //
-    //
-    //       if (this.user.id == userAnswer.user_id) {
-    //
-    //         const li = document.createElement("li")
-    //
-    //
-    //         if (userAnswer.round_id == 1) {
-    //           if (userAnswer.user_input == userAnswer.correct_answer) {
-    //             r1CorrectAnswers ++
-    //           } else {
-    //             let q = new Question(userAnswer.question_id)
-    //
-    //             q.fetchQuestion(userAnswer)
-    //           }
-    //
-    //         } else if (userAnswer.round_id == 2) {
-    //
-    //           if (userAnswer.user_input == userAnswer.correct_answer) {
-    //             r2CorrectAnswers ++
-    //           } else {
-    //             let q = new Question(userAnswer.question_id)
-    //
-    //             q.fetchQuestion(userAnswer)
-    //           }
-    //         } else if (userAnswer.round_id == 3) {
-    //
-    //           if (userAnswer.user_input == userAnswer.correct_answer) {
-    //             r3CorrectAnswers ++
-    //           } else {
-    //             let q = new Question(userAnswer.question_id)
-    //
-    //             q.fetchQuestion(userAnswer)
-    //
-    //           }
-    //         } else if (userAnswer.round_id == 4) {
-    //
-    //           if (userAnswer.user_input == userAnswer.correct_answer) {
-    //             r4CorrectAnswers ++
-    //           } else {
-    //             let q = new Question(userAnswer.question_id)
-    //
-    //             q.fetchQuestion(userAnswer)
-    //
-    //           }
-    //         } else if (userAnswer.round_id == 5) {
-    //
-    //           if (userAnswer.user_input == userAnswer.correct_answer) {
-    //             r5CorrectAnswers ++
-    //           } else {
-    //             let q = new Question(userAnswer.question_id)
-    //
-    //             q.fetchQuestion(userAnswer)
-    //
-    //           }
-    //         } else if (userAnswer.round_id == 6) {
-    //
-    //           if (userAnswer.user_input == userAnswer.correct_answer) {
-    //             r6CorrectAnswers ++
-    //           } else {
-    //             let q = new Question(userAnswer.question_id)
-    //
-    //             q.fetchQuestion(userAnswer)
-    //
-    //           }
-    //         } else if (userAnswer.round_id == 7) {
-    //
-    //           if (userAnswer.user_input == userAnswer.correct_answer) {
-    //             r7CorrectAnswers ++
-    //           } else {
-    //             let q = new Question(userAnswer.question_id)
-    //
-    //             q.fetchQuestion(userAnswer)
-    //
-    //           }
-    //         }
-    //
-    //
-    //
-    //       }
-    //     }
-    //
-        // p1.innerHTML = `${r1CorrectAnswers} of 7 questions correct`
-        // p2.innerHTML = `${r2CorrectAnswers} of 7 questions correct`
-        // p3.innerHTML = `${r3CorrectAnswers} of 7 questions correct`
-        // p4.innerHTML = `${r4CorrectAnswers} of 7 questions correct`
-        // p5.innerHTML = `${r5CorrectAnswers} of 7 questions correct`
-        // p6.innerHTML = `${r6CorrectAnswers} of 7 questions correct`
-        // p7.innerHTML = `${r7CorrectAnswers} of 7 questions correct`
-    //
-    //   })
-
-
-
-
   }
 
 
