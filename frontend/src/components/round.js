@@ -98,31 +98,64 @@ class Round {
 
   submitAnswers(event) {
     event.preventDefault()
-    this.answerChecked()
-    this.getUserAnswers()
-    this.form.innerHTML = "";
-    this.start_button.style.display = "initial"
-  }
-
-  answerChecked() {
-    let inputs = document.getElementsByTagName("input")
-    let inputsArray = Array.from(inputs)
-    let answers1 = []
-    inputsArray.forEach(function(input) {
-      if (input.name == 1) {
-        answers1.push(input)
-      }
-    })
-
-    for (let i = 0; i < answers1.length; i++) {
-      if (answers1[i].checked) {
-        return true
-      } else {
-        alert("Please answer question 1.")
-      }
-
+    if (this.answersChecked()) {
+      this.getUserAnswers()
+      this.form.innerHTML = "";
+      this.start_button.style.display = "initial"
+    } else {
+      alert("Please answer all questions.")
     }
   }
+
+  answersChecked() {
+    let inputs = document.getElementsByTagName("input")
+    let inputsArray = Array.from(inputs)
+
+    let checkedAnswers = 0
+
+    console.log("I'm in answerChecked()")
+    for (const input of inputsArray) {
+      if (input.checked) {
+        checkedAnswers++
+      }
+    }
+
+    if (checkedAnswers == 7) {
+      return true
+    }
+    // let answers1 = []
+    // let answers2 = []
+    // let answers3 = []
+    // let answers4 = []
+    // let answers5 = []
+    // let answers6 = []
+    // let answers7 = []
+    //
+    // inputsArray.forEach(function(input) {
+    //   if (input.name == 1) {
+    //     answers1.push(input)
+    //   } else if (input.name == 2) {
+    //     answers2.push(input)
+    //   } else if (input.name == 3) {
+    //     answers3.push(input)
+    //   } else if (input.name == 4) {
+    //     answers4.push(input)
+    //   } else if (input.name == 5) {
+    //     answers5.push(input)
+    //   } else if (input.name == 6) {
+    //     answers6.push(input)
+    //   } else if (input.name == 7) {
+    //     answers7.push(input)
+    //   }
+    // })
+    //
+    // for (let i = 0; i < answers1.length; i++) {
+    //   if (answers1[i].checked) {
+    //     return true
+    //   }
+    // }
+  }
+
 
   getUserAnswers() {
     const possible_answers = Array.from(document.querySelectorAll(".answer"))
