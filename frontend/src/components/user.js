@@ -44,16 +44,16 @@ class User {
   changeBackground() {
     // use case statement?
     if (this.house.value == "gryffindor") {
-      this.body.className = "house"
+      // this.body.className = "house"
       this.body.id = "gryffindor"
     } else if (this.house.value == "slytherin") {
-      this.body.className = "house"
+      // this.body.className = "house"
       this.body.id = "slytherin"
     } else if (this.house.value == "hufflepuff") {
-      this.body.className = "house"
+      // this.body.className = "house"
       this.body.id = "hufflepuff"
     } else if (this.house.value == "ravenclaw") {
-      this.body.className = "house"
+      // this.body.className = "house"
       this.body.id = "ravenclaw"
     }
   }

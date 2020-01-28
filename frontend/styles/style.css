@@ -1,12 +1,16 @@
 body {
   background-image: url("./images/hp_crest.jpg");
   background-size: 100%;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #2d004d;
+  background-color: #000;
   /* color: #BEC2CB; */
-  color: black;
+  /* remove color if sticking with black */
+  color: #000;
 }
+
 
 form {
   margin-left: 22%;
@@ -22,7 +26,7 @@ form {
 }
 
 .welcome {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.85);
   width: 50%;
   padding: 30px;
   margin: auto;
@@ -31,6 +35,10 @@ form {
   /* add rounded corners */
   margin-top: 15%;
   /* background-opacity: 0.5; */
+
+
+
+
 }
 
 .btn-light {
@@ -58,42 +66,51 @@ form {
 
 #gryffindor {
   background-image: url("./images/gryffindor.jpg");
-  background-size: 100%;
+  /* background-size: 100%;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   text-align: center;
+  /* do I need a background-color, or will image always show because it's saved in the file? */
   background-color: #7F0909;
-  color: #FFC500;
+  /* color: #FFC500; */
 }
 
 #slytherin {
   background-image: url("./images/slytherin.jpg");
-  background-size: 100%;
+  /* background-size: 100%;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   text-align: center;
   background-color: #0D6217;
-  color: #AAAAAA;
+  /* color: #AAAAAA; */
 }
 
 #hufflepuff {
   background-image: url("./images/hufflepuff.jpg");
-  background-size: 100%;
+  /* background-size: 100%;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   text-align: center;
   background-color: #EEE117;
-  color: #000000;
+  /* color: #000000; */
 }
 
 #ravenclaw {
   background-image: url("./images/ravenclaw.jpg");
-  background-size: 100%;
+  /* background-size: 100%;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   text-align: center;
   background-color: #000A90;
-  color: #946B2D;
+  /* color: #946B2D; */
 }
 
 /* can I make the mouse a wand???? */
