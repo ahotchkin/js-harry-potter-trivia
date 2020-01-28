@@ -3,40 +3,45 @@
   <head>
     <meta charset="utf-8">
     <title>Harry Potter Trivia</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <link rel="stylesheet" href="styles/style.css">
   </head>
   <body>
-    <header>
-      <h2 id="header">Welcome to Harry Potter Trivia!</h2>
-    </header>
+    <div class="welcome">
+      <header>
+        <h2 id="header">Welcome to Harry Potter Trivia!</h2>
+      </header>
 
-    <main>
-      <div id="text_container">
-        <form id="new_user_form">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username">
+      <main>
+        <div id="text_container">
+          <form id="new_user_form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
 
-          <br><br>
+            <br><br>
 
-          <label for="house">Select Your House:</label>
-          <select id="house" name="house">
-            <option value="gryffindor">Gryffindor</option>
-            <option value="slytherin">Slytherin</option>
-            <option value="hufflepuff">Hufflepuff</option>
-            <option value="ravenclaw">Ravenclaw</option>
-          </select>
+            <label for="house">Select Your House:</label>
+            <select id="house" name="house">
+              <option value="gryffindor">Gryffindor</option>
+              <option value="slytherin">Slytherin</option>
+              <option value="hufflepuff">Hufflepuff</option>
+              <option value="ravenclaw">Ravenclaw</option>
+            </select>
 
-          <br><br>
+            <br><br>
 
-          <input type="submit" id="submit" value="Let's Save Hogwarts">
-        </form>
-      </div>
+            <input type="submit" id="submit" value="Let's Save Hogwarts">
+          </form>
+        </div>
 
-      <div id="quiz_container">
-        <form id="quiz_form">
-        </form>
-      </div>
-    </main>
+        <div id="quiz_container">
+          <form id="quiz_form">
+          </form>
+        </div>
+      </main>
+    </div>
 
     <script src="src/adapters/usersAdapter.js"></script>
     <script src="src/adapters/userAnswersAdapter.js"></script>
@@ -49,6 +54,12 @@
     <script src="src/components/userAnswers.js"></script>
     <script src="src/components/question.js"></script>
     <script src="src/index.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 
   </body>
 </html>

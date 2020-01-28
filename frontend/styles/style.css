@@ -1,8 +1,23 @@
 body {
   background-image: url("./images/hp_crest.jpg");
   background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #2d004d;
-  color: #BEC2CB;
+  /* color: #BEC2CB; */
+  color: black;
+}
+
+.welcome {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 50%;
+  padding: 70px 0;
+  margin: auto;
+  text-align: center;
+
+  position: relative;
+  /* background-opacity: 0.5; */
+
 }
 
 #header {
@@ -13,14 +28,8 @@ body {
 }
 
 #new_user_form {
-  text-align: center;
+  /* text-align: center; */
 }
-
-/* .house h2 {
-  font-family: "New", serif;
-  font-size: 40px;
-  font-weight: normal;
-} */
 
 #intro {
   font-family: "New", serif;
@@ -28,30 +37,41 @@ body {
   font-weight: normal;
 }
 
-
 #gryffindor {
-  background-image: none;
+  background-image: url("./images/gryffindor.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
   background-color: #7F0909;
   color: #FFC500;
 }
 
 #slytherin {
-  background-image: none;
+  background-image: url("./images/slytherin.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
   background-color: #0D6217;
   color: #AAAAAA;
 }
 
 #hufflepuff {
-  background-image: none;
+  background-image: url("./images/hufflepuff.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
   background-color: #EEE117;
   color: #000000;
 }
 
 #ravenclaw {
-  background-image: none;
+  background-image: url("./images/ravenclaw.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
   background-color: #000A90;
   color: #946B2D;
