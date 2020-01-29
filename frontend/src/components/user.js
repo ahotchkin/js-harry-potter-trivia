@@ -18,6 +18,7 @@ class User {
     this.header = document.getElementById("header");
     this.body = document.querySelector("body");
     this.house = document.querySelector("#house");
+    this.main = document.querySelector("main");
     // this.start_button = document.createElement("button");
     // this.start_button.addEventListener("click", this.fetchAndLoadRound.bind(this))
   }
@@ -69,8 +70,8 @@ class User {
     start_button.innerHTML = "I solemnly swear that I'm up to no good";
     start_button.id = "start_button"
 
-    this.body.appendChild(p)
-    this.body.appendChild(start_button)
+    this.main.appendChild(p)
+    this.main.appendChild(start_button)
 
     const round = new Round(user, 1)
   }

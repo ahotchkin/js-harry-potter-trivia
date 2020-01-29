@@ -58,6 +58,34 @@ form {
   /* text-align: center; */
 }
 
+.quiz-container {
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 50%;
+  padding: 30px;
+  margin: 0;
+  position: absolute;
+  /* top: 50%;
+  left: 50%;
+  /* -ms-transform: translate(-50%, -50%); */
+  /* transform: translate(-50%, -50%); */
+  /* border-radius: 20px; */
+  text-align: center;
+}
+
+/* #quiz-form {
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 50%;
+  padding: 30px;
+  margin: 0;
+  position: absolute;
+  /* top: 50%;
+  left: 50%;
+  /* -ms-transform: translate(-50%, -50%); */
+  /* transform: translate(-50%, -50%); */
+  /* border-radius: 20px; */
+  /* text-align: center; */
+/* } */
+
 #intro {
   font-family: "New", serif;
   font-size: 40px;
