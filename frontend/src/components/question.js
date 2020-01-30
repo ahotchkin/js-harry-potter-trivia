@@ -20,6 +20,7 @@ class Question {
   questionBindingsAndEventListeners() {
     this.form = document.getElementById("quiz_form")
     this.quiz_container = document.getElementById("quiz_container")
+    // should I be creating these here instead?
     this.r1 = document.getElementById("r1")
     this.r2 = document.getElementById("r2")
     this.r3 = document.getElementById("r3")
@@ -28,12 +29,15 @@ class Question {
     this.r6 = document.getElementById("r6")
     this.r7 = document.getElementById("r7")
 
+    this.div = document.createElement("div")
+
   }
 
 
   renderQuestion(question) {
-    // this.form.style.display = "block"
     this.quiz_container.style.display = "block"
+    // this.div.className = "custom-control custom-radio"
+    this.div.className = "form-check"
     const q = document.createElement("p")
 
     // is there not a way to add text to the radio button itself? Tried updating the innerHTML of answer_a, and it looked correct in the elements but text wasn't showing up in the browser.
@@ -54,49 +58,61 @@ class Question {
     // is this id needed?
     // q.id = "question"
 
-
     answer_a.setAttribute("type", "radio");
     answer_a.setAttribute("value", "A")
     answer_a.setAttribute("name", question.id)
-    answer_a.setAttribute("class", "answer")
+    answer_a.setAttribute("class", "form-check-input")
     answer_a.setAttribute("id", "user_input")
+    answer_a_text.className = "form-check-label"
+    answer_a_text.htmlFor = "user_input"
+
     answer_a_text.innerText = ` ${question.answer_a} \n`
 
     answer_b.setAttribute("type", "radio");
     answer_b.setAttribute("value", "B")
     answer_b.setAttribute("name", question.id)
-    answer_b.setAttribute("class", "answer")
+    answer_b.setAttribute("class", "form-check-input")
     answer_b.setAttribute("id", "user_input")
+    answer_b_text.className = "form-check-label"
+    answer_b_text.htmlFor = "user_input"
+
     answer_b_text.innerText = ` ${question.answer_b} \n`
 
     answer_c.setAttribute("type", "radio");
     answer_c.setAttribute("value", "C")
     answer_c.setAttribute("name", question.id)
-    answer_c.setAttribute("class", "answer")
+    answer_c.setAttribute("class", "form-check-input")
     answer_c.setAttribute("id", "user_input")
+    answer_c_text.className = "form-check-label"
+    answer_c_text.htmlFor = "user_input"
+
     answer_c_text.innerText = ` ${question.answer_c} \n`
 
     answer_d.setAttribute("type", "radio");
     answer_d.setAttribute("value", "D")
     answer_d.setAttribute("name", question.id)
-    answer_d.setAttribute("class", "answer")
+    answer_d.setAttribute("class", "form-check-input")
     answer_d.setAttribute("id", "user_input")
+    answer_d_text.htmlFor = "user_input"
+
+    answer_d_text.className = "form-check-label"
     answer_d_text.innerText = ` ${question.answer_d} \n\n`
 
+    this.form.appendChild(this.div)
 
-    this.form.appendChild(q)
+    this.div.appendChild(q)
 
-    this.form.appendChild(answer_a)
-    this.form.appendChild(answer_a_text)
+    this.div.appendChild(answer_a)
+    this.div.appendChild(answer_a_text)
 
-    this.form.appendChild(answer_b)
-    this.form.appendChild(answer_b_text)
+    this.div.appendChild(answer_b)
+    this.div.appendChild(answer_b_text)
 
-    this.form.appendChild(answer_c)
-    this.form.appendChild(answer_c_text)
+    this.div.appendChild(answer_c)
+    this.div.appendChild(answer_c_text)
 
-    this.form.appendChild(answer_d)
-    this.form.appendChild(answer_d_text)
+    this.div.appendChild(answer_d)
+    this.div.appendChild(answer_d_text)
 
   }
 
