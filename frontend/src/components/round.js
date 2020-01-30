@@ -30,6 +30,9 @@ class Round {
 
     // hard bind this to the round when we execute submitAnswers, so when we access this from submitAnswers it is the Round class
     this.submit_round.addEventListener("click", this.submitAnswers.bind(this));
+    this.container = document.getElementById("container")
+    this.round_title = document.getElementById("round_title")
+    // this.quiz_container = document.getElementById("quiz_container")
     // this.quiz = document.getElementById("quiz_container")
 
   }
@@ -50,8 +53,15 @@ class Round {
 
 
   renderRound(round) {
+    // this.quiz_container.style.display = "block"
+    // this.header.style.display = "none"
+    // this.container.style.display = "none"
     this.start_button.style.display = "none"
     this.p.innerHTML = ""
+    this.header.id = "title"
+    // const title = document.createElement("h3")
+    // this.className = "round_title"
+
 
     // should this be saved in the database somewhere instead? Case statement?
     if (round.id == 1) {

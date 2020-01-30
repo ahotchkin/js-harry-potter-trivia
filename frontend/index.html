@@ -9,43 +9,51 @@
     <link rel="stylesheet" href="styles/style.css">
   </head>
   <body>
-    <div class="container">
+    <!-- <div class="header-container">
       <header>
         <h2 id="header">Welcome to Harry Potter Trivia!</h2>
       </header>
+    </div> -->
 
       <main>
-        <div class="form-group" id="text_container">
-          <form id="new_user_form">
-            <div class="row">
-              <label for="username">Username:</label>
-              <input class="form-control" type="text" id="username" name="username">
-            </div>
+        <div id="container">
+          <h2 id="header">Welcome to Harry Potter Trivia!</h2>
 
-            <br><br>
+          <div class="form-group" id="text_container">
+            <form id="new_user_form">
+              <div class="row">
+                <label for="username">Username:</label>
+                <input class="form-control" type="text" id="username" name="username">
+              </div>
 
-            <div class="row">
-              <label for="house">Select Your House:</label>
-              <select class="form-control" id="house" name="house">
-                <option value="gryffindor">Gryffindor</option>
-                <option value="slytherin">Slytherin</option>
-                <option value="hufflepuff">Hufflepuff</option>
-                <option value="ravenclaw">Ravenclaw</option>
-              </select>
-            </div>
+              <br><br>
 
-            <br><br>
+              <div class="row">
+                <label for="house">Select Your House:</label>
+                <select class="form-control" id="house" name="house">
+                  <option value="gryffindor">Gryffindor</option>
+                  <option value="slytherin">Slytherin</option>
+                  <option value="hufflepuff">Hufflepuff</option>
+                  <option value="ravenclaw">Ravenclaw</option>
+                </select>
+              </div>
 
-            <input type="submit" class="btn btn-light" id="submit" value="Let's Save Hogwarts">
-          </form>
+              <br><br>
+
+              <input type="submit" class="btn btn-light" id="submit" value="Let's Save Hogwarts">
+            </form>
+          </div>
         </div>
 
-        <div id="quiz_container">
+        <!-- <div id="round_title">
+        <div> -->
+
+        <div class="form-group" id="quiz_container">
           <form id="quiz_form">
           </form>
         </div>
       </main>
-    </div>
+    <!-- </div> -->
 
     <script src="src/adapters/usersAdapter.js"></script>
     <script src="src/adapters/userAnswersAdapter.js"></script>

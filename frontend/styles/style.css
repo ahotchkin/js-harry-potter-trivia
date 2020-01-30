@@ -19,15 +19,21 @@ form {
   margin-right: 22%;
 }
 
-.form-row {
-  margin: 2.5px;
-}
-
 .form-control {
   margin-bottom: -30px;
 }
 
-.container {
+/* .header-container {
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 50%;
+  padding: 30px;
+  margin: 0;
+  border-radius: 20px;
+  text-align: center;
+  transform: translateX(50%)
+} */
+
+#container {
   background-color: rgba(255, 255, 255, 0.85);
   width: 50%;
   padding: 30px;
@@ -35,11 +41,11 @@ form {
   position: absolute;
   top: 50%;
   left: 50%;
-  /* -ms-transform: translate(-50%, -50%); */
   transform: translate(-50%, -50%);
   border-radius: 20px;
   text-align: center;
 }
+
 
 .btn-light {
   margin-top: 20px;
@@ -47,6 +53,10 @@ form {
   /* border-color: #000; */
 }
 
+.round_title {
+  color: blue;
+  top: 0%;
+}
 #header {
   text-align: center;
   font-family: "Harry P", serif;
@@ -58,19 +68,7 @@ form {
   /* text-align: center; */
 }
 
-.quiz-container {
-  background-color: rgba(255, 255, 255, 0.85);
-  width: 50%;
-  padding: 30px;
-  margin: 0;
-  position: absolute;
-  /* top: 50%;
-  left: 50%;
-  /* -ms-transform: translate(-50%, -50%); */
-  /* transform: translate(-50%, -50%); */
-  /* border-radius: 20px; */
-  text-align: center;
-}
+
 
 /* #quiz-form {
   background-color: rgba(255, 255, 255, 0.85);
@@ -90,30 +88,70 @@ form {
   font-family: "New", serif;
   font-size: 40px;
   font-weight: normal;
+  /* margin: 15% */
 }
+
+#title {
+  /* color: green; */
+  top: 0%;
+}
+
+#quiz_container {
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 50%;
+  padding: 30px;
+  margin-top: 50%;
+  margin-bottom: 5%;
+  /* left: 50%; */
+  transform: translateX(50%);
+  display: none;
+  /* top: 25%;
+  left: 25%; */
+  /* transform: none; */
+  color: red;
+  border-radius: 20px;
+  /* margin-top: 15%; */
+  /* position: relative; */
+
+}
+
+/* .quiz_container {
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 50%;
+  padding: 30px;
+  top: 50%;
+  margin: 0;
+  /* position: absolute; */
+  /* top: 50%;
+  left: 50%;
+  /* -ms-transform: translate(-50%, -50%); */
+  /* transform: translate(-50%, -50%); */
+  /* border-radius: 20px; */
+  /* text-align: center; */
+/* } */
 
 #gryffindor {
   background-image: url("./images/gryffindor.jpg");
   text-align: center;
-  background-color: #7F0909;
+  background-color: #A71E31;
 }
 
 #slytherin {
   background-image: url("./images/slytherin.jpg");
   text-align: center;
-  background-color: #0D6217;
+  background-color: #367B5F;
 }
 
 #hufflepuff {
   background-image: url("./images/hufflepuff.jpg");
   text-align: center;
-  background-color: #EEE117;
+  background-color: #D99E11;
 }
 
 #ravenclaw {
   background-image: url("./images/ravenclaw.jpg");
   text-align: center;
-  background-color: #000A90;
+  background-color: #126692;
 }
 
 /* can I make the mouse a wand???? */

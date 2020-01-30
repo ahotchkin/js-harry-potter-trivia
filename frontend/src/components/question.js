@@ -19,6 +19,7 @@ class Question {
 
   questionBindingsAndEventListeners() {
     this.form = document.getElementById("quiz_form")
+    this.quiz_container = document.getElementById("quiz_container")
     this.r1 = document.getElementById("r1")
     this.r2 = document.getElementById("r2")
     this.r3 = document.getElementById("r3")
@@ -31,6 +32,8 @@ class Question {
 
 
   renderQuestion(question) {
+    // this.form.style.display = "block"
+    this.quiz_container.style.display = "block"
     const q = document.createElement("p")
 
     // is there not a way to add text to the radio button itself? Tried updating the innerHTML of answer_a, and it looked correct in the elements but text wasn't showing up in the browser.
