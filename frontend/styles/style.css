@@ -53,10 +53,15 @@ form {
   /* border-color: #000; */
 }
 
-.round_title {
-  color: blue;
-  top: 0%;
+#round_title {
+  margin-top: 50px;
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 50%;
+  padding: 30px 30px 7.5px;
+  transform: translateX(50%);
+  border-radius: 20px;
 }
+
 #header {
   text-align: center;
   font-family: "Harry P", serif;
@@ -91,16 +96,16 @@ form {
   /* margin: 15% */
 }
 
-#title {
+/* #title {
   /* color: green; */
-  top: 0%;
-}
+  /* top: 0%; */
+/* } */
 
 #quiz_container {
   background-color: rgba(255, 255, 255, 0.85);
   width: 50%;
   padding: 30px;
-  margin-top: 50%;
+  margin-top: 5%;
   margin-bottom: 5%;
   /* left: 50%; */
   transform: translateX(50%);

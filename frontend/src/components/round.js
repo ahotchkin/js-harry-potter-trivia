@@ -58,7 +58,8 @@ class Round {
     // this.container.style.display = "none"
     this.start_button.style.display = "none"
     this.p.innerHTML = ""
-    this.header.id = "title"
+    // this.header.id = "title"
+    this.container.id = "round_title"
     // const title = document.createElement("h3")
     // this.className = "round_title"
 
