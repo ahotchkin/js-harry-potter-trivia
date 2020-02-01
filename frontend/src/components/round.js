@@ -169,7 +169,7 @@ class Round {
 
 
   getUserAnswers() {
-    const possible_answers = Array.from(document.querySelectorAll(".answer"))
+    const possible_answers = Array.from(document.querySelectorAll(".form-check-input"))
 
     const answers = []
 
