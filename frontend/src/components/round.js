@@ -58,6 +58,10 @@ class Round {
     // this.quiz_container.style.display = "block"
     // this.header.style.display = "none"
     // this.container.style.display = "none"
+    const div = document.createElement("div")
+
+    div.id = "submit_button"
+
     this.start_button.style.display = "none"
     this.p.innerHTML = ""
     // this.header.id = "title"
@@ -102,11 +106,12 @@ class Round {
     })
 
     // should this be specific book quotes?
+    this.quiz_container.appendChild(div)
     this.submit_round.className = "btn btn-light"
     this.submit_round.innerHTML = `Submit Round ${this.id} Answers`
 
 
-    this.form.appendChild(this.submit_round)
+    div.appendChild(this.submit_round)
 
   }
 
@@ -249,6 +254,8 @@ class Round {
   renderStats() {
     this.form.style.display = "none"
     this.header.innerHTML = `${this.user.username}'s Battle of Hogwarts`
+    const submit_round = document.getElementById("submit_button")
+    submit_round.style.display = "none"
     this.start_button.style.display = "none"
     this.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
 
