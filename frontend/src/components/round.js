@@ -256,24 +256,31 @@ class Round {
 
     const r1 = document.createElement("p")
     r1.innerHTML = `Round 1: ${this.user.username} and the Sorcerer's Stone`
+    r1.className = "round_p"
 
     const r2 = document.createElement("p")
     r2.innerHTML = `Round 2: ${this.user.username} and the Chamber of Secrets`
+    r2.className = "round_p"
 
     const r3 = document.createElement("p")
     r3.innerHTML = `Round 3: ${this.user.username} and the Prizoner of Azkaban`
+    r3.className = "round_p"
 
     const r4 = document.createElement("p")
     r4.innerHTML = `Round 4: ${this.user.username} and the Goblet of Fire`
+    r4.className = "round_p"
 
     const r5 = document.createElement("p")
     r5.innerHTML = `Round 5: ${this.user.username} and the Order of the Phoenix`
+    r5.className = "round_p"
 
     const r6 = document.createElement("p")
     r6.innerHTML = `Round 6: ${this.user.username} and the Half-Blood Prince`
+    r6.className = "round_p"
 
     const r7 = document.createElement("p")
     r7.innerHTML = `Round 7: ${this.user.username} and the Deathly Hallows`
+    r7.className = "round_p"
 
     r1.id = "r1"
     r2.id = "r2"

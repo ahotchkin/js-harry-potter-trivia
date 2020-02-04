@@ -50,6 +50,14 @@ class UserAnswers {
     const p6 = document.createElement("p")
     const p7 = document.createElement("p")
 
+    p1.className = "number_correct"
+    p2.className = "number_correct"
+    p3.className = "number_correct"
+    p4.className = "number_correct"
+    p5.className = "number_correct"
+    p6.className = "number_correct"
+    p7.className = "number_correct"
+
     p1.innerHTML = ""
     p2.innerHTML = ""
     p3.innerHTML = ""

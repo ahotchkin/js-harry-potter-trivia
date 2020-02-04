@@ -143,6 +143,10 @@ class Question {
     const userInput = document.createElement("p")
     const correctAnswer = document.createElement("p")
 
+    q.className = "question"
+    userInput.className = "user_input"
+    correctAnswer.className = "correct_answer"
+
     q.innerHTML = `Question: ${question.content}`
 
     if (userAnswer.user_input == "A") {

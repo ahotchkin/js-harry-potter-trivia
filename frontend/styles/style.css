@@ -19,6 +19,32 @@ form {
   margin-right: 22%;
 }
 
+
+.round_p {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.number_correct {
+  font-weight: normal;
+}
+
+.question {
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.user_input {
+  font-weight: normal;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.correct_answer {
+  font-weight: normal;
+  font-style: italic;
+}
+
 .form-control {
   margin-bottom: -30px;
 }
