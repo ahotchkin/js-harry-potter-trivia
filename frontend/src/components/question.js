@@ -138,9 +138,10 @@ class Question {
   }
 
   renderQuestionInfo(question, userAnswer) {
+    // format to group question and answers together, with no bullet points
     const q = document.createElement("p")
-    const userInput = document.createElement("li")
-    const correctAnswer = document.createElement("li")
+    const userInput = document.createElement("p")
+    const correctAnswer = document.createElement("p")
 
     q.innerHTML = `Question: ${question.content}`
 
@@ -155,13 +156,13 @@ class Question {
     }
 
     if (question.correct_answer == "A") {
-      correctAnswer.innerHTML = `Correct Answer: ${question.answer_a}`
+      correctAnswer.innerHTML = `Correct Answer: ${question.answer_a}\n`
     } else if (question.correct_answer == "B") {
-      correctAnswer.innerHTML = `Correct Answer: ${question.answer_b}`
+      correctAnswer.innerHTML = `Correct Answer: ${question.answer_b}\n`
     } else if (question.correct_answer == "C") {
-      correctAnswer.innerHTML = `Correct Answer: ${question.answer_c}`
+      correctAnswer.innerHTML = `Correct Answer: ${question.answer_c}\n`
     } else if (question.correct_answer == "D") {
-      correctAnswer.innerHTML = `Correct Answer: ${question.answer_d}`
+      correctAnswer.innerHTML = `Correct Answer: ${question.answer_d}\n`
     }
 
     if (userAnswer.round_id == 1) {

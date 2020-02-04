@@ -33,7 +33,7 @@ class Round {
     // hard bind this to the round when we execute submitAnswers, so when we access this from submitAnswers it is the Round class
     this.submit_round.addEventListener("click", this.submitAnswers.bind(this));
     this.container = document.getElementById("container")
-    this.round_title = document.getElementById("round_title")
+    // this.round_title = document.getElementById("round_title")
     // this.quiz_container = document.getElementById("quiz_container")
     // this.quiz = document.getElementById("quiz_container")
 
@@ -42,7 +42,7 @@ class Round {
   fetchAndLoadRound(event) {
     event.preventDefault();
     // console.log(this)
-    if (this.id < 8) {
+    if (this.id < 2) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round)
@@ -254,25 +254,25 @@ class Round {
     const userAnswers = new UserAnswers(this)
     // console.log(userAnswers)
 
-    const r1 = document.createElement("h3")
+    const r1 = document.createElement("p")
     r1.innerHTML = `Round 1: ${this.user.username} and the Sorcerer's Stone`
 
-    const r2 = document.createElement("h3")
+    const r2 = document.createElement("p")
     r2.innerHTML = `Round 2: ${this.user.username} and the Chamber of Secrets`
 
-    const r3 = document.createElement("h3")
+    const r3 = document.createElement("p")
     r3.innerHTML = `Round 3: ${this.user.username} and the Prizoner of Azkaban`
 
-    const r4 = document.createElement("h3")
+    const r4 = document.createElement("p")
     r4.innerHTML = `Round 4: ${this.user.username} and the Goblet of Fire`
 
-    const r5 = document.createElement("h3")
+    const r5 = document.createElement("p")
     r5.innerHTML = `Round 5: ${this.user.username} and the Order of the Phoenix`
 
-    const r6 = document.createElement("h3")
+    const r6 = document.createElement("p")
     r6.innerHTML = `Round 6: ${this.user.username} and the Half-Blood Prince`
 
-    const r7 = document.createElement("h3")
+    const r7 = document.createElement("p")
     r7.innerHTML = `Round 7: ${this.user.username} and the Deathly Hallows`
 
     r1.id = "r1"
@@ -283,13 +283,13 @@ class Round {
     r6.id = "r6"
     r7.id = "r7"
 
-    this.body.appendChild(r1)
-    this.body.appendChild(r2)
-    this.body.appendChild(r3)
-    this.body.appendChild(r4)
-    this.body.appendChild(r5)
-    this.body.appendChild(r6)
-    this.body.appendChild(r7)
+    this.quiz_container.appendChild(r1)
+    this.quiz_container.appendChild(r2)
+    this.quiz_container.appendChild(r3)
+    this.quiz_container.appendChild(r4)
+    this.quiz_container.appendChild(r5)
+    this.quiz_container.appendChild(r6)
+    this.quiz_container.appendChild(r7)
   }
 
 
