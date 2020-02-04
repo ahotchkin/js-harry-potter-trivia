@@ -76,6 +76,7 @@ form {
 .btn-light {
   margin-top: 20px;
   border: 1px solid #d3d3d3;
+  text-align: center;
   /* border-color: #000; */
 }
 
@@ -98,6 +99,17 @@ form {
 #new_user_form {
   /* text-align: center; */
 }
+
+#quiz_form {
+  padding: 30px 0px;
+  text-align: left;
+  margin-left: 40px;
+}
+
+#quiz_form div {
+  margin-left: 25px;
+}
+
 
 
 

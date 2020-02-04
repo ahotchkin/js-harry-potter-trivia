@@ -247,6 +247,7 @@ class Round {
   }
 
   renderStats() {
+    this.form.style.display = "none"
     this.header.innerHTML = `${this.user.username}'s Battle of Hogwarts`
     this.start_button.style.display = "none"
     this.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
