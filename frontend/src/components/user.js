@@ -71,6 +71,7 @@ class User {
 
     start_button.innerHTML = "I solemnly swear that I'm up to no good";
     start_button.id = "start_button"
+    start_button.className = "btn btn-light"
 
     this.text_container.appendChild(p)
     this.text_container.appendChild(start_button)

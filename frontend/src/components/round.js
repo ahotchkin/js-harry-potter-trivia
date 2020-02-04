@@ -21,6 +21,8 @@ class Round {
     this.body = document.querySelector("body");
     this.p = document.querySelector("p");
     this.form = document.getElementById("quiz_form")
+    this.quiz_container = document.getElementById("quiz_container")
+
     // this.form = document.createElement("form")
     // this.form.id = "quiz_form"
 
@@ -100,6 +102,7 @@ class Round {
     })
 
     // should this be specific book quotes?
+    this.submit_round.className = "btn btn-light"
     this.submit_round.innerHTML = `Submit Round ${this.id} Answers`
 
 
@@ -113,6 +116,7 @@ class Round {
       this.getUserAnswers()
       this.form.innerHTML = "";
       this.start_button.style.display = "initial"
+      this.quiz_container.style.display = "none"
     } else {
       alert("Please answer all questions.")
     }
@@ -124,7 +128,6 @@ class Round {
 
     let checkedAnswers = 0
 
-    console.log("I'm in answerChecked()")
     for (const input of inputsArray) {
       if (input.checked) {
         checkedAnswers++
