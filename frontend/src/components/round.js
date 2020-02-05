@@ -37,12 +37,17 @@ class Round {
     // this.quiz_container = document.getElementById("quiz_container")
     // this.quiz = document.getElementById("quiz_container")
 
+    this.div = document.createElement("div")
+
+    this.div.id = "submit_button"
+
+
   }
 
   fetchAndLoadRound(event) {
     event.preventDefault();
     // console.log(this)
-    if (this.id < 2) {
+    if (this.id < 8) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round)
@@ -58,9 +63,6 @@ class Round {
     // this.quiz_container.style.display = "block"
     // this.header.style.display = "none"
     // this.container.style.display = "none"
-    const div = document.createElement("div")
-
-    div.id = "submit_button"
 
     this.start_button.style.display = "none"
     this.p.innerHTML = ""
@@ -106,12 +108,12 @@ class Round {
     })
 
     // should this be specific book quotes?
-    this.quiz_container.appendChild(div)
+    this.quiz_container.appendChild(this.div)
     this.submit_round.className = "btn btn-light"
     this.submit_round.innerHTML = `Submit Round ${this.id} Answers`
 
 
-    div.appendChild(this.submit_round)
+    this.div.appendChild(this.submit_round)
 
   }
 
