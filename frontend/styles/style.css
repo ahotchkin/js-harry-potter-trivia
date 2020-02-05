@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: "lumos";
-  src: url("./fonts/lumos.ttf");
+  src: url("./fonts/lumoslatino.ttf");
   font-style: normal;
 }
 
@@ -23,8 +23,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #000;
-  /* remove color if sticking with black */
-  color: #000;
 }
 
 form {
@@ -148,7 +146,7 @@ form {
 /* } */
 
 #intro {
-  font-family: "New";
+  font-family: "lumos";
   font-size: 40px;
   font-weight: normal;
   /* margin: 15% */
