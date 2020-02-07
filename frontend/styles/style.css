@@ -7,8 +7,9 @@
 
 @font-face {
   font-family: "lumos";
-  src: url("./fonts/lumoslatino.ttf");
+  src: url("./fonts/Lumos.ttf");
   font-style: normal;
+  /* font issues: Vv is Ww, Ww is Xv, Xx is Vx */
 }
 
 ::-webkit-scrollbar {
