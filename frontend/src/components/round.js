@@ -46,7 +46,6 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    // console.log(this)
     if (this.id < 8) {
       this.adapter.getRound()
         .then(round => {
@@ -88,13 +87,6 @@ class Round {
     } else if (round.id == 7) {
       this.header.innerHTML = `${this.user.username} and the Deathly Hallows`
     }
-
-
-
-
-    // do I want to add all HTML elements here, or add a form to index.html and keep it hidden until this point?
-    // console.log(round.questions)
-    // this.body.appendChild(this.form)
 
     // should I use for...of instead of forEach?
     round.questions.forEach(question => {
@@ -144,37 +136,6 @@ class Round {
     if (checkedAnswers == 7) {
       return true
     }
-    // let answers1 = []
-    // let answers2 = []
-    // let answers3 = []
-    // let answers4 = []
-    // let answers5 = []
-    // let answers6 = []
-    // let answers7 = []
-    //
-    // inputsArray.forEach(function(input) {
-    //   if (input.name == 1) {
-    //     answers1.push(input)
-    //   } else if (input.name == 2) {
-    //     answers2.push(input)
-    //   } else if (input.name == 3) {
-    //     answers3.push(input)
-    //   } else if (input.name == 4) {
-    //     answers4.push(input)
-    //   } else if (input.name == 5) {
-    //     answers5.push(input)
-    //   } else if (input.name == 6) {
-    //     answers6.push(input)
-    //   } else if (input.name == 7) {
-    //     answers7.push(input)
-    //   }
-    // })
-    //
-    // for (let i = 0; i < answers1.length; i++) {
-    //   if (answers1[i].checked) {
-    //     return true
-    //   }
-    // }
   }
 
 
@@ -262,7 +223,6 @@ class Round {
     this.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
 
     const userAnswers = new UserAnswers(this)
-    // console.log(userAnswers)
 
     const r1 = document.createElement("p")
     r1.innerHTML = `Round 1: ${this.user.username} and the Sorcerer's Stone`
@@ -308,8 +268,5 @@ class Round {
     this.quiz_container.appendChild(r6)
     this.quiz_container.appendChild(r7)
   }
-
-
-
 
 }

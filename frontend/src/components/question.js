@@ -57,17 +57,7 @@ class Question {
     const answer_d = document.createElement("input")
     const answer_d_text = document.createElement("label")
 
-
-    // <div class="form-check">
-    //   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-    //   <label class="form-check-label" for="exampleRadios1">
-    //     Default radio
-    //   </label>
-    // </div>
-
     q.innerHTML = question.content
-    // is this id needed?
-    // q.id = "question"
 
     answer_a.setAttribute("type", "radio");
     answer_a.setAttribute("value", "A")
@@ -138,7 +128,6 @@ class Question {
   }
 
   renderQuestionInfo(question, userAnswer) {
-    // format to group question and answers together, with no bullet points
     const q = document.createElement("p")
     const userInput = document.createElement("p")
     const correctAnswer = document.createElement("p")
@@ -199,21 +188,6 @@ class Question {
       this.r7.appendChild(correctAnswer)
     }
 
-
   }
-
-  // fetchAndLoadRound(event) {
-  //   event.preventDefault();
-  //   // console.log(this)
-  //   if (this.id < 2) {
-  //     this.adapter.getRound()
-  //       .then(round => {
-  //         this.renderRound(round)
-  //       })
-  //   } else {
-  //     this.renderStats()
-  //   }
-  //
-  // }
 
 }
