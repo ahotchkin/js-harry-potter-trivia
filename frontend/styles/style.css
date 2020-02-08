@@ -60,16 +60,6 @@ form {
   margin-bottom: -30px;
 }
 
-/* .header-container {
-  background-color: rgba(255, 255, 255, 0.85);
-  width: 50%;
-  padding: 30px;
-  margin: 0;
-  border-radius: 20px;
-  text-align: center;
-  transform: translateX(50%)
-} */
-
 #container {
   background-color: rgba(255, 255, 255, 0.85);
   width: 50%;
@@ -87,6 +77,18 @@ form {
 .btn-light {
   margin-top: 20px;
   border: 1px solid #d3d3d3;
+}
+
+#speaker {
+  /* display: none; */
+
+  display: none;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  height: 40px;
+  width: 40px;
+  /* image: url("./images/hufflepuff.jpg"); */
 }
 
 #round_title {
@@ -110,10 +112,6 @@ form {
   font-weight: normal;
 }
 
-#new_user_form {
-  /* text-align: center; */
-}
-
 #quiz_form {
   padding-top: 30px;
   text-align: left;
@@ -124,38 +122,20 @@ form {
   margin-left: 25px;
 }
 
-#submit_button {
-  text-align: center;
-  padding-bottom: 30px;
+#start_button {
+  /* margin-bottom: 15px; */
 }
 
-
-
-/* #quiz-form {
-  background-color: rgba(255, 255, 255, 0.85);
-  width: 50%;
-  padding: 30px;
-  margin: 0;
-  position: absolute;
-  /* top: 50%;
-  left: 50%;
-  /* -ms-transform: translate(-50%, -50%); */
-  /* transform: translate(-50%, -50%); */
-  /* border-radius: 20px; */
-  /* text-align: center; */
-/* } */
+#submit_round {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 #intro {
   font-family: "lumos";
   font-size: 40px;
   font-weight: normal;
-  /* margin: 15% */
 }
-
-/* #title {
-  /* color: green; */
-  /* top: 0%; */
-/* } */
 
 #quiz_container {
   background-color: rgba(255, 255, 255, 0.85);
@@ -163,32 +143,10 @@ form {
   padding: 30px;
   margin-top: 30px;
   margin-bottom: 50px;
-  /* left: 50%; */
   transform: translateX(50%);
   display: none;
-  /* top: 25%;
-  left: 25%; */
-  /* transform: none; */
   border-radius: 20px;
-  /* margin-top: 15%; */
-  /* position: relative; */
-
 }
-
-/* .quiz_container {
-  background-color: rgba(255, 255, 255, 0.85);
-  width: 50%;
-  padding: 30px;
-  top: 50%;
-  margin: 0;
-  /* position: absolute; */
-  /* top: 50%;
-  left: 50%;
-  /* -ms-transform: translate(-50%, -50%); */
-  /* transform: translate(-50%, -50%); */
-  /* border-radius: 20px; */
-  /* text-align: center; */
-/* } */
 
 #gryffindor {
   background-image: url("./images/gryffindor.jpg");

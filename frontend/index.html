@@ -36,7 +36,7 @@
 
             <br><br>
 
-            <input type="submit" class="btn btn-light" id="submit" value="Let's Save Hogwarts">
+            <input type="submit" class="btn btn-light" id="submit" value="Let's Save Hogwarts" onclick="play()">
           </form>
         </div>
       </div>
@@ -45,8 +45,13 @@
         <form id="quiz_form">
         </form>
       </div>
+
+      <img id="speaker" src="styles/images/unmute.png" onclick="mute()">
     </main>
 
+    <audio src="styles/music/19 Hedwig's Theme.m4a" id="audio" loop></audio>
+
+    <script src="src/components/audio.js"></script>
     <script src="src/adapters/usersAdapter.js"></script>
     <script src="src/adapters/userAnswersAdapter.js"></script>
     <script src="src/adapters/roundsAdapter.js"></script>

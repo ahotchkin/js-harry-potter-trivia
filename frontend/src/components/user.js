@@ -20,6 +20,7 @@ class User {
     this.house = document.querySelector("#house");
     this.main = document.querySelector("main");
     this.text_container = document.getElementById("text_container")
+    this.speaker = document.getElementById("speaker")
 
     // this.start_button = document.createElement("button");
     // this.start_button.addEventListener("click", this.fetchAndLoadRound.bind(this))
@@ -28,7 +29,6 @@ class User {
   createUser(event) {
     event.preventDefault()
     const value = this.username.value
-
     // take the above value and make a post request using the adapter
 
     this.adapter.createUser(value)
@@ -39,6 +39,7 @@ class User {
   }
 
   renderUserStartPage(user) {
+    this.speaker.style.display = "block";
     this.newUserForm.style.display = "none"
     this.changeBackground()
     this.instructions(user)

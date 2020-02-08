@@ -39,7 +39,7 @@ class Round {
 
     this.div = document.createElement("div")
 
-    this.div.id = "submit_button"
+    this.div.id = "submit_round"
 
 
   }
@@ -217,7 +217,7 @@ class Round {
   renderStats() {
     this.form.style.display = "none"
     this.header.innerHTML = `${this.user.username}'s Battle of Hogwarts`
-    const submit_round = document.getElementById("submit_button")
+    const submit_round = document.getElementById("submit_round")
     submit_round.style.display = "none"
     this.start_button.style.display = "none"
     this.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
