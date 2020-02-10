@@ -1,12 +1,11 @@
 @font-face {
-  font-family: "harry_p";
-  src: url("./fonts/harry_p.ttf");
+  font-family: "Harry P";
+  src: url("./fonts/Harry_P.ttf");
   font-style: normal;
-  /* font-weight: 600; */
 }
 
 @font-face {
-  font-family: "lumos";
+  font-family: "Lumos";
   src: url("./fonts/Lumos.ttf");
   font-style: normal;
 }
@@ -107,7 +106,7 @@ form {
 
 #header {
   text-align: center;
-  font-family: "harry_p";
+  font-family: "Harry P";
   font-size: 50px;
   font-weight: normal;
 }
@@ -132,7 +131,7 @@ form {
 }
 
 #intro {
-  font-family: "lumos";
+  font-family: "Lumos";
   font-size: 40px;
   font-weight: normal;
 }
