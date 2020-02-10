@@ -6,14 +6,8 @@ class UserAnswer {
     this.correct_answer = question.correct_answer
     this.user_input = user_input.input
     this.round = round
+    // is this needed here????
     this.adapter = new UserAnswersAdapter()
-    this.userAnswerBindingsAndEventListeners()
   }
 
-
-  userAnswerBindingsAndEventListeners() {
-    this.form = document.getElementById("quiz_form")
-    this.start_button = document.getElementById("start_button")
-    this.body = document.querySelector("body");
-  }
 }

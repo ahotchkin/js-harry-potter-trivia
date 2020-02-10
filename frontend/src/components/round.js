@@ -22,25 +22,14 @@ class Round {
     this.p = document.querySelector("p");
     this.form = document.getElementById("quiz_form")
     this.quiz_container = document.getElementById("quiz_container")
-
-    // this.form = document.createElement("form")
-    // this.form.id = "quiz_form"
-
     this.submit_round = document.createElement("button")
     this.submit_round.id = "submit_round"
-    // this.submit_round.innerHTML = "Submit Round 1 Answers"
 
     // hard bind this to the round when we execute submitAnswers, so when we access this from submitAnswers it is the Round class
     this.submit_round.addEventListener("click", this.submitAnswers.bind(this));
     this.container = document.getElementById("container")
-    // this.round_title = document.getElementById("round_title")
-    // this.quiz_container = document.getElementById("quiz_container")
-    // this.quiz = document.getElementById("quiz_container")
-
     this.div = document.createElement("div")
-
     this.div.id = "submit_round"
-
 
   }
 

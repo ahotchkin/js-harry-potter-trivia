@@ -7,7 +7,6 @@ class User {
   }
 
 
-  // does this need function in front of it
   // used to cache any DOM elements we need, so we only have to do it once
   userBindingsAndEventListeners() {
     this.newUserForm = document.getElementById("new_user_form");
@@ -21,9 +20,6 @@ class User {
     this.main = document.querySelector("main");
     this.text_container = document.getElementById("text_container")
     this.speaker = document.getElementById("speaker")
-
-    // this.start_button = document.createElement("button");
-    // this.start_button.addEventListener("click", this.fetchAndLoadRound.bind(this))
   }
 
   createUser(event) {
