@@ -226,31 +226,31 @@ class Round {
 
     const r1 = document.createElement("p")
     r1.innerHTML = `Round 1: ${this.user.username} and the Sorcerer's Stone`
-    r1.className = "round_p"
+    r1.className = "round_stats"
 
     const r2 = document.createElement("p")
     r2.innerHTML = `Round 2: ${this.user.username} and the Chamber of Secrets`
-    r2.className = "round_p"
+    r2.className = "round_stats"
 
     const r3 = document.createElement("p")
     r3.innerHTML = `Round 3: ${this.user.username} and the Prizoner of Azkaban`
-    r3.className = "round_p"
+    r3.className = "round_stats"
 
     const r4 = document.createElement("p")
     r4.innerHTML = `Round 4: ${this.user.username} and the Goblet of Fire`
-    r4.className = "round_p"
+    r4.className = "round_stats"
 
     const r5 = document.createElement("p")
     r5.innerHTML = `Round 5: ${this.user.username} and the Order of the Phoenix`
-    r5.className = "round_p"
+    r5.className = "round_stats"
 
     const r6 = document.createElement("p")
     r6.innerHTML = `Round 6: ${this.user.username} and the Half-Blood Prince`
-    r6.className = "round_p"
+    r6.className = "round_stats"
 
     const r7 = document.createElement("p")
     r7.innerHTML = `Round 7: ${this.user.username} and the Deathly Hallows`
-    r7.className = "round_p"
+    r7.className = "round_stats"
 
     r1.id = "r1"
     r2.id = "r2"
@@ -259,6 +259,7 @@ class Round {
     r5.id = "r5"
     r6.id = "r6"
     r7.id = "r7"
+
 
     this.quiz_container.appendChild(r1)
     this.quiz_container.appendChild(r2)
