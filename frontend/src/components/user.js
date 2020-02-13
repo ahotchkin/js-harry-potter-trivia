@@ -15,7 +15,7 @@ class User {
     this.newUserForm.addEventListener("submit", this.createUser.bind(this));
     this.username = document.getElementById("username");
     this.header = document.getElementById("header");
-    this.body = document.querySelector("body");
+    // this.body = document.querySelector("body");
     this.house = document.querySelector("#house");
     this.main = document.querySelector("main");
     this.text_container = document.getElementById("text_container")
@@ -44,17 +44,13 @@ class User {
   changeBackground() {
     // use case statement?
     if (this.house.value == "gryffindor") {
-      // this.body.className = "house"
-      this.body.id = "gryffindor"
+      DOMElements.body.id = "gryffindor"
     } else if (this.house.value == "slytherin") {
-      // this.body.className = "house"
-      this.body.id = "slytherin"
+      DOMElements.body.id = "slytherin"
     } else if (this.house.value == "hufflepuff") {
-      // this.body.className = "house"
-      this.body.id = "hufflepuff"
+      DOMElements.body.id = "hufflepuff"
     } else if (this.house.value == "ravenclaw") {
-      // this.body.className = "house"
-      this.body.id = "ravenclaw"
+      DOMElements.body.id = "ravenclaw"
     }
   }
 

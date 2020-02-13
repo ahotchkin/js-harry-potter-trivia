@@ -18,7 +18,7 @@ class Round {
     // hard bind this to the round when we execute fetchAndLoadRound, so when we access this from fetchAndLoadRound it is the Round class
     this.start_button.addEventListener("click", this.fetchAndLoadRound.bind(this));
     this.header = document.getElementById("intro");
-    this.body = document.querySelector("body");
+    // this.body = document.querySelector("body");
     this.p = document.querySelector("p");
     // this.form = document.getElementById("quiz_form")
     // this.quiz_container = document.getElementById("quiz_container")
