@@ -9,10 +9,10 @@ class User {
 
   // used to cache any DOM elements we need, so we only have to do it once
   userBindingsAndEventListeners() {
-    this.newUserForm = document.getElementById("new_user_form");
+    // this.newUserForm = document.getElementById("new_user_form");
     // why is it not this.createUser() - with parenthesis
     // hard bind this to the users when we execute createUser(), so when we access this it is the Users class
-    this.newUserForm.addEventListener("submit", this.createUser.bind(this));
+    DOMElements.newUserForm.addEventListener("submit", this.createUser.bind(this));
     this.username = document.getElementById("username");
     this.header = document.getElementById("header");
     // this.body = document.querySelector("body");
@@ -36,7 +36,7 @@ class User {
 
   renderUserStartPage(user) {
     this.speaker.style.display = "block";
-    this.newUserForm.style.display = "none"
+    DOMElements.newUserForm.style.display = "none"
     this.changeBackground()
     this.instructions(user)
   }
