@@ -21,13 +21,13 @@ class Question {
     // this.form = document.getElementById("quiz_form")
     // this.quiz_container = document.getElementById("quiz_container")
     // should I be creating these here instead?
-    this.r1 = document.getElementById("r1")
-    this.r2 = document.getElementById("r2")
-    this.r3 = document.getElementById("r3")
-    this.r4 = document.getElementById("r4")
-    this.r5 = document.getElementById("r5")
-    this.r6 = document.getElementById("r6")
-    this.r7 = document.getElementById("r7")
+    // this.r1 = document.getElementById("r1")
+    // this.r2 = document.getElementById("r2")
+    // this.r3 = document.getElementById("r3")
+    // this.r4 = document.getElementById("r4")
+    // this.r5 = document.getElementById("r5")
+    // this.r6 = document.getElementById("r6")
+    // this.r7 = document.getElementById("r7")
 
 
   }
@@ -159,33 +159,33 @@ class Question {
     }
 
     if (userAnswer.round_id == 1) {
-      this.r1.appendChild(q)
-      this.r1.appendChild(userInput)
-      this.r1.appendChild(correctAnswer)
+      DOMElements.r1.appendChild(q)
+      DOMElements.r1.appendChild(userInput)
+      DOMElements.r1.appendChild(correctAnswer)
     } else if (userAnswer.round_id == 2) {
-      this.r2.appendChild(q)
-      this.r2.appendChild(userInput)
-      this.r2.appendChild(correctAnswer)
+      DOMElements.r2.appendChild(q)
+      DOMElements.r2.appendChild(userInput)
+      DOMElements.r2.appendChild(correctAnswer)
     } else if (userAnswer.round_id == 3) {
-      this.r3.appendChild(q)
-      this.r3.appendChild(userInput)
-      this.r3.appendChild(correctAnswer)
+      DOMElements.r3.appendChild(q)
+      DOMElements.r3.appendChild(userInput)
+      DOMElements.r3.appendChild(correctAnswer)
     } else if (userAnswer.round_id == 4) {
-      this.r4.appendChild(q)
-      this.r4.appendChild(userInput)
-      this.r4.appendChild(correctAnswer)
+      DOMElements.r4.appendChild(q)
+      DOMElements.r4.appendChild(userInput)
+      DOMElements.r4.appendChild(correctAnswer)
     } else if (userAnswer.round_id == 5) {
-      this.r5.appendChild(q)
-      this.r5.appendChild(userInput)
-      this.r5.appendChild(correctAnswer)
+      DOMElements.r5.appendChild(q)
+      DOMElements.r5.appendChild(userInput)
+      DOMElements.r5.appendChild(correctAnswer)
     } else if (userAnswer.round_id == 6) {
-      this.r6.appendChild(q)
-      this.r6.appendChild(userInput)
-      this.r6.appendChild(correctAnswer)
+      DOMElements.r6.appendChild(q)
+      DOMElements.r6.appendChild(userInput)
+      DOMElements.r6.appendChild(correctAnswer)
     } else if (userAnswer.round_id == 7) {
-      this.r7.appendChild(q)
-      this.r7.appendChild(userInput)
-      this.r7.appendChild(correctAnswer)
+      DOMElements.r7.appendChild(q)
+      DOMElements.r7.appendChild(userInput)
+      DOMElements.r7.appendChild(correctAnswer)
     }
 
   }

@@ -35,7 +35,7 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    if (this.id < 8) {
+    if (this.id < 2) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round)

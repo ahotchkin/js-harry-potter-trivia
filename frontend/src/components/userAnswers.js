@@ -9,13 +9,13 @@ class UserAnswers {
   }
 
   userAnswersBindingsAndEventListeners() {
-    this.r1 = document.getElementById("r1")
-    this.r2 = document.getElementById("r2")
-    this.r3 = document.getElementById("r3")
-    this.r4 = document.getElementById("r4")
-    this.r5 = document.getElementById("r5")
-    this.r6 = document.getElementById("r6")
-    this.r7 = document.getElementById("r7")
+    // this.r1 = document.getElementById("r1")
+    // this.r2 = document.getElementById("r2")
+    // this.r3 = document.getElementById("r3")
+    // this.r4 = document.getElementById("r4")
+    // this.r5 = document.getElementById("r5")
+    // this.r6 = document.getElementById("r6")
+    // this.r7 = document.getElementById("r7")
     // this.quiz_container = document.getElementById("quiz_container")
 
 
@@ -66,13 +66,14 @@ class UserAnswers {
     p6.innerHTML = ""
     p7.innerHTML = ""
 
-    r1.appendChild(p1)
-    r2.appendChild(p2)
-    r3.appendChild(p3)
-    r4.appendChild(p4)
-    r5.appendChild(p5)
-    r6.appendChild(p6)
-    r7.appendChild(p7)
+    // this seems to work whether I call it with DOMElements or not. Can also just be r1.appendChild(p1). MAke sure there are no issues.
+    DOMElements.r1.appendChild(p1)
+    DOMElements.r2.appendChild(p2)
+    DOMElements.r3.appendChild(p3)
+    DOMElements.r4.appendChild(p4)
+    DOMElements.r5.appendChild(p5)
+    DOMElements.r6.appendChild(p6)
+    DOMElements.r7.appendChild(p7)
 
     for (const userAnswer of userAnswers) {
       if (this.round.user.id == userAnswer.user_id) {

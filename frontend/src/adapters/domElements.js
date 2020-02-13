@@ -1,11 +1,11 @@
 class DOMElements {
 
-  // used in question, round:
+  // used in question, round. Replaced.
 
   static get quiz_form() { return document.getElementById("quiz_form") };
 
 
-  // used in question, round, userAnswers
+  // used in question, round, userAnswers. Replaced.
 
   static get quiz_container() { return document.getElementById("quiz_container") };
 
@@ -13,17 +13,11 @@ class DOMElements {
   // used in question, userAnswers:
 
   static get r1() { return document.getElementById("r1") };
-
   static get r2() { return document.getElementById("r2") };
-
   static get r3() { return document.getElementById("r3") };
-
   static get r4() { return document.getElementById("r4") };
-
   static get r5() { return document.getElementById("r5") };
-
   static get r6() { return document.getElementById("r6") };
-
   static get r7() { return document.getElementById("r7") };
 
   // used in round, user:
