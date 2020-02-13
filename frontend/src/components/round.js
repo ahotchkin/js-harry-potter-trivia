@@ -13,10 +13,10 @@ class Round {
 
 
   roundBindingsAndEventListeners() {
-    this.start_button = document.getElementById("start_button")
+    // this.start_button = document.getElementById("start_button")
     // why is it not this.createUser() - with parenthesis
     // hard bind this to the round when we execute fetchAndLoadRound, so when we access this from fetchAndLoadRound it is the Round class
-    this.start_button.addEventListener("click", this.fetchAndLoadRound.bind(this));
+    DOMElements.start_button.addEventListener("click", this.fetchAndLoadRound.bind(this));
     this.header = document.getElementById("intro");
     // this.body = document.querySelector("body");
     this.p = document.querySelector("p");
@@ -35,7 +35,7 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    if (this.id < 2) {
+    if (this.id < 8) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round)
@@ -52,7 +52,7 @@ class Round {
     // this.header.style.display = "none"
     // this.container.style.display = "none"
 
-    this.start_button.style.display = "none"
+    DOMElements.start_button.style.display = "none"
     this.p.innerHTML = ""
     // this.header.id = "title"
     this.container.id = "round_title"
@@ -103,7 +103,7 @@ class Round {
     if (this.answersChecked()) {
       this.getUserAnswers()
       DOMElements.quiz_form.innerHTML = "";
-      this.start_button.style.display = "initial"
+      DOMElements.start_button.style.display = "initial"
       DOMElements.quiz_container.style.display = "none"
     } else {
       alert("Please answer all questions.")
@@ -180,24 +180,24 @@ class Round {
       this.p.innerHTML = "Congratulations! You're smart enough to move on to the next round."
 
       if (this.id == 2) {
-        this.start_button.innerHTML = "Start Round 2"
+        DOMElements.start_button.innerHTML = "Start Round 2"
       } else if (this.id == 3) {
-        this.start_button.innerHTML = "Start Round 3"
+        DOMElements.start_button.innerHTML = "Start Round 3"
       } else if (this.id == 4) {
-        this.start_button.innerHTML = "Start Round 4"
+        DOMElements.start_button.innerHTML = "Start Round 4"
       } else if (this.id == 5) {
-        this.start_button.innerHTML = "Start Round 5"
+        DOMElements.start_button.innerHTML = "Start Round 5"
       } else if (this.id == 6) {
-        this.start_button.innerHTML = "Start Round 6"
+        DOMElements.start_button.innerHTML = "Start Round 6"
       } else if (this.id == 7) {
-        this.start_button.innerHTML = "Start Round 7"
+        DOMElements.start_button.innerHTML = "Start Round 7"
       } else if (this.id == 8) {
-        this.start_button.innerHTML = "See Your Stats"
+        DOMElements.start_button.innerHTML = "See Your Stats"
       }
 
     } else {
       this.p.innerHTML = "Sorry, Voldemort wins."
-      this.start_button.innerHTML = "Try Again"
+      DOMElements.start_button.innerHTML = "Try Again"
 
     }
 
@@ -208,7 +208,7 @@ class Round {
     this.header.innerHTML = `${this.user.username}'s Battle of Hogwarts`
     const submit_round = document.getElementById("submit_round")
     submit_round.style.display = "none"
-    this.start_button.style.display = "none"
+    DOMElements.start_button.style.display = "none"
     this.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
 
     const userAnswers = new UserAnswers(this)
