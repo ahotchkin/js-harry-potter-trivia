@@ -17,7 +17,7 @@ class User {
     this.username = document.getElementById("username");
     // this.header = document.getElementById("header");
     // this.body = document.querySelector("body");
-    this.house = document.querySelector("#house");
+    // this.house = document.querySelector("#house");
     this.main = document.querySelector("main");
     this.text_container = document.getElementById("text_container")
     this.speaker = document.getElementById("speaker")
@@ -44,13 +44,13 @@ class User {
 
   changeBackground() {
     // use case statement?
-    if (this.house.value == "gryffindor") {
+    if (DOMElements.house.value == "gryffindor") {
       DOMElements.body.id = "gryffindor"
-    } else if (this.house.value == "slytherin") {
+    } else if (DOMElements.house.value == "slytherin") {
       DOMElements.body.id = "slytherin"
-    } else if (this.house.value == "hufflepuff") {
+    } else if (DOMElements.house.value == "hufflepuff") {
       DOMElements.body.id = "hufflepuff"
-    } else if (this.house.value == "ravenclaw") {
+    } else if (DOMElements.house.value == "ravenclaw") {
       DOMElements.body.id = "ravenclaw"
     }
   }

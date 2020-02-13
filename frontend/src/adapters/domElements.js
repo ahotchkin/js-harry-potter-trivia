@@ -47,6 +47,7 @@ class DOMElements {
 
   static get header() { return document.getElementById("header") };
 
+  // can this be getElementById???
   static get house() { return document.querySelector("#house") };
 
   static get main() { return document.querySelector("main") };
