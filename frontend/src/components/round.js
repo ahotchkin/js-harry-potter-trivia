@@ -21,7 +21,7 @@ class Round {
     this.body = document.querySelector("body");
     this.p = document.querySelector("p");
     this.form = document.getElementById("quiz_form")
-    this.quiz_container = document.getElementById("quiz_container")
+    // this.quiz_container = document.getElementById("quiz_container")
     this.submit_round = document.createElement("button")
     this.submit_round.id = "submit_round"
 
@@ -89,7 +89,7 @@ class Round {
     })
 
     // should this be specific book quotes?
-    this.quiz_container.appendChild(this.div)
+    DOMElements.quiz_container.appendChild(this.div)
     this.submit_round.className = "btn btn-light"
     this.submit_round.innerHTML = `Submit Round ${this.id} Answers`
 
@@ -104,7 +104,7 @@ class Round {
       this.getUserAnswers()
       this.form.innerHTML = "";
       this.start_button.style.display = "initial"
-      this.quiz_container.style.display = "none"
+      DOMElements.quiz_container.style.display = "none"
     } else {
       alert("Please answer all questions.")
     }
@@ -250,13 +250,13 @@ class Round {
     r7.id = "r7"
 
 
-    this.quiz_container.appendChild(r1)
-    this.quiz_container.appendChild(r2)
-    this.quiz_container.appendChild(r3)
-    this.quiz_container.appendChild(r4)
-    this.quiz_container.appendChild(r5)
-    this.quiz_container.appendChild(r6)
-    this.quiz_container.appendChild(r7)
+    DOMElements.quiz_container.appendChild(r1)
+    DOMElements.quiz_container.appendChild(r2)
+    DOMElements.quiz_container.appendChild(r3)
+    DOMElements.quiz_container.appendChild(r4)
+    DOMElements.quiz_container.appendChild(r5)
+    DOMElements.quiz_container.appendChild(r6)
+    DOMElements.quiz_container.appendChild(r7)
   }
 
 }
