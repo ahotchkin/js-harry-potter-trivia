@@ -11,26 +11,26 @@ class Question {
     this.round_id = round_id;
 
     this.adapter = new QuestionsAdapter(this)
-    this.questionBindingsAndEventListeners()
+    // this.questionBindingsAndEventListeners()
 
 
   }
 
 
-  questionBindingsAndEventListeners() {
-    // this.form = document.getElementById("quiz_form")
-    // this.quiz_container = document.getElementById("quiz_container")
-    // should I be creating these here instead?
-    // this.r1 = document.getElementById("r1")
-    // this.r2 = document.getElementById("r2")
-    // this.r3 = document.getElementById("r3")
-    // this.r4 = document.getElementById("r4")
-    // this.r5 = document.getElementById("r5")
-    // this.r6 = document.getElementById("r6")
-    // this.r7 = document.getElementById("r7")
-
-
-  }
+  // questionBindingsAndEventListeners() {
+  //   // this.form = document.getElementById("quiz_form")
+  //   // this.quiz_container = document.getElementById("quiz_container")
+  //   // should I be creating these here instead?
+  //   // this.r1 = document.getElementById("r1")
+  //   // this.r2 = document.getElementById("r2")
+  //   // this.r3 = document.getElementById("r3")
+  //   // this.r4 = document.getElementById("r4")
+  //   // this.r5 = document.getElementById("r5")
+  //   // this.r6 = document.getElementById("r6")
+  //   // this.r7 = document.getElementById("r7")
+  //
+  //
+  // }
 
 
   renderQuestion(question) {

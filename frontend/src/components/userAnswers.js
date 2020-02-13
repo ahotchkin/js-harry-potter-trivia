@@ -3,23 +3,23 @@ class UserAnswers {
   constructor(round) {
     this.adapter = new UserAnswersAdapter()
     this.fetchAndLoadUserAnswers()
-    this.userAnswersBindingsAndEventListeners()
+    // this.userAnswersBindingsAndEventListeners()
     // is this the only way to get access to the round and then to the round's user to make sure you're printing out the right user's answers?
     this.round = round
   }
 
-  userAnswersBindingsAndEventListeners() {
-    // this.r1 = document.getElementById("r1")
-    // this.r2 = document.getElementById("r2")
-    // this.r3 = document.getElementById("r3")
-    // this.r4 = document.getElementById("r4")
-    // this.r5 = document.getElementById("r5")
-    // this.r6 = document.getElementById("r6")
-    // this.r7 = document.getElementById("r7")
-    // this.quiz_container = document.getElementById("quiz_container")
-
-
-  }
+  // userAnswersBindingsAndEventListeners() {
+  //   // this.r1 = document.getElementById("r1")
+  //   // this.r2 = document.getElementById("r2")
+  //   // this.r3 = document.getElementById("r3")
+  //   // this.r4 = document.getElementById("r4")
+  //   // this.r5 = document.getElementById("r5")
+  //   // this.r6 = document.getElementById("r6")
+  //   // this.r7 = document.getElementById("r7")
+  //   // this.quiz_container = document.getElementById("quiz_container")
+  //
+  //
+  // }
 
   fetchAndLoadUserAnswers(userAnswer) {
     this.adapter.getUserAnswers()

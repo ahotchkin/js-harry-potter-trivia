@@ -6,7 +6,7 @@ class UserAnswer {
     this.correct_answer = question.correct_answer
     this.user_input = user_input.input
     this.round = round
-    // is this needed here????
+    // this is necessary to create the UserAnswers at the end of each round
     this.adapter = new UserAnswersAdapter()
   }
 
