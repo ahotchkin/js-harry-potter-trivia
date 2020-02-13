@@ -19,7 +19,7 @@ class Round {
     DOMElements.start_button.addEventListener("click", this.fetchAndLoadRound.bind(this));
     // this.header = document.getElementById("intro");
     // this.body = document.querySelector("body");
-    this.p = document.querySelector("p");
+    // this.p = document.querySelector("p");
     // this.form = document.getElementById("quiz_form")
     // this.quiz_container = document.getElementById("quiz_container")
     this.submit_round = document.createElement("button")
@@ -53,7 +53,7 @@ class Round {
     // this.container.style.display = "none"
 
     DOMElements.start_button.style.display = "none"
-    this.p.innerHTML = ""
+    DOMElements.p.innerHTML = ""
     // this.header.id = "title"
     this.container.id = "round_title"
     // const title = document.createElement("h3")
@@ -177,7 +177,7 @@ class Round {
       this.id += 1
       this.adapter = new RoundsAdapter(this)
 
-      this.p.innerHTML = "Congratulations! You're smart enough to move on to the next round."
+      DOMElements.p.innerHTML = "Congratulations! You're smart enough to move on to the next round."
 
       if (this.id == 2) {
         DOMElements.start_button.innerHTML = "Start Round 2"
@@ -196,7 +196,7 @@ class Round {
       }
 
     } else {
-      this.p.innerHTML = "Sorry, Voldemort wins."
+      DOMElements.p.innerHTML = "Sorry, Voldemort wins."
       DOMElements.start_button.innerHTML = "Try Again"
 
     }
@@ -209,7 +209,7 @@ class Round {
     const submit_round = document.getElementById("submit_round")
     submit_round.style.display = "none"
     DOMElements.start_button.style.display = "none"
-    this.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
+    DOMElements.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
 
     const userAnswers = new UserAnswers(this)
 
