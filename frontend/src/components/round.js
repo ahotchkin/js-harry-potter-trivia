@@ -20,7 +20,7 @@ class Round {
     this.header = document.getElementById("intro");
     this.body = document.querySelector("body");
     this.p = document.querySelector("p");
-    this.form = document.getElementById("quiz_form")
+    // this.form = document.getElementById("quiz_form")
     // this.quiz_container = document.getElementById("quiz_container")
     this.submit_round = document.createElement("button")
     this.submit_round.id = "submit_round"
@@ -102,7 +102,7 @@ class Round {
     event.preventDefault()
     if (this.answersChecked()) {
       this.getUserAnswers()
-      this.form.innerHTML = "";
+      DOMElements.quiz_form.innerHTML = "";
       this.start_button.style.display = "initial"
       DOMElements.quiz_container.style.display = "none"
     } else {
@@ -204,7 +204,7 @@ class Round {
   }
 
   renderStats() {
-    this.form.style.display = "none"
+    DOMElements.quiz_form.style.display = "none"
     this.header.innerHTML = `${this.user.username}'s Battle of Hogwarts`
     const submit_round = document.getElementById("submit_round")
     submit_round.style.display = "none"

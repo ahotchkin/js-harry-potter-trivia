@@ -18,7 +18,7 @@ class Question {
 
 
   questionBindingsAndEventListeners() {
-    this.form = document.getElementById("quiz_form")
+    // this.form = document.getElementById("quiz_form")
     // this.quiz_container = document.getElementById("quiz_container")
     // should I be creating these here instead?
     this.r1 = document.getElementById("r1")
@@ -99,12 +99,12 @@ class Question {
 
     answer_d_text.innerText = ` ${question.answer_d} \n\n`
 
-    this.form.appendChild(q)
+    DOMElements.quiz_form.appendChild(q)
 
-    this.form.appendChild(div_a)
-    this.form.appendChild(div_b)
-    this.form.appendChild(div_c)
-    this.form.appendChild(div_d)
+    DOMElements.quiz_form.appendChild(div_a)
+    DOMElements.quiz_form.appendChild(div_b)
+    DOMElements.quiz_form.appendChild(div_c)
+    DOMElements.quiz_form.appendChild(div_d)
 
     div_a.appendChild(answer_a)
     div_a.appendChild(answer_a_text)

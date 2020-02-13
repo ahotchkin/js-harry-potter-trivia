@@ -2,7 +2,7 @@ class DOMElements {
 
   // used in question, round:
 
-  static get form() { return document.getElementById("quiz_form") };
+  static get quiz_form() { return document.getElementById("quiz_form") };
 
 
   // used in question, round, userAnswers
