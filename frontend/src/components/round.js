@@ -27,7 +27,7 @@ class Round {
 
     // hard bind this to the round when we execute submitAnswers, so when we access this from submitAnswers it is the Round class
     this.submit_round.addEventListener("click", this.submitAnswers.bind(this));
-    this.container = document.getElementById("container")
+    // this.container = document.getElementById("container")
     this.div = document.createElement("div")
     this.div.id = "submit_round"
 
@@ -55,7 +55,7 @@ class Round {
     DOMElements.start_button.style.display = "none"
     DOMElements.p.innerHTML = ""
     // this.header.id = "title"
-    this.container.id = "round_title"
+    DOMElements.container.id = "round_title"
     // const title = document.createElement("h3")
     // this.className = "round_title"
 
