@@ -18,9 +18,9 @@ class User {
     // this.header = document.getElementById("header");
     // this.body = document.querySelector("body");
     // this.house = document.querySelector("#house");
-    this.main = document.querySelector("main");
-    this.text_container = document.getElementById("text_container")
-    this.speaker = document.getElementById("speaker")
+    // this.main = document.querySelector("main");
+    // this.text_container = document.getElementById("text_container")
+    // this.speaker = document.getElementById("speaker")
   }
 
   createUser(event) {
@@ -36,7 +36,7 @@ class User {
   }
 
   renderUserStartPage(user) {
-    this.speaker.style.display = "block";
+    DOMElements.speaker.style.display = "block";
     DOMElements.newUserForm.style.display = "none"
     this.changeBackground()
     this.instructions(user)
@@ -69,8 +69,8 @@ class User {
     start_button.id = "start_button"
     start_button.className = "btn btn-light"
 
-    this.text_container.appendChild(p)
-    this.text_container.appendChild(start_button)
+    DOMElements.textContainer.appendChild(p)
+    DOMElements.textContainer.appendChild(start_button)
 
     const round = new Round(user, 1)
   }

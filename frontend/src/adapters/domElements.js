@@ -50,7 +50,7 @@ class DOMElements {
   // can this be getElementById???
   static get house() { return document.querySelector("#house") };
 
-  static get main() { return document.querySelector("main") };
+  // static get main() { return document.querySelector("main") };
 
   // changed to textContainer from text_container
   static get textContainer() { return document.getElementById("text_container") };
