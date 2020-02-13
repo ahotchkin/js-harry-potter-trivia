@@ -17,7 +17,7 @@ class Round {
     // why is it not this.createUser() - with parenthesis
     // hard bind this to the round when we execute fetchAndLoadRound, so when we access this from fetchAndLoadRound it is the Round class
     DOMElements.start_button.addEventListener("click", this.fetchAndLoadRound.bind(this));
-    this.header = document.getElementById("intro");
+    // this.header = document.getElementById("intro");
     // this.body = document.querySelector("body");
     this.p = document.querySelector("p");
     // this.form = document.getElementById("quiz_form")
@@ -35,7 +35,7 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    if (this.id < 8) {
+    if (this.id < 2) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round)
@@ -62,19 +62,19 @@ class Round {
 
     // should this be saved in the database somewhere instead? Case statement?
     if (round.id == 1) {
-      this.header.innerHTML = `${this.user.username} and the Sorcerer's Stone`
+      DOMElements.intro.innerHTML = `${this.user.username} and the Sorcerer's Stone`
     } else if (round.id == 2) {
-      this.header.innerHTML = `${this.user.username} and the Chamber of Secrets`
+      DOMElements.intro.innerHTML = `${this.user.username} and the Chamber of Secrets`
     } else if (round.id == 3) {
-      this.header.innerHTML = `${this.user.username} and the Prizoner of Azkaban`
+      DOMElements.intro.innerHTML = `${this.user.username} and the Prizoner of Azkaban`
     } else if (round.id == 4) {
-      this.header.innerHTML = `${this.user.username} and the Goblet of Fire`
+      DOMElements.intro.innerHTML = `${this.user.username} and the Goblet of Fire`
     } else if (round.id == 5) {
-      this.header.innerHTML = `${this.user.username} and the Order of the Phoenix`
+      DOMElements.intro.innerHTML = `${this.user.username} and the Order of the Phoenix`
     } else if (round.id == 6) {
-      this.header.innerHTML = `${this.user.username} and the Half-Blood Prince`
+      DOMElements.intro.innerHTML = `${this.user.username} and the Half-Blood Prince`
     } else if (round.id == 7) {
-      this.header.innerHTML = `${this.user.username} and the Deathly Hallows`
+      DOMElements.intro.innerHTML = `${this.user.username} and the Deathly Hallows`
     }
 
     // should I use for...of instead of forEach?
@@ -205,7 +205,7 @@ class Round {
 
   renderStats() {
     DOMElements.quiz_form.style.display = "none"
-    this.header.innerHTML = `${this.user.username}'s Battle of Hogwarts`
+    DOMElements.intro.innerHTML = `${this.user.username}'s Battle of Hogwarts`
     const submit_round = document.getElementById("submit_round")
     submit_round.style.display = "none"
     DOMElements.start_button.style.display = "none"
