@@ -19,7 +19,7 @@ class Question {
 
   questionBindingsAndEventListeners() {
     this.form = document.getElementById("quiz_form")
-    this.quiz_container = document.getElementById("quiz_container")
+    // this.quiz_container = document.getElementById("quiz_container")
     // should I be creating these here instead?
     this.r1 = document.getElementById("r1")
     this.r2 = document.getElementById("r2")
@@ -34,7 +34,7 @@ class Question {
 
 
   renderQuestion(question) {
-    this.quiz_container.style.display = "table"
+    DOMElements.quiz_container.style.display = "table"
     const div_a = document.createElement("div")
     const div_b = document.createElement("div")
     const div_c = document.createElement("div")

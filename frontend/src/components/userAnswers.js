@@ -16,7 +16,7 @@ class UserAnswers {
     this.r5 = document.getElementById("r5")
     this.r6 = document.getElementById("r6")
     this.r7 = document.getElementById("r7")
-    this.quiz_container = document.getElementById("quiz_container")
+    // this.quiz_container = document.getElementById("quiz_container")
 
 
   }
@@ -32,7 +32,7 @@ class UserAnswers {
 
   renderUserAnswers(userAnswers) {
 
-    this.quiz_container.style.display = "table"
+    DOMElements.quiz_container.style.display = "table"
 
     let r1CorrectAnswers = 0
     let r2CorrectAnswers = 0
