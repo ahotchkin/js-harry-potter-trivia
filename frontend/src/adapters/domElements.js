@@ -42,6 +42,7 @@ class DOMElements {
 
   static get newUserForm() { return document.getElementById("new_user_form") };
 
+  // Not working in user.js
   static get userName() { return document.getElementById("username") };
 
   static get header() { return document.getElementById("header") };

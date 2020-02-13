@@ -27,6 +27,7 @@ class Round {
 
     // hard bind this to the round when we execute submitAnswers, so when we access this from submitAnswers it is the Round class
     this.submit_round.addEventListener("click", this.submitAnswers.bind(this));
+    // DOMElements.container is not working. Why???
     this.container = document.getElementById("container")
     this.div = document.createElement("div")
     this.div.id = "submit_round"
@@ -35,7 +36,7 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    if (this.id < 8) {
+    if (this.id < 2) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round)
