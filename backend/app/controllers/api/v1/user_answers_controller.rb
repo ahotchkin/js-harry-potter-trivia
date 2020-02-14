@@ -6,13 +6,11 @@ class Api::V1::UserAnswersController < ApplicationController
   end
 
   def create
-    # binding.pry
     @user_answer = UserAnswer.new(user_answer_params)
     if @user_answer.save
       render json: @user_answer.to_json, status: 200
     end
   end
-
 
   private
 

@@ -27,7 +27,6 @@ class UserAnswersAdapter {
           user_answer
         })
       })
-
     // below sends a parsed JSON object back to the users component in createUser()
     .then(response => response.json())
   }

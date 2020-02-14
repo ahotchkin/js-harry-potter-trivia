@@ -9,29 +9,8 @@ class Question {
     this.answer_d = answer_d;
     this.correct_answer = correct_answer;
     this.round_id = round_id;
-
     this.adapter = new QuestionsAdapter(this)
-    // this.questionBindingsAndEventListeners()
-
-
   }
-
-
-  // questionBindingsAndEventListeners() {
-  //   // this.form = document.getElementById("quiz_form")
-  //   // this.quiz_container = document.getElementById("quiz_container")
-  //   // should I be creating these here instead?
-  //   // this.r1 = document.getElementById("r1")
-  //   // this.r2 = document.getElementById("r2")
-  //   // this.r3 = document.getElementById("r3")
-  //   // this.r4 = document.getElementById("r4")
-  //   // this.r5 = document.getElementById("r5")
-  //   // this.r6 = document.getElementById("r6")
-  //   // this.r7 = document.getElementById("r7")
-  //
-  //
-  // }
-
 
   renderQuestion(question) {
     DOMElements.quiz_container.style.display = "table"
@@ -39,12 +18,8 @@ class Question {
     const div_b = document.createElement("div")
     const div_c = document.createElement("div")
     const div_d = document.createElement("div")
-
-    // this.div.className = "custom-control custom-radio"
-    // div.className = "form-check"
     const q = document.createElement("p")
 
-    // is there not a way to add text to the radio button itself? Tried updating the innerHTML of answer_a, and it looked correct in the elements but text wasn't showing up in the browser.
     const answer_a = document.createElement("input")
     const answer_a_text = document.createElement("label")
 
@@ -65,8 +40,6 @@ class Question {
     answer_a.setAttribute("class", "form-check-input")
     answer_a.setAttribute("id", "user_input")
     answer_a_text.className = "form-check-label"
-    // answer_a_text.htmlFor = "user_input"
-
     answer_a_text.innerText = ` ${question.answer_a}`
 
     answer_b.setAttribute("type", "radio");
@@ -75,8 +48,6 @@ class Question {
     answer_b.setAttribute("class", "form-check-input")
     answer_b.setAttribute("id", "user_input")
     answer_b_text.className = "form-check-label"
-    // answer_b_text.htmlFor = "user_input"
-
     answer_b_text.innerText = ` ${question.answer_b}`
 
     answer_c.setAttribute("type", "radio");
@@ -85,8 +56,6 @@ class Question {
     answer_c.setAttribute("class", "form-check-input")
     answer_c.setAttribute("id", "user_input")
     answer_c_text.className = "form-check-label"
-    // answer_c_text.htmlFor = "user_input"
-
     answer_c_text.innerText = ` ${question.answer_c}`
 
     answer_d.setAttribute("type", "radio");
@@ -95,8 +64,6 @@ class Question {
     answer_d.setAttribute("class", "form-check-input")
     answer_d.setAttribute("id", "user_input")
     answer_d_text.className = "form-check-label"
-    // answer_d_text.htmlFor = "user_input"
-
     answer_d_text.innerText = ` ${question.answer_d} \n\n`
 
     DOMElements.quiz_form.appendChild(q)

@@ -2,25 +2,15 @@ class User {
   constructor(userJSON){
     this.id = userJSON.id;
     this.username = userJSON.username
-    this.userBindingsAndEventListeners()
     this.adapter = new UsersAdapter()
+    this.userBindingsAndEventListeners()
   }
 
-
-  // used to cache any DOM elements we need, so we only have to do it once
   userBindingsAndEventListeners() {
-    // this.newUserForm = document.getElementById("new_user_form");
-    // why is it not this.createUser() - with parenthesis
     // hard bind this to the users when we execute createUser(), so when we access this it is the Users class
     DOMElements.newUserForm.addEventListener("submit", this.createUser.bind(this));
     // DOMElements.username doesn't work here. Is it because it's an input element that is being used on the model?
     this.username = document.getElementById("username");
-    // this.header = document.getElementById("header");
-    // this.body = document.querySelector("body");
-    // this.house = document.querySelector("#house");
-    // this.main = document.querySelector("main");
-    // this.text_container = document.getElementById("text_container")
-    // this.speaker = document.getElementById("speaker")
   }
 
   createUser(event) {
