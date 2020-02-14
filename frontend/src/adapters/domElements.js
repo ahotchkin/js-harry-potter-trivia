@@ -28,7 +28,7 @@ class DOMElements {
   static get speaker() { return document.getElementById("speaker") };
 
   // used in round:
-  static get start_button() { return document.getElementById("start_button") };
+  static get startButton() { return document.getElementById("start_button") };
   // changed to intro from header since header is being used in user. Can I change to something like title?
   static get intro() { return document.getElementById("intro") };
   static get p() { return document.querySelector("p") };
