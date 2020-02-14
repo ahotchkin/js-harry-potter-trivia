@@ -7,15 +7,13 @@ class User {
   }
 
   userBindingsAndEventListeners() {
-    // hard bind this to the users when we execute createUser(), so when we access this it is the Users class
+    // hard bind this to the user when createUser() is executed, so when we access this it is the User class
     DOMElements.newUserForm.addEventListener("submit", this.createUser.bind(this));
-    // DOMElements.username doesn't work here. Is it because it's an input element that is being used on the model?
-    this.username = document.getElementById("username");
   }
 
   createUser(event) {
     event.preventDefault()
-    const value = this.username.value
+    const value = DOMElements.username.value
     // take the above value and make a post request using the adapter
 
     this.adapter.createUser(value)

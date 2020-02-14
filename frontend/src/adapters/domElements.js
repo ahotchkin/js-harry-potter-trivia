@@ -20,8 +20,7 @@ class DOMElements {
 
   // used in user
   static get newUserForm() { return document.getElementById("new_user_form") };
-  // Not working in user.js
-  static get userName() { return document.getElementById("username") };
+  static get username() { return document.getElementById("username") };
   static get header() { return document.getElementById("header") };
   static get house() { return document.getElementById("house") };
   // changed to textContainer from text_container
