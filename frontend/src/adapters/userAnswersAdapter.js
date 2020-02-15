@@ -1,11 +1,11 @@
 class UserAnswersAdapter {
 
   constructor() {
-    this.baseUrl = `http://localhost:3000/api/v1/user_answers`
+    this.baseUrl = `http://localhost:3000/api/v1/user_answers`;
   }
 
   getUserAnswers() {
-    return fetch(this.baseUrl).then(response => response.json())
+    return fetch(this.baseUrl).then(response => response.json());
   }
 
   createUserAnswer(userAnswer) {
@@ -15,7 +15,7 @@ class UserAnswersAdapter {
       question_id: userAnswer.question_id,
       correct_answer: userAnswer.correct_answer,
       user_input: userAnswer.user_input
-    }
+    };
 
     return fetch(this.baseUrl, {
       method: "POST",

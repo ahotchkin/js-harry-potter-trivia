@@ -23,7 +23,6 @@ class DOMElements {
   static get username() { return document.getElementById("username") };
   static get header() { return document.getElementById("header") };
   static get house() { return document.getElementById("house") };
-  // changed to textContainer from text_container
   static get textContainer() { return document.getElementById("text_container") };
   static get speaker() { return document.getElementById("speaker") };
 

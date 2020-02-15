@@ -1,13 +1,13 @@
 class UsersAdapter {
 
   constructor() {
-    this.baseUrl = "http://localhost:3000/api/v1/users"
+    this.baseUrl = "http://localhost:3000/api/v1/users";
   }
 
   createUser(value) {
     const user = {
       username: value
-    }
+    };
 
     return fetch(this.baseUrl, {
       method: "POST",
