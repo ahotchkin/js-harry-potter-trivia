@@ -32,6 +32,5 @@ class DOMElements {
   // changed to intro from header since header is being used in user. Can I change to something like title?
   static get intro() { return document.getElementById("intro") };
   static get p() { return document.querySelector("p") };
-  // this isn't working in round.js. Is it because I'm changing the ID of the element?
   static get container() { return document.getElementById("container") };
 }

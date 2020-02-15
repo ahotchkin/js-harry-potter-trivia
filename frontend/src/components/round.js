@@ -10,14 +10,11 @@ class Round {
   roundBindingsAndEventListeners() {
     // hard bind this to the round when we execute fetchAndLoadRound, so when we access this from fetchAndLoadRound it is the Round class
     DOMElements.startButton.addEventListener("click", this.fetchAndLoadRound.bind(this));
+
     this.submit_round = document.createElement("button")
     this.submit_round.id = "submit_round"
-
     // hard bind this to the round when we execute submitAnswers, so when we access this from submitAnswers it is the Round class
     this.submit_round.addEventListener("click", this.submitAnswers.bind(this));
-
-    // DOMElements.container is not working. Why???
-    this.container = document.getElementById("container")
 
     this.div = document.createElement("div")
     this.div.id = "submit_round"
@@ -40,10 +37,10 @@ class Round {
   renderRound(round) {
     DOMElements.startButton.style.display = "none"
     DOMElements.p.innerHTML = ""
-    this.container.id = "round_title"
 
     // should this be saved in the database somewhere instead? Case statement?
     if (round.id == 1) {
+      DOMElements.container.id = "round_title"
       DOMElements.intro.innerHTML = `${this.user.username} and the Sorcerer's Stone`
     } else if (round.id == 2) {
       DOMElements.intro.innerHTML = `${this.user.username} and the Chamber of Secrets`
