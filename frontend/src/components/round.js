@@ -70,6 +70,7 @@ class Round {
 
     // should this be specific book quotes?
     DOMElements.quiz_container.appendChild(this.div);
+
     this.submitRound.className = "btn btn-light";
     this.submitRound.innerHTML = `Submit Round ${this.id} Answers`;
 
@@ -77,62 +78,63 @@ class Round {
   }
 
   submitAnswers(event) {
-    event.preventDefault()
-    if (this.answersChecked()) {
-      this.getUserAnswers()
+    event.preventDefault();
+    if (this.questionsAnswered()) {
+      this.getUserAnswers();
       DOMElements.quiz_form.innerHTML = "";
-      DOMElements.startButton.style.display = "initial"
-      DOMElements.quiz_container.style.display = "none"
+      DOMElements.startButton.style.display = "initial";
+      DOMElements.quiz_container.style.display = "none";
     } else {
-      alert("Please answer all questions.")
-    }
+      alert("Please answer all questions.");
+    };
   }
 
-  answersChecked() {
-    let inputs = document.getElementsByTagName("input")
-    let inputsArray = Array.from(inputs)
+  questionsAnswered() {
+    const userInputs = Array.from(document.getElementsByTagName("input"));
 
-    let checkedAnswers = 0
+    let selectedAnswers = 0;
 
-    for (const input of inputsArray) {
+    for (const input of userInputs) {
       if (input.checked) {
-        checkedAnswers++
-      }
-    }
+        selectedAnswers++;
+      };
+    };
 
-    if (checkedAnswers == 7) {
-      return true
-    }
+    if (selectedAnswers == 7) {
+      return true;
+    };
   }
 
 
   getUserAnswers() {
-    const possible_answers = Array.from(document.querySelectorAll(".form-check-input"))
+    const possible_answers = Array.from(document.querySelectorAll(".form-check-input"));
 
-    const answers = []
+    const answers = [];
 
     possible_answers.map(possible_answer => {
       if (possible_answer.checked) {
-        answers.push({question: possible_answer.name, input: possible_answer.value})
+        answers.push({question: possible_answer.name, input: possible_answer.value});
+      };
+    });
 
-      }
-    })
+    this.createUserAnswers(answers);
+  }
 
-    // need access to the round. Can I separate this into a different method?
+  createUserAnswers(answers) {
     this.adapter.getRound()
       .then(round => {
-        const userAnswers = []
-        round.questions.forEach(question => {
+        const userAnswers = [];
 
-          let user_input = answers.find(answer => answer.question === question.id.toString())
-          const userAnswer = new UserAnswer(this.user, round, question, user_input)
+        for (const question of round.questions) {
+          let user_input = answers.find(answer => answer.question === question.id.toString());
+          const userAnswer = new UserAnswer(this.user, round, question, user_input);
 
-          userAnswers.push(userAnswer)
-        })
+          userAnswers.push(userAnswer);
+        }
 
-        this.numberOfCorrectAnswers(userAnswers)
+        this.numberOfCorrectAnswers(userAnswers);
 
-      })
+      });
   }
 
   numberOfCorrectAnswers(userAnswers) {

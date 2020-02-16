@@ -10,5 +10,4 @@ class UserAnswer {
     // this is necessary to create the UserAnswers at the end of each round
     this.adapter = new UserAnswersAdapter()
   }
-
 }
