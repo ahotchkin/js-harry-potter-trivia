@@ -1,23 +1,23 @@
 class Round {
 
   constructor(user, id){
-    this.user = user
-    this.id = id
-    this.adapter = new RoundsAdapter(this)
-    this.roundBindingsAndEventListeners()
+    this.user = user;
+    this.id = id;
+    this.adapter = new RoundsAdapter(this);
+    this.roundBindingsAndEventListeners();
   }
 
   roundBindingsAndEventListeners() {
-    // hard bind this to the round when we execute fetchAndLoadRound, so when we access this from fetchAndLoadRound it is the Round class
+    // hard bind this to the round when fetchAndLoadRound is executed, so when we access this from fetchAndLoadRound it is the Round class
     DOMElements.startButton.addEventListener("click", this.fetchAndLoadRound.bind(this));
 
-    this.submit_round = document.createElement("button")
-    this.submit_round.id = "submit_round"
-    // hard bind this to the round when we execute submitAnswers, so when we access this from submitAnswers it is the Round class
-    this.submit_round.addEventListener("click", this.submitAnswers.bind(this));
+    this.submitRound = document.createElement("button");
+    this.submitRound.id = "submit_round";
+    // hard bind this to the round when submitAnswers is executed, so when we access this from submitAnswers it is the Round class
+    this.submitRound.addEventListener("click", this.submitAnswers.bind(this));
 
-    this.div = document.createElement("div")
-    this.div.id = "submit_round"
+    this.div = document.createElement("div");
+    this.div.id = "submit_round";
   }
 
   fetchAndLoadRound(event) {
@@ -25,53 +25,55 @@ class Round {
     if (this.id < 8) {
       this.adapter.getRound()
         .then(round => {
-          this.renderRound(round)
-        })
+          this.renderRound(round);
+        });
     } else {
-      this.renderStats()
-    }
-
+      this.renderStats();
+    };
   }
 
 
   renderRound(round) {
-    DOMElements.startButton.style.display = "none"
-    DOMElements.p.innerHTML = ""
+    DOMElements.startButton.style.display = "none";
+    DOMElements.p.innerHTML = "";
 
-    // should this be saved in the database somewhere instead? Case statement?
-    if (round.id == 1) {
-      DOMElements.container.id = "round_title"
-      DOMElements.intro.innerHTML = `${this.user.username} and the Sorcerer's Stone`
-    } else if (round.id == 2) {
-      DOMElements.intro.innerHTML = `${this.user.username} and the Chamber of Secrets`
-    } else if (round.id == 3) {
-      DOMElements.intro.innerHTML = `${this.user.username} and the Prizoner of Azkaban`
-    } else if (round.id == 4) {
-      DOMElements.intro.innerHTML = `${this.user.username} and the Goblet of Fire`
-    } else if (round.id == 5) {
-      DOMElements.intro.innerHTML = `${this.user.username} and the Order of the Phoenix`
-    } else if (round.id == 6) {
-      DOMElements.intro.innerHTML = `${this.user.username} and the Half-Blood Prince`
-    } else if (round.id == 7) {
-      DOMElements.intro.innerHTML = `${this.user.username} and the Deathly Hallows`
+    switch(round.id) {
+      case 1:
+        DOMElements.container.id = "round_title";
+        DOMElements.intro.innerHTML = `${this.user.username} and the Sorcerer's Stone`;
+        break;
+      case 2:
+        DOMElements.intro.innerHTML = `${this.user.username} and the Chamber of Secrets`;
+        break;
+      case 3:
+        DOMElements.intro.innerHTML = `${this.user.username} and the Prizoner of Azkaban`;
+        break;
+      case 4:
+        DOMElements.intro.innerHTML = `${this.user.username} and the Goblet of Fire`;
+        break;
+      case 5:
+        DOMElements.intro.innerHTML = `${this.user.username} and the Order of the Phoenix`;
+        break;
+      case 6:
+        DOMElements.intro.innerHTML = `${this.user.username} and the Half-Blood Prince`;
+        break;
+      case 7:
+        DOMElements.intro.innerHTML = `${this.user.username} and the Deathly Hallows`;
+    };
+
+    for (const question of round.questions) {
+      // need to create an instance of Question for each question in the round
+      let q = new Question(question.id, question.content, question.answer_a, question.answer_b, question.answer_c, question.answer_d, question.correct_answer, question.round_id);
+
+      q.renderQuestion(q);
     }
 
-    // should I use for...of instead of forEach?
-    round.questions.forEach(question => {
-
-      // this code was added because I moved the rest of the code in the loop to question.js, so I need to create an instance of Question for each question in the round
-      let q = new Question(question.id, question.content, question.answer_a, question.answer_b, question.answer_c, question.answer_d, question.correct_answer, question.round_id)
-
-      q.renderQuestion(q)
-
-    })
-
     // should this be specific book quotes?
-    DOMElements.quiz_container.appendChild(this.div)
-    this.submit_round.className = "btn btn-light"
-    this.submit_round.innerHTML = `Submit Round ${this.id} Answers`
+    DOMElements.quiz_container.appendChild(this.div);
+    this.submitRound.className = "btn btn-light";
+    this.submitRound.innerHTML = `Submit Round ${this.id} Answers`;
 
-    this.div.appendChild(this.submit_round)
+    this.div.appendChild(this.submitRound);
   }
 
   submitAnswers(event) {
@@ -181,8 +183,8 @@ class Round {
   renderStats() {
     DOMElements.quiz_form.style.display = "none"
     DOMElements.intro.innerHTML = `${this.user.username}'s Battle of Hogwarts`
-    const submit_round = document.getElementById("submit_round")
-    submit_round.style.display = "none"
+    const submitRound = document.getElementById("submit_round")
+    submitRound.style.display = "none"
     DOMElements.startButton.style.display = "none"
     DOMElements.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
 

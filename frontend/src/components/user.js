@@ -43,7 +43,7 @@ class User {
         break;
       case "ravenclaw":
         DOMElements.body.id = "ravenclaw";
-    }
+    };
   }
 
   instructions(user) {
