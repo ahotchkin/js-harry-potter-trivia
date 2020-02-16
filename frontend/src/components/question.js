@@ -105,51 +105,51 @@ class Question {
 
     q.innerHTML = `Question: ${question.content}`
 
-    if (userAnswer.user_input == "A") {
+    if (userAnswer.user_input === "A") {
       userInput.innerHTML = `Your Answer: ${question.answer_a}`
-    } else if (userAnswer.user_input == "B") {
+    } else if (userAnswer.user_input === "B") {
       userInput.innerHTML = `Your Answer: ${question.answer_b}`
-    } else if (userAnswer.user_input == "C") {
+    } else if (userAnswer.user_input === "C") {
       userInput.innerHTML = `Your Answer: ${question.answer_c}`
-    } else if (userAnswer.user_input == "D") {
+    } else if (userAnswer.user_input === "D") {
       userInput.innerHTML = `Your Answer: ${question.answer_d}`
     }
 
-    if (question.correct_answer == "A") {
+    if (question.correct_answer === "A") {
       correctAnswer.innerHTML = `Correct Answer: ${question.answer_a}\n`
-    } else if (question.correct_answer == "B") {
+    } else if (question.correct_answer === "B") {
       correctAnswer.innerHTML = `Correct Answer: ${question.answer_b}\n`
-    } else if (question.correct_answer == "C") {
+    } else if (question.correct_answer === "C") {
       correctAnswer.innerHTML = `Correct Answer: ${question.answer_c}\n`
-    } else if (question.correct_answer == "D") {
+    } else if (question.correct_answer === "D") {
       correctAnswer.innerHTML = `Correct Answer: ${question.answer_d}\n`
     }
 
-    if (userAnswer.round_id == 1) {
+    if (userAnswer.round_id === 1) {
       DOMElements.r1.appendChild(q)
       DOMElements.r1.appendChild(userInput)
       DOMElements.r1.appendChild(correctAnswer)
-    } else if (userAnswer.round_id == 2) {
+    } else if (userAnswer.round_id === 2) {
       DOMElements.r2.appendChild(q)
       DOMElements.r2.appendChild(userInput)
       DOMElements.r2.appendChild(correctAnswer)
-    } else if (userAnswer.round_id == 3) {
+    } else if (userAnswer.round_id === 3) {
       DOMElements.r3.appendChild(q)
       DOMElements.r3.appendChild(userInput)
       DOMElements.r3.appendChild(correctAnswer)
-    } else if (userAnswer.round_id == 4) {
+    } else if (userAnswer.round_id === 4) {
       DOMElements.r4.appendChild(q)
       DOMElements.r4.appendChild(userInput)
       DOMElements.r4.appendChild(correctAnswer)
-    } else if (userAnswer.round_id == 5) {
+    } else if (userAnswer.round_id === 5) {
       DOMElements.r5.appendChild(q)
       DOMElements.r5.appendChild(userInput)
       DOMElements.r5.appendChild(correctAnswer)
-    } else if (userAnswer.round_id == 6) {
+    } else if (userAnswer.round_id === 6) {
       DOMElements.r6.appendChild(q)
       DOMElements.r6.appendChild(userInput)
       DOMElements.r6.appendChild(correctAnswer)
-    } else if (userAnswer.round_id == 7) {
+    } else if (userAnswer.round_id === 7) {
       DOMElements.r7.appendChild(q)
       DOMElements.r7.appendChild(userInput)
       DOMElements.r7.appendChild(correctAnswer)

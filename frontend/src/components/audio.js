@@ -6,7 +6,7 @@ function play() {
 }
 
 function mute() {
-  if (audio.muted == false) {
+  if (audio.muted === false) {
     audio.muted = true;
     speaker.src = "./styles/images/mute.png";
   } else {

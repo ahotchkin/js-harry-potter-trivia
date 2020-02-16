@@ -22,7 +22,7 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    if (this.id < 8) {
+    if (this.id < 3) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round);
@@ -100,7 +100,7 @@ class Round {
       };
     };
 
-    if (selectedAnswers == 7) {
+    if (selectedAnswers === 7) {
       return true;
     };
   }
@@ -141,7 +141,6 @@ class Round {
     let correctAnswers = []
 
     userAnswers.forEach(userAnswer => {
-      // can this be == ????
       if (userAnswer.correct_answer === userAnswer.user_input) {
         correctAnswers.push(userAnswer.user_input)
       }
@@ -159,19 +158,19 @@ class Round {
 
       DOMElements.p.innerHTML = "Congratulations! You're smart enough to move on to the next round."
 
-      if (this.id == 2) {
+      if (this.id === 2) {
         DOMElements.startButton.innerHTML = "Start Round 2"
-      } else if (this.id == 3) {
+      } else if (this.id === 3) {
         DOMElements.startButton.innerHTML = "Start Round 3"
-      } else if (this.id == 4) {
+      } else if (this.id === 4) {
         DOMElements.startButton.innerHTML = "Start Round 4"
-      } else if (this.id == 5) {
+      } else if (this.id === 5) {
         DOMElements.startButton.innerHTML = "Start Round 5"
-      } else if (this.id == 6) {
+      } else if (this.id === 6) {
         DOMElements.startButton.innerHTML = "Start Round 6"
-      } else if (this.id == 7) {
+      } else if (this.id === 7) {
         DOMElements.startButton.innerHTML = "Start Round 7"
-      } else if (this.id == 8) {
+      } else if (this.id === 8) {
         DOMElements.startButton.innerHTML = "See Your Stats"
       }
 
