@@ -22,7 +22,7 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    if (this.id < 3) {
+    if (this.id < 8) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round);
@@ -138,38 +138,28 @@ class Round {
   }
 
   numberOfCorrectAnswers(userAnswers) {
-    let correctAnswers = []
+    const correctAnswers = [];
 
-    userAnswers.forEach(userAnswer => {
+    for (const userAnswer of userAnswers) {
       if (userAnswer.correct_answer === userAnswer.user_input) {
-        correctAnswers.push(userAnswer.user_input)
-      }
-
-    })
+        correctAnswers.push(userAnswer.user_input);
+      };
+    };
 
     if (correctAnswers.length >= 5) {
-      userAnswers.forEach(userAnswer => {
+
+      for (const userAnswer of userAnswers) {
         // as of right now, not doing anything with this json info so there isn't a separate createUserAnswer() function in this file
-        userAnswer.adapter.createUserAnswer(userAnswer)
-      })
+        userAnswer.adapter.createUserAnswer(userAnswer);
+      };
 
-      this.id += 1
-      this.adapter = new RoundsAdapter(this)
+      this.id += 1;
+      this.adapter = new RoundsAdapter(this);
 
-      DOMElements.p.innerHTML = "Congratulations! You're smart enough to move on to the next round."
+      DOMElements.p.innerHTML = "Congratulations! You're smart enough to move on to the next round.";
 
-      if (this.id === 2) {
-        DOMElements.startButton.innerHTML = "Start Round 2"
-      } else if (this.id === 3) {
-        DOMElements.startButton.innerHTML = "Start Round 3"
-      } else if (this.id === 4) {
-        DOMElements.startButton.innerHTML = "Start Round 4"
-      } else if (this.id === 5) {
-        DOMElements.startButton.innerHTML = "Start Round 5"
-      } else if (this.id === 6) {
-        DOMElements.startButton.innerHTML = "Start Round 6"
-      } else if (this.id === 7) {
-        DOMElements.startButton.innerHTML = "Start Round 7"
+      if (this.id < 8) {
+        DOMElements.startButton.innerHTML = `Board the Hogwarts Express for Round ${this.id}`
       } else if (this.id === 8) {
         DOMElements.startButton.innerHTML = "See Your Stats"
       }
