@@ -22,7 +22,7 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    if (this.id < 8) {
+    if (this.id < 2) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round);
@@ -159,72 +159,57 @@ class Round {
       DOMElements.p.innerHTML = "Congratulations! You're smart enough to move on to the next round.";
 
       if (this.id < 8) {
-        DOMElements.startButton.innerHTML = `Board the Hogwarts Express for Round ${this.id}`
+        DOMElements.startButton.innerHTML = `Board the Hogwarts Express for Round ${this.id}`;
       } else if (this.id === 8) {
-        DOMElements.startButton.innerHTML = "See Your Stats"
-      }
+        DOMElements.p.innerHTML = "Wooooooo you did it!!!!!!";
+        DOMElements.startButton.innerHTML = "See Your Stats";
+      };
 
     } else {
-      DOMElements.p.innerHTML = "Sorry, Voldemort wins."
-      DOMElements.startButton.innerHTML = "Try Again"
-
-    }
+      DOMElements.p.innerHTML = "Sorry, Voldemort wins.";
+      DOMElements.startButton.innerHTML = "Try Again";
+    };
   }
 
   renderStats() {
-    DOMElements.quiz_form.style.display = "none"
-    DOMElements.intro.innerHTML = `${this.user.username}'s Battle of Hogwarts`
-    const submitRound = document.getElementById("submit_round")
-    submitRound.style.display = "none"
-    DOMElements.startButton.style.display = "none"
-    DOMElements.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:"
+    DOMElements.quiz_form.style.display = "none";
+    DOMElements.intro.innerHTML = `${this.user.username}'s Battle of Hogwarts`;
+    DOMElements.submitRound.style.display = "none";
+    DOMElements.startButton.style.display = "none";
+    DOMElements.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:";
 
-    const userAnswers = new UserAnswers(this)
+    const userAnswers = new UserAnswers(this);
 
-    const r1 = document.createElement("p")
-    r1.innerHTML = `Round 1: ${this.user.username} and the Sorcerer's Stone`
-    r1.className = "round_stats"
+    for (let i = 1; i < 8; i++) {
+      const round_header = document.createElement("p");
+      round_header.className = "round_stats";
+      round_header.id = `r${i}`;
 
-    const r2 = document.createElement("p")
-    r2.innerHTML = `Round 2: ${this.user.username} and the Chamber of Secrets`
-    r2.className = "round_stats"
+      switch (i) {
+        case 1:
+          round_header.innerHTML = `Round 1: ${this.user.username} and the Sorcerer's Stone`;
+          break;
+        case 2:
+          round_header.innerHTML = `Round 2: ${this.user.username} and the Chamber of Secrets`;
+          break;
+        case 3:
+          round_header.innerHTML = `Round 3: ${this.user.username} and the Prizoner of Azkaban`;
+          break;
+        case 4:
+          round_header.innerHTML = `Round 4: ${this.user.username} and the Goblet of Fire`;
+          break;
+        case 5:
+          round_header.innerHTML = `Round 5: ${this.user.username} and the Order of the Phoenix`;
+          break;
+        case 6:
+          round_header.innerHTML = `Round 6: ${this.user.username} and the Half-Blood Prince`;
+          break;
+        case 7:
+          round_header.innerHTML = `Round 7: ${this.user.username} and the Deathly Hallows`;
+      };
 
-    const r3 = document.createElement("p")
-    r3.innerHTML = `Round 3: ${this.user.username} and the Prizoner of Azkaban`
-    r3.className = "round_stats"
-
-    const r4 = document.createElement("p")
-    r4.innerHTML = `Round 4: ${this.user.username} and the Goblet of Fire`
-    r4.className = "round_stats"
-
-    const r5 = document.createElement("p")
-    r5.innerHTML = `Round 5: ${this.user.username} and the Order of the Phoenix`
-    r5.className = "round_stats"
-
-    const r6 = document.createElement("p")
-    r6.innerHTML = `Round 6: ${this.user.username} and the Half-Blood Prince`
-    r6.className = "round_stats"
-
-    const r7 = document.createElement("p")
-    r7.innerHTML = `Round 7: ${this.user.username} and the Deathly Hallows`
-    r7.className = "round_stats"
-
-    r1.id = "r1"
-    r2.id = "r2"
-    r3.id = "r3"
-    r4.id = "r4"
-    r5.id = "r5"
-    r6.id = "r6"
-    r7.id = "r7"
-
-
-    DOMElements.quiz_container.appendChild(r1)
-    DOMElements.quiz_container.appendChild(r2)
-    DOMElements.quiz_container.appendChild(r3)
-    DOMElements.quiz_container.appendChild(r4)
-    DOMElements.quiz_container.appendChild(r5)
-    DOMElements.quiz_container.appendChild(r6)
-    DOMElements.quiz_container.appendChild(r7)
-  }
+      DOMElements.quiz_container.appendChild(round_header);
+    }
+  };
 
 }

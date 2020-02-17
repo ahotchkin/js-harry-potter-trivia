@@ -32,4 +32,6 @@ class DOMElements {
   static get intro() { return document.getElementById("intro") };
   static get p() { return document.querySelector("p") };
   static get container() { return document.getElementById("container") };
+  static get submitRound() { return document.getElementById("submit_round") };
+
 }
