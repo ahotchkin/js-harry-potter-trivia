@@ -1,128 +1,71 @@
 class UserAnswers {
 
   constructor(round) {
-    this.adapter = new UserAnswersAdapter()
+    this.adapter = new UserAnswersAdapter();
     // is this the only way to get access to the round and then to the round's user to make sure you're printing out the right user's answers?
-    this.round = round
-    this.fetchAndLoadUserAnswers()
+    this.round = round;
+    this.fetchAndLoadUserAnswers();
   }
 
   fetchAndLoadUserAnswers(userAnswer) {
     this.adapter.getUserAnswers()
       .then(userAnswers => {
-        this.renderUserAnswers(userAnswers)
-      })
+        this.renderUserAnswers(userAnswers);
+      });
   }
 
   renderUserAnswers(userAnswers) {
-    DOMElements.quiz_container.style.display = "table"
+    DOMElements.quiz_container.style.display = "table";
 
-    let r1CorrectAnswers = 0
-    let r2CorrectAnswers = 0
-    let r3CorrectAnswers = 0
-    let r4CorrectAnswers = 0
-    let r5CorrectAnswers = 0
-    let r6CorrectAnswers = 0
-    let r7CorrectAnswers = 0
+    for (let i = 1; i < 8; i++) {
+      let correctAnswers = 0;
+      const p = document.createElement("p");
+      p.className = "number_correct";
+      p.innerHTML = "";
 
-    const p1 = document.createElement("p")
-    const p2 = document.createElement("p")
-    const p3 = document.createElement("p")
-    const p4 = document.createElement("p")
-    const p5 = document.createElement("p")
-    const p6 = document.createElement("p")
-    const p7 = document.createElement("p")
-
-    p1.className = "number_correct"
-    p2.className = "number_correct"
-    p3.className = "number_correct"
-    p4.className = "number_correct"
-    p5.className = "number_correct"
-    p6.className = "number_correct"
-    p7.className = "number_correct"
-
-    p1.innerHTML = ""
-    p2.innerHTML = ""
-    p3.innerHTML = ""
-    p4.innerHTML = ""
-    p5.innerHTML = ""
-    p6.innerHTML = ""
-    p7.innerHTML = ""
-
-    // this seems to work whether I call it with DOMElements or not. Can also just be r1.appendChild(p1). MAke sure there are no issues.
-    DOMElements.r1.appendChild(p1)
-    DOMElements.r2.appendChild(p2)
-    DOMElements.r3.appendChild(p3)
-    DOMElements.r4.appendChild(p4)
-    DOMElements.r5.appendChild(p5)
-    DOMElements.r6.appendChild(p6)
-    DOMElements.r7.appendChild(p7)
-
-    for (const userAnswer of userAnswers) {
-      if (this.round.user.id == userAnswer.user_id) {
-
-        const li = document.createElement("li")
-
-        if (userAnswer.round_id == 1) {
-          if (userAnswer.user_input == userAnswer.correct_answer) {
-            r1CorrectAnswers ++
-          } else {
-            let q = new Question(userAnswer.question_id)
-            q.fetchQuestion(userAnswer)
-          }
-        } else if (userAnswer.round_id == 2) {
-          if (userAnswer.user_input == userAnswer.correct_answer) {
-            r2CorrectAnswers ++
-          } else {
-            let q = new Question(userAnswer.question_id)
-            q.fetchQuestion(userAnswer)
-          }
-        } else if (userAnswer.round_id == 3) {
-          if (userAnswer.user_input == userAnswer.correct_answer) {
-            r3CorrectAnswers ++
-          } else {
-            let q = new Question(userAnswer.question_id)
-            q.fetchQuestion(userAnswer)
-          }
-        } else if (userAnswer.round_id == 4) {
-          if (userAnswer.user_input == userAnswer.correct_answer) {
-            r4CorrectAnswers ++
-          } else {
-            let q = new Question(userAnswer.question_id)
-            q.fetchQuestion(userAnswer)
-          }
-        } else if (userAnswer.round_id == 5) {
-          if (userAnswer.user_input == userAnswer.correct_answer) {
-            r5CorrectAnswers ++
-          } else {
-            let q = new Question(userAnswer.question_id)
-            q.fetchQuestion(userAnswer)
-          }
-        } else if (userAnswer.round_id == 6) {
-          if (userAnswer.user_input == userAnswer.correct_answer) {
-            r6CorrectAnswers ++
-          } else {
-            let q = new Question(userAnswer.question_id)
-            q.fetchQuestion(userAnswer)
-          }
-        } else if (userAnswer.round_id == 7) {
-          if (userAnswer.user_input == userAnswer.correct_answer) {
-            r7CorrectAnswers ++
-          } else {
-            let q = new Question(userAnswer.question_id)
-            q.fetchQuestion(userAnswer)
-          }
-        }
+      // is this the only way to accomplish grabbing the individual DOM elements?
+      switch (i) {
+        case 1:
+          // this seems to work whether I call it with DOMElements or not. Can also just be r1.appendChild(p). MAke sure there are no issues.
+          r1.appendChild(p);
+          break;
+        case 2:
+          DOMElements.r2.appendChild(p);
+          break;
+        case 3:
+          DOMElements.r3.appendChild(p);
+          break;
+        case 4:
+          DOMElements.r4.appendChild(p);
+          break;
+        case 5:
+          DOMElements.r5.appendChild(p);
+          break;
+        case 6:
+          DOMElements.r6.appendChild(p);
+          break;
+        case 7:
+          DOMElements.r7.appendChild(p);
       }
 
-      p1.innerHTML = `${r1CorrectAnswers} of 7 questions correct`
-      p2.innerHTML = `${r2CorrectAnswers} of 7 questions correct`
-      p3.innerHTML = `${r3CorrectAnswers} of 7 questions correct`
-      p4.innerHTML = `${r4CorrectAnswers} of 7 questions correct`
-      p5.innerHTML = `${r5CorrectAnswers} of 7 questions correct`
-      p6.innerHTML = `${r6CorrectAnswers} of 7 questions correct`
-      p7.innerHTML = `${r7CorrectAnswers} of 7 questions correct`
-    }
-  }
+      for (const userAnswer of userAnswers) {
+        if (this.round.user.id == userAnswer.user_id) {
 
+          const li = document.createElement("li");
+
+          if (userAnswer.round_id === i) {
+            if (userAnswer.user_input === userAnswer.correct_answer) {
+              correctAnswers++;
+            } else {
+              let q = new Question(userAnswer.question_id);
+              q.fetchQuestion(userAnswer);
+            };
+          };
+        };
+
+        p.innerHTML = `${correctAnswers} of 7 questions correct`;
+
+      };
+    };
+  }
 }
