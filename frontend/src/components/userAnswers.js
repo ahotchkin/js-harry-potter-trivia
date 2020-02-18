@@ -23,11 +23,10 @@ class UserAnswers {
       p.className = "number_correct";
       p.innerHTML = "";
 
-      // is this the only way to accomplish grabbing the individual DOM elements?
       switch (i) {
         case 1:
-          // this seems to work whether I call it with DOMElements or not. Can also just be r1.appendChild(p). MAke sure there are no issues.
-          r1.appendChild(p);
+          // this works whether I call it with DOMElements or not. Can also just be r1.appendChild(p). Make sure there are no issues.
+          DOMElements.r1.appendChild(p);
           break;
         case 2:
           DOMElements.r2.appendChild(p);
@@ -63,6 +62,7 @@ class UserAnswers {
           };
         };
 
+        // during QA showed 3 of 7 instead of 5 of 7. Make sure there are no issues.
         p.innerHTML = `${correctAnswers} of 7 questions correct`;
 
       };
