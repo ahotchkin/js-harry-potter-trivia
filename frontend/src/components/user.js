@@ -47,13 +47,13 @@ class User {
   }
 
   instructions(user) {
-    // Change the ID of the header to "intro"
-    DOMElements.header.id = "intro";
+    // Change the ID of the header to "title"
+    DOMElements.header.id = "title";
     const p = document.createElement("p");
     const startButton = document.createElement("button");
 
-    // Call DOMElements.intro since that is getting the element by the ID of "intro" in domElements.js. This is grabbing what was initially DOMElements.header.
-    DOMElements.intro.innerHTML = `*Welcome, ${user.username}!*`;
+    // Call DOMElements.title since that is getting the element by the ID of "title" in domElements.js. This is grabbing what was initially DOMElements.header.
+    DOMElements.title.innerHTML = `*Welcome, ${user.username}!*`;
 
     p.innerHTML = "This game will be played in 7 rounds. You must answer 5 of 7 questions correct in a round to move on to the next round. If you fail to answer enough questions correctly, Voldemort and his followers will prevail. If you are smart enough to get through all 7 rounds, you will vanquish Voldemort and all that he stands for. The Wizarding world is on your shoulders. Good luck.";
 

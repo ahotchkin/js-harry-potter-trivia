@@ -40,25 +40,25 @@ class Round {
     switch(round.id) {
       case 1:
         DOMElements.container.id = "round_title";
-        DOMElements.intro.innerHTML = `${this.user.username} and the Sorcerer's Stone`;
+        DOMElements.title.innerHTML = `${this.user.username} and the Sorcerer's Stone`;
         break;
       case 2:
-        DOMElements.intro.innerHTML = `${this.user.username} and the Chamber of Secrets`;
+        DOMElements.title.innerHTML = `${this.user.username} and the Chamber of Secrets`;
         break;
       case 3:
-        DOMElements.intro.innerHTML = `${this.user.username} and the Prizoner of Azkaban`;
+        DOMElements.title.innerHTML = `${this.user.username} and the Prizoner of Azkaban`;
         break;
       case 4:
-        DOMElements.intro.innerHTML = `${this.user.username} and the Goblet of Fire`;
+        DOMElements.title.innerHTML = `${this.user.username} and the Goblet of Fire`;
         break;
       case 5:
-        DOMElements.intro.innerHTML = `${this.user.username} and the Order of the Phoenix`;
+        DOMElements.title.innerHTML = `${this.user.username} and the Order of the Phoenix`;
         break;
       case 6:
-        DOMElements.intro.innerHTML = `${this.user.username} and the Half-Blood Prince`;
+        DOMElements.title.innerHTML = `${this.user.username} and the Half-Blood Prince`;
         break;
       case 7:
-        DOMElements.intro.innerHTML = `${this.user.username} and the Deathly Hallows`;
+        DOMElements.title.innerHTML = `${this.user.username} and the Deathly Hallows`;
     };
 
     for (const question of round.questions) {
@@ -173,7 +173,7 @@ class Round {
 
   renderStats() {
     DOMElements.quiz_form.style.display = "none";
-    DOMElements.intro.innerHTML = `${this.user.username}'s Battle of Hogwarts`;
+    DOMElements.title.innerHTML = `${this.user.username}'s Battle of Hogwarts`;
     DOMElements.submitRound.style.display = "none";
     DOMElements.startButton.style.display = "none";
     DOMElements.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:";
