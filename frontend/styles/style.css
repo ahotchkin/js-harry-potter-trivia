@@ -34,23 +34,15 @@ form {
   padding-bottom: 20px;
 }
 
-.number_correct {
+.user_input_info {
   font-weight: normal;
 }
 
-.question {
-  font-weight: normal;
+.question_info {
   margin-bottom: 0;
 }
 
-.user_input {
-  font-weight: normal;
-  font-style: italic;
-  margin-bottom: 0;
-}
-
-.correct_answer {
-  font-weight: normal;
+.answer_info {
   font-style: italic;
 }
 
@@ -97,7 +89,6 @@ form {
 }
 
 #header {
-  text-align: center;
   font-family: "Harry P";
   font-size: 50px;
   font-weight: normal;
@@ -112,8 +103,8 @@ form {
 #speaker {
   display: none;
   position: fixed;
-  right: 10px;
-  bottom: 10px;
+  right: 20px;
+  bottom: 20px;
   height: 40px;
   width: 40px;
 }
@@ -124,8 +115,8 @@ form {
 
 #quiz_form {
   padding-top: 30px;
-  text-align: left;
   margin-left: 40px;
+  text-align: left;
 }
 
 #quiz_form div {
@@ -133,30 +124,30 @@ form {
 }
 
 #submit_round {
-  text-align: center;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 #gryffindor {
   background-image: url("./images/gryffindor.jpg");
-  text-align: center;
   background-color: #A71E31;
+  text-align: center;
 }
 
 #slytherin {
   background-image: url("./images/slytherin.jpg");
-  text-align: center;
   background-color: #367B5F;
+  text-align: center;
 }
 
 #hufflepuff {
   background-image: url("./images/hufflepuff.jpg");
-  text-align: center;
   background-color: #D99E11;
+  text-align: center;
 }
 
 #ravenclaw {
   background-image: url("./images/ravenclaw.jpg");
-  text-align: center;
   background-color: #126692;
+  text-align: center;
 }

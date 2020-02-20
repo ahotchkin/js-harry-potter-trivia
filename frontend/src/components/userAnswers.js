@@ -20,7 +20,7 @@ class UserAnswers {
     for (let i = 1; i < 8; i++) {
       let correctAnswers = 0;
       const p = document.createElement("p");
-      p.className = "number_correct";
+      p.className = "user_input_info";
       p.innerHTML = "";
 
       switch (i) {
