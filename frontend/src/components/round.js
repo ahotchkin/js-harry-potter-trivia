@@ -39,7 +39,7 @@ class Round {
 
     switch(round.id) {
       case 1:
-        DOMElements.container.id = "round_title";
+        DOMElements.container.className = "container quiz";
         DOMElements.title.innerHTML = `${this.user.username} and the Sorcerer's Stone`;
         break;
       case 2:

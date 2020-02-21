@@ -29,6 +29,41 @@ form {
   margin-right: 22%;
 }
 
+.container {
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 50%;
+  position: absolute;
+  padding: 30px 30px 7.5px;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.quiz {
+  position: static;
+  margin-top: 50px;
+  transform: translateX(50%);
+}
+
+.quiz_container {
+  padding: 30px 30px 20px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  display: none;
+}
+
+.form-control {
+  margin-bottom: -30px;
+}
+
+.btn-light {
+  margin: 20px 0;
+  border: 1px solid #d3d3d3;
+}
+
 .round_stats {
   font-weight: bold;
   padding-bottom: 20px;
@@ -44,48 +79,6 @@ form {
 
 .answer_info {
   font-style: italic;
-}
-
-.form-control {
-  margin-bottom: -30px;
-}
-
-.btn-light {
-  margin: 20px 0;
-  border: 1px solid #d3d3d3;
-}
-
-#container {
-  background-color: rgba(255, 255, 255, 0.85);
-  width: 50%;
-  padding: 30px 30px 7.5px;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 20px;
-  text-align: center;
-}
-
-#quiz_container {
-  background-color: rgba(255, 255, 255, 0.85);
-  width: 50%;
-  padding: 30px 30px 20px;
-  margin-top: 30px;
-  margin-bottom: 50px;
-  transform: translateX(50%);
-  display: none;
-  border-radius: 20px;
-}
-
-#round_title {
-  background-color: rgba(255, 255, 255, 0.85);
-  width: 50%;
-  padding: 30px 30px 7.5px;
-  margin-top: 50px;
-  transform: translateX(50%);
-  border-radius: 20px;
 }
 
 #header {
