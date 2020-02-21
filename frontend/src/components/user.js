@@ -53,11 +53,11 @@ class User {
     const startButton = document.createElement("button");
 
     // Call DOMElements.title since that is getting the element by the ID of "title" in domElements.js. This is grabbing what was initially DOMElements.header.
-    DOMElements.title.innerHTML = `*Welcome, ${user.username}!*`;
+    DOMElements.title.innerHTML = `*${user.username}, yer a wizard!*`;
 
-    p.innerHTML = "This game will be played in 7 rounds. You must answer 5 of 7 questions correct in a round to move on to the next round. If you fail to answer enough questions correctly, Voldemort and his followers will prevail. If you are smart enough to get through all 7 rounds, you will vanquish Voldemort and all that he stands for. The Wizarding world is on your shoulders. Good luck.";
+    p.innerHTML = "This game will be played in 7 rounds. For each round, you must answer at least 5 of 7 questions correctly to move on to the next round. If you are smart enough to get through all 7 rounds, you will vanquish Voldemort and all that he stands for. If you fail to do so, Voldemort and his followers will prevail. The Wizarding World is on your shoulders. Good luck.";
 
-    startButton.innerHTML = "I solemnly swear that I'm up to no good";
+    startButton.innerHTML = "Board the Hogwarts Express for Round 1";
     startButton.className = "btn btn-light";
     startButton.id = "start_button";
 
