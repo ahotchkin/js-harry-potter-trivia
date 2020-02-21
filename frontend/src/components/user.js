@@ -14,13 +14,17 @@ class User {
   createUser(event) {
     event.preventDefault();
 
-    // take the below value and make a post request using the adapter
-    const value = DOMElements.username.value;
+    if (DOMElements.username.value === "") {
+      alert("Please enter a username.");
+    } else {
+      // take the below value and make a post request using the adapter
+      const value = DOMElements.username.value;
 
-    this.adapter.createUser(value)
-      .then(user => {
-        this.renderUserStartPage(user);
-      })
+      this.adapter.createUser(value)
+        .then(user => {
+          this.renderUserStartPage(user);
+        });
+    };
   }
 
   renderUserStartPage(user) {
