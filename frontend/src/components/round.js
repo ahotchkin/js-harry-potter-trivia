@@ -36,29 +36,29 @@ class Round {
   renderRound(round) {
     DOMElements.startButton.style.display = "none";
     DOMElements.p.innerHTML = "";
+    DOMElements.container.className = "container quiz";
 
     switch(round.id) {
       case 1:
-        DOMElements.container.className = "container quiz";
-        DOMElements.title.innerHTML = `${this.user.username} and the Sorcerer's Stone`;
+        DOMElements.title.innerHTML = `${this.user.username} and the<br>Sorcerer's Stone`;
         break;
       case 2:
-        DOMElements.title.innerHTML = `${this.user.username} and the Chamber of Secrets`;
+        DOMElements.title.innerHTML = `${this.user.username} and the<br>Chamber of Secrets`;
         break;
       case 3:
-        DOMElements.title.innerHTML = `${this.user.username} and the Prizoner of Azkaban`;
+        DOMElements.title.innerHTML = `${this.user.username} and the<br>Prisoner of Azkaban`;
         break;
       case 4:
-        DOMElements.title.innerHTML = `${this.user.username} and the Goblet of Fire`;
+        DOMElements.title.innerHTML = `${this.user.username} and the<br>Goblet of Fire`;
         break;
       case 5:
-        DOMElements.title.innerHTML = `${this.user.username} and the Order of the Phoenix`;
+        DOMElements.title.innerHTML = `${this.user.username} and the<br>Order of the Phoenix`;
         break;
       case 6:
-        DOMElements.title.innerHTML = `${this.user.username} and the Half-Blood Prince`;
+        DOMElements.title.innerHTML = `${this.user.username} and the<br>Half-Blood Prince`;
         break;
       case 7:
-        DOMElements.title.innerHTML = `${this.user.username} and the Deathly Hallows`;
+        DOMElements.title.innerHTML = `${this.user.username} and the<br>Deathly Hallows`;
     };
 
     for (const question of round.questions) {
@@ -85,7 +85,7 @@ class Round {
       DOMElements.startButton.style.display = "initial";
       DOMElements.quiz_container.style.display = "none";
     } else {
-      alert("Please answer all questions.");
+      alert("Dumbledore would not approve if he heard you were trying to take a shortcut. Please answer all questions.");
     };
   }
 
@@ -156,17 +156,39 @@ class Round {
       this.id += 1;
       this.adapter = new RoundsAdapter(this);
 
-      DOMElements.p.innerHTML = "Congratulations! You're smart enough to move on to the next round.";
+      switch (this.id) {
+        case 2:
+          DOMElements.p.innerHTML = "<br>Congratulations! You saved the Sorcerer's Stone from Quirrell/Voldemort.<br><br>Can you believe Voldemort was melded into the back of Quirrell's head the whole time? Merlin’s beard, I did not see that coming.";
+          break;
+        case 3:
+          DOMElements.p.innerHTML = "<br>Congratulations! You rescued Ginny from an evil, yet charming, Tom Riddle.<br><br>Honestly though, so charming. And handsome. Can you really blame sweet little Ginny? As if you wouldn't have fallen for it.";
+          break;
+        case 4:
+          DOMElements.p.innerHTML = "<br>Congratulations! You helped Sirius and Buckbeak Escape.<br><br>Ummm Scabbers was Peter Pettigrew the whole time? And he just escaped and is on his way back to Voldemort? Troll bogies!";
+          break;
+        case 5:
+          DOMElements.p.innerHTML = "<br>Congratulations! You avoided the killing curse and escaped from the graveyard. That was intense.<br><br>Wait, hold up. Cedric died? That's some dragon dung.";
+          break;
+        case 6:
+          DOMElements.p.innerHTML = "<br>Congratulations! You lived to tell the tale of the Battle of the Department of Mysteries.<br><br>This must be a joke. Sirius did NOT die. Sirius died? And the whole thing was a trap, so he shouldn't have died at all? Son of a bludger.";
+          break;
+        case 7:
+          DOMElements.p.innerHTML = "<br>Congratulations! You got your hands on a (fake) horcrux.<br><br>Okay guys, this isn't funny anymore. I refuse to believe that Dumbledore just fell off the Astronomy Tower. IT WAS SNAPE?! Merlin's saggy left –";
+          break;
+        case 8:
+          DOMElements.p.innerHTML = "<br>Congratulations! You defeated Voldemort at the Battle of Hogwarts!<br><br>Galloping gargoyles, a lot of people died. That was rough.";
+      }
 
       if (this.id < 8) {
+        DOMElements.container.className = "container";
         DOMElements.startButton.innerHTML = `Board the Hogwarts Express for Round ${this.id}`;
       } else if (this.id === 8) {
-        DOMElements.p.innerHTML = "Wooooooo you did it!!!!!!";
         DOMElements.startButton.innerHTML = "See Your Stats";
       };
 
     } else {
-      DOMElements.p.innerHTML = "Sorry, Voldemort wins.";
+      DOMElements.container.className = "container";
+      DOMElements.p.innerHTML = "<br>Uh oh. Looks like Voldemort got you. That little rascal. Better luck next time.";
       DOMElements.startButton.innerHTML = "Try Again";
     };
   }
@@ -176,7 +198,7 @@ class Round {
     DOMElements.title.innerHTML = `${this.user.username}'s Battle of Hogwarts`;
     DOMElements.submitRound.style.display = "none";
     DOMElements.startButton.style.display = "none";
-    DOMElements.p.innerHTML = "Congratulations on defeating Voldemort and his buttheads. Check out your stats below:";
+    DOMElements.p.innerHTML = "Congratulations on defeating Voldemort and his Buttheads. Oops, sorry, I mean Death Eaters. Actually, no, Buttheads is fitting. Let's see how you did...";
 
     const userAnswers = new UserAnswers(this);
 
@@ -193,7 +215,7 @@ class Round {
           round_header.innerHTML = `Round 2: ${this.user.username} and the Chamber of Secrets`;
           break;
         case 3:
-          round_header.innerHTML = `Round 3: ${this.user.username} and the Prizoner of Azkaban`;
+          round_header.innerHTML = `Round 3: ${this.user.username} and the Prisoner of Azkaban`;
           break;
         case 4:
           round_header.innerHTML = `Round 4: ${this.user.username} and the Goblet of Fire`;
