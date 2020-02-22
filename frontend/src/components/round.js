@@ -62,13 +62,11 @@ class Round {
     };
 
     for (const question of round.questions) {
-      // need to create an instance of Question for each question in the round
       let q = new Question(question.id, question.content, question.answer_a, question.answer_b, question.answer_c, question.answer_d, question.correct_answer, question.round_id);
 
       q.renderQuestion(q);
-    }
+    };
 
-    // should this be specific book quotes?
     DOMElements.quiz_container.appendChild(this.div);
 
     this.submitRound.className = "btn btn-light";
@@ -149,7 +147,7 @@ class Round {
     if (correctAnswers.length >= 5) {
 
       for (const userAnswer of userAnswers) {
-        // as of right now, not doing anything with this json info so there isn't a separate createUserAnswer() function in this file
+        // not doing anything with this JSON object so there isn't a separate createUserAnswer() function in this file
         userAnswer.adapter.createUserAnswer(userAnswer);
       };
 
@@ -231,7 +229,7 @@ class Round {
       };
 
       DOMElements.quiz_container.appendChild(round_header);
-    }
-  };
+    };
+  }
 
 }

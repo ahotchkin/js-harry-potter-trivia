@@ -84,7 +84,7 @@ class Question {
         break;
       case "D":
         userInput.innerHTML = `Your Answer: ${question.answer_d}`;
-    }
+    };
 
     switch (question.correct_answer) {
       case "A":
@@ -98,7 +98,7 @@ class Question {
         break;
       case "D":
         correctAnswer.innerHTML = `Correct Answer: ${question.answer_d}`;
-    }
+    };
 
     // is there a more efficient way to do this?
     switch (userAnswer.round_id) {

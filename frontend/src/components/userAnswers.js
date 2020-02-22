@@ -2,7 +2,7 @@ class UserAnswers {
 
   constructor(round) {
     this.adapter = new UserAnswersAdapter();
-    // is this the only way to get access to the round and then to the round's user to make sure you're printing out the right user's answers?
+    // this is necessary to get access to the round, the round's user, and the correct user's answers
     this.round = round;
     this.fetchAndLoadUserAnswers();
   }
@@ -25,7 +25,6 @@ class UserAnswers {
 
       switch (i) {
         case 1:
-          // this works whether I call it with DOMElements or not. Can also just be r1.appendChild(p). Make sure there are no issues.
           DOMElements.r1.appendChild(p);
           break;
         case 2:
@@ -62,7 +61,6 @@ class UserAnswers {
           };
         };
 
-        // during QA showed 3 of 7 instead of 5 of 7. Make sure there are no issues.
         p.innerHTML = `${correctAnswers} of 7 questions correct`;
 
       };
