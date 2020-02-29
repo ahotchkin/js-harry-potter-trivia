@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :questions
       resources :users
       resources :rounds
+      resources :user_rounds
     end
   end
 
