@@ -6,7 +6,7 @@ class RoundSerializer
 
   def to_serialized_json
     @round.to_json(:include => {
-      :questions => {:only => [:id, :content, :answer_a, :answer_b, :answer_c, :answer_d, :correct_answer]}
+      :questions => {:only => [:id, :question_number, :content, :answer_a, :answer_b, :answer_c, :answer_d, :correct_answer, :round_id]}
     })
   end
 
