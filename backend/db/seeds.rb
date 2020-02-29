@@ -29,6 +29,7 @@ question_6 = Question.create(:round_id => 1, :content => "6. How does Quirrell f
 question_7 = Question.create(:round_id => 1, :content => "7. What is one bit of wisdom Dumbledore imparts to Harry during his 1st year at Hogwarts?", :answer_a => "Indifference and neglect often do much more damage than outright dislike.", :answer_b => "To the well-organized mind, death is but the next great adventure.", :answer_c => "Understanding is the first step to acceptance, and only with acceptance can there be recovery.", :answer_d => "It is my belief that the truth is generally preferable to lies.", :correct_answer => "B")
 
 
+
 question_8 = Question.create(:round_id => 2, :content => "1. Which of the following is not one of the ways Dobby tries to “save” Harry?", :answer_a => "Closes the platform so Harry can’t get on the Hogwarts Express", :answer_b => "Intercepts all of Harry’s letters so he won’t want to return to school", :answer_c => "Sends Harry to school in a flying car in an effort to get him expelled", :answer_d => "Bewitches a Bludger to chase Harry around the Quidditch pitch
 ", :correct_answer => "C")
 
@@ -43,6 +44,7 @@ question_12 = Question.create(:round_id => 2, :content => "5. Which victim is co
 question_13 = Question.create(:round_id => 2, :content => "6. Who accompanies Harry and Ron down in the Chamber of Secrets?", :answer_a => "Hermione", :answer_b => "Professor McGonagall", :answer_c => "Professor Lockhart", :answer_d => "Hagrid", :correct_answer => "C")
 
 question_14 = Question.create(:round_id => 2, :content => "7. What is one bit of wisdom Dumbledore imparts to Harry during his 2nd year at Hogwarts?", :answer_a => "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.", :answer_b => "It does not do to dwell on dreams and forget to live.", :answer_c => "Always use the proper name for things. Fear of a name increases fear of the thing itself.", :answer_d => "It is our choices that show what we truly are, far more than our abilities.", :correct_answer => "D")
+
 
 
 question_15 = Question.create(:round_id => 3, :content => "1. At what point is Harry no longer able to contain his anger towards Aunt Marge?", :answer_a => "When Aunt Marge showers Dudley with money and presents, but neglects to give Harry anything", :answer_b => "When Aunt Marge calls Harry a nasty little liar and a burden, and insists his parents died in a car crash", :answer_c => "When Aunt Marge tells Harry that if he had been left on her doorstep she would have dumped him at an orphanage", :answer_d => "When Aunt Marge explains how Harry turned out by saying if there’s something wrong with the bitch, there’ll be something wrong with the pup", :correct_answer => "B")
@@ -61,19 +63,21 @@ question_21 = Question.create(:round_id => 3, :content => "7. What is one bit of
 ", :correct_answer => "A")
 
 
-question_22 = Question.create(:round_id => 4, :content => "This is Round 4 Question 1 right here?", :answer_a => "This is Question 1 Answer A. It is correct.", :answer_b => "This is Question 1 Answer B. It is incorrect.", :answer_c => "This is Question 1 Answer C. It is incorrect.", :answer_d => "This is Question 1 Answer D. It is incorrect", :correct_answer => "A")
 
-question_23 = Question.create(:round_id => 4, :content => "This is Round 4 Question 2 right here?", :answer_a => "This is Question 2 Answer A. It is incorrect.", :answer_b => "This is Question 2 Answer B. It is incorrect.", :answer_c => "This is Question 2 Answer C. It is incorrect.", :answer_d => "This is Question 2 Answer D. It is correct", :correct_answer => "D")
+question_22 = Question.create(:round_id => 4, :content => "1. Who casts the Dark Mark at the Quidditch World Cup?", :answer_a => "Barty Crouch Jr.", :answer_b => "Winky the house elf", :answer_c => "Barty Crouch Sr.", :answer_d => "Lucius Malfoy", :correct_answer => "A")
 
-question_24 = Question.create(:round_id => 4, :content => "This is Round 4 Question 3 right here?", :answer_a => "This is Question 3 Answer A. It is incorrect.", :answer_b => "This is Question 3 Answer B. It is incorrect.", :answer_c => "This is Question 3 Answer C. It is incorrect.", :answer_d => "This is Question 3 Answer D. It is correct", :correct_answer => "D")
+question_23 = Question.create(:round_id => 4, :content => "2. Which dragon does each Triwizard Champion draw out of the bag for the first task?", :answer_a => "Fleur draws the Chinese Fireball, Krum draws the Swedish Short-Snout, Cedric draws the Hungarian Horntail, and Harry draws the Welsh Green", :answer_b => "Fleur draws the Swedish Short-Snout, Krum draws the Hungarian Horntail, Cedric draws the Welsh Green, and Harry draws the Chinese Fireball", :answer_c => "Fleur draws the Hungarian Horntail, Krum draws the Welsh Green, Cedric draws the Chinese Fireball, and Harry draws the Swedish Short-Snout", :answer_d => "Fleur draws the Welsh Green, Krum draws the Chinese Fireball, Cedric draws the Swedish Short-Snout, and Harry draws the Hungarian Horntail", :correct_answer => "D")
 
-question_25 = Question.create(:round_id => 4, :content => "This is Round 4 Question 4 right here?", :answer_a => "This is Question 4 Answer A. It is incorrect.", :answer_b => "This is Question 4 Answer B. It is incorrect.", :answer_c => "This is Question 4 Answer C. It is correct.", :answer_d => "This is Question 4 Answer D. It is incorrect", :correct_answer => "C")
+question_24 = Question.create(:round_id => 4, :content => "3. With whom do Harry and Ron attend the Yule Ball, respectively?", :answer_a => "Cho Change and Lavender Brown", :answer_b => "Padma Patil and Parvati Patil", :answer_c => "Ginny Weasley and Lavender Brown", :answer_d => "Parvati Patil and Padma Patil", :correct_answer => "D")
 
-question_26 = Question.create(:round_id => 4, :content => "This is Round 4 Question 5 right here?", :answer_a => "This is Question 5 Answer A. It is correct.", :answer_b => "This is Question 5 Answer B. It is incorrect.", :answer_c => "This is Question 5 Answer C. It is incorrect.", :answer_d => "This is Question 5 Answer D. It is incorrect", :correct_answer => "A")
+question_25 = Question.create(:round_id => 4, :content => "4. What is the first memory Harry witnesses in the Pensieve?", :answer_a => "Dumbledore’s memory of Barty Crouch Jr.’s trial at the Ministry of Magic", :answer_b => "Dumbledore’s memory of Ludo Bagman’s trial at the Ministry of Magic", :answer_c => "Dumbledore’s memory of Karkaroff’s trial at the Ministry of Magic", :answer_d => "Dumbledore’s memory of Barty Crouch Jr. and Bellatrix Lestrange’s trial at the Ministry of Magic", :correct_answer => "C")
 
-question_27 = Question.create(:round_id => 4, :content => "This is Round 4 Question 6 right here?", :answer_a => "This is Question 6 Answer A. It is incorrect.", :answer_b => "This is Question 6 Answer B. It is incorrect.", :answer_c => "This is Question 6 Answer C. It is correct.", :answer_d => "This is Question 6 Answer D. It is incorrect", :correct_answer => "C")
+question_26 = Question.create(:round_id => 4, :content => "5. In what order do the Triwizard Champions enter the maze?", :answer_a => "Harry and Cedric enter first, Krum enters second, Fleur enters third", :answer_b => "Fleur enters first, Cedric enters second, Harry enters third, Krum enters fourth", :answer_c => "Krum enters first, Harry enters second, Fleur enters third, Cedric enters fourth", :answer_d => "Harry and Krum enter first, Cedric enters second, Fleur enters third", :correct_answer => "A")
 
-question_28 = Question.create(:round_id => 4, :content => "This is Round 4 Question 7 right here?", :answer_a => "This is Question 7 Answer A. It is incorrect.", :answer_b => "This is Question 7 Answer B. It is correct.", :answer_c => "This is Question 7 Answer C. It is incorrect.", :answer_d => "This is Question 7 Answer D. It is incorrect", :correct_answer => "B")
+question_27 = Question.create(:round_id => 4, :content => "6. What are the components used to resurrect Voldemort?", :answer_a => "Flesh of the father, bone of the servant, blood of the enemy", :answer_b => "Bone of the father, blood of the servant, flesh of the enemy", :answer_c => "Bone of the father, flesh of the servant, blood of the enemy", :answer_d => "Blood of the father, flesh of the servant, bone of the enemy", :correct_answer => "C")
+
+question_28 = Question.create(:round_id => 4, :content => "7. What is one bit of wisdom Dumbledore imparts to Harry during his 4th year at Hogwarts?", :answer_a => "Trust me, the time may come when you will be very glad you saved Pettigrew’s life.", :answer_b => "Curiosity is not a sin. But we should exercise caution with our curiosity.", :answer_c => "The consequences of our actions are always so complicated, so diverse, that predicting the future is a very difficult business indeed.", :answer_d => "To have been loved so deeply, even though the person who loved us is gone, will give us some protection forever.", :correct_answer => "B")
+
 
 
 question_29 = Question.create(:round_id => 5, :content => "This is Round 5 Question 1 right here?", :answer_a => "This is Question 1 Answer A. It is incorrect.", :answer_b => "This is Question 1 Answer B. It is incorrect.", :answer_c => "This is Question 1 Answer C. It is incorrect.", :answer_d => "This is Question 1 Answer D. It is correct", :correct_answer => "D")
@@ -91,6 +95,7 @@ question_34 = Question.create(:round_id => 5, :content => "This is Round 5 Quest
 question_35 = Question.create(:round_id => 5, :content => "This is Round 5 Question 7 right here?", :answer_a => "This is Question 7 Answer A. It is incorrect.", :answer_b => "This is Question 7 Answer B. It is incorrect.", :answer_c => "This is Question 7 Answer C. It is correct.", :answer_d => "This is Question 7 Answer D. It is incorrect", :correct_answer => "C")
 
 
+
 question_36 = Question.create(:round_id => 6, :content => "This is Round 6 Question 1 right here?", :answer_a => "This is Question 1 Answer A. It is incorrect.", :answer_b => "This is Question 1 Answer B. It is correct.", :answer_c => "This is Question 1 Answer C. It is incorrect.", :answer_d => "This is Question 1 Answer D. It is incorrect", :correct_answer => "B")
 
 question_37 = Question.create(:round_id => 6, :content => "This is Round 6 Question 2 right here?", :answer_a => "This is Question 2 Answer A. It is incorrect.", :answer_b => "This is Question 2 Answer B. It is incorrect.", :answer_c => "This is Question 2 Answer C. It is incorrect.", :answer_d => "This is Question 2 Answer D. It is correct", :correct_answer => "D")
@@ -104,6 +109,7 @@ question_40 = Question.create(:round_id => 6, :content => "This is Round 6 Quest
 question_41 = Question.create(:round_id => 6, :content => "This is Round 6 Question 6 right here?", :answer_a => "This is Question 6 Answer A. It is correct.", :answer_b => "This is Question 6 Answer B. It is incorrect.", :answer_c => "This is Question 6 Answer C. It is incorrect.", :answer_d => "This is Question 6 Answer D. It is incorrect", :correct_answer => "A")
 
 question_42 = Question.create(:round_id => 6, :content => "This is Round 6 Question 7 right here?", :answer_a => "This is Question 7 Answer A. It is incorrect.", :answer_b => "This is Question 7 Answer B. It is incorrect.", :answer_c => "This is Question 7 Answer C. It is incorrect.", :answer_d => "This is Question 7 Answer D. It is correct", :correct_answer => "D")
+
 
 
 question_43 = Question.create(:round_id => 7, :content => "This is Round 7 Question 1 right here?", :answer_a => "This is Question 1 Answer A. It is incorrect.", :answer_b => "This is Question 1 Answer B. It is incorrect.", :answer_c => "This is Question 1 Answer C. It is correct.", :answer_d => "This is Question 1 Answer D. It is incorrect", :correct_answer => "C")
