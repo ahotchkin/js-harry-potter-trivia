@@ -32,8 +32,17 @@ class Round {
     };
   }
 
+  // createUserRound(round) {
+  //   console.log(this)
+  //   console.log(this.user)
+  //   const userRound = new userRound(this, this.user, 1);
+  //   console.log(userRound)
+  // }
 
   renderRound(round) {
+    const userRound = new UserRound(this.user, this, 1);
+    console.log(userRound)
+
     DOMElements.startButton.style.display = "none";
     DOMElements.note.style.display = "none";
     DOMElements.p.innerHTML = "";
