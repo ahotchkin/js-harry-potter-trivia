@@ -35,6 +35,7 @@ class Round {
 
   renderRound(round) {
     DOMElements.startButton.style.display = "none";
+    DOMElements.note.style.display = "none";
     DOMElements.p.innerHTML = "";
     DOMElements.container.className = "container quiz";
 
@@ -63,6 +64,8 @@ class Round {
 
     for (const question of round.questions) {
       let q = new Question(question.id, question.content, question.answer_a, question.answer_b, question.answer_c, question.answer_d, question.correct_answer, question.round_id);
+
+      // let q = new Question(question.id, question.number, question.content, question.answer_a, question.answer_b, question.answer_c, question.answer_d, question.correct_answer, question.round_id);
 
       q.renderQuestion(q);
     };
@@ -165,7 +168,7 @@ class Round {
           DOMElements.p.innerHTML = "<br>Congratulations! You helped Sirius and Buckbeak Escape.<br><br>Ummm Scabbers was Peter Pettigrew the whole time? And he just escaped and is on his way back to Voldemort? Troll bogies!";
           break;
         case 5:
-          DOMElements.p.innerHTML = "<br>Congratulations! You avoided the killing curse and escaped from the graveyard. That was intense.<br><br>Wait, hold up. Cedric died? That's some dragon dung.";
+          DOMElements.p.innerHTML = "<br>Congratulations! You avoided the Killing Curse and escaped from the graveyard. That was intense.<br><br>Wait, hold up. Cedric died? That's some dragon dung.";
           break;
         case 6:
           DOMElements.p.innerHTML = "<br>Congratulations! You lived to tell the tale of the Battle of the Department of Mysteries.<br><br>This must be a joke. Sirius did NOT die. Sirius died? And the whole thing was a trap, so he shouldn't have died at all? Son of a bludger.";

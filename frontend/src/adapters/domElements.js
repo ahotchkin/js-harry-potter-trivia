@@ -30,6 +30,7 @@ class DOMElements {
   static get startButton() { return document.getElementById("start_button") };
   static get title() { return document.getElementById("title") };
   static get p() { return document.querySelector("p") };
+  static get note() { return document.getElementById("note") };
   static get container() { return document.getElementById("container") };
   static get submitRound() { return document.getElementById("submit_round") };
 

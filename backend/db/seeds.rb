@@ -30,8 +30,7 @@ question_7 = Question.create(:round_id => 1, :content => "7. What is one bit of 
 
 
 
-question_8 = Question.create(:round_id => 2, :content => "1. Which of the following is not one of the ways Dobby tries to “save” Harry?", :answer_a => "Closes the platform so Harry can’t get on the Hogwarts Express", :answer_b => "Intercepts all of Harry’s letters so he won’t want to return to school", :answer_c => "Sends Harry to school in a flying car in an effort to get him expelled", :answer_d => "Bewitches a Bludger to chase Harry around the Quidditch pitch
-", :correct_answer => "C")
+question_8 = Question.create(:round_id => 2, :content => "1. Which of the following is not one of the ways Dobby tries to “save” Harry?", :answer_a => "Dobby closes the platform so Harry can’t get on the Hogwarts Express", :answer_b => "Dobby intercepts all of Harry’s letters so he won’t want to return to school", :answer_c => "Dobby sends Harry to school in a flying car in an effort to get him expelled", :answer_d => "Dobby bewitches a Bludger to chase Harry around the Quidditch pitch", :correct_answer => "C")
 
 question_9 = Question.create(:round_id => 2, :content => "2. Who is the snake going after at the duel when Harry tells it to back off?", :answer_a => "Ernie Macmillan", :answer_b => "Seamus Finnigan", :answer_c => "Lavender Brown", :answer_d => "Justin Finch-Fletchley", :correct_answer => "D")
 
@@ -59,8 +58,7 @@ question_19 = Question.create(:round_id => 3, :content => "5. Who tried to set a
 
 question_20 = Question.create(:round_id => 3, :content => "6. Whose lives are saved with the use of the Time-Turner?", :answer_a => "Remus Lupin and Buckbeak", :answer_b => "Sirius Black and Peter Pettigrew", :answer_c => "Remus Lupin and Peter Pettigrew", :answer_d => "Sirius Black and Buckbeak", :correct_answer => "D")
 
-question_21 = Question.create(:round_id => 3, :content => "7. What is one bit of wisdom Dumbledore imparts to Harry during his 3rd year at Hogwarts?", :answer_a => "You think the dead we have loved ever truly leave us? You think that we don’t recall them more clearly than ever in times of great trouble?", :answer_b => "I will only truly have left this school when none here are loyal to me.", :answer_c => "Numbing the pain for a while will make it worse when you finally feel it.", :answer_d => "The truth. It is a beautiful and terrible thing, and should therefore be treated with great caution.
-", :correct_answer => "A")
+question_21 = Question.create(:round_id => 3, :content => "7. What is one bit of wisdom Dumbledore imparts to Harry during his 3rd year at Hogwarts?", :answer_a => "You think the dead we have loved ever truly leave us? You think that we don’t recall them more clearly than ever in times of great trouble?", :answer_b => "I will only truly have left this school when none here are loyal to me.", :answer_c => "Numbing the pain for a while will make it worse when you finally feel it.", :answer_d => "The truth. It is a beautiful and terrible thing, and should therefore be treated with great caution.", :correct_answer => "A")
 
 
 
@@ -70,7 +68,7 @@ question_23 = Question.create(:round_id => 4, :content => "2. Which dragon does 
 
 question_24 = Question.create(:round_id => 4, :content => "3. With whom do Harry and Ron attend the Yule Ball, respectively?", :answer_a => "Cho Change and Lavender Brown", :answer_b => "Padma Patil and Parvati Patil", :answer_c => "Ginny Weasley and Lavender Brown", :answer_d => "Parvati Patil and Padma Patil", :correct_answer => "D")
 
-question_25 = Question.create(:round_id => 4, :content => "4. What is the first memory Harry witnesses in the Pensieve?", :answer_a => "Dumbledore’s memory of Barty Crouch Jr.’s trial at the Ministry of Magic", :answer_b => "Dumbledore’s memory of Ludo Bagman’s trial at the Ministry of Magic", :answer_c => "Dumbledore’s memory of Karkaroff’s trial at the Ministry of Magic", :answer_d => "Dumbledore’s memory of Barty Crouch Jr. and Bellatrix Lestrange’s trial at the Ministry of Magic", :correct_answer => "C")
+question_25 = Question.create(:round_id => 4, :content => "4. What is the first memory Harry witnesses in the Pensieve?", :answer_a => "Dumbledore’s memory of Barty Crouch Jr.’s trial at the Ministry of Magic", :answer_b => "Dumbledore’s memory of Ludo Bagman’s trial at the Ministry of Magic", :answer_c => "Dumbledore’s memory of Igor Karkaroff’s trial at the Ministry of Magic", :answer_d => "Dumbledore’s memory of Barty Crouch Jr. and Bellatrix Lestrange’s trial at the Ministry of Magic", :correct_answer => "C")
 
 question_26 = Question.create(:round_id => 4, :content => "5. In what order do the Triwizard Champions enter the maze?", :answer_a => "Harry and Cedric enter first, Krum enters second, Fleur enters third", :answer_b => "Fleur enters first, Cedric enters second, Harry enters third, Krum enters fourth", :answer_c => "Krum enters first, Harry enters second, Fleur enters third, Cedric enters fourth", :answer_d => "Harry and Krum enter first, Cedric enters second, Fleur enters third", :correct_answer => "A")
 

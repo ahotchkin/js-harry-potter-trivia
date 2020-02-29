@@ -3,6 +3,7 @@ class Question {
   constructor(id, content, answer_a, answer_b, answer_c, answer_d, correct_answer, round_id) {
     this.id = id;
     this.content = content;
+    // this.number = number;
     this.answer_a = answer_a;
     this.answer_b = answer_b;
     this.answer_c = answer_c;
@@ -16,6 +17,7 @@ class Question {
     DOMElements.quiz_container.style.display = "table";
     const q = document.createElement("p");
 
+    // q.innerHTML = `${question.number}. ${question.content}`
     q.innerHTML = question.content;
     DOMElements.quiz_form.appendChild(q);
 
@@ -45,7 +47,7 @@ class Question {
           break;
         case 4:
           answer.setAttribute("value", "D");
-          answer_text.innerText = ` ${question.answer_d} \n\n`;
+          answer_text.innerText = ` ${question.answer_d} \n\n\n`;
       };
 
       DOMElements.quiz_form.appendChild(div);
