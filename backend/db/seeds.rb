@@ -80,19 +80,19 @@ question_28 = Question.create(:round_id => 4, :content => "7. What is one bit of
 
 
 
-question_29 = Question.create(:round_id => 5, :content => "This is Round 5 Question 1 right here?", :answer_a => "This is Question 1 Answer A. It is incorrect.", :answer_b => "This is Question 1 Answer B. It is incorrect.", :answer_c => "This is Question 1 Answer C. It is incorrect.", :answer_d => "This is Question 1 Answer D. It is correct", :correct_answer => "D")
+question_29 = Question.create(:round_id => 5, :content => "1. What is the code needed to enter the Ministry of Magic via phone booth?", :answer_a => "62446", :answer_b => "64224", :answer_c => "64226", :answer_d => "62442", :correct_answer => "D")
 
-question_30 = Question.create(:round_id => 5, :content => "This is Round 5 Question 2 right here?", :answer_a => "This is Question 2 Answer A. It is incorrect.", :answer_b => "This is Question 2 Answer B. It is incorrect.", :answer_c => "This is Question 2 Answer C. It is correct.", :answer_d => "This is Question 2 Answer D. It is incorrect", :correct_answer => "C")
+question_30 = Question.create(:round_id => 5, :content => "2. Who can see the Thestrals?", :answer_a => "Harry", :answer_b => "Harry and Neville", :answer_c => "Harry, Neville, and Luna", :answer_d => "Harry and Luna", :correct_answer => "C")
 
-question_31 = Question.create(:round_id => 5, :content => "This is Round 5 Question 3 right here?", :answer_a => "This is Question 3 Answer A. It is correct.", :answer_b => "This is Question 3 Answer B. It is incorrect.", :answer_c => "This is Question 3 Answer C. It is incorrect.", :answer_d => "This is Question 3 Answer D. It is incorrect", :correct_answer => "A")
+question_31 = Question.create(:round_id => 5, :content => "3. What line is Harry forced to write until it “sinks in” during detention with Umbridge?", :answer_a => "I must not tell lies", :answer_b => "I must not be late", :answer_c => "I must not talk back", :answer_d => "I must not get angry and throw a fit because no one believes me that Voldemort is back", :correct_answer => "A")
 
-question_32 = Question.create(:round_id => 5, :content => "This is Round 5 Question 4 right here?", :answer_a => "This is Question 4 Answer A. It is incorrect.", :answer_b => "This is Question 4 Answer B. It is incorrect.", :answer_c => "This is Question 4 Answer C. It is correct.", :answer_d => "This is Question 4 Answer D. It is incorrect", :correct_answer => "C")
+question_32 = Question.create(:round_id => 5, :content => "4. Who snitches on Dumbledore’s Army?", :answer_a => "Cho Chang", :answer_b => "Zacharias Smith", :answer_c => "Marietta Edgecombe", :answer_d => "Michael Corner", :correct_answer => "C")
 
-question_33 = Question.create(:round_id => 5, :content => "This is Round 5 Question 5 right here?", :answer_a => "This is Question 5 Answer A. It is incorrect.", :answer_b => "This is Question 5 Answer B. It is incorrect.", :answer_c => "This is Question 5 Answer C. It is incorrect.", :answer_d => "This is Question 5 Answer D. It is correct", :correct_answer => "D")
+question_33 = Question.create(:round_id => 5, :content => "5. After entering the circular room in the Department of Mysteries, what is the first room Harry and Co. enter?", :answer_a => "The Death Chamber (the one with the Veil)", :answer_b => "The Brain Room (the one with all the brains…obviously)", :answer_c => "The Hall of Prophecy (the one with all the prophecies…obviously)", :answer_d => "The Time Room (the one with all the clocks…obviously)", :correct_answer => "B")
 
-question_34 = Question.create(:round_id => 5, :content => "This is Round 5 Question 6 right here?", :answer_a => "This is Question 6 Answer A. It is correct.", :answer_b => "This is Question 6 Answer B. It is incorrect.", :answer_c => "This is Question 6 Answer C. It is incorrect.", :answer_d => "This is Question 6 Answer D. It is incorrect", :correct_answer => "A")
+question_34 = Question.create(:round_id => 5, :content => "6. Which Unforgivable Curse does Harry try to use on Bellatrix after she kills Sirius? ", :answer_a => "Imperio", :answer_b => "Crucio", :answer_c => "Avada Kedavra", :answer_d => "Sectumsempra", :correct_answer => "B")
 
-question_35 = Question.create(:round_id => 5, :content => "This is Round 5 Question 7 right here?", :answer_a => "This is Question 7 Answer A. It is incorrect.", :answer_b => "This is Question 7 Answer B. It is incorrect.", :answer_c => "This is Question 7 Answer C. It is correct.", :answer_d => "This is Question 7 Answer D. It is incorrect", :correct_answer => "C")
+question_35 = Question.create(:round_id => 5, :content => "7. What is one bit of wisdom Dumbledore imparts to Harry during his 5th year at Hogwarts?", :answer_a => "Age is foolish and forgetful when it underestimates youth.", :answer_b => "You know, I sometimes think we Sort too soon.", :answer_c => "People find it far easier to forgive others for being wrong than being right.", :answer_d => "Youth cannot know how age thinks and feels. But old men are guilty if they forget what it was to be young.", :correct_answer => "D")
 
 
 
