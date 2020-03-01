@@ -1,5 +1,5 @@
 class User {
-  constructor(userJSON){
+  constructor(userJSON) {
     this.id = userJSON.id;
     this.username = userJSON.username;
     this.adapter = new UsersAdapter();

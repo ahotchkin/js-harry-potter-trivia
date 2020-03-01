@@ -6,6 +6,6 @@ class UserRound {
     // this is necessary to associate with the JS round - DO I NEED IT HERE??????
     this.round = round;
     // this is necessary to create the UserAnswers at the end of each round
-    this.adapter = new UserAnswersAdapter();
+    this.adapter = new UserRoundsAdapter(this);
   }
 }

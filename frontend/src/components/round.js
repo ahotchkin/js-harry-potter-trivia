@@ -1,6 +1,6 @@
 class Round {
 
-  constructor(user, id){
+  constructor(user, id) {
     this.user = user;
     this.id = id;
     this.adapter = new RoundsAdapter(this);
@@ -41,6 +41,7 @@ class Round {
 
   renderRound(round) {
     const userRound = new UserRound(this.user, this, 1);
+    userRound.adapter.createUserRound(userRound);
     console.log(userRound)
 
     DOMElements.startButton.style.display = "none";
@@ -198,6 +199,7 @@ class Round {
       DOMElements.container.className = "container";
       DOMElements.p.innerHTML = "<br>Uh oh. Looks like Voldemort got you. That little rascal. Better luck next time.";
       DOMElements.startButton.innerHTML = "Try Again";
+      // make this a tryAgain button
     };
   }
 
