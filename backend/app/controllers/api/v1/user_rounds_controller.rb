@@ -15,7 +15,7 @@ class Api::V1::UserRoundsController < ApplicationController
   private
 
     def user_round_params
-      params.require(:user_answer).permit(:user_id, :round_id, :attempts)
+      params.require(:user_round).permit(:user_id, :round_id, :attempts)
     end
 
 end
