@@ -59,20 +59,24 @@ class Round {
     event.preventDefault();
     this.tryAgain.style.display = "none";
 
-    const userRound = new UserRound(parseInt(this.tryAgain.dataset.userId), parseInt(this.tryAgain.dataset.roundId), parseInt(this.tryAgain.dataset.attempts));
+    const userRound = new UserRound(parseInt(this.tryAgain.dataset.userId), parseInt(this.tryAgain.dataset.roundId), (parseInt(this.tryAgain.dataset.attempts) + 1));
 
     console.log(parseInt(this.tryAgain.dataset.userRoundId))
     console.log(userRound)
     userRound.adapter.updateUserRound(userRound, parseInt(this.tryAgain.dataset.userRoundId))
+      .then(realUserRound => {
+        console.log(realUserRound)
+        this.tryAgain.dataset.attempts = realUserRound.attempts;
+      })
+
 
     // console.log(realUserRound)
-    .then(realUserRound => console.log(realUserRound))
 
-    console.log("updating userRound here!!!!")
-    console.log(this.tryAgain.dataset.userRoundId)
-    console.log(this.tryAgain.dataset.userId)
-    console.log(this.tryAgain.dataset.roundId)
-    console.log(this.tryAgain.dataset.attempts)
+    // console.log("updating userRound here!!!!")
+    // console.log(this.tryAgain.dataset.userRoundId)
+    // console.log(this.tryAgain.dataset.userId)
+    // console.log(this.tryAgain.dataset.roundId)
+    // console.log(this.tryAgain.dataset.attempts)
   }
 
   renderRound(round) {
@@ -238,6 +242,8 @@ class Round {
       DOMElements.p.innerHTML = "<br>Uh oh. Looks like Voldemort got you. That little rascal. Better luck next time.";
       // DOMElements.startButton.innerHTML = "Try Again";
       this.tryAgain.innerHTML = "Try Again";
+      this.tryAgain.style.display = "initial";
+
       DOMElements.textContainer.appendChild(this.tryAgain);
 
     };

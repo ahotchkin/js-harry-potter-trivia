@@ -25,29 +25,31 @@ class UserRoundsAdapter {
   }
 
   updateUserRound(userRound, id) {
-    const user_round = {
-      user_id: userRound.user_id,
-      round_id: userRound.round_id,
-      attempts: userRound.attempts += 1
-    };
+    // const user_round = {
+    //   user_id: userRound.user_id,
+    //   round_id: userRound.round_id,
+    //   attempts: userRound.attempts += 1
+    // };
 
-    console.log(user_round)
 
     // let attempts = userRound.attempts += 1
+    let attempts = userRound.attempts
 
-    fetch(this.baseUrl + `/${id}`, {
+    // console.log(user_round)
+
+
+    return fetch(this.baseUrl + `/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
       body: JSON.stringify({
-        // attempts: userRound.attempts
-        user_round
+        attempts: userRound.attempts
+        // user_round
       })
     })
     .then(response => response.json())
-    // .then(realUserRound => console.log(realUserRound))
   }
 
 
