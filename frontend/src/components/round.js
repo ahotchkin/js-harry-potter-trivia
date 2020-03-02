@@ -10,11 +10,18 @@ class Round {
   roundBindingsAndEventListeners() {
     // hard bind this to the round when fetchAndLoadRound is executed, so when we access this from fetchAndLoadRound it is the Round class
     DOMElements.startButton.addEventListener("click", this.fetchAndLoadRound.bind(this));
+    DOMElements.startButton.addEventListener("click", this.createUserRound.bind(this));
 
     this.submitRound = document.createElement("button");
     this.submitRound.id = "submit_round";
     // hard bind this to the round when submitAnswers is executed, so when we access this from submitAnswers it is the Round class
     this.submitRound.addEventListener("click", this.submitAnswers.bind(this));
+
+    this.tryAgain = document.createElement("button");
+    this.tryAgain.className = "btn btn-light";
+    this.tryAgain.id = "try_again";
+    this.tryAgain.addEventListener("click", this.fetchAndLoadRound.bind(this));
+    this.tryAgain.addEventListener("click", this.updateUserRound.bind(this));
 
     this.div = document.createElement("div");
     this.div.id = "submit_round";
@@ -32,19 +39,47 @@ class Round {
     };
   }
 
-  // createUserRound(round) {
-  //   console.log(this)
-  //   console.log(this.user)
-  //   const userRound = new userRound(this, this.user, 1);
-  //   console.log(userRound)
-  // }
+  createUserRound(event) {
+    event.preventDefault();
+
+    // if there is no record that currently exists with this user_id and this round_id, create a new instance of userRound
+    const userRound = new UserRound(this.user.id, this.id);
+    console.log(userRound)
+    userRound.adapter.createUserRound(userRound)
+      .then(realUserRound => {
+        console.log(realUserRound);
+        this.tryAgain.dataset.userRoundId = realUserRound.id;
+        this.tryAgain.dataset.userId = realUserRound.user_id;
+        this.tryAgain.dataset.roundId = realUserRound.round_id;
+        this.tryAgain.dataset.attempts = realUserRound.attempts;
+      });
+  }
+
+  updateUserRound(event) {
+    event.preventDefault();
+    this.tryAgain.style.display = "none";
+
+    const userRound = new UserRound(parseInt(this.tryAgain.dataset.userId), parseInt(this.tryAgain.dataset.roundId), parseInt(this.tryAgain.dataset.attempts));
+
+    console.log(parseInt(this.tryAgain.dataset.userRoundId))
+    console.log(userRound)
+    userRound.adapter.updateUserRound(userRound, parseInt(this.tryAgain.dataset.userRoundId))
+
+    // console.log(realUserRound)
+    .then(realUserRound => console.log(realUserRound))
+
+    console.log("updating userRound here!!!!")
+    console.log(this.tryAgain.dataset.userRoundId)
+    console.log(this.tryAgain.dataset.userId)
+    console.log(this.tryAgain.dataset.roundId)
+    console.log(this.tryAgain.dataset.attempts)
+  }
 
   renderRound(round) {
-    const userRound = new UserRound(this.user, this, 1);
-    userRound.adapter.createUserRound(userRound);
-    console.log(userRound)
+    // this.createOrUpdateUserRound(round);
 
     DOMElements.startButton.style.display = "none";
+    // DOMElements.tryAgain.style.display = "none";
     DOMElements.note.style.display = "none";
     DOMElements.p.innerHTML = "";
     DOMElements.container.className = "container quiz";
@@ -91,7 +126,7 @@ class Round {
     if (this.questionsAnswered()) {
       this.getUserAnswers();
       DOMElements.quiz_form.innerHTML = "";
-      DOMElements.startButton.style.display = "initial";
+      // DOMElements.startButton.style.display = "initial";
       DOMElements.quiz_container.style.display = "none";
     } else {
       alert("Dumbledore would not approve if he heard you were trying to take a shortcut. Please answer all questions.");
@@ -157,6 +192,8 @@ class Round {
 
     if (correctAnswers.length >= 5) {
 
+      DOMElements.startButton.style.display = "initial";
+
       for (const userAnswer of userAnswers) {
         // not doing anything with this JSON object so there isn't a separate createUserAnswer() function in this file
         userAnswer.adapter.createUserAnswer(userAnswer);
@@ -196,10 +233,13 @@ class Round {
       };
 
     } else {
+
       DOMElements.container.className = "container";
       DOMElements.p.innerHTML = "<br>Uh oh. Looks like Voldemort got you. That little rascal. Better luck next time.";
-      DOMElements.startButton.innerHTML = "Try Again";
-      // make this a tryAgain button
+      // DOMElements.startButton.innerHTML = "Try Again";
+      this.tryAgain.innerHTML = "Try Again";
+      DOMElements.textContainer.appendChild(this.tryAgain);
+
     };
   }
 
