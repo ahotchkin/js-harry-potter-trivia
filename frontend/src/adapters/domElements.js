@@ -17,13 +17,14 @@ class DOMElements {
 
   // used in round, user
   static get body() { return document.querySelector("body") };
+  static get header() { return document.getElementById("header") };
+  static get textContainer() { return document.getElementById("text_container") };
+  static get newUserForm() { return document.getElementById("new_user_form") };
+
 
   // used in user
-  static get newUserForm() { return document.getElementById("new_user_form") };
   static get username() { return document.getElementById("username") };
-  static get header() { return document.getElementById("header") };
   static get house() { return document.getElementById("house") };
-  static get textContainer() { return document.getElementById("text_container") };
   static get speaker() { return document.getElementById("speaker") };
 
   // used in round:

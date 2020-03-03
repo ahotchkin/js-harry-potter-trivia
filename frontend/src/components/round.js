@@ -23,6 +23,11 @@ class Round {
     this.tryAgain.addEventListener("click", this.fetchAndLoadRound.bind(this));
     this.tryAgain.addEventListener("click", this.updateUserRound.bind(this));
 
+    this.playAgain = document.createElement("button");
+    this.playAgain.className = "btn btn-light";
+    this.playAgain.id = "game_over";
+    this.playAgain.addEventListener("click", this.restartGame.bind(this));
+
     this.div = document.createElement("div");
     this.div.id = "submit_round";
   }
@@ -198,6 +203,8 @@ class Round {
 
       DOMElements.startButton.style.display = "initial";
 
+      DOMElements.container.className = "container";
+
       for (const userAnswer of userAnswers) {
         // not doing anything with this JSON object so there isn't a separate createUserAnswer() function in this file
         userAnswer.adapter.createUserAnswer(userAnswer);
@@ -230,22 +237,30 @@ class Round {
       }
 
       if (this.id < 8) {
-        DOMElements.container.className = "container";
+        // DOMElements.container.className = "container";
         DOMElements.startButton.innerHTML = `Board the Hogwarts Express for Round ${this.id}`;
       } else if (this.id === 8) {
         DOMElements.startButton.innerHTML = "See Your Stats";
       };
 
-    } else {
-
-      DOMElements.container.className = "container";
-      DOMElements.p.innerHTML = "<br>Uh oh. Looks like Voldemort got you. That little rascal. Better luck next time.";
+    } else if (this.tryAgain.dataset.attempts < 3) {
+      if (this.tryAgain.dataset.attempts == 1) {
+        DOMElements.p.innerHTML = "<br>Uh oh. Looks like Voldemort got you. That little rascal. Care to give it another go?";
+      } else if (this.tryAgain.dataset.attempts == 2) {
+        DOMElements.p.innerHTML = "<br>Oh no! Voldy got you again! Did you fall asleep during Defense Against the Dark Arts? You can have one more shot...";
+      }
+      // DOMElements.container.className = "container";
       // DOMElements.startButton.innerHTML = "Try Again";
       this.tryAgain.innerHTML = "Try Again";
       this.tryAgain.style.display = "initial";
 
       DOMElements.textContainer.appendChild(this.tryAgain);
 
+    } else if (this.tryAgain.dataset.attempts >= 3) {
+      DOMElements.p.innerHTML = "<br>Well, that's it for the Wizarding World. Better luck next time.";
+
+      this.playAgain.innerHTML = "Game Over";
+      DOMElements.textContainer.appendChild(this.playAgain);
     };
   }
 
@@ -288,6 +303,34 @@ class Round {
 
       DOMElements.quiz_container.appendChild(round_header);
     };
+  }
+
+  restartGame(event) {
+    event.preventDefault();
+    console.log("RESTARTING THE GAME NOW!!!")
+    DOMElements.title.style.display = "none";
+    DOMElements.p.style.display = "none";
+    this.playAgain.style.display = "none";
+
+    DOMElements.body.id = "welcome";
+    // change the title ID back to header to display original page
+    DOMElements.title.id = "header";
+    DOMElements.header.innerHTML = "Welcome to Harry Potter Trivia!";
+    DOMElements.header.style.display = "block";
+
+    DOMElements.container.className = "container";
+
+    DOMElements.textContainer.style.display = "block";
+    DOMElements.newUserForm.style.display = "block";
+
+    DOMElements.container.appendChild(DOMElements.textContainer);
+    DOMElements.container.appendChild(DOMElements.newUserForm);
+    // DOMElements.container.style.display = "initial";
+
+
+    // DELETE THE USER FROM THE DATABASE - AND ALL USERROUNDS????
+    // stop the music and remove the speaker
+    // display the playAgain button on the stats page too
   }
 
 }

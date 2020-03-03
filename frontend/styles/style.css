@@ -15,13 +15,11 @@
 }
 
 body {
-  background-image: url("./images/hp_crest.jpg");
   background-size: 100%;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #000;
 }
 
 form {
@@ -79,6 +77,11 @@ form {
 
 .answer_info {
   font-style: italic;
+}
+
+#welcome {
+  background-image: url("./images/hp_crest.jpg");
+  background-color: #000;
 }
 
 #header {
