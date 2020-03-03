@@ -4,6 +4,10 @@ class UserRoundsAdapter {
     this.baseUrl = `http://localhost:3000/api/v1/user_rounds`;
   }
 
+  getUserRounds() {
+    return fetch(this.baseUrl).then(response => response.json());
+  }
+
   createUserRound(userRound) {
     const user_round = {
       user_id: userRound.user_id,
@@ -33,7 +37,8 @@ class UserRoundsAdapter {
 
 
     // let attempts = userRound.attempts += 1
-    let attempts = userRound.attempts
+    // can this be ++ ?
+    let attempts = (userRound.attempts += 1)
 
     // console.log(user_round)
 
@@ -50,6 +55,7 @@ class UserRoundsAdapter {
       })
     })
     .then(response => response.json())
+
   }
 
 

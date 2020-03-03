@@ -49,6 +49,8 @@ class Round {
     // };
   }
 
+
+  // should this be in userRound.js??
   createUserRound(event) {
     event.preventDefault();
     const userRound = new UserRound(this.user.id, this.id);
@@ -62,9 +64,10 @@ class Round {
       });
   }
 
+  // should this be in userRound.js??
   updateUserRound(event) {
     event.preventDefault();
-    const userRound = new UserRound(parseInt(this.tryAgain.dataset.userId), parseInt(this.tryAgain.dataset.roundId), (parseInt(this.tryAgain.dataset.attempts) + 1));
+    const userRound = new UserRound(parseInt(this.tryAgain.dataset.userId), parseInt(this.tryAgain.dataset.roundId), parseInt(this.tryAgain.dataset.attempts));
 
     userRound.adapter.updateUserRound(userRound, parseInt(this.tryAgain.dataset.userRoundId))
       .then(userRound => {
@@ -244,7 +247,7 @@ class Round {
     } else if (this.tryAgain.dataset.attempts >= 3) {
       DOMElements.p.innerHTML = "<br>Well, that's it for the Wizarding World. Better luck next time.";
       this.playAgain.innerHTML = "Game Over";
-      DOMElements.quiz_container.appendChild(this.playAgain);
+      DOMElements.textContainer.appendChild(this.playAgain);
     };
   }
 
