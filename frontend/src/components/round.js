@@ -8,13 +8,13 @@ class Round {
   }
 
   roundBindingsAndEventListeners() {
-    // hard bind this to the round when fetchAndLoadRound is executed, so when we access this from fetchAndLoadRound it is the Round class
+    // hard bind this to the round when certain functions are executed, so when we access this from those functions it is the Round class
+
     DOMElements.startButton.addEventListener("click", this.fetchAndLoadRound.bind(this));
     DOMElements.startButton.addEventListener("click", this.createUserRound.bind(this));
 
     this.submitRound = document.createElement("button");
     this.submitRound.id = "submit_round";
-    // hard bind this to the round when submitAnswers is executed, so when we access this from submitAnswers it is the Round class
     this.submitRound.addEventListener("click", this.submitAnswers.bind(this));
 
     this.tryAgain = document.createElement("button");
@@ -26,11 +26,11 @@ class Round {
     this.seeStats = document.createElement("button");
     this.seeStats.className = "btn btn-light";
     this.seeStats.id = "see_stats";
-    this.seeStats.addEventListener("click", this.fetchAndLoadRound.bind(this));
+    this.seeStats.addEventListener("click", this.renderStats.bind(this));
 
     this.playAgain = document.createElement("button");
     this.playAgain.className = "btn btn-light";
-    this.playAgain.id = "game_over";
+    this.playAgain.id = "play_again";
     this.playAgain.addEventListener("click", this.restartGame.bind(this));
 
     this.div = document.createElement("div");
@@ -39,14 +39,14 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    if (this.id < 8) {
+    // if (this.id < 8) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round);
         });
-    } else {
-      this.renderStats();
-    };
+    // } else {
+    //   this.renderStats();
+    // };
   }
 
   createUserRound(event) {
@@ -64,8 +64,6 @@ class Round {
 
   updateUserRound(event) {
     event.preventDefault();
-    this.tryAgain.style.display = "none";
-
     const userRound = new UserRound(parseInt(this.tryAgain.dataset.userId), parseInt(this.tryAgain.dataset.roundId), (parseInt(this.tryAgain.dataset.attempts) + 1));
 
     userRound.adapter.updateUserRound(userRound, parseInt(this.tryAgain.dataset.userRoundId))
@@ -76,6 +74,7 @@ class Round {
 
   renderRound(round) {
     DOMElements.startButton.style.display = "none";
+    this.tryAgain.style.display = "none";
     DOMElements.note.style.display = "none";
     DOMElements.p.innerHTML = "";
     DOMElements.container.className = "container quiz";
@@ -110,10 +109,8 @@ class Round {
     };
 
     DOMElements.quiz_container.appendChild(this.div);
-
     this.submitRound.className = "btn btn-light";
     this.submitRound.innerHTML = `Submit Round ${this.id} Answers`;
-
     this.div.appendChild(this.submitRound);
   }
 
@@ -144,7 +141,6 @@ class Round {
       return true;
     };
   }
-
 
   getUserAnswers() {
     const possible_answers = Array.from(document.querySelectorAll(".form-check-input"));
@@ -190,7 +186,7 @@ class Round {
 
       // DOMElements.startButton.style.display = "initial";
 
-      // DOMElements.container.className = "container";
+      DOMElements.container.className = "container";
 
       for (const userAnswer of userAnswers) {
         // not doing anything with this JSON object so there isn't a separate createUserAnswer() function in this file
@@ -224,17 +220,14 @@ class Round {
       }
 
       if (this.id < 8) {
-        DOMElements.container.className = "container";
+        // DOMElements.container.className = "container";
         DOMElements.startButton.innerHTML = `Board the Hogwarts Express for Round ${this.id}`;
         DOMElements.startButton.style.display = "initial";
       } else if (this.id === 8) {
-        DOMElements.container.className = "container";
+        // DOMElements.container.className = "container";
         DOMElements.startButton.style.display = "none";
-
-
         this.seeStats.innerHTML = "See Your Stats";
         DOMElements.textContainer.appendChild(this.seeStats);
-
       };
 
     } else if (this.tryAgain.dataset.attempts < 3) {
@@ -244,30 +237,26 @@ class Round {
         DOMElements.p.innerHTML = "<br>Oh no! Voldy got you again! Did you fall asleep during Defense Against the Dark Arts? You can have one more shot...";
       }
       DOMElements.container.className = "container";
-      // DOMElements.startButton.innerHTML = "Try Again";
       this.tryAgain.innerHTML = "Try Again";
       this.tryAgain.style.display = "initial";
-
       DOMElements.textContainer.appendChild(this.tryAgain);
 
     } else if (this.tryAgain.dataset.attempts >= 3) {
       DOMElements.p.innerHTML = "<br>Well, that's it for the Wizarding World. Better luck next time.";
-
       this.playAgain.innerHTML = "Game Over";
-      DOMElements.textContainer.appendChild(this.playAgain);
+      DOMElements.quiz_container.appendChild(this.playAgain);
     };
   }
 
   renderStats() {
     DOMElements.quiz_form.style.display = "none";
     DOMElements.startButton.style.display = "none";
+    DOMElements.submitRound.style.display = "none";
+    this.seeStats.style.display = "none";
 
-    // the title is not showing up properly?????????????????????????????
     DOMElements.container.className = "container quiz";
 
     DOMElements.title.innerHTML = `${this.user.username}'s Battle of Hogwarts`;
-    DOMElements.submitRound.style.display = "none";
-    this.seeStats.style.display = "none";
     DOMElements.p.innerHTML = "Congratulations on defeating Voldemort and his Buttheads. Oops, sorry, I mean Death Eaters. Actually, no, Buttheads is fitting. Let's see how you did...";
     this.playAgain.innerHTML = "Play Again";
 
@@ -302,7 +291,10 @@ class Round {
       };
 
       DOMElements.quiz_container.appendChild(round_header);
-      DOMElements.quiz_container.appendChild(this.playAgain);
+      DOMElements.quiz_container.appendChild(this.div);
+      this.div.style.display = "block";
+      this.submitRound.style.display = "none";
+      this.div.appendChild(this.playAgain);
 
     };
   }
