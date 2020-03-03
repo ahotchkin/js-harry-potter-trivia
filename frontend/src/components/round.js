@@ -46,17 +46,14 @@ class Round {
 
   createUserRound(event) {
     event.preventDefault();
-
-    // if there is no record that currently exists with this user_id and this round_id, create a new instance of userRound
     const userRound = new UserRound(this.user.id, this.id);
-    console.log(userRound)
+
     userRound.adapter.createUserRound(userRound)
-      .then(realUserRound => {
-        console.log(realUserRound);
-        this.tryAgain.dataset.userRoundId = realUserRound.id;
-        this.tryAgain.dataset.userId = realUserRound.user_id;
-        this.tryAgain.dataset.roundId = realUserRound.round_id;
-        this.tryAgain.dataset.attempts = realUserRound.attempts;
+      .then(userRound => {
+        this.tryAgain.dataset.userRoundId = userRound.id;
+        this.tryAgain.dataset.userId = userRound.user_id;
+        this.tryAgain.dataset.roundId = userRound.round_id;
+        this.tryAgain.dataset.attempts = userRound.attempts;
       });
   }
 
@@ -66,29 +63,14 @@ class Round {
 
     const userRound = new UserRound(parseInt(this.tryAgain.dataset.userId), parseInt(this.tryAgain.dataset.roundId), (parseInt(this.tryAgain.dataset.attempts) + 1));
 
-    console.log(parseInt(this.tryAgain.dataset.userRoundId))
-    console.log(userRound)
     userRound.adapter.updateUserRound(userRound, parseInt(this.tryAgain.dataset.userRoundId))
-      .then(realUserRound => {
-        console.log(realUserRound)
-        this.tryAgain.dataset.attempts = realUserRound.attempts;
-      })
-
-
-    // console.log(realUserRound)
-
-    // console.log("updating userRound here!!!!")
-    // console.log(this.tryAgain.dataset.userRoundId)
-    // console.log(this.tryAgain.dataset.userId)
-    // console.log(this.tryAgain.dataset.roundId)
-    // console.log(this.tryAgain.dataset.attempts)
+      .then(userRound => {
+        this.tryAgain.dataset.attempts = userRound.attempts;
+      });
   }
 
   renderRound(round) {
-    // this.createOrUpdateUserRound(round);
-
     DOMElements.startButton.style.display = "none";
-    // DOMElements.tryAgain.style.display = "none";
     DOMElements.note.style.display = "none";
     DOMElements.p.innerHTML = "";
     DOMElements.container.className = "container quiz";
@@ -307,30 +289,11 @@ class Round {
 
   restartGame(event) {
     event.preventDefault();
-    console.log("RESTARTING THE GAME NOW!!!")
-    DOMElements.title.style.display = "none";
-    DOMElements.p.style.display = "none";
-    this.playAgain.style.display = "none";
+    location.reload();
+  
 
-    DOMElements.body.id = "welcome";
-    // change the title ID back to header to display original page
-    DOMElements.title.id = "header";
-    DOMElements.header.innerHTML = "Welcome to Harry Potter Trivia!";
-    DOMElements.header.style.display = "block";
-
-    DOMElements.container.className = "container";
-
-    DOMElements.textContainer.style.display = "block";
-    DOMElements.newUserForm.style.display = "block";
-
-    DOMElements.container.appendChild(DOMElements.textContainer);
-    DOMElements.container.appendChild(DOMElements.newUserForm);
-    // DOMElements.container.style.display = "initial";
-
-
-    // DELETE THE USER FROM THE DATABASE - AND ALL USERROUNDS????
-    // stop the music and remove the speaker
-    // display the playAgain button on the stats page too
+    // // DELETE THE USER FROM THE DATABASE - AND ALL USERROUNDS AND USERANSWERS????
+    // // display the playAgain button on the stats page too
   }
 
 }
