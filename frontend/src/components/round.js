@@ -23,6 +23,11 @@ class Round {
     this.tryAgain.addEventListener("click", this.fetchAndLoadRound.bind(this));
     this.tryAgain.addEventListener("click", this.updateUserRound.bind(this));
 
+    this.seeStats = document.createElement("button");
+    this.seeStats.className = "btn btn-light";
+    this.seeStats.id = "see_stats";
+    this.seeStats.addEventListener("click", this.fetchAndLoadRound.bind(this));
+
     this.playAgain = document.createElement("button");
     this.playAgain.className = "btn btn-light";
     this.playAgain.id = "game_over";
@@ -183,9 +188,9 @@ class Round {
 
     if (correctAnswers.length >= 5) {
 
-      DOMElements.startButton.style.display = "initial";
+      // DOMElements.startButton.style.display = "initial";
 
-      DOMElements.container.className = "container";
+      // DOMElements.container.className = "container";
 
       for (const userAnswer of userAnswers) {
         // not doing anything with this JSON object so there isn't a separate createUserAnswer() function in this file
@@ -219,10 +224,17 @@ class Round {
       }
 
       if (this.id < 8) {
-        // DOMElements.container.className = "container";
+        DOMElements.container.className = "container";
         DOMElements.startButton.innerHTML = `Board the Hogwarts Express for Round ${this.id}`;
+        DOMElements.startButton.style.display = "initial";
       } else if (this.id === 8) {
-        DOMElements.startButton.innerHTML = "See Your Stats";
+        DOMElements.container.className = "container";
+        DOMElements.startButton.style.display = "none";
+
+
+        this.seeStats.innerHTML = "See Your Stats";
+        DOMElements.textContainer.appendChild(this.seeStats);
+
       };
 
     } else if (this.tryAgain.dataset.attempts < 3) {
@@ -231,7 +243,7 @@ class Round {
       } else if (this.tryAgain.dataset.attempts == 2) {
         DOMElements.p.innerHTML = "<br>Oh no! Voldy got you again! Did you fall asleep during Defense Against the Dark Arts? You can have one more shot...";
       }
-      // DOMElements.container.className = "container";
+      DOMElements.container.className = "container";
       // DOMElements.startButton.innerHTML = "Try Again";
       this.tryAgain.innerHTML = "Try Again";
       this.tryAgain.style.display = "initial";
@@ -248,10 +260,16 @@ class Round {
 
   renderStats() {
     DOMElements.quiz_form.style.display = "none";
+    DOMElements.startButton.style.display = "none";
+
+    // the title is not showing up properly?????????????????????????????
+    DOMElements.container.className = "container quiz";
+
     DOMElements.title.innerHTML = `${this.user.username}'s Battle of Hogwarts`;
     DOMElements.submitRound.style.display = "none";
-    DOMElements.startButton.style.display = "none";
+    this.seeStats.style.display = "none";
     DOMElements.p.innerHTML = "Congratulations on defeating Voldemort and his Buttheads. Oops, sorry, I mean Death Eaters. Actually, no, Buttheads is fitting. Let's see how you did...";
+    this.playAgain.innerHTML = "Play Again";
 
     const userAnswers = new UserAnswers(this);
 
@@ -284,13 +302,15 @@ class Round {
       };
 
       DOMElements.quiz_container.appendChild(round_header);
+      DOMElements.quiz_container.appendChild(this.playAgain);
+
     };
   }
 
   restartGame(event) {
     event.preventDefault();
     location.reload();
-  
+
 
     // // DELETE THE USER FROM THE DATABASE - AND ALL USERROUNDS AND USERANSWERS????
     // // display the playAgain button on the stats page too
