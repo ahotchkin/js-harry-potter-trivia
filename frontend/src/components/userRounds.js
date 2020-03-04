@@ -19,12 +19,10 @@ class UserRounds {
 
   renderUserRounds(userRounds) {
 
-    // DOMElements.quiz_container.style.display = "table";
-    //
     for (let i = 1; i < 8; i++) {
       const p = document.createElement("p");
       p.className = "user_input_info";
-      p.id = `pr${i}`
+      p.id = `p${i}`;
       p.innerHTML = "";
 
       switch (i) {
@@ -48,37 +46,15 @@ class UserRounds {
           break;
         case 7:
           DOMElements.r7.appendChild(p);
-      }
+      };
 
       for (const userRound of userRounds) {
         if (this.round.user.id == userRound.user_id) {
-          console.log(userRound)
           if (userRound.round_id === i) {
-            p.innerHTML = `Number of Attempts: ${userRound.attempts}`
-          }
-          // where the userRound.round_id === i, append the p that says number of attempts
-        }
-      }
-
-
-          // const li = document.createElement("li");
-    //
-    //       if (userAnswer.round_id === i) {
-    //         if (userAnswer.user_input === userAnswer.correct_answer) {
-    //           correctAnswers++;
-    //         } else {
-    //           let q = new Question(userAnswer.question_id);
-    //           q.fetchQuestion(userAnswer);
-    //         };
-    //       };
-    //     };
-    //
-        // p.innerHTML = `Number of Attempts: ${correctAnswers} of 7 questions correct`;
-    //
-    //   };
-
-    }
+            p.innerHTML = `Number of Attempts: ${userRound.attempts}`;
+          };
+        };
+      };
+    };
   }
-
-
 }

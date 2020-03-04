@@ -35,13 +35,13 @@ class DOMElements {
   static get submitRound() { return document.getElementById("submit_round") };
 
   // used in userAnswers
-  static get pr1() { return document.getElementById("pr1") };
-  static get pr2() { return document.getElementById("pr2") };
-  static get pr3() { return document.getElementById("pr3") };
-  static get pr4() { return document.getElementById("pr4") };
-  static get pr5() { return document.getElementById("pr5") };
-  static get pr6() { return document.getElementById("pr6") };
-  static get pr7() { return document.getElementById("pr7") };
+  static get p1() { return document.getElementById("p1") };
+  static get p2() { return document.getElementById("p2") };
+  static get p3() { return document.getElementById("p3") };
+  static get p4() { return document.getElementById("p4") };
+  static get p5() { return document.getElementById("p5") };
+  static get p6() { return document.getElementById("p6") };
+  static get p7() { return document.getElementById("p7") };
 
 
 }
