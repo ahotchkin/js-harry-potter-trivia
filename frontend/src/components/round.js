@@ -26,7 +26,9 @@ class Round {
     this.seeStats = document.createElement("button");
     this.seeStats.className = "btn btn-light";
     this.seeStats.id = "see_stats";
-    this.seeStats.addEventListener("click", this.renderStats.bind(this));
+    // this.seeStats.addEventListener("click", this.renderStats.bind(this));
+    this.seeStats.addEventListener("click", this.fetchAndLoadRound.bind(this));
+
 
     this.playAgain = document.createElement("button");
     this.playAgain.className = "btn btn-light";
@@ -39,14 +41,14 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    // if (this.id < 8) {
+    if (this.id < 2) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round);
         });
-    // } else {
-    //   this.renderStats();
-    // };
+    } else {
+      this.renderStats();
+    };
   }
 
 
@@ -61,13 +63,14 @@ class Round {
         this.tryAgain.dataset.userId = userRound.user_id;
         this.tryAgain.dataset.roundId = userRound.round_id;
         this.tryAgain.dataset.attempts = userRound.attempts;
+        console.log(userRound)
       });
   }
 
   // should this be in userRound.js??
   updateUserRound(event) {
     event.preventDefault();
-    const userRound = new UserRound(parseInt(this.tryAgain.dataset.userId), parseInt(this.tryAgain.dataset.roundId), parseInt(this.tryAgain.dataset.attempts));
+    const userRound = new UserRound(parseInt(this.tryAgain.dataset.userId), parseInt(this.tryAgain.dataset.roundId), (parseInt(this.tryAgain.dataset.attempts) + 1));
 
     userRound.adapter.updateUserRound(userRound, parseInt(this.tryAgain.dataset.userRoundId))
       .then(userRound => {
@@ -257,18 +260,31 @@ class Round {
     DOMElements.submitRound.style.display = "none";
     this.seeStats.style.display = "none";
 
+    // moved from renderUserAnswers() in userAnswers.js
+    DOMElements.quiz_container.style.display = "table";
+
     DOMElements.container.className = "container quiz";
 
     DOMElements.title.innerHTML = `${this.user.username}'s Battle of Hogwarts`;
     DOMElements.p.innerHTML = "Congratulations on defeating Voldemort and his Buttheads. Oops, sorry, I mean Death Eaters. Actually, no, Buttheads is fitting. Let's see how you did...";
     this.playAgain.innerHTML = "Play Again";
 
+    const userRounds = new UserRounds(this);
     const userAnswers = new UserAnswers(this);
+
+    // go through all instances userRound
+    // find where the userRound.user_id === round.user.id
+    // for those userRounds, find the userRound.round_id
+    // display the number of attempts under reach round header
+
+    // userRounds.fetchAndLoadUserRounds();
 
     for (let i = 1; i < 8; i++) {
       const round_header = document.createElement("p");
       round_header.className = "round_stats";
       round_header.id = `r${i}`;
+
+      // renderUserRound();
 
       switch (i) {
         case 1:
