@@ -56,6 +56,7 @@ class User {
     const p = document.createElement("p");
     const startButton = document.createElement("button");
     const note = document.createElement("p");
+    const tryAgain = document.createElement("button");
 
     // Call DOMElements.title since that is getting the element by the ID of "title" in domElements.js. This is grabbing what was initially DOMElements.header.
     DOMElements.title.innerHTML = `*${user.username}, yer a wizard!*`;
@@ -70,9 +71,14 @@ class User {
     startButton.className = "btn btn-light";
     startButton.id = "start_button";
 
+    tryAgain.className = "btn btn-light";
+    tryAgain.id = "try_again";
+    tryAgain.style.display = "none";
+
     DOMElements.textContainer.appendChild(p);
     DOMElements.textContainer.appendChild(note);
     DOMElements.textContainer.appendChild(startButton);
+    DOMElements.textContainer.appendChild(tryAgain);
 
     const round = new Round(user, 1);
   }

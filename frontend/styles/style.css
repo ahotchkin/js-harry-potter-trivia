@@ -28,7 +28,7 @@ form {
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.875);
   width: 50%;
   position: absolute;
   padding: 30px 30px 7.5px;

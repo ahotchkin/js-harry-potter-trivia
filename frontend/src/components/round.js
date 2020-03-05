@@ -13,15 +13,12 @@ class Round {
     DOMElements.startButton.addEventListener("click", this.fetchAndLoadRound.bind(this));
     DOMElements.startButton.addEventListener("click", this.createUserRound.bind(this));
 
+    DOMElements.tryAgain.addEventListener("click", this.fetchAndLoadRound.bind(this));
+    DOMElements.tryAgain.addEventListener("click", this.updateUserRound.bind(this));
+
     this.submitRound = document.createElement("button");
     this.submitRound.id = "submit_round";
     this.submitRound.addEventListener("click", this.submitAnswers.bind(this));
-
-    this.tryAgain = document.createElement("button");
-    this.tryAgain.className = "btn btn-light";
-    this.tryAgain.id = "try_again";
-    this.tryAgain.addEventListener("click", this.fetchAndLoadRound.bind(this));
-    this.tryAgain.addEventListener("click", this.updateUserRound.bind(this));
 
     this.seeStats = document.createElement("button");
     this.seeStats.className = "btn btn-light";
@@ -51,35 +48,21 @@ class Round {
     // };
   }
 
-
-  // should this be in userRound.js??
   createUserRound(event) {
     event.preventDefault();
     const userRound = new UserRound(this.user.id, this.id);
-
-    userRound.adapter.createUserRound(userRound)
-      .then(userRound => {
-        this.tryAgain.dataset.userRoundId = userRound.id;
-        this.tryAgain.dataset.userId = userRound.user_id;
-        this.tryAgain.dataset.roundId = userRound.round_id;
-        this.tryAgain.dataset.attempts = userRound.attempts;
-      });
+    userRound.createUserRound(this);
   }
 
-  // should this be in userRound.js??
   updateUserRound(event) {
     event.preventDefault();
-    const userRound = new UserRound(parseInt(this.tryAgain.dataset.userId), parseInt(this.tryAgain.dataset.roundId), (parseInt(this.tryAgain.dataset.attempts) + 1));
-
-    userRound.adapter.updateUserRound(userRound, parseInt(this.tryAgain.dataset.userRoundId))
-      .then(userRound => {
-        this.tryAgain.dataset.attempts = userRound.attempts;
-      });
+    const userRound = new UserRound(parseInt(DOMElements.tryAgain.dataset.userId), parseInt(DOMElements.tryAgain.dataset.roundId), (parseInt(DOMElements.tryAgain.dataset.attempts) + 1));
+    userRound.updateUserRound(this);
   }
 
   renderRound(round) {
     DOMElements.startButton.style.display = "none";
-    this.tryAgain.style.display = "none";
+    DOMElements.tryAgain.style.display = "none";
     DOMElements.note.style.display = "none";
     DOMElements.p.innerHTML = "";
     DOMElements.container.className = "container quiz";
@@ -235,18 +218,18 @@ class Round {
         DOMElements.textContainer.appendChild(this.seeStats);
       };
 
-    } else if (this.tryAgain.dataset.attempts < 3) {
-      if (this.tryAgain.dataset.attempts == 1) {
+    } else if (DOMElements.tryAgain.dataset.attempts < 3) {
+      if (DOMElements.tryAgain.dataset.attempts == 1) {
         DOMElements.p.innerHTML = "<br>Uh oh. Looks like Voldemort got you. That little rascal. Care to give it another go?";
-      } else if (this.tryAgain.dataset.attempts == 2) {
+      } else if (DOMElements.tryAgain.dataset.attempts == 2) {
         DOMElements.p.innerHTML = "<br>Oh no! Voldy got you again! Did you fall asleep during Defense Against the Dark Arts? You can have one more shot...";
       }
       DOMElements.container.className = "container";
-      this.tryAgain.innerHTML = "Try Again";
-      this.tryAgain.style.display = "initial";
-      DOMElements.textContainer.appendChild(this.tryAgain);
+      DOMElements.tryAgain.innerHTML = "Try Again";
+      DOMElements.tryAgain.style.display = "initial";
+      DOMElements.textContainer.appendChild(DOMElements.tryAgain);
 
-    } else if (this.tryAgain.dataset.attempts >= 3) {
+    } else if (DOMElements.tryAgain.dataset.attempts >= 3) {
       DOMElements.p.innerHTML = "<br>Well, that's it for the Wizarding World. Better luck next time.";
       this.playAgain.innerHTML = "Game Over";
       DOMElements.textContainer.appendChild(this.playAgain);

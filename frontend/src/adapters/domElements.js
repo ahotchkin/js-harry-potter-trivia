@@ -1,24 +1,6 @@
 class DOMElements {
 
-  // used in question, round
-  static get quiz_form() { return document.getElementById("quiz_form") };
-
-  // used in question, round, userAnswers
-  static get quiz_container() { return document.getElementById("quiz_container") };
-
-  // used in question, userAnswers
-  static get r1() { return document.getElementById("r1") };
-  static get r2() { return document.getElementById("r2") };
-  static get r3() { return document.getElementById("r3") };
-  static get r4() { return document.getElementById("r4") };
-  static get r5() { return document.getElementById("r5") };
-  static get r6() { return document.getElementById("r6") };
-  static get r7() { return document.getElementById("r7") };
-
-  // used in round, user
-  static get textContainer() { return document.getElementById("text_container") };
-
-  // used in user
+  // used in User
   static get body() { return document.querySelector("body") };
   static get header() { return document.getElementById("header") };
   static get newUserForm() { return document.getElementById("new_user_form") };
@@ -26,7 +8,7 @@ class DOMElements {
   static get house() { return document.getElementById("house") };
   static get speaker() { return document.getElementById("speaker") };
 
-  // used in round
+  // used in Round
   static get startButton() { return document.getElementById("start_button") };
   static get title() { return document.getElementById("title") };
   static get p() { return document.querySelector("p") };
@@ -34,7 +16,7 @@ class DOMElements {
   static get container() { return document.getElementById("container") };
   static get submitRound() { return document.getElementById("submit_round") };
 
-  // used in userAnswers
+  // used in UserAnswers
   static get p1() { return document.getElementById("p1") };
   static get p2() { return document.getElementById("p2") };
   static get p3() { return document.getElementById("p3") };
@@ -43,5 +25,25 @@ class DOMElements {
   static get p6() { return document.getElementById("p6") };
   static get p7() { return document.getElementById("p7") };
 
+  // used in User, Round
+  static get textContainer() { return document.getElementById("text_container") };
+
+  // used in Round, UserRound
+  static get tryAgain() { return document.getElementById("try_again") };
+
+  // used in Round, Question
+  static get quiz_form() { return document.getElementById("quiz_form") };
+
+  // used in Round, Question, UserAnswers
+  static get quiz_container() { return document.getElementById("quiz_container") };
+
+  // used in Question, UserAnswers
+  static get r1() { return document.getElementById("r1") };
+  static get r2() { return document.getElementById("r2") };
+  static get r3() { return document.getElementById("r3") };
+  static get r4() { return document.getElementById("r4") };
+  static get r5() { return document.getElementById("r5") };
+  static get r6() { return document.getElementById("r6") };
+  static get r7() { return document.getElementById("r7") };
 
 }
