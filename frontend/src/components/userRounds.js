@@ -4,16 +4,13 @@ class UserRounds {
     this.adapter = new UserRoundsAdapter();
     // this is necessary to get access to the round, the round's user, and the correct user's answers
     this.round = round;
-    console.log(round.user.id)
     this.fetchAndLoadUserRounds();
   }
 
   fetchAndLoadUserRounds() {
     this.adapter.getUserRounds()
       .then(userRounds => {
-        console.log("I'M IN FETCHANDLOADUSERROUNDS()")
         this.renderUserRounds(userRounds);
-
       });
   }
 

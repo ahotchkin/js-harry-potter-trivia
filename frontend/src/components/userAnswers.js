@@ -4,7 +4,6 @@ class UserAnswers {
     this.adapter = new UserAnswersAdapter();
     // this is necessary to get access to the round, the round's user, and the correct user's answers
     this.round = round;
-    console.log(round.user.id)
     this.fetchAndLoadUserAnswers();
   }
 

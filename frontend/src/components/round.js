@@ -26,8 +26,8 @@ class Round {
     this.seeStats = document.createElement("button");
     this.seeStats.className = "btn btn-light";
     this.seeStats.id = "see_stats";
-    // this.seeStats.addEventListener("click", this.renderStats.bind(this));
-    this.seeStats.addEventListener("click", this.fetchAndLoadRound.bind(this));
+    this.seeStats.addEventListener("click", this.renderStats.bind(this));
+    // this.seeStats.addEventListener("click", this.fetchAndLoadRound.bind(this));
 
 
     this.playAgain = document.createElement("button");
@@ -41,14 +41,14 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    if (this.id < 2) {
+    // if (this.id < 2) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round);
         });
-    } else {
-      this.renderStats();
-    };
+    // } else {
+    //   this.renderStats();
+    // };
   }
 
 
@@ -63,7 +63,6 @@ class Round {
         this.tryAgain.dataset.userId = userRound.user_id;
         this.tryAgain.dataset.roundId = userRound.round_id;
         this.tryAgain.dataset.attempts = userRound.attempts;
-        console.log(userRound)
       });
   }
 
@@ -216,10 +215,10 @@ class Round {
           DOMElements.p.innerHTML = "<br>Congratulations! You avoided the Killing Curse and escaped from the graveyard. That was intense.<br><br>Wait, hold up. Cedric died? That's some dragon dung.";
           break;
         case 6:
-          DOMElements.p.innerHTML = "<br>Congratulations! You lived to tell the tale of the Battle of the Department of Mysteries.<br><br>This must be a joke. Sirius did NOT die. Sirius died? And the whole thing was a trap, so he shouldn't have died at all? Son of a bludger.";
+          DOMElements.p.innerHTML = "<br>Congratulations! You lived to tell the tale of the Battle of the Department of Mysteries.<br><br>This must be a joke. Sirius did NOT die. Sirius died?! And the whole thing was a trap, so he shouldn't have died at all? Son of a bludger.";
           break;
         case 7:
-          DOMElements.p.innerHTML = "<br>Congratulations! You got your hands on a (fake) horcrux.<br><br>Okay guys, this isn't funny anymore. I refuse to believe that Dumbledore just fell off the Astronomy Tower. IT WAS SNAPE?! Merlin's saggy left –";
+          DOMElements.p.innerHTML = "<br>Congratulations! You got your hands on a (fake) horcrux.<br><br>Okay, this isn't funny anymore. I refuse to believe that Dumbledore just fell off the Astronomy Tower. IT WAS SNAPE?! Merlin's saggy left –";
           break;
         case 8:
           DOMElements.p.innerHTML = "<br>Congratulations! You defeated Voldemort at the Battle of Hogwarts!<br><br>Galloping gargoyles, a lot of people died. That was rough.";
