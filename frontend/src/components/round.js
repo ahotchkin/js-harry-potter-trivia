@@ -23,8 +23,8 @@ class Round {
     this.seeStats = document.createElement("button");
     this.seeStats.className = "btn btn-light";
     this.seeStats.id = "see_stats";
-    this.seeStats.addEventListener("click", this.renderStats.bind(this));
-    // this.seeStats.addEventListener("click", this.fetchAndLoadRound.bind(this));
+    // this.seeStats.addEventListener("click", this.renderStats.bind(this));
+    this.seeStats.addEventListener("click", this.fetchAndLoadRound.bind(this));
 
     this.playAgain = document.createElement("button");
     this.playAgain.className = "btn btn-light";
@@ -37,14 +37,14 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    // if (this.id < 2) {
+    if (this.id < 2) {
       this.adapter.getRound()
         .then(round => {
           this.renderRound(round);
         });
-    // } else {
-    //   this.renderStats();
-    // };
+    } else {
+      this.renderStats();
+    };
   }
 
   createUserRound(event) {
@@ -217,7 +217,7 @@ class Round {
       } else if (DOMElements.tryAgain.dataset.attempts == 2) {
         DOMElements.p.innerHTML = "<br>Oh no! Voldy got you again! Did you fall asleep during Defense Against the Dark Arts? You can have one more shot...";
       };
-      
+
       DOMElements.container.className = "container";
       DOMElements.tryAgain.innerHTML = "Try Again";
       DOMElements.tryAgain.style.display = "initial";

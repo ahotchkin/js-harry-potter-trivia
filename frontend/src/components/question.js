@@ -67,9 +67,9 @@ class Question {
     const userInput = document.createElement("p");
     const correctAnswer = document.createElement("p");
 
-    q.className = "user_input_info question_info";
-    userInput.className = "user_input_info answer_info question_info";
-    correctAnswer.className = "user_input_info answer_info";
+    q.className = "user_stats user_input_info question_info";
+    userInput.className = "user_stats user_input_info answer_info question_info";
+    correctAnswer.className = "user_stats user_input_info answer_info";
 
     q.innerHTML = `Question: ${question.content}`;
 

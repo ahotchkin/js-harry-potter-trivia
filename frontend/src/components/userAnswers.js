@@ -18,7 +18,7 @@ class UserAnswers {
     for (let i = 1; i < 8; i++) {
       let correctAnswers = 0;
       const span = document.createElement("span");
-      span.className = "user_input_info";
+      span.className = "user_stats";
       span.innerHTML = "";
 
       switch (i) {

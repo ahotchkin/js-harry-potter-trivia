@@ -18,7 +18,7 @@ class UserRounds {
 
     for (let i = 1; i < 8; i++) {
       const p = document.createElement("p");
-      p.className = "user_input_info";
+      p.className = "user_stats";
       p.id = `p${i}`;
       p.innerHTML = "";
 

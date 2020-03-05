@@ -67,8 +67,13 @@ form {
   padding-bottom: 20px;
 }
 
-.user_input_info {
+.user_stats {
   font-weight: normal;
+}
+
+.user_input_info {
+  text-align: left;
+  padding: 0px 40px;
 }
 
 .question_info {
