@@ -260,7 +260,6 @@ class Round {
     DOMElements.submitRound.style.display = "none";
     this.seeStats.style.display = "none";
 
-    // moved from renderUserAnswers() in userAnswers.js
     DOMElements.quiz_container.style.display = "table";
 
     DOMElements.container.className = "container quiz";
@@ -272,19 +271,10 @@ class Round {
     const userRounds = new UserRounds(this);
     const userAnswers = new UserAnswers(this);
 
-    // go through all instances userRound
-    // find where the userRound.user_id === round.user.id
-    // for those userRounds, find the userRound.round_id
-    // display the number of attempts under reach round header
-
-    // userRounds.fetchAndLoadUserRounds();
-
     for (let i = 1; i < 8; i++) {
       const round_header = document.createElement("p");
       round_header.className = "round_stats";
       round_header.id = `r${i}`;
-
-      // renderUserRound();
 
       switch (i) {
         case 1:
@@ -314,17 +304,12 @@ class Round {
       this.div.style.display = "block";
       this.submitRound.style.display = "none";
       this.div.appendChild(this.playAgain);
-
     };
   }
 
   restartGame(event) {
     event.preventDefault();
     location.reload();
-
-
-    // // DELETE THE USER FROM THE DATABASE - AND ALL USERROUNDS AND USERANSWERS????
-    // // display the playAgain button on the stats page too
   }
 
 }

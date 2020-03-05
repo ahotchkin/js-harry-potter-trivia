@@ -29,9 +29,7 @@ class UserRoundsAdapter {
   }
 
   updateUserRound(userRound, id) {
-    // let attempts = userRound.attempts += 1
-    // can this be ++ ?
-    let attempts = userRound.attempts
+    let attempts = userRound.attempts;
 
     return fetch(this.baseUrl + `/${id}`, {
       method: "PATCH",
