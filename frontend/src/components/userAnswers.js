@@ -7,8 +7,7 @@ class UserAnswers {
     this.fetchAndLoadUserAnswers();
   }
 
-  // why am I passing something in here?
-  fetchAndLoadUserAnswers(userAnswer) {
+  fetchAndLoadUserAnswers() {
     this.adapter.getUserAnswers()
       .then(userAnswers => {
         this.renderUserAnswers(userAnswers);
@@ -54,8 +53,6 @@ class UserAnswers {
             q.fetchQuestion(userAnswer);
           };
         };
-
-        // or do I want to use »
 
         span.innerHTML = `&nbsp; • &nbsp;${correctAnswers} of 7 questions correct`;
       };

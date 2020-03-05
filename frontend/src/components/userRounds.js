@@ -2,7 +2,7 @@ class UserRounds {
 
   constructor(round) {
     this.adapter = new UserRoundsAdapter();
-    // this is necessary to get access to the round, the round's user, and the correct user's answers
+    // this is necessary to get access to the round, the round's user, and the correct user's userRounds
     this.round = round;
     this.fetchAndLoadUserRounds();
   }
@@ -46,10 +46,8 @@ class UserRounds {
       };
 
       for (const userRound of userRounds) {
-        if (this.round.user.id == userRound.user_id) {
-          if (userRound.round_id === i) {
-            p.innerHTML = `Number of Attempts: ${userRound.attempts}`;
-          };
+        if (this.round.user.id === userRound.user_id && userRound.round_id === i) {
+          p.innerHTML = `Number of Attempts: ${userRound.attempts}`;
         };
       };
     };

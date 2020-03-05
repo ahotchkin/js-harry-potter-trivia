@@ -26,7 +26,6 @@ class Round {
     this.seeStats.addEventListener("click", this.renderStats.bind(this));
     // this.seeStats.addEventListener("click", this.fetchAndLoadRound.bind(this));
 
-
     this.playAgain = document.createElement("button");
     this.playAgain.className = "btn btn-light";
     this.playAgain.id = "play_again";
@@ -107,7 +106,6 @@ class Round {
     if (this.questionsAnswered()) {
       this.getUserAnswers();
       DOMElements.quiz_form.innerHTML = "";
-      // DOMElements.startButton.style.display = "initial";
       DOMElements.quiz_container.style.display = "none";
     } else {
       alert("Dumbledore would not approve if he heard you were trying to take a shortcut. Please answer all questions.");
@@ -171,9 +169,6 @@ class Round {
     };
 
     if (correctAnswers.length >= 5) {
-
-      // DOMElements.startButton.style.display = "initial";
-
       DOMElements.container.className = "container";
 
       for (const userAnswer of userAnswers) {
@@ -208,11 +203,9 @@ class Round {
       }
 
       if (this.id < 8) {
-        // DOMElements.container.className = "container";
         DOMElements.startButton.innerHTML = `Board the Hogwarts Express for Round ${this.id}`;
         DOMElements.startButton.style.display = "initial";
       } else if (this.id === 8) {
-        // DOMElements.container.className = "container";
         DOMElements.startButton.style.display = "none";
         this.seeStats.innerHTML = "See Your Stats";
         DOMElements.textContainer.appendChild(this.seeStats);
@@ -223,7 +216,8 @@ class Round {
         DOMElements.p.innerHTML = "<br>Uh oh. Looks like Voldemort got you. That little rascal. Care to give it another go?";
       } else if (DOMElements.tryAgain.dataset.attempts == 2) {
         DOMElements.p.innerHTML = "<br>Oh no! Voldy got you again! Did you fall asleep during Defense Against the Dark Arts? You can have one more shot...";
-      }
+      };
+      
       DOMElements.container.className = "container";
       DOMElements.tryAgain.innerHTML = "Try Again";
       DOMElements.tryAgain.style.display = "initial";
