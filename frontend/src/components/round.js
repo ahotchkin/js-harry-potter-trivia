@@ -90,7 +90,7 @@ class Round {
     };
 
     for (const question of round.questions) {
-      let q = new Question(question.id, question.question_number, question.content, question.answer_a, question.answer_b, question.answer_c, question.answer_d, question.correct_answer, question.round_id);
+      const q = new Question(question.id, question.question_number, question.content, question.answer_a, question.answer_b, question.answer_c, question.answer_d, question.correct_answer, question.round_id);
 
       q.renderQuestion(q);
     };
@@ -148,7 +148,7 @@ class Round {
         const userAnswers = [];
 
         for (const question of round.questions) {
-          let user_input = answers.find(answer => answer.question === question.id.toString());
+          const user_input = answers.find(answer => answer.question === question.id.toString());
           const userAnswer = new UserAnswer(this.user, round, question, user_input);
 
           userAnswers.push(userAnswer);

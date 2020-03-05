@@ -49,7 +49,7 @@ class UserAnswers {
           if (userAnswer.user_input === userAnswer.correct_answer) {
              correctAnswers++;
           } else {
-            let q = new Question(userAnswer.question_id);
+            const q = new Question(userAnswer.question_id);
             q.fetchQuestion(userAnswer);
           };
         };
