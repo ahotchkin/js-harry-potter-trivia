@@ -131,24 +131,24 @@ form {
 
 #gryffindor {
   background-image: url("./images/gryffindor.jpg");
-  background-color: #A71E31;
+  background-color: #8F1121;
   text-align: center;
 }
 
 #slytherin {
   background-image: url("./images/slytherin.jpg");
-  background-color: #367B5F;
+  background-color: #104D36;
   text-align: center;
 }
 
 #hufflepuff {
   background-image: url("./images/hufflepuff.jpg");
-  background-color: #D99E11;
+  background-color: #E0A117;
   text-align: center;
 }
 
 #ravenclaw {
   background-image: url("./images/ravenclaw.jpg");
-  background-color: #126692;
+  background-color: #043F67;
   text-align: center;
 }
