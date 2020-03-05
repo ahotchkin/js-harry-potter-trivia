@@ -44,7 +44,7 @@ class Round {
     //     });
     // } else {
     //   this.renderStats();
-    };
+    });
   }
 
   createUserRound(event) {
