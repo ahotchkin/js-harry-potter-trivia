@@ -17,6 +17,7 @@ class User {
     if (DOMElements.username.value === "") {
       alert("Please enter a username.");
     } else {
+      DOMElements.audio.play();
       // take the below value and make a post request using the adapter
       const value = DOMElements.username.value;
 

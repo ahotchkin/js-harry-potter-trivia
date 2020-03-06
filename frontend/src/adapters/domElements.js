@@ -6,7 +6,6 @@ class DOMElements {
   static get newUserForm() { return document.getElementById("new_user_form") };
   static get username() { return document.getElementById("username") };
   static get house() { return document.getElementById("house") };
-  static get speaker() { return document.getElementById("speaker") };
 
   // used in Round
   static get startButton() { return document.getElementById("start_button") };
@@ -24,6 +23,10 @@ class DOMElements {
   static get p5() { return document.getElementById("p5") };
   static get p6() { return document.getElementById("p6") };
   static get p7() { return document.getElementById("p7") };
+
+  // used in User, audio.js
+  static get audio() { return document.getElementById("audio") };
+  static get speaker() { return document.getElementById("speaker") };
 
   // used in User, Round
   static get textContainer() { return document.getElementById("text_container") };

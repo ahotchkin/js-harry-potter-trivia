@@ -1,16 +1,9 @@
-const audio = document.getElementById("audio");
-const speaker = document.getElementById("speaker");
-
-function play() {
-  audio.play();
-}
-
 function mute() {
-  if (audio.muted === false) {
-    audio.muted = true;
-    speaker.src = "./styles/images/mute.png";
+  if (DOMElements.audio.muted === false) {
+    DOMElements.audio.muted = true;
+    DOMElements.speaker.src = "./styles/images/mute.png";
   } else {
-    audio.muted = false;
-    speaker.src = "./styles/images/unmute.png";
+    DOMElements.audio.muted = false;
+    DOMElements.speaker.src = "./styles/images/unmute.png";
   };
 }
