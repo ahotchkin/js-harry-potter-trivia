@@ -224,6 +224,7 @@ class Round {
       DOMElements.textContainer.appendChild(DOMElements.tryAgain);
 
     } else if (DOMElements.tryAgain.dataset.attempts >= 3) {
+      DOMElements.container.className = "container";
       DOMElements.p.innerHTML = "<br>Well, that's it for the Wizarding World. Better luck next time.";
       this.playAgain.innerHTML = "Game Over";
       DOMElements.textContainer.appendChild(this.playAgain);
