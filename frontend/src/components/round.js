@@ -242,7 +242,7 @@ class Round {
 
     DOMElements.title.innerHTML = `${this.user.username}'s Battle of Hogwarts`;
     DOMElements.p.innerHTML = "Congratulations on defeating Voldemort and his Buttheads. Oops, sorry, I mean Death Eaters. Actually, no, Buttheads is fitting. Let's see how you did...";
-    this.playAgain.innerHTML = "Play Again";
+    this.playAgain.innerHTML = "Mischief Managed";
 
     const userRounds = new UserRounds(this);
     const userAnswers = new UserAnswers(this);
