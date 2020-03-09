@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
 
-  # Do I need all of these???
-
   namespace :api do
     namespace :v1 do
-      resources :user_answers
-      resources :questions
-      resources :users
-      resources :rounds
-      resources :user_rounds
+      resources :user_answers, only: [:index, :create]
+      resources :questions, only: [:show]
+      resources :users, only: [:create]
+      resources :rounds, only: [:show]
+      resources :user_rounds, only: [:index, :show, :create, :update]
     end
   end
 

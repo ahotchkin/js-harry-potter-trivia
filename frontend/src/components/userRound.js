@@ -6,6 +6,7 @@ class UserRound {
     this.adapter = new UserRoundsAdapter(this);
   }
 
+// do I need to pass the round in here?
   createUserRound(round) {
     this.adapter.createUserRound(this)
       .then(userRound => {
@@ -16,6 +17,7 @@ class UserRound {
       });
   }
 
+  // do I need to pass the round in here?
   updateUserRound(round) {
     this.adapter.updateUserRound(this, parseInt(DOMElements.tryAgain.dataset.userRoundId))
       .then(userRound => {
