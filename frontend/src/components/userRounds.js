@@ -15,7 +15,6 @@ class UserRounds {
   }
 
   renderUserRounds(userRounds) {
-
     for (let i = 1; i < 8; i++) {
       const p = document.createElement("p");
       p.className = "user_stats";

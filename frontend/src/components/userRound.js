@@ -6,8 +6,7 @@ class UserRound {
     this.adapter = new UserRoundsAdapter(this);
   }
 
-// do I need to pass the round in here?
-  createUserRound(round) {
+  createUserRound() {
     this.adapter.createUserRound(this)
       .then(userRound => {
         DOMElements.tryAgain.dataset.userRoundId = userRound.id;
@@ -17,8 +16,7 @@ class UserRound {
       });
   }
 
-  // do I need to pass the round in here?
-  updateUserRound(round) {
+  updateUserRound() {
     this.adapter.updateUserRound(this, parseInt(DOMElements.tryAgain.dataset.userRoundId))
       .then(userRound => {
         DOMElements.tryAgain.dataset.attempts = userRound.attempts;

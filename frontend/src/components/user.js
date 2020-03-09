@@ -81,8 +81,7 @@ class User {
     DOMElements.textContainer.appendChild(startButton);
     DOMElements.textContainer.appendChild(tryAgain);
 
-    // should I pass in 1 here or use a default argument?
-    const round = new Round(user, 1);
+    const round = new Round(user);
   }
 
 }

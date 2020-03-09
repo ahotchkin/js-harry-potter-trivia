@@ -1,6 +1,6 @@
 class Round {
 
-  constructor(user, id) {
+  constructor(user, id = 1) {
     this.user = user;
     this.id = id;
     this.adapter = new RoundsAdapter(this);
@@ -24,7 +24,6 @@ class Round {
     this.seeStats.className = "btn btn-light";
     this.seeStats.id = "see_stats";
     this.seeStats.addEventListener("click", this.renderStats.bind(this));
-    // this.seeStats.addEventListener("click", this.fetchAndLoadRound.bind(this));
 
     this.playAgain = document.createElement("button");
     this.playAgain.className = "btn btn-light";
@@ -37,26 +36,22 @@ class Round {
 
   fetchAndLoadRound(event) {
     event.preventDefault();
-    // if (this.id < 2) {
-      this.adapter.getRound()
-        .then(round => {
-          this.renderRound(round);
-    //     });
-    // } else {
-    //   this.renderStats();
+    this.adapter.getRound()
+      .then(round => {
+        this.renderRound(round);
     });
   }
 
   createUserRound(event) {
     event.preventDefault();
     const userRound = new UserRound(this.user.id, this.id);
-    userRound.createUserRound(this);
+    userRound.createUserRound();
   }
 
   updateUserRound(event) {
     event.preventDefault();
     const userRound = new UserRound(parseInt(DOMElements.tryAgain.dataset.userId), parseInt(DOMElements.tryAgain.dataset.roundId), (parseInt(DOMElements.tryAgain.dataset.attempts) + 1));
-    userRound.updateUserRound(this);
+    userRound.updateUserRound();
   }
 
   renderRound(round) {
@@ -172,7 +167,6 @@ class Round {
       DOMElements.container.className = "container";
 
       for (const userAnswer of userAnswers) {
-        // not doing anything with this JSON object so there isn't a separate createUserAnswer() function in this file
         userAnswer.adapter.createUserAnswer(userAnswer);
       };
 

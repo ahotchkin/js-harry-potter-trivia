@@ -118,7 +118,7 @@ question_45 = Question.create(:round_id => 7, :question_number => 3, :content =>
 
 question_46 = Question.create(:round_id => 7, :question_number => 4, :content => "In what order are the 6 intended Horcruxes destroyed?", :answer_a => "The diary, the cup, the ring, the diadem, the locket, the snake", :answer_b => "The diary, the ring, the locket, the cup, the diadem, the snake", :answer_c => "The diary, the diadem, the cup, the locket, the ring, the snake", :answer_d => "The diary, the locket, the diadem, the ring, the cup, the snake", :correct_answer => "B")
 
-question_47 = Question.create(:round_id => 7, :question_number => 5, :content => "Who is already imprisoned at Malfoy Manor when Harry, Ron, and Hermione are captured?", :answer_a => "Luna Lovegood and Mr. Ollivander", :answer_b => "Luna Lovegood, Mr. Ollivander, Dean Thomas, and Griphook", :answer_c => "Mr. Ollivander, Dean Thomas, and Griphook", :answer_d => "Mr. Ollivander and Griphook", :correct_answer => "A")
+question_47 = Question.create(:round_id => 7, :question_number => 5, :content => "Who are the prisoners being held at Malfoy Manor when Harry, Ron, and Hermione are captured?", :answer_a => "Luna Lovegood and Mr. Ollivander", :answer_b => "Luna Lovegood, Mr. Ollivander, Dean Thomas, and Griphook", :answer_c => "Mr. Ollivander, Dean Thomas, and Griphook", :answer_d => "Mr. Ollivander and Griphook", :correct_answer => "A")
 
 question_48 = Question.create(:round_id => 7, :question_number => 6, :content => "How is Rowena Ravenclaw’s diadem destroyed?", :answer_a => "The Sword of Gryffindor", :answer_b => "Fiendfyre", :answer_c => "A Basilisk fang", :answer_d => "Harry breaks it in two, because it’s just…plastic", :correct_answer => "B")
 
