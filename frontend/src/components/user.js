@@ -1,7 +1,7 @@
 class User {
-  constructor(userJSON) {
-    this.id = userJSON.id;
-    this.username = userJSON.username;
+  constructor(username) {
+    // this.id = username.id;
+    this.username = username.username;
     this.adapter = new UsersAdapter();
     this.userEventListeners();
   }
