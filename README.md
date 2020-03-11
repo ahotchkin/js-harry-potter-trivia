@@ -19,7 +19,7 @@ Each round you'll have 3 chances to answer at least 5 of 7 questions correctly. 
 ## Installation & Usage
 
 * Clone this repo
-* Download PostgreSQL [Mac](https://postgresapp.com/downloads.html), [Other](https://www.postgresql.org/download/)
+* Download PostgreSQL for [Mac](https://postgresapp.com/downloads.html) or [Windows](https://www.postgresql.org/download/)
 * In the backend directory:
   * Execute bundle install
   * Run rails db:migrate
