@@ -10,11 +10,11 @@ class Round {
   roundBindingsAndEventListeners() {
     // hard bind this to the round when certain functions are executed, so when we access this from those functions it is the Round class
 
-    DOMElements.startButton.addEventListener("click", this.fetchAndLoadRound.bind(this));
     DOMElements.startButton.addEventListener("click", this.createUserRound.bind(this));
+    DOMElements.startButton.addEventListener("click", this.fetchAndLoadRound.bind(this));
 
-    DOMElements.tryAgain.addEventListener("click", this.fetchAndLoadRound.bind(this));
     DOMElements.tryAgain.addEventListener("click", this.updateUserRound.bind(this));
+    DOMElements.tryAgain.addEventListener("click", this.fetchAndLoadRound.bind(this));
 
     this.submitRound = document.createElement("button");
     this.submitRound.id = "submit_round";
@@ -34,14 +34,6 @@ class Round {
     this.div.id = "submit_round";
   }
 
-  fetchAndLoadRound(event) {
-    event.preventDefault();
-    this.adapter.getRound()
-      .then(round => {
-        this.renderRound(round);
-    });
-  }
-
   createUserRound(event) {
     event.preventDefault();
     const userRound = new UserRound(this.user.id, this.id);
@@ -52,6 +44,14 @@ class Round {
     event.preventDefault();
     const userRound = new UserRound(parseInt(DOMElements.tryAgain.dataset.userId), parseInt(DOMElements.tryAgain.dataset.roundId), (parseInt(DOMElements.tryAgain.dataset.attempts) + 1));
     userRound.updateUserRound();
+  }
+
+  fetchAndLoadRound(event) {
+    event.preventDefault();
+    this.adapter.getRound()
+      .then(round => {
+        this.renderRound(round);
+      });
   }
 
   renderRound(round) {

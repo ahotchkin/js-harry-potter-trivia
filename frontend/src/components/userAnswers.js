@@ -45,7 +45,7 @@ class UserAnswers {
       }
 
       for (const userAnswer of userAnswers) {
-        if (this.round.user.id == userAnswer.user_id && userAnswer.round_id === i) {
+        if (this.round.user.id === userAnswer.user_id && userAnswer.round_id === i) {
           if (userAnswer.user_input === userAnswer.correct_answer) {
              correctAnswers++;
           } else {
