@@ -1,8 +1,9 @@
 class User {
   constructor(username) {
-    this.username = username.username;
+    this.username = username;
     this.adapter = new UsersAdapter();
     this.userEventListeners();
+    console.log(this.username)
   }
 
   userEventListeners() {
