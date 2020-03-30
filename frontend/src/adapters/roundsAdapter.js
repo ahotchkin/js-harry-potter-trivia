@@ -4,8 +4,11 @@ class RoundsAdapter {
     this.baseUrl = `http://localhost:3000/api/v1/rounds/${round.id}`;
   }
 
-  getRound() {
-    return fetch(this.baseUrl).then(response => response.json());
+  async getRound() {
+    // return fetch(this.baseUrl).then(response => response.json());
+    const response = await fetch(this.baseUrl);
+    const round = await response.json();
+    return round
   }
 
 }

@@ -46,12 +46,14 @@ class Round {
     userRound.updateUserRound();
   }
 
-  fetchAndLoadRound(event) {
+  async fetchAndLoadRound(event) {
     event.preventDefault();
-    this.adapter.getRound()
-      .then(round => {
-        this.renderRound(round);
-      });
+    let round = await this.adapter.getRound()
+    this.renderRound(round)
+    // this.adapter.getRound()
+    //   .then(round => {
+    //     this.renderRound(round);
+    //   });
   }
 
   renderRound(round) {
