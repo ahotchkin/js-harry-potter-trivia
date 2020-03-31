@@ -47,14 +47,13 @@ class Round {
   }
 
   async getRound() {
-    const round = await this.adapter.getRound();
-    return round
+    return await this.adapter.getRound();
   }
 
   async fetchAndLoadRound(event) {
     event.preventDefault();
-    const round = await this.getRound()
-    this.renderRound(round)
+    const round = await this.getRound();
+    this.renderRound(round);
     // this.adapter.getRound()
     //   .then(round => {
     //     this.renderRound(round);
@@ -145,7 +144,7 @@ class Round {
   }
 
   async createUserAnswers(answers) {
-    const round = await this.getRound()
+    const round = await this.getRound();
     const userAnswers = [];
 
     for (const question of round.questions) {

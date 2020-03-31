@@ -55,11 +55,13 @@ class Question {
     };
   }
 
-  fetchQuestion(userAnswer) {
-    this.adapter.getQuestion()
-      .then(question => {
-        this.renderQuestionInfo(question, userAnswer);
-      });
+  async fetchQuestion(userAnswer) {
+    // this.adapter.getQuestion()
+    //   .then(question => {
+    //     this.renderQuestionInfo(question, userAnswer);
+    //   });
+    const question = await this.adapter.getQuestion();
+    this.renderQuestionInfo(question, userAnswer)
   }
 
   renderQuestionInfo(question, userAnswer) {

@@ -4,8 +4,10 @@ class QuestionsAdapter {
     this.baseUrl = `http://localhost:3000/api/v1/questions/${question.id}`;
   }
 
-  getQuestion() {
-    return fetch(this.baseUrl).then(response => response.json());
+  async getQuestion() {
+    // return fetch(this.baseUrl).then(response => response.json());
+    const response = await fetch(this.baseUrl);
+    return await response.json();
   }
 
 }

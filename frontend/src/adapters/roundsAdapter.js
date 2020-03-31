@@ -7,8 +7,7 @@ class RoundsAdapter {
   async getRound() {
     // return fetch(this.baseUrl).then(response => response.json());
     const response = await fetch(this.baseUrl);
-    const round = await response.json();
-    return round
+    return await response.json();
   }
 
 }
