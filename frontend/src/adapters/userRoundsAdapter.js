@@ -4,18 +4,32 @@ class UserRoundsAdapter {
     this.baseUrl = `http://localhost:3000/api/v1/user_rounds`;
   }
 
-  getUserRounds() {
-    return fetch(this.baseUrl).then(response => response.json());
+  async getUserRounds() {
+    // return fetch(this.baseUrl).then(response => response.json());
+    const response = await fetch(this.baseUrl);
+    return await response.json();
   }
 
-  createUserRound(userRound) {
+  async createUserRound(userRound) {
     const user_round = {
       user_id: userRound.user_id,
       round_id: userRound.round_id,
       attempts: userRound.attempts
     };
 
-    return fetch(this.baseUrl, {
+    // return fetch(this.baseUrl, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "Accept": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //       user_round
+    //     })
+    //   })
+    // .then(response => response.json())
+
+    const response = await fetch(this.baseUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,14 +38,26 @@ class UserRoundsAdapter {
       body: JSON.stringify({
           user_round
         })
-      })
-    .then(response => response.json())
+      });
+    return await response.json();
   }
 
-  updateUserRound(userRound, id) {
+  async updateUserRound(userRound, id) {
     let attempts = userRound.attempts;
 
-    return fetch(this.baseUrl + `/${id}`, {
+    // return fetch(this.baseUrl + `/${id}`, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "Accept": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //     attempts: userRound.attempts
+    //   })
+    // })
+    // .then(response => response.json())
+
+    const response = await fetch(this.baseUrl + `/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -40,8 +66,8 @@ class UserRoundsAdapter {
       body: JSON.stringify({
         attempts: userRound.attempts
       })
-    })
-    .then(response => response.json())
+    });
+    return await response.json();
   }
 
 }

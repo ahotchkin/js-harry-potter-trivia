@@ -7,11 +7,15 @@ class UserRounds {
     this.fetchAndLoadUserRounds();
   }
 
-  fetchAndLoadUserRounds() {
-    this.adapter.getUserRounds()
-      .then(userRounds => {
-        this.renderUserRounds(userRounds);
-      });
+  async fetchAndLoadUserRounds() {
+    // this.adapter.getUserRounds()
+    //   .then(userRounds => {
+    //     this.renderUserRounds(userRounds);
+    //   });
+
+    const userRounds = await this.adapter.getUserRounds();
+    this.renderUserRounds(userRounds);
+
   }
 
   renderUserRounds(userRounds) {
