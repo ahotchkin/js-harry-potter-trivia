@@ -61,7 +61,7 @@ class Question {
     //     this.renderQuestionInfo(question, userAnswer);
     //   });
     const question = await this.adapter.getQuestion();
-    this.renderQuestionInfo(question, userAnswer)
+    this.renderQuestionInfo(question, userAnswer);
   }
 
   renderQuestionInfo(question, userAnswer) {

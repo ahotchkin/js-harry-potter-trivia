@@ -58,6 +58,7 @@ class Round {
     //   .then(round => {
     //     this.renderRound(round);
     //   });
+    console.log(this.user.id)
   }
 
   renderRound(round) {

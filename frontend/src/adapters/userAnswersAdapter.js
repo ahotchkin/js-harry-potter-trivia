@@ -4,11 +4,13 @@ class UserAnswersAdapter {
     this.baseUrl = `http://localhost:3000/api/v1/user_answers`;
   }
 
-  getUserAnswers() {
-    return fetch(this.baseUrl).then(response => response.json());
+  async getUserAnswers() {
+    // return fetch(this.baseUrl).then(response => response.json());
+    const response = await fetch(this.baseUrl);
+    return await response.json();
   }
 
-  createUserAnswer(userAnswer) {
+  async createUserAnswer(userAnswer) {
     const user_answer = {
       user_id: userAnswer.user_id,
       round_id: userAnswer.round_id,
@@ -17,7 +19,19 @@ class UserAnswersAdapter {
       user_input: userAnswer.user_input
     };
 
-    return fetch(this.baseUrl, {
+    // return fetch(this.baseUrl, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "Accept": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //       user_answer
+    //     })
+    //   })
+    // .then(response => response.json())
+
+    const response = await fetch(this.baseUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,8 +40,8 @@ class UserAnswersAdapter {
       body: JSON.stringify({
           user_answer
         })
-      })
-    .then(response => response.json())
+      });
+    return await response.json();
   }
 
 }

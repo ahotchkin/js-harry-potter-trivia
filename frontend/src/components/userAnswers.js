@@ -7,11 +7,14 @@ class UserAnswers {
     this.fetchAndLoadUserAnswers();
   }
 
-  fetchAndLoadUserAnswers() {
-    this.adapter.getUserAnswers()
-      .then(userAnswers => {
-        this.renderUserAnswers(userAnswers);
-      });
+  async fetchAndLoadUserAnswers() {
+    // this.adapter.getUserAnswers()
+    //   .then(userAnswers => {
+    //     this.renderUserAnswers(userAnswers);
+    //   });
+
+    const userAnswers = await this.adapter.getUserAnswers();
+    this.renderUserAnswers(userAnswers);
   }
 
   renderUserAnswers(userAnswers) {
