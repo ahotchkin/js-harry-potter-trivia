@@ -10,7 +10,7 @@ class User {
     DOMElements.newUserForm.addEventListener("submit", this.createUser.bind(this));
   }
 
-  createUser(event) {
+  async createUser(event) {
     event.preventDefault();
 
     if (DOMElements.username.value === "") {
@@ -20,10 +20,13 @@ class User {
       // take the below value and make a post request using the adapter
       const value = DOMElements.username.value;
 
-      this.adapter.createUser(value)
-        .then(user => {
-          this.renderUserStartPage(user);
-        });
+      // this.adapter.createUser(value)
+      //   .then(user => {
+      //     this.renderUserStartPage(user);
+      //   });
+      const user = await this.adapter.createUser(value);
+      this.renderUserStartPage(user);
+      console.log(user)
     };
   }
 
