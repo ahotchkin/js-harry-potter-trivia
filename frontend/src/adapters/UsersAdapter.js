@@ -9,19 +9,6 @@ class UsersAdapter {
       username: value
     };
 
-    // return fetch(this.baseUrl, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Accept": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //     user
-    //   })
-    // })
-    // // below sends a parsed JSON object back to the users component in createUser()
-    // .then(response => response.json())
-
     const response = await fetch(this.baseUrl, {
       method: "POST",
       headers: {
@@ -32,15 +19,8 @@ class UsersAdapter {
         user
       })
     });
-
-
-
-    // below sends a parsed JSON object back to the users component in createUser()
-
-
-
+    
     return await response.json();
-
   }
 
 }

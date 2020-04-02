@@ -46,19 +46,10 @@ class Round {
     userRound.updateUserRound();
   }
 
-  async getRound() {
-    return await this.adapter.getRound();
-  }
-
   async fetchAndLoadRound(event) {
     event.preventDefault();
-    const round = await this.getRound();
+    const round = await this.adapter.getRound();
     this.renderRound(round);
-    // this.adapter.getRound()
-    //   .then(round => {
-    //     this.renderRound(round);
-    //   });
-    console.log(this.user.id)
   }
 
   renderRound(round) {
@@ -145,7 +136,7 @@ class Round {
   }
 
   async createUserAnswers(answers) {
-    const round = await this.getRound();
+    const round = await this.adapter.getRound();
     const userAnswers = [];
 
     for (const question of round.questions) {
@@ -156,21 +147,6 @@ class Round {
     }
 
     this.numberOfCorrectAnswers(userAnswers);
-
-    // this.adapter.getRound()
-    //   .then(round => {
-    //     const userAnswers = [];
-    //
-    //     for (const question of round.questions) {
-    //       const user_input = answers.find(answer => answer.question === question.id.toString());
-    //       const userAnswer = new UserAnswer(this.user, round, question, user_input);
-    //
-    //       userAnswers.push(userAnswer);
-    //     }
-    //
-    //     this.numberOfCorrectAnswers(userAnswers);
-    //
-    //   });
   }
 
   numberOfCorrectAnswers(userAnswers) {

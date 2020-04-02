@@ -56,10 +56,6 @@ class Question {
   }
 
   async fetchQuestion(userAnswer) {
-    // this.adapter.getQuestion()
-    //   .then(question => {
-    //     this.renderQuestionInfo(question, userAnswer);
-    //   });
     const question = await this.adapter.getQuestion();
     this.renderQuestionInfo(question, userAnswer);
   }

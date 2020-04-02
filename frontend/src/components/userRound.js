@@ -7,14 +7,6 @@ class UserRound {
   }
 
   async createUserRound() {
-    // this.adapter.createUserRound(this)
-    //   .then(userRound => {
-    //     DOMElements.tryAgain.dataset.userRoundId = userRound.id;
-    //     DOMElements.tryAgain.dataset.userId = userRound.user_id;
-    //     DOMElements.tryAgain.dataset.roundId = userRound.round_id;
-    //     DOMElements.tryAgain.dataset.attempts = userRound.attempts;
-    //   });
-
     const userRound = await this.adapter.createUserRound(this);
     DOMElements.tryAgain.dataset.userRoundId = userRound.id;
     DOMElements.tryAgain.dataset.userId = userRound.user_id;
@@ -23,11 +15,6 @@ class UserRound {
   }
 
   async updateUserRound() {
-    // this.adapter.updateUserRound(this, parseInt(DOMElements.tryAgain.dataset.userRoundId))
-    //   .then(userRound => {
-    //     DOMElements.tryAgain.dataset.attempts = userRound.attempts;
-    //   });
-
     const userRound = await this.adapter.updateUserRound(this, parseInt(DOMElements.tryAgain.dataset.userRoundId));
     DOMElements.tryAgain.dataset.attempts = userRound.attempts;
   }

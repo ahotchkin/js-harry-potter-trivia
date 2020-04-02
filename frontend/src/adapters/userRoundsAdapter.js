@@ -5,7 +5,6 @@ class UserRoundsAdapter {
   }
 
   async getUserRounds() {
-    // return fetch(this.baseUrl).then(response => response.json());
     const response = await fetch(this.baseUrl);
     return await response.json();
   }
@@ -17,18 +16,6 @@ class UserRoundsAdapter {
       attempts: userRound.attempts
     };
 
-    // return fetch(this.baseUrl, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Accept": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //       user_round
-    //     })
-    //   })
-    // .then(response => response.json())
-
     const response = await fetch(this.baseUrl, {
       method: "POST",
       headers: {
@@ -36,26 +23,15 @@ class UserRoundsAdapter {
         "Accept": "application/json"
       },
       body: JSON.stringify({
-          user_round
-        })
-      });
+        user_round
+      })
+    });
+      
     return await response.json();
   }
 
   async updateUserRound(userRound, id) {
     let attempts = userRound.attempts;
-
-    // return fetch(this.baseUrl + `/${id}`, {
-    //   method: "PATCH",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Accept": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //     attempts: userRound.attempts
-    //   })
-    // })
-    // .then(response => response.json())
 
     const response = await fetch(this.baseUrl + `/${id}`, {
       method: "PATCH",
@@ -67,6 +43,7 @@ class UserRoundsAdapter {
         attempts: userRound.attempts
       })
     });
+
     return await response.json();
   }
 

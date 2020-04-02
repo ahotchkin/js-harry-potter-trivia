@@ -5,7 +5,6 @@ class UserAnswersAdapter {
   }
 
   async getUserAnswers() {
-    // return fetch(this.baseUrl).then(response => response.json());
     const response = await fetch(this.baseUrl);
     return await response.json();
   }
@@ -19,18 +18,6 @@ class UserAnswersAdapter {
       user_input: userAnswer.user_input
     };
 
-    // return fetch(this.baseUrl, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Accept": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //       user_answer
-    //     })
-    //   })
-    // .then(response => response.json())
-
     const response = await fetch(this.baseUrl, {
       method: "POST",
       headers: {
@@ -38,9 +25,10 @@ class UserAnswersAdapter {
         "Accept": "application/json"
       },
       body: JSON.stringify({
-          user_answer
-        })
-      });
+        user_answer
+      })
+    });
+
     return await response.json();
   }
 
