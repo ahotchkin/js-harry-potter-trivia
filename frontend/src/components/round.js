@@ -144,7 +144,7 @@ class Round {
       const userAnswer = new UserAnswer(this.user, round, question, user_input);
 
       userAnswers.push(userAnswer);
-    }
+    };
 
     this.numberOfCorrectAnswers(userAnswers);
   }
