@@ -214,7 +214,7 @@ class Round {
 
     } else if (DOMElements.tryAgain.dataset.attempts >= 3) {
       DOMElements.container.className = "container";
-      DOMElements.p.innerHTML = "<br>Well, that's it for the Wizarding World. Better luck next time.";
+      DOMElements.p.innerHTML = "<br>Well, that's it for the Wizarding World. Better luck next time. Unless you're secretly a Death Eater and this was your plan all along...";
       this.playAgain.innerHTML = "Game Over";
       DOMElements.textContainer.appendChild(this.playAgain);
     };
