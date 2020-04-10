@@ -20,7 +20,7 @@ question_2 = Question.create(:round_id => 1, :question_number => 2, :content => 
 
 question_3 = Question.create(:round_id => 1, :question_number => 3, :content => "When did Voldemort kill Harry’s parents?", :answer_a => "July 31, 1980", :answer_b => "October 31, 1980", :answer_c => "July 31, 1981", :answer_d => "October 31, 1981", :correct_answer => "D")
 
-question_4 = Question.create(:round_id => 1, :question_number => 4, :content => "Where does Harry first learn about Nicolas Flamel?", :answer_a => "A Chocolate Frog card", :answer_b => "Hagrid", :answer_c => "A History of Magic", :answer_d => "Great Wizards of the Twentieth Century", :correct_answer => "A")
+question_4 = Question.create(:round_id => 1, :question_number => 4, :content => "How does Harry first learn about Nicolas Flamel?", :answer_a => "A Chocolate Frog card", :answer_b => "Hagrid", :answer_c => "A History of Magic", :answer_d => "Great Wizards of the Twentieth Century", :correct_answer => "A")
 
 question_5 = Question.create(:round_id => 1, :question_number => 5, :content => "Who saves Harry from Voldemort in the Forbidden Forrest?", :answer_a => "Bane", :answer_b => "Hagrid", :answer_c => "Firenze", :answer_d => "Ronan", :correct_answer => "C")
 

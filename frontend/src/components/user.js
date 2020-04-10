@@ -58,7 +58,7 @@ class User {
     // Call DOMElements.title since that is getting the element by the ID of "title" in domElements.js. This is grabbing what was initially DOMElements.header.
     DOMElements.title.innerHTML = `*${user.username}, yer a wizard!*`;
 
-    p.innerHTML = "<br>This game will be played in 7 rounds. For each round, you must answer at least 5 of 7 questions correctly to move on to the next round. If you are smart enough to get through all 7 rounds, you will vanquish Voldemort and all that he stands for. If you fail to do so, Voldemort and his followers will prevail. The Wizarding World is on your shoulders. Good luck.";
+    p.innerHTML = "<br>This game will be played in 7 rounds. You must answer at least 5 of 7 questions correctly in a round to move on to the next. If you are smart enough to get through all 7 rounds, you will vanquish Voldemort and all that he stands for. If you fail to do so, Voldemort and his followers will prevail. The Wizarding World is on your shoulders. Good luck.";
 
     note.innerHTML = "When in doubt, default to the books.";
     note.className = "answer_info";
