@@ -22,6 +22,7 @@ Each round you'll have 3 chances to answer at least 5 of 7 questions correctly. 
 * Download PostgreSQL for [Mac](https://postgresapp.com/downloads.html) or [Windows](https://www.postgresql.org/download/)
 * In the backend directory:
   * Execute bundle install
+  * Run rails db:create
   * Run rails db:migrate
   * Run rails db:seed to seed the database (rounds and questions)
   * Start the server with rails s
