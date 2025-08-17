@@ -11,9 +11,6 @@ Each round you'll have 3 chances to answer at least 5 of 7 questions correctly. 
 ![](https://user-images.githubusercontent.com/33204849/76117042-0ffc4180-5fb9-11ea-920d-3ebef94f797c.png)
 ![](https://user-images.githubusercontent.com/33204849/76117072-1e4a5d80-5fb9-11ea-9756-84c8cbb007c8.png)
 ![](https://user-images.githubusercontent.com/33204849/76117119-3326f100-5fb9-11ea-9a91-bc5e75c77e8e.png)
-<img width="1293" height="730" alt="Screenshot 2025-08-17 at 6 38 49 PM" src="https://github.com/user-attachments/assets/58eed4fe-f1e6-40b7-9964-97bcad662926" />
-<img width="1293" height="730" alt="Screenshot 2025-08-17 at 7 08 58 PM" src="https://github.com/user-attachments/assets/1e7df914-9374-4111-98b0-830161c003ae" />
-<img width="1293" height="730" alt="Screenshot 2025-08-17 at 7 09 32 PM" src="https://github.com/user-attachments/assets/84d29944-ac87-4ee0-b7ba-d5cb425b4b26" />
 
 ## Demo Video
 
